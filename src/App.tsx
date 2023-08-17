@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import Navbar from "./components/Navbar";
 import StartCard from "./components/StartCard";
+import PopularRestaurant from "./components/PopularRestaurant";
 
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <StartCard/>
+      <PopularRestaurant/>
     </div>
   );
 }
