@@ -1,0 +1,33 @@
+.navbar {
+    background-color: white;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: space-between; 
+    background-color: lightgray;
+    height: 50px; 
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-icons {
+    justify-content: flex-start;
+  }
+  
+  .center-icons {
+    justify-content: center;
+    flex-grow: 1; 
+  }
+  
+  .right-icons {
+    justify-content: flex-end;
+  }
+  
