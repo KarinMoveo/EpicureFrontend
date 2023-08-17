@@ -1,0 +1,25 @@
+.signature-dish-item-card{
+    display: flex;
+    flex-direction: column;
+    background-color: blanchedalmond;
+    width: 220px;
+    height: 210px;
+}
+
+.dish-image .dish-special-icon{
+    width: 220px;
+    height: 200px;
+}
+
+.dish-name .dish-price{
+    font-size: 15px;
+    padding-left: 10px;
+    margin: 5px;
+}
+
+.dish-ingrediant{
+    font-size: 10px;
+    color: rgb(128, 128, 128);
+    padding-left: 10px;
+    margin: 5px;
+}
