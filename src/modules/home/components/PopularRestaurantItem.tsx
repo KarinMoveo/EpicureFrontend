@@ -1,5 +1,5 @@
 
-import "../components/PopularRestaurantItemStyle.scss";
+import "../components/PopularRestaurantItem.scss";
 
 interface PopularRestaurantItemProps {
     restaurantImage: string;

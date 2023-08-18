@@ -1,6 +1,5 @@
 .navbar {
     background-color: white;
-  }
   
   .nav-list {
     display: flex;
@@ -12,22 +11,23 @@
     background-color: lightgray;
     height: 50px; 
   }
+
+  .right-nav-items{
+    justify-content: end;
+  }
+  
+  .centered-icon{
+    justify-content: center;
+  }
   
   .nav-item {
     display: flex;
-    align-items: center;
+    flex:1;
+
+    .right-icons-container{
+      display: flex;
+    }
   }
   
-  .left-icons {
-    justify-content: flex-start;
-  }
-  
-  .center-icons {
-    justify-content: center;
-    flex-grow: 1; 
-  }
-  
-  .right-icons {
-    justify-content: flex-end;
-  }
+}
   

@@ -1,4 +1,4 @@
-import "../components/SignatureDishItemStyle.scss";
+import "../components/SignatureDishItem.scss";
 
 interface SignatureDishItemProps {
     dishImage: string;

@@ -1,9 +1,9 @@
-import mainPageImage from "../images/mainPageImage.jpeg"
-import "../components/StartCard.scss";
+import mainPageImage from "../assets/mainPageImage.jpeg"
+import "../components/SearchContainer.scss";
 
-function StartCard(){
+function SearchContainer(){
     return(
-        <div className="image-with-text-overlay">
+        <div className="search-container">
             <img src={mainPageImage} alt="Overlayed" />
             <div className="overlay">
                 <p>Epicure works with the top chef in Tel Aviv</p>
@@ -14,4 +14,4 @@ function StartCard(){
     );
 }
 
-export default StartCard;
+export default SearchContainer;

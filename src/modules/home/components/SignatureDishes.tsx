@@ -1,7 +1,7 @@
-import SignatureDishItem from "../components/SignatureDishItem";
-import "../components/SignatureDishStyle.scss";
+import SignatureDishItem from "./SignatureDishItem";
+import "../components/SignatureDishes.scss";
 
-function SignatureDish(){
+function SignatureDishes(){
     return(
         <div className="signature-dish">
             <p>SIGNATURE DISH OF:</p>
@@ -17,4 +17,4 @@ function SignatureDish(){
     );
 }
 
-export default SignatureDish;
+export default SignatureDishes;
