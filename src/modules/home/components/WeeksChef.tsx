@@ -21,7 +21,7 @@ function WeeksChef(props: WeeksChefProps) {
             <div className="restaurants-container">
                 <p>{props.chefOfTheWeekName}'S RESTAURANTS</p>
                 <ChefOfTheWeekRestaurants ChefOfTheWeekRestaurantImage={onza} ChefOfTheWeekRestaurantName="Onza"/>
-                <p>All Restaurants</p>
+                <p>All Restaurants ͐ ͐</p>
             </div>
         </div>
     );
