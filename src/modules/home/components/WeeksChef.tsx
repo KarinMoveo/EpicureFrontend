@@ -1,4 +1,3 @@
-import React from "react";
 import ChefOfTheWeekRestaurants from "../components/ChefOfTheWeekRestaurants";
 import onza from "../assets/onza.png";
 import "../components/WeeksChef.scss";
@@ -10,6 +9,10 @@ interface WeeksChefProps {
 }
 
 function WeeksChef(props: WeeksChefProps) {
+
+    const chefFirstName = props.chefOfTheWeekName.split(' ');
+    const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
+
     return (
         <div className="chef-of-the-week-container">
             <p>CHEF OF THE WEEK:</p>
@@ -19,7 +22,7 @@ function WeeksChef(props: WeeksChefProps) {
             </div>
             <p className="chef-of-the-week-summary">{props.chefOfTheWeekSummary}</p>
             <div className="restaurants-container">
-                <p>{props.chefOfTheWeekName}'S RESTAURANTS</p>
+                <p>{chefFirstNameUpperCase}'S RESTAURANTS</p>
                 <ChefOfTheWeekRestaurants ChefOfTheWeekRestaurantImage={onza} ChefOfTheWeekRestaurantName="Onza"/>
                 <p>All Restaurants ͐ ͐</p>
             </div>

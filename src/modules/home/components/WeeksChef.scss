@@ -7,6 +7,7 @@
 .image-overlay-container {
     position: relative;
     display: inline-block; /* Ensure the container wraps around the image and overlay */
+    width: 380px;
 }
 
 .chef-of-the-week-image {
