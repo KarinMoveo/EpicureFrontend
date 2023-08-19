@@ -1,0 +1,30 @@
+.chef-of-the-week-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.image-overlay-container {
+    position: relative;
+    display: inline-block; /* Ensure the container wraps around the image and overlay */
+}
+
+.chef-of-the-week-image {
+    width: 380px;
+    height: 380px;
+}
+
+.overlay-name {
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the image */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    background-color: rgba(216, 210, 210, 0.8);
+    color: black;
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    width: 380px;
+}
+
+
