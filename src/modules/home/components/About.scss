@@ -1,0 +1,16 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgba(250, 253, 250, 1);
+}
+
+.about-image{
+    width: 200px;
+    height: 200px;
+}
+
+.about-text-content{
+    color: gray;
+    padding: 10px;
+}

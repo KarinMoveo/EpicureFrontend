@@ -1,6 +1,6 @@
 import React from "react";
 import ChefOfTheWeekRestaurants from "../components/ChefOfTheWeekRestaurants";
-import Onza from "../assets/Onza.png";
+import onza from "../assets/onza.png";
 import "../components/WeeksChef.scss";
 
 interface WeeksChefProps {
@@ -20,7 +20,7 @@ function WeeksChef(props: WeeksChefProps) {
             <p className="chef-of-the-week-summary">{props.chefOfTheWeekSummary}</p>
             <div className="restaurants-container">
                 <p>{props.chefOfTheWeekName}'S RESTAURANTS</p>
-                <ChefOfTheWeekRestaurants ChefOfTheWeekRestaurantImage={Onza} ChefOfTheWeekRestaurantName="Onza"/>
+                <ChefOfTheWeekRestaurants ChefOfTheWeekRestaurantImage={onza} ChefOfTheWeekRestaurantName="Onza"/>
                 <p>All Restaurants</p>
             </div>
         </div>
