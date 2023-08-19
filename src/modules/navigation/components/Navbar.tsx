@@ -1,4 +1,4 @@
-import messageIcon from "../assets/messageIcon.png";
+import shopingBagIcon from "../assets/shopingBagIcon.png";
 import accountIcon from "../assets/accountIcon.png";
 import searchIcon from "../assets/searchIcon.png";
 import logoIcon from "../assets/logoIcon.png";
@@ -20,7 +20,7 @@ function Navbar() {
           <div className="right-icons-container">
           <NavbarIcon src={searchIcon} alt="search" />
           <NavbarIcon src={accountIcon} alt="account" />
-          <NavbarIcon src={messageIcon} alt="message" />
+          <NavbarIcon src={shopingBagIcon} alt="message" />
           </div>
         </li>
       </ul>

@@ -3,15 +3,21 @@
     flex-direction: column;
     background-color: blanchedalmond;
     width: 220px;
-    height: 210px;
+    height: 300px;
 }
 
-.dish-image .dish-special-icon{
+.dish-image {
     width: 220px;
     height: 200px;
 }
 
-.dish-name .dish-price{
+.dish-name {
+    font-size: 15px;
+    padding-left: 10px;
+    margin: 5px;
+}
+
+.dish-price{
     font-size: 15px;
     padding-left: 10px;
     margin: 5px;
@@ -22,4 +28,10 @@
     color: rgb(128, 128, 128);
     padding-left: 10px;
     margin: 5px;
+}
+
+.dish-special-icon{
+    width: 20px;
+    height: 20px;
+    padding-left: 10px;
 }

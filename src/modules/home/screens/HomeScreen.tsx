@@ -1,6 +1,7 @@
 import StartCard from "../components/SearchContainer";
 import PopularRestaurant from "../components/PopularRestaurants";
 import SignatureDish from '../components/SignatureDishes';
+import IconsMeaning from "../components/IconsMeaning";
 
 
 function HomeScreen() {
@@ -9,6 +10,7 @@ function HomeScreen() {
       <StartCard />
       <PopularRestaurant />
       <SignatureDish />
+      <IconsMeaning />
     </div>
   );
 }
