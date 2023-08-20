@@ -20,20 +20,20 @@
 }
 
 .chef-of-the-week-image {
-    width: 100%;
+    width: 90%;
     height: 50%;
 }
 
 .overlay-name {
     position: absolute;
     bottom: 0; /* Position at the bottom of the image */
-    left: 50%; /* Center horizontally */
+    left: 45%; /* Center horizontally */
     transform: translateX(-50%);
     background-color: rgba(216, 210, 210, 0.8);
     padding: 8px;
     box-sizing: border-box;
     text-align: center;
-    width: 380px;
+    width: 90%;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
