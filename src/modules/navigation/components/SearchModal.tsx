@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import x from "../assets/x.svg";
-import searchIcon from "../assets/searchIcon.svg";
 import "../components/SearchModal.scss";
 
 interface SearchModalProps{
@@ -30,7 +29,6 @@ function SearchModal({ onClose, onSearch }: SearchModalProps){
                 <p className="search-from-navbar-title">Search</p>
             </div>
                 <div className="search-from-navbar-input-container">
-                    <img className="search-from-navbar-icon" src={searchIcon} alt="Search Icon" />
                     <input 
                         className="user-search-from-navbar" 
                         type="text" 
@@ -40,7 +38,7 @@ function SearchModal({ onClose, onSearch }: SearchModalProps){
                         onKeyDown={handleKeyPress}
                     />
                 </div>
-            </div>
+        </div>
     );
 }
 

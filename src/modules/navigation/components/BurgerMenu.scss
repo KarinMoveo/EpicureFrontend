@@ -9,20 +9,17 @@
     background-color:white; 
     width: 100vw; 
     height: 50vh; 
-}
-
-.x{
-    width: 20px;
-    height: 20px;
     padding-left: 20px;
-}
+    justify-content: space-between;
 
-.burger-menu-item-name{
-    padding-left: 20px;
-}
-
-hr{
-    border-color: black;
-    width: 100%;
-    padding: 0;
+    .x{
+        width: 20px;
+        height: 20px;
+    }
+    
+    hr{
+        border-color: black;
+        width: 100%;
+        padding: 0;
+    }
 }

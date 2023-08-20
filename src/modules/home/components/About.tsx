@@ -7,9 +7,9 @@ import "../components/About.scss";
 function About(){
     return(
         <div className="about-container">
-            <img src={epicureLogo} className="about-image"/>
-            <img src={googlePlay} className="about-image"/>
-            <img src={appStore} className="about-image"/>
+            <img src={epicureLogo} alt="Epicure logo" className="about-image"/>
+            <img src={googlePlay} alt="Get It On Google Play" className="about-image"/>
+            <img src={appStore} alt="Download On The App Store" className="about-image"/>
             <div className="about-text-content">
                 <p className="about-us-title">ABOUT US:</p>
                 <p className="about-us-content">
