@@ -1,6 +1,6 @@
 import epicureLogo from "../assets/epicureLogo.svg";
-import googlePlay from "../assets/googlePlay.png";
-import appStore from "../assets/appStore.png";
+import googlePlay from "../assets/googlePlay.svg";
+import appStore from "../assets/appStore.svg";
 
 import "../components/About.scss";
 

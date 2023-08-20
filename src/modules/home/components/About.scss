@@ -1,13 +1,15 @@
 .about-container {
+
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     padding: 10px;
     background-color: #FAFAFA;
 
     .about-image {
         width: 220px;
         height: 120px;
-        padding-bottom: 20px;
     }
 
     .about-text-content {
