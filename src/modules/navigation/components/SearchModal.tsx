@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import x from "../assets/x.svg";
+import xIcon from "../assets/x.svg";
 import "../components/SearchModal.scss";
 
 interface SearchModalProps{
@@ -25,7 +25,12 @@ function SearchModal({ onClose, onSearch }: SearchModalProps){
     return(
         <div className="search-from-navbar-container">
             <div className="search-from-navbar-row">
-                <img className="x" src={x} alt="x" onClick={onClose}/>
+                <img 
+                    className="x-icon" 
+                    src={xIcon} 
+                    alt="x icon" 
+                    onClick={onClose}
+                />
                 <p className="search-from-navbar-title">Search</p>
             </div>
                 <div className="search-from-navbar-input-container">

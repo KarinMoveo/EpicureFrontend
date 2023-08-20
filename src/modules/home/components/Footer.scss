@@ -1,13 +1,14 @@
 .footer-container{
+    
     display: flex;
     flex-direction: column;
     padding: 20px;
-}
 
-.footer-item{
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: normal;
-    letter-spacing: 1.92px;
+    .footer-item{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: normal;
+        letter-spacing: 1.92px;
+    }
 }

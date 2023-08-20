@@ -29,7 +29,6 @@ function Navbar() {
     setIsBagModalOpen(!isBagModalOpen);
   };
 
-
   const handleSearch = (searchQuery: string) => {
     console.log("Search query:", searchQuery);
   };

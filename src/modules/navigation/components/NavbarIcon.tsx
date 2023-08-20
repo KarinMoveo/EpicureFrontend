@@ -9,9 +9,12 @@ interface NavbarIconProps {
 function NavbarIcon (props : NavbarIconProps){
   return (
     <li className="nav-item-icon-container">
-        <div>
-            <img src={props.src} alt={props.alt} onClick={props.onClick} className="icon-image"/>
-        </div>
+      <img 
+        src={props.src}
+        alt={props.alt} 
+        onClick={props.onClick} 
+        className="icon-image"
+      />
     </li>
   );
 };

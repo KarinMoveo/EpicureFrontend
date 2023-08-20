@@ -6,8 +6,10 @@ import "../components/SignatureDishes.scss";
 
 function SignatureDishes(){
     return(
-        <div className="signature-dish">
-            <p className="signature-dishes-title">SIGNATURE DISH OF:</p>
+        <div className="signature-dishes-container">
+            <p className="signature-dishes-title">
+                SIGNATURE DISH OF:
+            </p>
             <SignatureDishItem 
                 dishImage={claroImage}
                 dishName="Pad Ki Mao"
@@ -16,7 +18,13 @@ function SignatureDishes(){
                 dishPrice="₪88"
             />
             <p className="all-restaurants">
-                All Restaurants  <span className="see-more-icon"><img src={seeMoreIcon} alt="See More Icon" /></span>
+                All Restaurants 
+                <span className="see-more-icon">
+                    <img 
+                        src={seeMoreIcon} 
+                        alt="See More Icon" 
+                    />
+                </span>
             </p>
     </div>
     );

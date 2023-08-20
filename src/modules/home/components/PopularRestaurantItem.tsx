@@ -11,11 +11,14 @@ interface PopularRestaurantItemProps {
 function PopularRestaurantItem(props: PopularRestaurantItemProps){
     return(
         <div className="popular-restaurant-in-epicure-card">
-            <img src={props.restaurantImage} alt="Restaurant Image" className="restaurant-image" />
+            <img 
+                src={props.restaurantImage} 
+                alt="Restaurant Image"
+                className="restaurant-image"
+            />
             <p className="restaurant-name">{props.restaurantName} </p>
             <p className="restaurant-chef">{props.restaurantChef}</p>
         </div>
-
     );
 }
 

@@ -1,25 +1,24 @@
 .popular-restaurants-container{
+
     display: flex;
     flex-direction: column;
     padding: 20px;
-}
-
-.popular-restaurants-title{
-    color: #000;
-    font-family: Helvetica Neue;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 24px; /* 133.333% */
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-}
-
-.all-restaurants{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35px; 
-    letter-spacing: 2px;
-    text-transform: capitalize;
+    
+    .popular-restaurants-title{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 24px; 
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+    }
+    
+    .all-restaurants{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 35px; 
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
 }

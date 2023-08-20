@@ -1,4 +1,5 @@
 .burger-menu-container{
+
     display: flex;
     flex-direction: column;
     padding-top: 20px;
@@ -12,14 +13,15 @@
     padding-left: 20px;
     justify-content: space-between;
 
-    .x{
+    .x-icon{
         width: 20px;
         height: 20px;
     }
     
-    hr{
+    .dividing-line{
         border-color: black;
         width: 100%;
         padding: 0;
     }
+
 }

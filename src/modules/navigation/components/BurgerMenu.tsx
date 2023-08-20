@@ -1,4 +1,4 @@
-import x from "../assets/x.svg";
+import xIcon from "../assets/x.svg";
 import "../components/BurgerMenu.scss";
 
 interface BurgerMenuProps {
@@ -13,10 +13,14 @@ function BurgerMenu({ onCloseMenu }: BurgerMenuProps){
 
     return(
     <div className="burger-menu-container">
-        <img className="x" src={x} alt="x" onClick={handleXClick}/>
+        <img 
+            className="x-icon" 
+            src={xIcon} alt="x icon"
+            onClick={handleXClick}
+        />
         <p className="burger-menu-item-name">Restaurants</p>
         <p className="burger-menu-item-name">Chefs</p>
-        <hr/>
+        <hr className="dividing-line"/>
         <p className="burger-menu-item-name">Contact Us</p>
         <p className="burger-menu-item-name">Term Of Use</p>
         <p className="burger-menu-item-name">Privacy Policy</p>

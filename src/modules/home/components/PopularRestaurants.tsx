@@ -8,9 +8,16 @@ function PopularRestaurants(){
     return(
         <div className="popular-restaurants-container">
             <p className="popular-restaurants-title">POPULAR RESTURANT IN EPICURE:</p>
-            <PopularRestaurantItem restaurantImage={claroImage} restaurantName="Restaurent Name" restaurantChef="Restauran Chef"/>
+            <PopularRestaurantItem 
+                restaurantImage={claroImage}
+                restaurantName="Restaurent Name" 
+                restaurantChef="Restauran Chef"
+            />
             <p className="all-restaurants">
-                All Restaurants  <span className="see-more-icon"><img src={seeMoreIcon} alt="See More Icon" /></span>
+                All Restaurants 
+                <span className="see-more-icon">
+                    <img src={seeMoreIcon} alt="See More Icon" />
+                </span>
             </p>
         </div>
     );

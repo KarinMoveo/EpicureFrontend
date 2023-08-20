@@ -1,69 +1,71 @@
 .chef-of-the-week-container {
+    
     display: flex;
     flex-direction: column;
     padding: 20px;
+
+    .chef-of-the-week-title{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 35px; 
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+    }
+    
+    .image-overlay-container {
+        position: relative;
+        display: inline-block; 
+        width: 380px;
+    }
+    
+    .chef-of-the-week-image {
+        width: 90%;
+        height: 50%;
+    }
+    
+    .overlay-name {
+        position: absolute;
+        bottom: 0; 
+        left: 45%; 
+        transform: translateX(-50%);
+        background-color: rgba(216, 210, 210, 0.8);
+        padding: 8px;
+        box-sizing: border-box;
+        text-align: center;
+        width: 90%;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 47px;
+        letter-spacing: 2.67px;
+    }
+    
+    
+    .chef-of-the-week-summary{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 28px; 
+        letter-spacing: 1.25px;
+    }
+    
+    .chef-of-the-week-restaurants-title{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 200;
+        line-height: 25px; 
+        letter-spacing: 1.25px;
+        text-transform: uppercase;
+    }
+    
+    .all-restaurants{
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 35px; 
+        letter-spacing: 2px;
+        text-transform: capitalize;
+    }
 }
 
-.chef-of-the-week-title{
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 35px; /* 194.444% */
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-}
-
-.image-overlay-container {
-    position: relative;
-    display: inline-block; /* Ensure the container wraps around the image and overlay */
-    width: 380px;
-}
-
-.chef-of-the-week-image {
-    width: 90%;
-    height: 50%;
-}
-
-.overlay-name {
-    position: absolute;
-    bottom: 0; /* Position at the bottom of the image */
-    left: 45%; /* Center horizontally */
-    transform: translateX(-50%);
-    background-color: rgba(216, 210, 210, 0.8);
-    padding: 8px;
-    box-sizing: border-box;
-    text-align: center;
-    width: 90%;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 47px; /* 261.111% */
-    letter-spacing: 2.67px;
-}
-
-
-.chef-of-the-week-summary{
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 28px; /* 155.556% */
-    letter-spacing: 1.25px;
-}
-
-.chef-of-the-week-restaurants-title{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 200;
-    line-height: 25px; /* 156.25% */
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
-}
-
-.all-restaurants{
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 35px; 
-    letter-spacing: 2px;
-    text-transform: capitalize;
-}
