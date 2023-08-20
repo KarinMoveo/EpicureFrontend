@@ -1,13 +1,17 @@
 import PopularRestaurantItem from "./PopularRestaurantItem";
 import claroImage from "../assets/claroImage.png";
+import seeMoreIcon from "../shared/seeMoreIcon.svg";
+
 import "../components/PopularRestaurants.scss";
 
 function PopularRestaurants(){
     return(
         <div className="popular-restaurants-container">
-            <p>POPULAR RESTURANT IN EPICURE:</p>
+            <p className="popular-restaurants-title">POPULAR RESTURANT IN EPICURE:</p>
             <PopularRestaurantItem restaurantImage={claroImage} restaurantName="Restaurent Name" restaurantChef="Restauran Chef"/>
-            <p>All Restaurants ͐ ͐</p>
+            <p className="all-restaurants">
+                All Restaurants  <span className="see-more-icon"><img src={seeMoreIcon} alt="See More Icon" /></span>
+            </p>
         </div>
     );
 }

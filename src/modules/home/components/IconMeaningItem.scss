@@ -1,4 +1,20 @@
+.icon-meaning-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .icon-meaning-item{
-    width: 25px;
-    height: 25px;
+    width: 40px;
+    height: 40px;
+}
+
+.icon-meaning-item-name{
+    text-align: center;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 30px; /* 166.667% */
+    letter-spacing: 1.97px;
 }

@@ -1,9 +1,9 @@
 .popular-restaurant-in-epicure-card{
     display: flex;
     flex-direction: column;
-    background-color: blanchedalmond;
+    background-color: #F9F4EA;
     width: 220px;
-    height: 210px;
+    height: 250px;
 }
 
 .restaurant-image{
@@ -12,14 +12,23 @@
 }
 
 .restaurant-name{
-    font-size: 15px;
+    color: #000;
+    font-family: Helvetica Neue;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 2.67px;
     padding-left: 10px;
-    margin: 5px;
 }
 
 .restaurant-chef{
-    font-size: 10px;
-    color: rgb(128, 128, 128);
+    color: #000;
+    font-family: Helvetica Neue;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 20px; /* 125% */
+    letter-spacing: 1.97px;
     padding-left: 10px;
-    margin: 5px;
 }

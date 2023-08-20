@@ -1,8 +1,8 @@
-import shopingBagIcon from "../assets/shopingBagIcon.png";
-import accountIcon from "../assets/accountIcon.png";
-import searchIcon from "../assets/searchIcon.png";
+import shopingBagIcon from "../assets/shopingBagIcon.svg";
+import accountIcon from "../assets/accountIcon.svg";
+import searchIcon from "../assets/searchIcon.svg";
 import logoIcon from "../assets/logoIcon.png";
-import burgerMenuIcon from "../assets/burgerMenuIcon.png";
+import burgerMenuIcon from "../assets/burgerMenuIcon.svg";
 import NavbarIcon from "./NavbarIcon";
 import "../components/Navbar.scss";
 

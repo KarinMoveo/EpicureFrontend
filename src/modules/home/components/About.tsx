@@ -1,4 +1,4 @@
-import epicureLogo from "../assets/epicureLogo.png";
+import epicureLogo from "../assets/epicureLogo.svg";
 import googlePlay from "../assets/googlePlay.png";
 import appStore from "../assets/appStore.png";
 
@@ -11,8 +11,8 @@ function About(){
             <img src={googlePlay} className="about-image"/>
             <img src={appStore} className="about-image"/>
             <div className="about-text-content">
-                <p>ABOUT US:</p>
-                <p>
+                <p className="about-us-title">ABOUT US:</p>
+                <p className="about-us-content">
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
                     when an unknown printer took a galley of type and scrambled it to make a type specimen book.

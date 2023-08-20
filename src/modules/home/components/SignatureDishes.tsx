@@ -1,12 +1,13 @@
 import SignatureDishItem from "./SignatureDishItem";
-import "../components/SignatureDishes.scss";
 import claroImage from "../assets/claroImage.png"
-import spicyIcon from "../assets/spicyIcon.png"
+import spicyIcon from "../assets/spicyIcon.svg"
+import seeMoreIcon from "../shared/seeMoreIcon.svg";
+import "../components/SignatureDishes.scss";
 
 function SignatureDishes(){
     return(
         <div className="signature-dish">
-            <p>SIGNATURE DISH OF:</p>
+            <p className="signature-dishes-title">SIGNATURE DISH OF:</p>
             <SignatureDishItem 
                 dishImage={claroImage}
                 dishName="Pad Ki Mao"
@@ -14,7 +15,9 @@ function SignatureDishes(){
                 specialIcon={spicyIcon}
                 dishPrice="₪88"
             />
-            <p>All Restaurants ͐ ͐</p>
+            <p className="all-restaurants">
+                All Restaurants  <span className="see-more-icon"><img src={seeMoreIcon} alt="See More Icon" /></span>
+            </p>
     </div>
     );
 }

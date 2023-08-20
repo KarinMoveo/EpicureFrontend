@@ -5,7 +5,7 @@ import IconsMeaning from "../components/IconsMeaning";
 import WeeksChef from "../components/WeeksChef";
 import About from "../components/About";
 import Footer from "../components/Footer";
-import yossiShitritChef from "../assets/yossiShitritChef.jpeg"
+import yossiShitritChef from "../assets/yossiShitritChef.png"
 
 function HomeScreen() {
   return (
