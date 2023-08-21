@@ -2,9 +2,9 @@ import SignatureDishItem from "./SignatureDishItem";
 import claroImage from "../assets/claroImage.png"
 import spicyIcon from "../assets/spicyIcon.svg"
 import seeMoreIcon from "../shared/seeMoreIcon.svg";
-import "../components/SignatureDishes.scss";
+import "../components/SignatureDishesContainer.scss";
 
-function SignatureDishes(){
+function SignatureDishesContainer(){
     return(
         <div className="signature-dishes-container">
             <p className="signature-dishes-title">
@@ -30,4 +30,4 @@ function SignatureDishes(){
     );
 }
 
-export default SignatureDishes;
+export default SignatureDishesContainer;

@@ -1,15 +1,15 @@
-import ChefOfTheWeekRestaurants from "../components/ChefOfTheWeekRestaurants";
+import ChefOfTheWeekRestaurantItem from "./ChefOfTheWeekRestaurantItem";
 import onza from "../assets/onza.png";
 import seeMoreIcon from "../shared/seeMoreIcon.svg";
-import "../components/WeeksChef.scss";
+import "../components/ChefOfTheWeekContainer.scss";
 
-interface WeeksChefProps {
+interface ChefOfTheWeekContainerProps {
     chefOfTheWeekImage: string;
     chefOfTheWeekName: string;
     chefOfTheWeekSummary: string;
 }
 
-function WeeksChef(props: WeeksChefProps) {
+function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 
     const chefFirstName = props.chefOfTheWeekName.split(' ');
     const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
@@ -28,7 +28,7 @@ function WeeksChef(props: WeeksChefProps) {
             <p className="chef-of-the-week-summary">{props.chefOfTheWeekSummary}</p>
             <div className="restaurants-container">
                 <p className="chef-of-the-week-restaurants-title">{chefFirstNameUpperCase}'S RESTAURANTS</p>
-                <ChefOfTheWeekRestaurants 
+                <ChefOfTheWeekRestaurantItem 
                     ChefOfTheWeekRestaurantImage={onza} 
                     ChefOfTheWeekRestaurantName="Onza"
                 />
@@ -46,4 +46,4 @@ function WeeksChef(props: WeeksChefProps) {
     );
 }
 
-export default WeeksChef;
+export default ChefOfTheWeekContainer;

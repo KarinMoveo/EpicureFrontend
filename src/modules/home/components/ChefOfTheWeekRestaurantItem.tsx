@@ -1,12 +1,11 @@
-import "../components/ChefOfTheWeekRestaurants.scss";
+import "../components/ChefOfTheWeekRestaurantItem.scss";
 
-interface ChefOfTheWeekRestaurantsProps {
+interface ChefOfTheWeekRestaurantItemProps {
     ChefOfTheWeekRestaurantImage: string;
     ChefOfTheWeekRestaurantName: string;
 }
 
-
-function ChefOfTheWeekRestaurants(props: ChefOfTheWeekRestaurantsProps){
+function ChefOfTheWeekRestaurantItem(props: ChefOfTheWeekRestaurantItemProps){
     return(
         <div className="chef-of-the-week-restaurants-container">
             <img 
@@ -19,4 +18,4 @@ function ChefOfTheWeekRestaurants(props: ChefOfTheWeekRestaurantsProps){
     );
 }
 
-export default ChefOfTheWeekRestaurants;
+export default ChefOfTheWeekRestaurantItem;

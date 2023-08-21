@@ -1,10 +1,9 @@
 import PopularRestaurantItem from "./PopularRestaurantItem";
 import claroImage from "../assets/claroImage.png";
 import seeMoreIcon from "../shared/seeMoreIcon.svg";
+import "../components/PopularRestaurantsContainer.scss";
 
-import "../components/PopularRestaurants.scss";
-
-function PopularRestaurants(){
+function PopularRestaurantsContainer(){
     return(
         <div className="popular-restaurants-container">
             <p className="popular-restaurants-title">POPULAR RESTURANT IN EPICURE:</p>
@@ -23,4 +22,4 @@ function PopularRestaurants(){
     );
 }
 
-export default PopularRestaurants;
+export default PopularRestaurantsContainer;

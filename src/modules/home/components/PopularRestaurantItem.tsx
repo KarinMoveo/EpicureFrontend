@@ -1,12 +1,10 @@
 
 import "../components/PopularRestaurantItem.scss";
-
 interface PopularRestaurantItemProps {
     restaurantImage: string;
     restaurantName: string;
     restaurantChef: string;
 }
-
 
 function PopularRestaurantItem(props: PopularRestaurantItemProps){
     return(

@@ -2,9 +2,9 @@ import IconMeaningItem from "./IconMeaningItem";
 import spicyIcon from "../assets/spicyIcon.svg";
 import vegitarianIcon from "../assets/vegitarianIcon.svg";
 import veganIcon from "../assets/veganIcon.svg";
-import "../components/IconsMeaning.scss"
+import "../components/IconsMeaningContainer.scss"
 
-function IconsMeaning(){
+function IconsMeaningContainer(){
     return(
         <div className="icons-meaning-container">
             <p className="icons-meaning-title">THE MEANING OF OUR ICONS: </p>
@@ -15,4 +15,4 @@ function IconsMeaning(){
     );
 }
 
-export default IconsMeaning;
+export default IconsMeaningContainer;
