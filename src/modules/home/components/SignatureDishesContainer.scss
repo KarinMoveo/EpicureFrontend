@@ -39,6 +39,28 @@
    .all-restaurants{
     display: none;
    }
+  
+}
 
+  /* Media Query for mobile */
+  @media (max-width: 768px) {
+
+    // justify-content: center;
+    // align-items: center;
+
+   .signature-dishes-cards-display{
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 10px; 
+   }
+
+   .signature-dishes-cards-display::-webkit-scrollbar {
+      display: none;
   }
+}
+
 }

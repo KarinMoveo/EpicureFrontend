@@ -55,5 +55,16 @@
         .popular-resturant-image{
             display: none;
         }
+        .popular-restaurants-cards-display {
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            padding-bottom: 10px; 
+        }
+    
+        .popular-restaurants-cards-display::-webkit-scrollbar {
+            display: none;
+        }
   }
 }

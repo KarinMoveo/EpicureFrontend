@@ -48,6 +48,8 @@
         line-height: 28px; 
         letter-spacing: 1.25px;
     }
+
+    
     
     .chef-of-the-week-restaurants-title{
         font-size: 16px;
@@ -103,5 +105,23 @@
 
         }
     }
+
+    /* Media Query for Mobile */
+  @media (max-width: 767px) {
+
+    .chef-of-the-week-resturants-cards-display {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 10px; 
+    }
+
+    .chef-of-the-week-resturants-cards-display::-webkit-scrollbar {
+        display: none;
+    }
+}
 }
 
