@@ -18,7 +18,7 @@ function SignatureDishesContainer(){
                     cardName="Pad Ki Mao" 
                     >
                     <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-                    <img src={spicyIcon}/>
+                    <img src={spicyIcon} alt="spicy icon"/>
                     <p>₪88</p>
                     </Card>
 
@@ -27,7 +27,7 @@ function SignatureDishesContainer(){
                     cardName="Pad Ki Mao" 
                     >
                     <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-                    <img src={spicyIcon}/>
+                    <img src={spicyIcon} alt="spicy icon"/>
                     <p>₪88</p>
                     </Card>
 
@@ -36,7 +36,7 @@ function SignatureDishesContainer(){
                     cardName="Pad Ki Mao" 
                     >
                     <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-                    <img src={spicyIcon}/>
+                    <img src={spicyIcon} alt="spicy icon"/>
                     <p>₪88</p>
                     </Card>
             </div>

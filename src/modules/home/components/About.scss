@@ -18,12 +18,9 @@
         .about-us-title,
         .about-us-content {
             font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
             line-height: 35px;
             letter-spacing: 2px;
             text-transform: capitalize;
-
         }
     }
 
@@ -34,10 +31,8 @@
      align-items: center;
      justify-content: start;
      padding: 20px;
-    //  margin: 0;
 
      .logo-image{
-
         align-self: center;
         justify-self: end;
         flex: 1;
@@ -59,11 +54,7 @@
             .about-image{
                 padding: 10px;
             }
-    
         }
     }
-
-
   }
-
 }

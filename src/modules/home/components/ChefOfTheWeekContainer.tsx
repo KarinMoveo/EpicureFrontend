@@ -40,6 +40,38 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
                         cardImage={onza} 
                         cardName="Onza"
                     />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                     <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
                     
                 </div>
                 <Link to="./restaurants" className="all-restaurants"> All Restaurants

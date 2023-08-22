@@ -1,7 +1,6 @@
 import epicureLogo from "../assets/images/others/epicureLogo.svg";
 import googlePlay from "../assets/images/others/googlePlay.svg";
 import appStore from "../assets/images/others/appStore.svg";
-
 import "../components/About.scss";
 
 function About(){

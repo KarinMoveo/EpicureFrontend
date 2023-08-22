@@ -17,7 +17,7 @@ function PopularRestaurantsContainer(){
                         cardName="Restaurent Name" 
                     >
                         <p>Yossi Shitrit</p>   
-                        <img src={fourStars} className='popular-resturant-image'/>
+                        <img src={fourStars} className='popular-resturant-image' alt="restaurants rating"/>
                     </Card>
 
                     <Card
@@ -25,7 +25,7 @@ function PopularRestaurantsContainer(){
                         cardName="Restaurent Name" 
                     >
                         <p>Yossi Shitrit</p>   
-                        <img src={fourStars} className='popular-resturant-image'/>
+                        <img src={fourStars} className='popular-resturant-image' alt="restaurants rating"/>
                     </Card>
 
                     <Card
@@ -33,7 +33,7 @@ function PopularRestaurantsContainer(){
                         cardName="Restaurent Name" 
                     >
                         <p>Yossi Shitrit</p>  
-                         <img src={fourStars} className='popular-resturant-image'/> 
+                         <img src={fourStars} className='popular-resturant-image' alt="restaurants rating"/> 
                     </Card>
                 </div>
                 <Link to="./restaurants" className="all-restaurants"> All Restaurants

@@ -23,8 +23,6 @@
 
   .search-title {
       font-size: 24px;
-      font-style: normal;
-      font-weight: 200;
       line-height: 32px;
       letter-spacing: 1.97px;
   }
@@ -75,11 +73,5 @@
         .search-icon {
             left: 10px;
         }
-    
-      }
-    
-      /* Media Query for Mobile */
-      @media (max-width: 767px) {
-        
       }
 }

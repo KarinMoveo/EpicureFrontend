@@ -6,8 +6,6 @@
     
     .popular-restaurants-title{
         font-size: 18px;
-        font-style: normal;
-        font-weight: 200;
         line-height: 24px; 
         letter-spacing: 1.25px;
         text-transform: uppercase;
@@ -20,8 +18,6 @@
     
     .all-restaurants{
         font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
         line-height: 35px; 
         letter-spacing: 2px;
         text-transform: capitalize;
@@ -38,33 +34,37 @@
     align-items: center;
 
    .popular-restaurants-cards-display{
+
         display: flex;
         flex-direction: row;
-   }
+   
        .all-restaurants{
             display: flex;
             flex-direction: row;
             justify-content: end;
             align-items: end;
        }
+    }
    
   }
 
   /* Media Query for Mobile */
   @media (max-width: 767px) {
-        .popular-resturant-image{
-            display: none;
-        }
-        .popular-restaurants-cards-display {
-            overflow-x: auto;
-            flex-wrap: nowrap;
-            -webkit-overflow-scrolling: touch;
-            scrollbar-width: none;
-            padding-bottom: 10px; 
-        }
+
+    .popular-resturant-image{
+        display: none;
+    }
+
+    .popular-restaurants-cards-display {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 10px; 
+    }
     
-        .popular-restaurants-cards-display::-webkit-scrollbar {
-            display: none;
-        }
+    .popular-restaurants-cards-display::-webkit-scrollbar {
+        display: none;
+    }
   }
 }
