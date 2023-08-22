@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import xIcon from "../assets/icons/x.svg";
 import "./BurgerMenu.scss";
 
@@ -12,19 +13,19 @@ function BurgerMenu({ onCloseMenu }: BurgerMenuProps){
     };
 
     return(
-    <div className="burger-menu-container">
+    <nav className="burger-menu-container">
         <img 
             className="x-icon" 
             src={xIcon} alt="x icon"
             onClick={handleXClick}
         />
-        <p className="burger-menu-item-name">Restaurants</p>
-        <p className="burger-menu-item-name">Chefs</p>
+        <Link to="./restaurants" className="burger-menu-item-name">Restaurants</Link>
+        <Link to="./chefs" className="burger-menu-item-name">Chefs</Link>
         <hr className="dividing-line"/>
-        <p className="burger-menu-item-name">Contact Us</p>
-        <p className="burger-menu-item-name">Term Of Use</p>
-        <p className="burger-menu-item-name">Privacy Policy</p>
-    </div>
+        <Link to="./" className="burger-menu-item-name">Contact Us</Link>
+        <Link to="./" className="burger-menu-item-name">Term Of Use</Link>
+        <Link to="./" className="burger-menu-item-name">Privacy Policy</Link>
+    </nav>
     );
 }
 

@@ -18,7 +18,7 @@
       color: black;
       padding: 10px;
       box-sizing: border-box;
-      width: 80%;
+      width: 60%;
   }
 
   .search-title {
@@ -56,6 +56,10 @@
     @media (min-width: 768px) {
 
         .overlay{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: fit-content;
         }
 
@@ -65,11 +69,11 @@
       
         .search-input-container {
             text-align: center;
-            width: 60%;
+            width: 40%;
         }
 
         .search-icon {
-            left: 20px;
+            left: 10px;
         }
     
       }

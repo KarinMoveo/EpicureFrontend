@@ -1,0 +1,24 @@
+.card-container{
+
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F4EA;
+    width: 220px;
+    height: 290px;
+
+    .card-image{
+        width: 220px;
+        height: 200px;
+    }
+    
+    .card-name{
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 2.67px;
+        padding-left: 10px;
+    }
+    
+}
+

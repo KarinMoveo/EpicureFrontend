@@ -16,6 +16,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
   const [isBagModalOpen, setIsBagModalOpen] = useState(false);
+  const [selectedRoute, setSelectedRoute] = useState("");
 
   const headerIcons = [ { key: "search", value: searchIcon },
                         { key: "account", value: accountIcon },
@@ -50,8 +51,20 @@ function Header() {
         </div>
         <div className="desktop-nav-items">
           <p className="epicure-title-desktop">EPICURE</p>
-          <Link to="./restaurants" className="route-item">Restaurants</Link>
-          <Link to="./chefs" className="route-item">Chefs</Link>
+          <Link
+            to="./restaurants"
+            className={`route-item ${selectedRoute === "restaurants" ? "selected-route" : ""}`}
+            onClick={() => setSelectedRoute("restaurants")}
+          >
+            Restaurants
+          </Link>
+          <Link
+            to="./chefs"
+            className={`route-item ${selectedRoute === "chefs" ? "selected-route" : ""}`}
+            onClick={() => setSelectedRoute("chefs")}
+          >
+            Chefs
+          </Link>
         </div>
         <div className="header-icon-item right-icons-items">
           <div className="right-icons-items-container">

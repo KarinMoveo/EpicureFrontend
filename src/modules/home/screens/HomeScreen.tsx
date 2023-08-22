@@ -4,7 +4,6 @@ import SignatureDishesContainer from '../components/SignatureDishesContainer';
 import IconsMeaningContainer from "../components/IconsMeaningContainer";
 import ChefOfTheWeekContainer from "../components/ChefOfTheWeekContainer";
 import About from "../components/About";
-import Footer from "../components/Footer";
 import yossiShitritChef from "../assets/images/chefs/yossiShitritChef.png"
 
 function HomeScreen() {
@@ -23,7 +22,6 @@ function HomeScreen() {
          Shitrit's creativity and culinary acumen born of long experience are expressed in the every detail of each and every dish."
       />
       <About />
-      <Footer />
     </div>
   );
 }

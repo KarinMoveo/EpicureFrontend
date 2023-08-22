@@ -14,4 +14,17 @@
         letter-spacing: 1.25px;
         text-transform: uppercase;
     }
+
+  /* Media Query for Desktop */
+  @media (min-width: 768px) {
+    .icons-meaning-row-desktop{
+        display: flex;
+        flex-direction: row;
+    }
+        .icon-meaning-container{
+            margin-right: 40px; 
+            padding: 20px;
+        }
+  }
+
 }
