@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import ChefOfTheWeekRestaurantItem from "./ChefOfTheWeekRestaurantItem";
 import onza from "../assets/images/restaurants/onza.png";
 import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
@@ -40,15 +41,11 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
                         ChefOfTheWeekRestaurantName="Onza"
                         />
                 </div>
-                <p className="all-restaurants">
-                    All Restaurants  
+                <Link to="./restaurants" className="all-restaurants"> All Restaurants
                     <span className="see-more-icon">
-                        <img 
-                            src={seeMoreIcon} 
-                            alt="See More Icon" 
-                        />
+                        <img src={seeMoreIcon} alt="See More Icon" />
                     </span>
-                </p>
+                </Link>
             </div>
         </div>
     );

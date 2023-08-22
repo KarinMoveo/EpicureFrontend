@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SignatureDishItem from "./SignatureDishItem";
 import claroImage from "../assets/images/restaurants/claro.png"
 import spicyIcon from "../assets/icons/spicy.svg"
@@ -36,15 +37,11 @@ function SignatureDishesContainer(){
                     dishPrice="₪88"
                     />
             </div>
-            <p className="all-restaurants">
-                All Restaurants 
-                <span className="see-more-icon">
-                    <img 
-                        src={seeMoreIcon} 
-                        alt="See More Icon" 
-                    />
-                </span>
-            </p>
+            <Link to="./restaurants" className="all-restaurants"> All Restaurants
+                    <span className="see-more-icon">
+                        <img src={seeMoreIcon} alt="See More Icon" />
+                    </span>
+            </Link>
     </div>
     );
 }

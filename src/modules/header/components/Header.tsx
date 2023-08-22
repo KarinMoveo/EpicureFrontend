@@ -47,10 +47,16 @@ function Header() {
           <HeaderIcon src={burgerMenuIcon} alt="menu" onClick={toggleMenu} />
         </div>
         <div className="header-icon-item logo-icon-item">
-          <HeaderIcon src={logoIcon} alt="logo" onClick={() => console.log("gi")} />
+          <HeaderIcon src={logoIcon} alt="logo" onClick={() => window.location.href = "/"} />
         </div>
         <div className="desktop-nav-items">
-          <p className="epicure-title-desktop">EPICURE</p>
+        <Link
+            to="/"
+            className={`route-item epicure-title-desktop ${selectedRoute === "/" ? "selected-route" : ""}`}
+            onClick={() => setSelectedRoute("/")}
+          >
+            EPICURE
+          </Link>
           <Link
             to="./restaurants"
             className={`route-item ${selectedRoute === "restaurants" ? "selected-route" : ""}`}
