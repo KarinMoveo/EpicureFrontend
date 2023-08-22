@@ -14,8 +14,10 @@ function Card(props: CardProps){
                 alt="Card Image"
                 className="card-image"
             />
-            <p className="card-name">{props.cardName} </p>
-            {props.children}
+            <div className="card-text-contant">
+                <p className="card-name">{props.cardName} </p>
+                {props.children}
+            </div>
         </div>
     );
 }

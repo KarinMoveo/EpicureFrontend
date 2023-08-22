@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ChefOfTheWeekRestaurantItem from "./ChefOfTheWeekRestaurantItem";
+import Card from "../../../shared/components/Card";
 import onza from "../assets/images/restaurants/onza.png";
 import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
 import "../components/ChefOfTheWeekContainer.scss";
@@ -32,14 +32,15 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
             <div className="restaurants-container">
                 <p className="chef-of-the-week-restaurants-title">{chefFirstNameUpperCase}'S RESTAURANTS</p>
                 <div className="chef-of-the-week-resturants-cards-display">
-                    <ChefOfTheWeekRestaurantItem 
-                        ChefOfTheWeekRestaurantImage={onza} 
-                        ChefOfTheWeekRestaurantName="Onza"
-                        />
-                    <ChefOfTheWeekRestaurantItem 
-                        ChefOfTheWeekRestaurantImage={onza} 
-                        ChefOfTheWeekRestaurantName="Onza"
-                        />
+                    <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                    <Card
+                        cardImage={onza} 
+                        cardName="Onza"
+                    />
+                    
                 </div>
                 <Link to="./restaurants" className="all-restaurants"> All Restaurants
                     <span className="see-more-icon">

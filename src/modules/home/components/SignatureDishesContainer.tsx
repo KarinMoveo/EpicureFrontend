@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import SignatureDishItem from "./SignatureDishItem";
+import Card from "../../../shared/components/Card";
 import claroImage from "../assets/images/restaurants/claro.png"
 import spicyIcon from "../assets/icons/spicy.svg"
 import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
@@ -13,29 +13,32 @@ function SignatureDishesContainer(){
             </p>
             <div className="signature-dishes-cards-display">
 
-                    <SignatureDishItem 
-                    dishImage={claroImage}
-                    dishName="Pad Ki Mao"
-                    dishIngrediant="Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut" 
-                    specialIcon={spicyIcon}
-                    dishPrice="₪88"
-                    />
+                    <Card 
+                    cardImage={claroImage}
+                    cardName="Pad Ki Mao" 
+                    >
+                    <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
+                    <img src={spicyIcon}/>
+                    <p>₪88</p>
+                    </Card>
 
-                    <SignatureDishItem 
-                    dishImage={claroImage}
-                    dishName="Pad Ki Mao"
-                    dishIngrediant="Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut" 
-                    specialIcon={spicyIcon}
-                    dishPrice="₪88"
-                    />
+                    <Card 
+                    cardImage={claroImage}
+                    cardName="Pad Ki Mao" 
+                    >
+                    <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
+                    <img src={spicyIcon}/>
+                    <p>₪88</p>
+                    </Card>
 
-                    <SignatureDishItem 
-                    dishImage={claroImage}
-                    dishName="Pad Ki Mao"
-                    dishIngrediant="Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut" 
-                    specialIcon={spicyIcon}
-                    dishPrice="₪88"
-                    />
+                    <Card 
+                    cardImage={claroImage}
+                    cardName="Pad Ki Mao" 
+                    >
+                    <p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
+                    <img src={spicyIcon}/>
+                    <p>₪88</p>
+                    </Card>
             </div>
             <Link to="./restaurants" className="all-restaurants"> All Restaurants
                     <span className="see-more-icon">

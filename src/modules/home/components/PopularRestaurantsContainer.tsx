@@ -1,9 +1,9 @@
-import PopularRestaurantItem from "./PopularRestaurantItem";
 import { Link } from 'react-router-dom';
+import Card from "../../../shared/components/Card";
 import claroImage from "../assets/images/restaurants/claro.png";
 import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
+import fourStars from "../assets/icons/fourStars.svg";
 import "../components/PopularRestaurantsContainer.scss";
-import Card from "../../../shared/components/Card";
 
 
 function PopularRestaurantsContainer(){
@@ -17,6 +17,7 @@ function PopularRestaurantsContainer(){
                         cardName="Restaurent Name" 
                     >
                         <p>Yossi Shitrit</p>   
+                        <img src={fourStars} className='popular-resturant-image'/>
                     </Card>
 
                     <Card
@@ -24,13 +25,15 @@ function PopularRestaurantsContainer(){
                         cardName="Restaurent Name" 
                     >
                         <p>Yossi Shitrit</p>   
+                        <img src={fourStars} className='popular-resturant-image'/>
                     </Card>
 
                     <Card
                         cardImage={claroImage}
                         cardName="Restaurent Name" 
                     >
-                        <p>Yossi Shitrit</p>   
+                        <p>Yossi Shitrit</p>  
+                         <img src={fourStars} className='popular-resturant-image'/> 
                     </Card>
                 </div>
                 <Link to="./restaurants" className="all-restaurants"> All Restaurants

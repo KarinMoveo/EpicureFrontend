@@ -12,6 +12,11 @@
         letter-spacing: 1.25px;
         text-transform: uppercase;
     }
+
+    .popular-restaurants-cards-display{
+        display: flex;
+        flex-direction: row;
+    }
     
     .all-restaurants{
         font-size: 16px;
@@ -43,5 +48,12 @@
             align-items: end;
        }
    
+  }
+
+  /* Media Query for Mobile */
+  @media (max-width: 767px) {
+        .popular-resturant-image{
+            display: none;
+        }
   }
 }
