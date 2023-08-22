@@ -21,4 +21,21 @@
         letter-spacing: 2px;
         text-transform: capitalize;
     }
+
+    /* Media Query for Desktop */
+  @media (min-width: 768px) {
+
+    justify-content: center;
+    align-items: center;
+
+   .signature-dishes-cards-display{
+        display: flex;
+        flex-direction: row;
+   }
+
+   .all-restaurants{
+    display: none;
+   }
+
+  }
 }

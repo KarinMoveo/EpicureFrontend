@@ -66,5 +66,39 @@
         letter-spacing: 2px;
         text-transform: capitalize;
     }
+
+        /* Media Query for Desktop */
+  @media (min-width: 768px) {
+
+        .chef-of-the-week-title{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chef-of-the-week-name-image-summary-container{
+            display: flex;
+            flex-direction: row;
+        
+            .image-overlay-container{
+                width: fit-content;
+                height: fit-content;
+            }
+            .chef-of-the-week-summary{
+                width: fit-content;
+                margin: 0;
+            }
+        }
+
+        .all-restaurants{
+            display: none;
+        }
+
+        .chef-of-the-week-resturants-cards-display{
+            display: flex;
+            flex-direction: row;
+
+        }
+    }
 }
 

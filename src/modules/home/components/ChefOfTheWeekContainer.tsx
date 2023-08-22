@@ -17,21 +17,29 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
     return (
         <div className="chef-of-the-week-container">
             <p className="chef-of-the-week-title">CHEF OF THE WEEK:</p>
-            <div className="image-overlay-container">
-                <img 
-                    src={props.chefOfTheWeekImage}
-                    alt={props.chefOfTheWeekName} 
-                    className="chef-of-the-week-image"
-                />
-                <div className="overlay-name">{props.chefOfTheWeekName}</div>
+            <div className="chef-of-the-week-name-image-summary-container">
+                <div className="image-overlay-container">
+                    <img 
+                        src={props.chefOfTheWeekImage}
+                        alt={props.chefOfTheWeekName} 
+                        className="chef-of-the-week-image"
+                    />
+                    <div className="overlay-name">{props.chefOfTheWeekName}</div>
+                </div>
+                <p className="chef-of-the-week-summary">{props.chefOfTheWeekSummary}</p>
             </div>
-            <p className="chef-of-the-week-summary">{props.chefOfTheWeekSummary}</p>
             <div className="restaurants-container">
                 <p className="chef-of-the-week-restaurants-title">{chefFirstNameUpperCase}'S RESTAURANTS</p>
-                <ChefOfTheWeekRestaurantItem 
-                    ChefOfTheWeekRestaurantImage={onza} 
-                    ChefOfTheWeekRestaurantName="Onza"
-                />
+                <div className="chef-of-the-week-resturants-cards-display">
+                    <ChefOfTheWeekRestaurantItem 
+                        ChefOfTheWeekRestaurantImage={onza} 
+                        ChefOfTheWeekRestaurantName="Onza"
+                        />
+                    <ChefOfTheWeekRestaurantItem 
+                        ChefOfTheWeekRestaurantImage={onza} 
+                        ChefOfTheWeekRestaurantName="Onza"
+                        />
+                </div>
                 <p className="all-restaurants">
                     All Restaurants  
                     <span className="see-more-icon">

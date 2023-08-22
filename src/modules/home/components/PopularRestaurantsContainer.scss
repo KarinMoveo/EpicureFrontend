@@ -20,5 +20,28 @@
         line-height: 35px; 
         letter-spacing: 2px;
         text-transform: capitalize;
+        margin: 10px;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
     }
+
+/* Media Query for Desktop */
+  @media (min-width: 768px) {
+
+    justify-content: center;
+    align-items: center;
+
+   .popular-restaurants-cards-display{
+        display: flex;
+        flex-direction: row;
+   }
+       .all-restaurants{
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: end;
+       }
+   
+  }
 }

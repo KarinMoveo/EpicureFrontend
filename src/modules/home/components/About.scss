@@ -26,4 +26,44 @@
 
         }
     }
+
+        /* Media Query for Desktop */
+  @media (min-width: 768px) {
+  
+     flex-direction: row;
+     align-items: center;
+     justify-content: start;
+     padding: 20px;
+    //  margin: 0;
+
+     .logo-image{
+
+        align-self: center;
+        justify-self: end;
+        flex: 1;
+    }
+    
+    .about-container-title-content-images{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .about-us-content{
+            width: 40vw;
+        }
+
+        .app-downloads-images{
+            display: flex;
+            flex-direction: row;
+
+            .about-image{
+                padding: 10px;
+            }
+    
+        }
+    }
+
+
+  }
+
 }
