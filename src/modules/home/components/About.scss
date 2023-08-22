@@ -1,0 +1,29 @@
+.about-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    background-color: #FAFAFA;
+
+    .about-image {
+        width: 220px;
+        height: 120px;
+    }
+
+    .about-text-content {
+        padding: 10px;
+
+        .about-us-title,
+        .about-us-content {
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 35px;
+            letter-spacing: 2px;
+            text-transform: capitalize;
+
+        }
+    }
+}
