@@ -22,6 +22,7 @@
     .x-icon{
         position: absolute;
         left: 1%;
+        cursor: pointer;
     }
 
 
@@ -54,4 +55,20 @@
         height: 20px;
 
     }
+
+    /* Media Query for Desktop */
+    @media (min-width: 768px) {
+        height: 40vh;
+        
+        .user-search-from-navbar{
+            width: 20vw;
+        }
+    
+      }
+    
+      /* Media Query for Mobile */
+      @media (max-width: 767px) {
+        
+      }
+
 }

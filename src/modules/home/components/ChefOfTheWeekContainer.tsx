@@ -1,6 +1,6 @@
 import ChefOfTheWeekRestaurantItem from "./ChefOfTheWeekRestaurantItem";
-import onza from "../assets/onza.png";
-import seeMoreIcon from "../shared/seeMoreIcon.svg";
+import onza from "../assets/images/restaurants/onza.png";
+import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
 import "../components/ChefOfTheWeekContainer.scss";
 
 interface ChefOfTheWeekContainerProps {

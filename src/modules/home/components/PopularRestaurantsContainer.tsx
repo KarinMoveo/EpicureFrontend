@@ -1,6 +1,6 @@
 import PopularRestaurantItem from "./PopularRestaurantItem";
-import claroImage from "../assets/claroImage.png";
-import seeMoreIcon from "../shared/seeMoreIcon.svg";
+import claroImage from "../assets/images/restaurants/claro.png";
+import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
 import "../components/PopularRestaurantsContainer.scss";
 
 function PopularRestaurantsContainer(){

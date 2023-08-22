@@ -51,4 +51,31 @@
       background-color: rgba(255, 255, 255, 0.7);
       text-indent: 25px; 
   }
+
+    /* Media Query for Desktop */
+    @media (min-width: 768px) {
+
+        .overlay{
+            width: fit-content;
+        }
+
+        .search-title {
+           text-align: center;
+        }
+      
+        .search-input-container {
+            text-align: center;
+            width: 60%;
+        }
+
+        .search-icon {
+            left: 20px;
+        }
+    
+      }
+    
+      /* Media Query for Mobile */
+      @media (max-width: 767px) {
+        
+      }
 }

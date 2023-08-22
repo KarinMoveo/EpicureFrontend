@@ -1,7 +1,7 @@
 import SignatureDishItem from "./SignatureDishItem";
-import claroImage from "../assets/claroImage.png"
-import spicyIcon from "../assets/spicyIcon.svg"
-import seeMoreIcon from "../shared/seeMoreIcon.svg";
+import claroImage from "../assets/images/restaurants/claro.png"
+import spicyIcon from "../assets/icons/spicy.svg"
+import seeMoreIcon from "../../../shared/assets/icons/seeMore.svg";
 import "../components/SignatureDishesContainer.scss";
 
 function SignatureDishesContainer(){

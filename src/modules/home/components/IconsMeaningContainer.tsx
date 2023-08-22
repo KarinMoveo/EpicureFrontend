@@ -1,7 +1,7 @@
 import IconMeaningItem from "./IconMeaningItem";
-import spicyIcon from "../assets/spicyIcon.svg";
-import vegitarianIcon from "../assets/vegitarianIcon.svg";
-import veganIcon from "../assets/veganIcon.svg";
+import spicyIcon from "../assets/icons/spicy.svg";
+import vegitarianIcon from "../assets/icons/vegitarian.svg";
+import veganIcon from "../assets/icons/vegan.svg";
 import "../components/IconsMeaningContainer.scss"
 
 function IconsMeaningContainer(){

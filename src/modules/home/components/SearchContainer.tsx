@@ -1,4 +1,4 @@
-import mainPageImage from "../assets/mainPageImage.png";
+import mainPageImage from "../assets/images/others/mainPageImage.png";
 import searchIcon from "../../../shared/assets/icons/search.svg";
 import "../components/SearchContainer.scss";
 
