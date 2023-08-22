@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import SearchModal from "./SearchModal";
 import shopingBagIcon from "../assets/icons/shopingBag.svg";
 import accountIcon from "../assets/icons/account.svg";
@@ -49,8 +50,8 @@ function Header() {
         </div>
         <div className="desktop-nav-items">
           <p className="epicure-title-desktop">EPICURE</p>
-          <p>Restaurants</p>
-          <p>Chefs</p>
+          <Link to="./restaurants" className="route-item">Restaurants</Link>
+          <Link to="./chefs" className="route-item">Chefs</Link>
         </div>
         <div className="header-icon-item right-icons-items">
           <div className="right-icons-items-container">

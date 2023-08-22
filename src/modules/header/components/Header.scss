@@ -61,9 +61,12 @@
       align-items: center;
       justify-content: flex-start;
 
-      p{
+      .route-item{
         margin: 0;
         padding-left: 40px;
+        color: black;
+        cursor: pointer;
+        text-decoration: none;
       }
 
       .epicure-title-desktop{
