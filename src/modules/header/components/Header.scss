@@ -1,6 +1,9 @@
 .header-container {
   
     background-color: white;
+    position: sticky;
+    top: 0;
+    z-index: +1;
   
   .header-icons-row {
     display: flex;

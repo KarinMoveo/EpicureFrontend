@@ -1,15 +1,9 @@
-import mainPageImage from "../assets/images/others/mainPageImage.png";
 import searchIcon from "../../../shared/assets/icons/search.svg";
 import "../components/SearchContainer.scss";
 
 function SearchContainer(){
     return(
         <div className="search-container">
-            <img 
-                src={mainPageImage} 
-                alt="Overlayed"
-                className="search-background-image"
-            />
             <div className="overlay">
                 <p className="search-title">
                     Epicure works with the top chef restaurants in Tel Aviv

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import SearchModal from "./SearchModal";
 import shopingBagIcon from "../assets/icons/shopingBag.svg";
 import accountIcon from "../assets/icons/account.svg";
@@ -11,29 +11,19 @@ import BurgerMenu from "./BurgerMenu";
 import BagModal from "./BagModal";
 import "./Header.scss";
 
-function Header() {
+type openedModalType = "search"  | "account" | "shoppingBag" | "burgerMenu" | null;
 
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchModalOpen, setIsSearchModalOpen] = useState(false);
-  const [isBagModalOpen, setIsBagModalOpen] = useState(false);
+function Header() { 
+  const [openedModal, setOpenedModal] = useState<openedModalType>(null);
   const [selectedRoute, setSelectedRoute] = useState("");
 
-  const headerIcons = [ { key: "search", value: searchIcon },
-                        { key: "account", value: accountIcon },
-                        { key: "shoppingBag", value: shopingBagIcon },
-                      ];
-
-                      
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  type FuncMap = { [key: string]: () => void };
-
-  const togglesIconsFromHeader: FuncMap = {
-    "search": () => setIsSearchModalOpen(!isSearchModalOpen),
-    "account": () => console.log("hiiii"),
-    "shoppingBag": () => setIsBagModalOpen(!isBagModalOpen),
+  const toggleModal = (modalName: openedModalType) => {
+    if (modalName === openedModal){
+      setOpenedModal(null);
+    }
+    else{
+      setOpenedModal(modalName);
+    }
   };
 
   const handleSearch = (searchQuery: string) => {
@@ -44,29 +34,39 @@ function Header() {
     <nav className="header-container">
       <div className="header-icons-row">
         <div className="header-icon-item mobile-menu-icon-item">
-          <HeaderIcon src={burgerMenuIcon} alt="menu" onClick={toggleMenu} />
+          <HeaderIcon src={burgerMenuIcon} alt="menu" onClick={()=>toggleModal("burgerMenu")} />
         </div>
         <div className="header-icon-item logo-icon-item">
-          <HeaderIcon src={logoIcon} alt="logo" onClick={() => window.location.href = "/"} />
+          <HeaderIcon
+            src={logoIcon}
+            alt="logo"
+            onClick={() => (window.location.href = "/")}
+          />
         </div>
         <div className="desktop-nav-items">
-        <Link
+          <Link
             to="/"
-            className={`route-item epicure-title-desktop ${selectedRoute === "/" ? "selected-route" : ""}`}
+            className={`route-item epicure-title-desktop ${
+              selectedRoute === "/" ? "selected-route" : ""
+            }`}
             onClick={() => setSelectedRoute("/")}
           >
             EPICURE
           </Link>
           <Link
             to="./restaurants"
-            className={`route-item ${selectedRoute === "restaurants" ? "selected-route" : ""}`}
+            className={`route-item ${
+              selectedRoute === "restaurants" ? "selected-route" : ""
+            }`}
             onClick={() => setSelectedRoute("restaurants")}
           >
             Restaurants
           </Link>
           <Link
             to="./chefs"
-            className={`route-item ${selectedRoute === "chefs" ? "selected-route" : ""}`}
+            className={`route-item ${
+              selectedRoute === "chefs" ? "selected-route" : ""
+            }`}
             onClick={() => setSelectedRoute("chefs")}
           >
             Chefs
@@ -74,22 +74,20 @@ function Header() {
         </div>
         <div className="header-icon-item right-icons-items">
           <div className="right-icons-items-container">
-            {headerIcons.map((obj) => (
-              <HeaderIcon
-                key={obj.key}
-                src={obj.value}
-                alt={obj.key}
-                onClick={togglesIconsFromHeader[obj.key]}
-              />
-            ))}
+          <HeaderIcon src={searchIcon} alt="search" onClick={()=>toggleModal("search")}/>
+          <HeaderIcon src={accountIcon} alt="account" onClick={()=>toggleModal("account")}/>
+          <HeaderIcon src={shopingBagIcon} alt="shoppingBag" onClick={()=>toggleModal("shoppingBag")}/>
           </div>
         </div>
       </div>
-      {isMenuOpen && <BurgerMenu onCloseMenu={toggleMenu} />}
-      {isSearchModalOpen && (
-        <SearchModal onClose={() => setIsSearchModalOpen(false)} onSearch={handleSearch} />
+      {openedModal === "burgerMenu" && <BurgerMenu onCloseMenu={()=>setOpenedModal(null)} />}
+      {openedModal === "search" && (
+        <SearchModal
+          onClose={() => setOpenedModal(null)}
+          onSearch={handleSearch}
+        />
       )}
-      {isBagModalOpen && <BagModal />}
+      {openedModal === "shoppingBag" && <BagModal />}
     </nav>
   );
 }
