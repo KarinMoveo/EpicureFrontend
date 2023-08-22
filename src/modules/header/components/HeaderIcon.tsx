@@ -1,12 +1,12 @@
-import "../components/NavbarIcon.scss";
+import "./HeaderIcon.scss";
 
-interface NavbarIconProps {
+interface HeaderIconProps {
   src: string;
   alt: string;
   onClick: (event: React.MouseEvent<HTMLImageElement>) => void;  
 }
 
-function NavbarIcon (props : NavbarIconProps){
+function HeaderIcon (props : HeaderIconProps){
   return (
     <li className="nav-item-icon-container">
       <img 
@@ -19,4 +19,4 @@ function NavbarIcon (props : NavbarIconProps){
   );
 };
 
-export default NavbarIcon;
+export default HeaderIcon;

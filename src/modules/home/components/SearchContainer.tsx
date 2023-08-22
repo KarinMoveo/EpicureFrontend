@@ -1,5 +1,5 @@
 import mainPageImage from "../assets/mainPageImage.png";
-import searchIcon from "../assets/searchIcon.svg";
+import searchIcon from "../../../shared/assets/icons/search.svg";
 import "../components/SearchContainer.scss";
 
 function SearchContainer(){

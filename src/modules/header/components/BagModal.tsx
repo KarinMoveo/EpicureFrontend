@@ -1,5 +1,5 @@
-import shopingBagIcon from "../assets/shopingBagIcon.svg";
-import "../components/BagModal.scss";
+import shopingBagIcon from "../assets/icons/shopingBag.svg";
+import "./BagModal.scss";
 
 function BagModal(){
     return(
@@ -10,6 +10,7 @@ function BagModal(){
                 className="shoping-bag-image"
             />
             <p className="bag-contant-text">YOUR BAG IS EMPTY</p>
+            <p className="order-history-desktop">ORDER HISTORY</p>
         </div>
     );
 }

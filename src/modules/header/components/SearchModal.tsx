@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import xIcon from "../assets/x.svg";
-import "../components/SearchModal.scss";
+import xIcon from "../assets/icons/x.svg";
+import "./SearchModal.scss";
 
 interface SearchModalProps{
     onClose: () => void;

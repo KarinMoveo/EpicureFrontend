@@ -1,13 +1,12 @@
-import './App.scss';
 import HomeScreen from './home/screens/HomeScreen';
-import Navbar from "./navigation/components/Navbar";
+import Header from "./header/components/Header";
+import './App.scss';
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <HomeScreen />
-     
     </div>
   );
 }

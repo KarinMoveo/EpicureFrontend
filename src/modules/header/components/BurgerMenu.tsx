@@ -1,5 +1,5 @@
-import xIcon from "../assets/x.svg";
-import "../components/BurgerMenu.scss";
+import xIcon from "../assets/icons/x.svg";
+import "./BurgerMenu.scss";
 
 interface BurgerMenuProps {
     onCloseMenu: () => void;
