@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Card from "../../../shared/components/Card";
 import kabkem from "../assets/images/restaurants/kabkem.svg";
 import claro from "../assets/images/restaurants/claro.png";
@@ -175,18 +176,23 @@ function Restaurants() {
           <img src={mapView} alt="Map View" className="map-view-image" />
         ) : (
           restaurants.map((restaurant, index) => (
-            <Card
+            <Link
               key={index}
-              cardImage={restaurant.image}
-              cardName={restaurant.name}
+              to={`/restaurants/${restaurant.name}`} 
+              className="restaurant-link"
             >
-              <p>{restaurant.chefName}</p>
-              <img
-                src={restaurant.rating}
-                alt={`${restaurant.name} Rating`}
-                className="restaurant-rating"
-              />
-            </Card>
+              <Card
+                cardImage={restaurant.image}
+                cardName={restaurant.name}
+              >
+                <p>{restaurant.chefName}</p>
+                <img
+                  src={restaurant.rating}
+                  alt={`${restaurant.name} Rating`}
+                  className="restaurant-rating"
+                />
+              </Card>
+            </Link>
           ))
         )}
       </div>

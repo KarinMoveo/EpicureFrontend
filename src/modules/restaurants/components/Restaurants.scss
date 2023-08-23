@@ -19,7 +19,6 @@
         }
     }
 
-
     .row-filter{
         display: flex;
         flex-direction: row;
@@ -87,7 +86,7 @@
     .restaurant-category-item{
 
         padding-right: 20px;
-        &.selected {
+        &.category-item-selected {
             text-decoration: underline;
             text-decoration-color: #DE9200E5;
             text-decoration-thickness: 2px; 

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from "./header/components/Header";
 import Home from './home/screens/HomeScreen';
 import Restaurants from './restaurants/components/Restaurants';
+import SpecificRestaurantPage from "./restaurants/components/SpecificRestaurantPage";
 import Chefs from './chefs/components/Chefs';
 import Footer from "../modules/footer/components/Footer";
 import './App.scss';
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/restaurants" Component={Restaurants} />
+        <Route path="/restaurants/:restaurantName" element={<SpecificRestaurantPage />} /> 
         <Route path="/chefs" Component={Chefs} />
       </Routes>
       <Footer />
