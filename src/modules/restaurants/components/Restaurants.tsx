@@ -11,11 +11,39 @@ import fourStars from "../assets/images/rating/fourStars.svg";
 import downwardArrow from "../assets/icons/downwardArrow.svg";
 import mapView from "../assets/images/others/mapView.png";
 import "../components/Restaurants.scss";
+import PriceRange from "../modals/PriceRange";
+import Rating from "../modals/Rating";
+import Distance from "../modals/Distance";
 
 function Restaurants() {
+  type openedModalType = "Price range" | "distance" | "rating" | null;
+
+  type selectedCategoryType =
+    | "All"
+    | "New"
+    | "Most Popular"
+    | "Open Now"
+    | "Map View"
+    | null;
+
+  const categories: selectedCategoryType[] = [
+    "All",
+    "New",
+    "Most Popular",
+    "Open Now",
+    "Map View",
+  ];
+
+  const modals: openedModalType[] = ["Price range", "distance", "rating"];
+
   const [selectedCategoryItem, setSelectedCategoryItem] =
     useState<selectedCategoryType>("All");
+  const [selectedFilterItem, setSelectedFilterItem] =
+    useState<openedModalType>(null);
   const [isMapView, setIsMapView] = useState(false);
+  const [openedModal, setOpenedModal] = useState<openedModalType>(null);
+
+  // Hard coded data of restaurants - I will delete this after I get the data from the API.
   const [restaurants, setRestaurants] = useState([
     {
       id: 1,
@@ -75,17 +103,14 @@ function Restaurants() {
     },
   ]);
 
-  type selectedCategoryType =
-    | "All"
-    | "New"
-    | "Most Popular"
-    | "Open Now"
-    | "Map View"
-    | null;
-
-  useEffect(() => {
-    // in the future, make the API call here and update the restaurants state
-  }, [selectedCategoryItem]);
+  const toggleModal = (modalName: openedModalType) => {
+    if (modalName === openedModal) {
+      setOpenedModal(null);
+    } else {
+      setOpenedModal(modalName);
+      setSelectedFilterItem(modalName);
+    }
+  };
 
   const handleCategoryClick = (category: selectedCategoryType) => {
     if (category === "Map View" && window.innerWidth >= 768) {
@@ -97,13 +122,9 @@ function Restaurants() {
     }
   };
 
-  const categories: selectedCategoryType[] = [
-    "All",
-    "New",
-    "Most Popular",
-    "Open Now",
-    "Map View",
-  ];
+  useEffect(() => {
+    // in the future, make the API call here and update the restaurants state
+  }, [selectedCategoryItem]);
 
   return (
     <div className="restaurants-page-container">
@@ -119,7 +140,7 @@ function Restaurants() {
                     className={`restaurant-category-item ${
                       selectedCategoryItem === category ||
                       (category === "Map View" && isMapView)
-                        ? "selected"
+                        ? "category-item-selected"
                         : ""
                     }`}
                     onClick={() => handleCategoryClick(category)}
@@ -132,25 +153,23 @@ function Restaurants() {
         </div>
       </div>
       <div className="row-filter">
-        <p className="filter-item price-range-filter">
-          Price Range
-          <span className="downward-arrow-icon">
-            <img src={downwardArrow} alt="downward arrow" />
-          </span>
-        </p>
-        <p className="filter-item distance-filter">
-          Distance
-          <span className="downward-arrow-icon">
-            <img src={downwardArrow} alt="downward arrow" />
-          </span>
-        </p>
-        <p className="filter-item rating-filter">
-          Rating
-          <span className="downward-arrow-icon">
-            <img src={downwardArrow} alt="downward arrow" />
-          </span>
-        </p>
+        {modals.map((filterItem) => (
+          <p
+            key={filterItem}
+            className={`filter-item price-range-filter ${
+              selectedFilterItem === filterItem ? "filter-item-selected" : ""
+            }`}
+            onClick={() => toggleModal(filterItem)}
+          >
+            {filterItem &&
+              filterItem.charAt(0).toUpperCase() + filterItem.slice(1)}{" "}
+            <span className="downward-arrow-icon">
+              <img src={downwardArrow} alt="downward arrow" />
+            </span>
+          </p>
+        ))}
       </div>
+
       <div className="restaurants-list">
         {isMapView ? (
           <img src={mapView} alt="Map View" className="map-view-image" />
@@ -171,6 +190,10 @@ function Restaurants() {
           ))
         )}
       </div>
+      {openedModal === "Price range" && <PriceRange />}
+      {openedModal === "distance" && <Distance />}
+      {openedModal === "rating" && <Rating />}
+
     </div>
   );
 }

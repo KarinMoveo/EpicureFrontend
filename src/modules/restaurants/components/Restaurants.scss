@@ -56,10 +56,14 @@
 
         padding-right: 80px;
 
-        &.selected {
+        &.category-item-selected {
             font-weight: bold;
         }
 
+    }
+
+    .filter-item-selected{
+        background-color: #D0CFCF;
     }
 
 
@@ -101,6 +105,9 @@
     }
 
     .row-filter{
+        display: none;
+    }
+    .modals-container{
         display: none;
     }
   }

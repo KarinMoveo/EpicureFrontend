@@ -1,0 +1,16 @@
+.price-range-modal {
+    background-color: white;
+    position: absolute;
+    top: 18%;
+    left: 30%;
+    padding: 20px;
+  
+    .price-range-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+  }
+  

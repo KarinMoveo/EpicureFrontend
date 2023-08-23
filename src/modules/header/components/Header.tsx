@@ -11,7 +11,7 @@ import BurgerMenu from "./BurgerMenu";
 import BagModal from "./BagModal";
 import "./Header.scss";
 
-type openedModalType = "search"  | "account" | "shoppingBag" | "burgerMenu" | null;
+type openedModalType = "search" | "account" | "shoppingBag" | "burgerMenu" | null;
 
 function Header() { 
   const [openedModal, setOpenedModal] = useState<openedModalType>(null);
