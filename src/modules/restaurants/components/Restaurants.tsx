@@ -5,15 +5,17 @@ import claro from "../assets/images/restaurants/claro.png";
 import messa from "../assets/images/restaurants/messa.png";
 import oneStar from "../assets/images/rating/oneStar.svg";
 import twoStars from "../assets/images/rating/twoStars.svg";
-import threeStars from "../assets/images/rating/threeStars.svg";
+// import threeStars from "../assets/images/rating/threeStars.svg";
 import fourStars from "../assets/images/rating/fourStars.svg";
-import fiveStars from "../assets/images/rating/fiveStars.svg";
+// import fiveStars from "../assets/images/rating/fiveStars.svg";
 import downwardArrow from "../assets/icons/downwardArrow.svg";
+import mapView from "../assets/images/others/mapView.png";
 import "../components/Restaurants.scss";
 
 function Restaurants() {
   const [selectedCategoryItem, setSelectedCategoryItem] =
     useState<selectedCategoryType>("All");
+  const [isMapView, setIsMapView] = useState(false);
   const [restaurants, setRestaurants] = useState([
     {
       id: 1,
@@ -37,40 +39,40 @@ function Restaurants() {
       rating: oneStar,
     },
     {
-        id: 4,
-        name: "Messa",
-        image: messa,
-        chefName: "Aviv Moshe",
-        rating: oneStar,
-      },
-      {
-        id: 5,
-        name: "Messa",
-        image: messa,
-        chefName: "Aviv Moshe",
-        rating: oneStar,
-      },
-      {
-        id: 6,
-        name: "Messa",
-        image: messa,
-        chefName: "Aviv Moshe",
-        rating: oneStar,
-      },
-      {
-        id: 7,
-        name: "Messa",
-        image: messa,
-        chefName: "Aviv Moshe",
-        rating: oneStar,
-      },
-      {
-        id: 8,
-        name: "Messa",
-        image: messa,
-        chefName: "Aviv Moshe",
-        rating: oneStar,
-      },
+      id: 4,
+      name: "Messa",
+      image: messa,
+      chefName: "Aviv Moshe",
+      rating: oneStar,
+    },
+    {
+      id: 5,
+      name: "Messa",
+      image: messa,
+      chefName: "Aviv Moshe",
+      rating: oneStar,
+    },
+    {
+      id: 6,
+      name: "Messa",
+      image: messa,
+      chefName: "Aviv Moshe",
+      rating: oneStar,
+    },
+    {
+      id: 7,
+      name: "Messa",
+      image: messa,
+      chefName: "Aviv Moshe",
+      rating: oneStar,
+    },
+    {
+      id: 8,
+      name: "Messa",
+      image: messa,
+      chefName: "Aviv Moshe",
+      rating: oneStar,
+    },
   ]);
 
   type selectedCategoryType =
@@ -78,6 +80,7 @@ function Restaurants() {
     | "New"
     | "Most Popular"
     | "Open Now"
+    | "Map View"
     | null;
 
   useEffect(() => {
@@ -85,7 +88,13 @@ function Restaurants() {
   }, [selectedCategoryItem]);
 
   const handleCategoryClick = (category: selectedCategoryType) => {
-    setSelectedCategoryItem(category);
+    if (category === "Map View" && window.innerWidth >= 768) {
+      setIsMapView(true);
+      setSelectedCategoryItem(category);
+    } else {
+      setIsMapView(false);
+      setSelectedCategoryItem(category);
+    }
   };
 
   const categories: selectedCategoryType[] = [
@@ -93,6 +102,7 @@ function Restaurants() {
     "New",
     "Most Popular",
     "Open Now",
+    "Map View",
   ];
 
   return (
@@ -100,36 +110,41 @@ function Restaurants() {
       <div className="restaurents-title-and-categories">
         <h1 className="restaurant-page-title">RESTAURANTS</h1>
         <div className="restaurants-categories-container">
-          {categories.map((category) => (
-            <p
-              key={category}
-              className={`restaurant-category-item ${
-                selectedCategoryItem === category ? "selected" : ""
-              }`}
-              onClick={() => handleCategoryClick(category)}
-            >
-              {category}
-            </p>
-          ))}
+          <div className="restaurants-categories-container">
+            {categories.map(
+              (category) =>
+                !(category === "Map View" && window.innerWidth < 768) && (
+                  <p
+                    key={category}
+                    className={`restaurant-category-item ${
+                      selectedCategoryItem === category ||
+                      (category === "Map View" && isMapView)
+                        ? "selected"
+                        : ""
+                    }`}
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    {category}
+                  </p>
+                )
+            )}
+          </div>
         </div>
       </div>
       <div className="row-filter">
         <p className="filter-item price-range-filter">
-          {" "}
           Price Range
           <span className="downward-arrow-icon">
             <img src={downwardArrow} alt="downward arrow" />
           </span>
         </p>
         <p className="filter-item distance-filter">
-          {" "}
           Distance
           <span className="downward-arrow-icon">
             <img src={downwardArrow} alt="downward arrow" />
           </span>
         </p>
         <p className="filter-item rating-filter">
-          {" "}
           Rating
           <span className="downward-arrow-icon">
             <img src={downwardArrow} alt="downward arrow" />
@@ -137,20 +152,24 @@ function Restaurants() {
         </p>
       </div>
       <div className="restaurants-list">
-        {restaurants.map((restaurant, index) => (
-          <Card
-            key={index}
-            cardImage={restaurant.image}
-            cardName={restaurant.name}
-          >
-            <p>{restaurant.chefName}</p>
-            <img
-              src={restaurant.rating}
-              alt={`${restaurant.name} Rating`}
-              className="restaurant-rating"
-            />
-          </Card>
-        ))}
+        {isMapView ? (
+          <img src={mapView} alt="Map View" className="map-view-image" />
+        ) : (
+          restaurants.map((restaurant, index) => (
+            <Card
+              key={index}
+              cardImage={restaurant.image}
+              cardName={restaurant.name}
+            >
+              <p>{restaurant.chefName}</p>
+              <img
+                src={restaurant.rating}
+                alt={`${restaurant.name} Rating`}
+                className="restaurant-rating"
+              />
+            </Card>
+          ))
+        )}
       </div>
     </div>
   );
