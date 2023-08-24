@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import BagModal from './BagModal';
 import BurgerMenu from './BurgerMenu';
 import SearchModal from './SearchModal';
+import SignIn from '../modals/SignIn';
 
 import { accountIcon, burgerMenuIcon, logoIcon, shopingBagIcon } from '../assets/icons/index';
 
@@ -12,6 +13,7 @@ import searchIcon from '../../../shared/assets/icons/search.svg';
 import HeaderIcon from './HeaderIcon';
 
 import './Header.scss';
+import { Sign } from 'crypto';
 
 type openedModalType = 'search' | 'account' | 'shoppingBag' | 'burgerMenu' | '' | null;
 
@@ -67,6 +69,7 @@ function Header() {
 			{openedModal === 'burgerMenu' && <BurgerMenu onCloseMenu={() => setOpenedModal(null)} />}
 			{openedModal === 'search' && <SearchModal onClose={() => setOpenedModal(null)} onSearch={handleSearch} />}
 			{openedModal === 'shoppingBag' && <BagModal />}
+			{openedModal === 'account' && <SignIn />}
 		</nav>
 	);
 }
