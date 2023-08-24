@@ -1,8 +1,14 @@
 import ReactDOM from 'react-dom';
 
+import xIcon from '../../../shared/assets/icons/x.svg';
+
 import './SignIn.scss';
 
-function SignIn() {
+interface SignInModalProps {
+	onClose: () => void;
+}
+
+function SignIn({ onClose }: SignInModalProps) {
 	const portalElement = document.getElementById('portal');
 
 	if (!portalElement) {
@@ -11,6 +17,7 @@ function SignIn() {
 
 	const signInForm = (
 		<div className='sign-in-modal-overlay'>
+			<img className='x-icon' src={xIcon} alt='close' onClick={onClose} />
 			<div className='sign-in-modal-content'>
 				<p className='sign-in-title'>SIGN IN</p>
 				<p className='sign-in-description'>To continue the order, please sign in</p>

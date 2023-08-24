@@ -69,7 +69,7 @@ function Header() {
 			{openedModal === 'burgerMenu' && <BurgerMenu onCloseMenu={() => setOpenedModal(null)} />}
 			{openedModal === 'search' && <SearchModal onClose={() => setOpenedModal(null)} onSearch={handleSearch} />}
 			{openedModal === 'shoppingBag' && <BagModal />}
-			{openedModal === 'account' && <SignIn />}
+			{openedModal === 'account' && <SignIn onClose={() => setOpenedModal(null)} />}
 		</nav>
 	);
 }

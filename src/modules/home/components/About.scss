@@ -24,6 +24,11 @@
         }
     }
 
+    .app-downloads-images{
+        display: flex;
+        flex-direction: column;
+    }
+
         /* Media Query for Desktop */
   @media (min-width: 768px) {
   
