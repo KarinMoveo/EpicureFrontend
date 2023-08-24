@@ -42,10 +42,6 @@ function SpecificRestaurantPage() {
 		return <div>Restaurant not found</div>;
 	}
 
-	// const handleDishClick = (index: number) => {
-	// 	setSelectedDish(index);
-	// };
-
 	return (
 		<div className='specific-restaurant-page-container'>
 			<img src={restaurant.cardImage} alt={`${restaurantName} Image`} className='restaurant-image' />
@@ -53,7 +49,7 @@ function SpecificRestaurantPage() {
 				<p className='restaurant-name'>{restaurantName}</p>
 				<p className='restaurant-chef-name'>{restaurant.chefName}</p>
 				<div className='is-open'>
-					<img src={clock} className='clock-image' />
+					<img src={clock} className='clock-image' alt='clock' />
 					{restaurant.isOpen ? <p>Open now</p> : <p>Close now</p>}
 				</div>
 			</div>

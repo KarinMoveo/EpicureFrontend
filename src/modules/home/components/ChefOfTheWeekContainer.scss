@@ -2,7 +2,7 @@
     
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 40px;
     
     .chef-of-the-week-summary{
         font-size: 18px;
@@ -41,14 +41,14 @@
             justify-content: center;
         }
 
+        .chef-of-the-week-summary{
+            padding-left: 20px;
+        }
+
         .chef-of-the-week-name-image-summary-container{
             display: flex;
             flex-direction: row;
         
-            .image-overlay-container{
-                width: fit-content;
-                height: fit-content;
-            }
             .chef-of-the-week-summary{
                 width: fit-content;
                 margin: 0;
