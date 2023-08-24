@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
+
+import SpecificDishModal from './SpecificDishModal';
 
 import '../components/SpecificRestaurantPage.scss';
 
@@ -12,15 +14,26 @@ import popularRestaurantsMockData from '../../../mockData/data/popularRestaurant
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
 
 function SpecificRestaurantPage() {
-	type MealType = 'Breakfast' | 'Lanch' | 'Dinner';
+	type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 
-	const mealsCategories: MealType[] = ['Breakfast', 'Lanch', 'Dinner'];
+	const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
+	const [selectedDishIndex, setSelectedDishIndex] = useState<number | null>(null); // For modal display
+
+	const openModal = (index: number) => {
+		setSelectedDishIndex(index);
+	};
+
+	const closeModal = () => {
+		setSelectedDishIndex(null);
+	};
 
 	const handleMealCategoryClick = (mealCategory: MealType) => {
 		setSelectedMealCategory(mealCategory);
 	};
+
+	const isDesktop = window.innerWidth >= 1024; // Using a basic media query
 
 	const { restaurantName } = useParams();
 	const restaurant = popularRestaurantsMockData.find((item) => item.cardName === restaurantName);
@@ -28,6 +41,10 @@ function SpecificRestaurantPage() {
 	if (!restaurant) {
 		return <div>Restaurant not found</div>;
 	}
+
+	// const handleDishClick = (index: number) => {
+	// 	setSelectedDish(index);
+	// };
 
 	return (
 		<div className='specific-restaurant-page-container'>
@@ -55,13 +72,40 @@ function SpecificRestaurantPage() {
 			</div>
 			<div className='dishes-container'>
 				{signatureDishesMockData.map((dish, index) => (
-					<Card key={index} cardImage={dish.cardImage} cardName={dish.cardName}>
-						<p>{dish.description}</p>
-						<img src={dish.icon} alt='icon' />
-						<p>{dish.price}</p>
-					</Card>
+					<div key={index} className='card-link'>
+						{isDesktop ? ( // Desktop: Show modal
+							<div onClick={() => openModal(index)}>
+								<Card cardImage={dish.cardImage} cardName={dish.cardName}>
+									<p>{dish.ingredients}</p>
+									<img src={dish.icon} alt='icon' />
+									<p>{dish.price}</p>
+								</Card>
+							</div>
+						) : (
+							// Mobile: Navigate to SpecificDishPage
+							<NavLink
+								to={`/restaurants/${restaurantName}/${dish.cardName}`}
+								state={{
+									dishName: dish.cardName,
+									dishImage: dish.cardImage,
+									dishIngredients: dish.ingredients,
+								}}
+								className='card-link'
+								key={index}
+							>
+								<Card cardImage={dish.cardImage} cardName={dish.cardName}>
+									<p>{dish.ingredients}</p>
+									<img src={dish.icon} alt='icon' />
+									<p>{dish.price}</p>
+								</Card>
+							</NavLink>
+						)}
+					</div>
 				))}
 			</div>
+			{isDesktop && selectedDishIndex !== null && (
+				<SpecificDishModal dish={signatureDishesMockData[selectedDishIndex]} onClose={closeModal} />
+			)}{' '}
 		</div>
 	);
 }

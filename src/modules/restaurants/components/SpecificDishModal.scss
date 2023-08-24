@@ -1,0 +1,62 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      max-width: 90%;
+      width: 30vw;
+      margin: -100px;
+
+      .close{
+        cursor: pointer;
+        position: relative;
+        top: -870px; 
+        right: 15vw;
+        
+     }
+  
+      .dish-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+  
+        .dish-content-container {
+          align-items: center;
+          justify-content: center;
+  
+          .dish-description,
+          .quantity-container,
+          .title-with-underline {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+  
+        .dish-image {
+          width: fit-content;
+        }
+
+        .add-to-cart-image{
+            cursor: pointer;
+        }
+      }
+    }
+  }
+  
