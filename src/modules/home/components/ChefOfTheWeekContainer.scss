@@ -62,6 +62,11 @@
         color: black;
     }
 
+    .chef-of-the-week-resturants-cards-display{
+       gap: 10px;
+
+    }
+
     /* Media Query for Desktop */
   @media (min-width: 768px) {
 
@@ -92,7 +97,7 @@
         .chef-of-the-week-resturants-cards-display{
             display: flex;
             flex-direction: row;
-
+            flex-wrap: wrap;
         }
     }
 

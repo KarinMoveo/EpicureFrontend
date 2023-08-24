@@ -23,6 +23,8 @@ const signatureDishesMockData = [
     icon: vegan,
     price: '₪65'
   },
+
+
 ];
   
  export default signatureDishesMockData;

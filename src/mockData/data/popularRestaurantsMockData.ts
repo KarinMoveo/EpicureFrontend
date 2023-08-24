@@ -6,20 +6,24 @@ const popularRestaurantsMockData = [
       cardImage: claro,
       cardName: 'Claro',
       chefName: 'Yossi Shitrit',
-      ratingImage: fourStars
+      ratingImage: fourStars,
+      isOpen: true,
     },
     {
       cardImage: lumina,
       cardName: 'Lumina',
       chefName: 'Meir Adoni',
-      ratingImage: fourStars
+      ratingImage: fourStars,
+      isOpen: true,
     },
     {
       cardImage: tigerLilly,
       cardName: 'Tiger Lilly',
       chefName: 'Yanir Green',
-      ratingImage: fourStars
+      ratingImage: fourStars,
+      isOpen: true,
     },
+
   ];
   
  export default popularRestaurantsMockData;

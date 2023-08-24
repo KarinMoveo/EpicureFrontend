@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
@@ -21,13 +21,13 @@ function SignatureDishesContainer() {
 					</Card>
 				))}
 			</div>
-			<Link to='./restaurants' className='all-restaurants'>
+			<NavLink to='./restaurants' className='all-restaurants'>
 				{' '}
 				All Restaurants
 				<span className='see-more-icon'>
 					<img src={seeMoreIcon} alt='See More Icon' />
 				</span>
-			</Link>
+			</NavLink>
 		</div>
 	);
 }
