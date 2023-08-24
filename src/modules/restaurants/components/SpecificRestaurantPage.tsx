@@ -31,7 +31,6 @@ function SpecificRestaurantPage() {
       isOpen: true,
       rating: twoStars,
     },
-    // ... add other restaurant data
   ];
 
   type MealType = "Breakfast" | "Lanch" | "Dinner";

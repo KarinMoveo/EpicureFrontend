@@ -1,32 +1,45 @@
-import { Link } from 'react-router-dom';
-import xIcon from "../assets/icons/x.svg";
-import "./BurgerMenu.scss";
+import { NavLink } from 'react-router-dom';
+
+import xIcon from '../assets/icons/x.svg';
+
+import './BurgerMenu.scss';
+
+interface NavigationItem {
+	to: string;
+	text: string;
+}
+
+const navigationItems: NavigationItem[] = [
+	{ to: '/restaurants', text: 'Restaurants' },
+	{ to: '/chefs', text: 'Chefs' },
+	{ to: '/', text: 'Contact Us' },
+	{ to: '/', text: 'Term Of Use' },
+	{ to: '/', text: 'Privacy Policy' },
+];
 
 interface BurgerMenuProps {
-    onCloseMenu: () => void;
-  }
+	onCloseMenu: () => void;
+}
 
-function BurgerMenu({ onCloseMenu }: BurgerMenuProps){
+function BurgerMenu({ onCloseMenu }: BurgerMenuProps) {
+	const handleXClick = () => {
+		onCloseMenu();
+	};
 
-    const handleXClick = () => {
-        onCloseMenu(); 
-    };
+	const isActiveClass = ({ isActive }: { isActive: boolean }) => {
+		return isActive ? 'active' : 'burger-menu-item-name';
+	};
 
-    return(
-    <nav className="burger-menu-container">
-        <img 
-            className="x-icon" 
-            src={xIcon} alt="x icon"
-            onClick={handleXClick}
-        />
-        <Link to="./restaurants" className="burger-menu-item-name">Restaurants</Link>
-        <Link to="./chefs" className="burger-menu-item-name">Chefs</Link>
-        <hr className="dividing-line"/>
-        <Link to="./" className="burger-menu-item-name">Contact Us</Link>
-        <Link to="./" className="burger-menu-item-name">Term Of Use</Link>
-        <Link to="./" className="burger-menu-item-name">Privacy Policy</Link>
-    </nav>
-    );
+	return (
+		<nav className='burger-menu-container'>
+			<img className='x-icon' src={xIcon} alt='x icon' onClick={handleXClick} />
+			{navigationItems.map((item, index) => (
+				<NavLink key={index} to={item.to} className={isActiveClass}>
+					{item.text}
+				</NavLink>
+			))}
+		</nav>
+	);
 }
 
 export default BurgerMenu;

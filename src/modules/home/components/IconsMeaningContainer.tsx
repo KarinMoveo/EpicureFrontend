@@ -1,20 +1,20 @@
-import IconMeaningItem from "./IconMeaningItem";
-import spicyIcon from "../assets/icons/spicy.svg";
-import vegitarianIcon from "../assets/icons/vegitarian.svg";
-import veganIcon from "../assets/icons/vegan.svg";
-import "../components/IconsMeaningContainer.scss"
+import IconMeaningItem from './IconMeaningItem';
 
-function IconsMeaningContainer(){
-    return(
-        <div className="icons-meaning-container">
-            <p className="icons-meaning-title">THE MEANING OF OUR ICONS: </p>
-            <div className="icons-meaning-row-desktop">
-                <IconMeaningItem iconMeaningItemImgae={spicyIcon} iconMeaningItemName="Spicy" />
-                <IconMeaningItem iconMeaningItemImgae={vegitarianIcon} iconMeaningItemName="Vegitarian" />
-                <IconMeaningItem iconMeaningItemImgae={veganIcon} iconMeaningItemName="Vegan" />
-            </div>
-        </div>
-    );
+import { spicy, vegan, vegitarian } from '../assets/icons/index';
+
+import '../components/IconsMeaningContainer.scss';
+
+function IconsMeaningContainer() {
+	return (
+		<div className='icons-meaning-container'>
+			<p className='icons-meaning-title'>THE MEANING OF OUR ICONS: </p>
+			<div className='icons-meaning-row-desktop'>
+				<IconMeaningItem iconMeaningItemImgae={spicy} iconMeaningItemName='Spicy' />
+				<IconMeaningItem iconMeaningItemImgae={vegitarian} iconMeaningItemName='Vegitarian' />
+				<IconMeaningItem iconMeaningItemImgae={vegan} iconMeaningItemName='Vegan' />
+			</div>
+		</div>
+	);
 }
 
 export default IconsMeaningContainer;
