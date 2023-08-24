@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
-import claroImage from '../assets/images/restaurants/claro.png';
-import spicyIcon from '../assets/icons/spicy.svg';
+import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
+
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/SignatureDishesContainer.scss';
@@ -13,23 +13,13 @@ function SignatureDishesContainer() {
 		<div className='signature-dishes-container'>
 			<p className='signature-dishes-title'>SIGNATURE DISH OF:</p>
 			<div className='signature-dishes-cards-display'>
-				<Card cardImage={claroImage} cardName='Pad Ki Mao'>
-					<p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-					<img src={spicyIcon} alt='spicy icon' />
-					<p>₪88</p>
-				</Card>
-
-				<Card cardImage={claroImage} cardName='Pad Ki Mao'>
-					<p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-					<img src={spicyIcon} alt='spicy icon' />
-					<p>₪88</p>
-				</Card>
-
-				<Card cardImage={claroImage} cardName='Pad Ki Mao'>
-					<p>Shrimps, Glass, Noodles, Kemiri Nuts, Shallots, Lemon Grass, Magic, Chilli Brown Coconut</p>
-					<img src={spicyIcon} alt='spicy icon' />
-					<p>₪88</p>
-				</Card>
+				{signatureDishesMockData.map((dish, index) => (
+					<Card key={index} cardImage={dish.cardImage} cardName={dish.cardName}>
+						<p>{dish.description}</p>
+						<img src={dish.icon} alt='icon' />
+						<p>{dish.price}</p>
+					</Card>
+				))}
 			</div>
 			<Link to='./restaurants' className='all-restaurants'>
 				{' '}

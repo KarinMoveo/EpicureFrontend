@@ -2,7 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
-import onza from '../assets/images/restaurants/onza.png';
+import chefOfTheWeekRestaurantsMockData from '../../../mockData/data/chefOfTheWeekRestaurantsMockData';
+
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/ChefOfTheWeekContainer.scss';
@@ -34,8 +35,11 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 			<div className='restaurants-container'>
 				<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
 				<div className='chef-of-the-week-resturants-cards-display'>
-					{['onza', 'onza', 'onza'].map((restaurant, index) => (
-						<Card cardImage={onza} cardName='Onza' />
+					{chefOfTheWeekRestaurantsMockData.map((chefOfTheWeekRestaurant, index) => (
+						<Card
+							cardImage={chefOfTheWeekRestaurant.cardImage}
+							cardName={chefOfTheWeekRestaurant.cardName}
+						/>
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>
