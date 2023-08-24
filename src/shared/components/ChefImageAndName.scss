@@ -1,0 +1,33 @@
+.image-overlay-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.chef-of-the-week-image {
+    width: 100%;
+}
+
+.chef-of-the-week-title {
+    font-size: 18px;
+    line-height: 35px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+}
+
+.overlay-name {
+    position: absolute;
+    bottom: 0;
+    left: 0; /* Adjusted to start from the left edge */
+    background-color: rgba(216, 210, 210, 0.8);
+    padding: 15px; /* Adjust padding as needed */
+    box-sizing: border-box;
+    text-align: center;
+    width: 100%; /* Set width to 100% to match image width */
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 2.67px;
+    margin: 0;
+}
