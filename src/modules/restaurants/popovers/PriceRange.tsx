@@ -1,16 +1,15 @@
-import Modal from './Modal';
+import Popover from '../../../shared/components/Popover';
 
-import '../modals/Modal.scss';
-import '../modals/PriceRange.scss';
+import './PriceRange.scss';
 
-function PriceRange() {
+function PriceRange(props: any) {
 	return (
-		<Modal>
+		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
 			<div className='price-range-content'>
 				<p className='price-range-title'>Price Range Selected</p>
 				<input className='price-range-user-input' type='range' min='12' max='357' step='1' />
 			</div>
-		</Modal>
+		</Popover>
 	);
 }
 

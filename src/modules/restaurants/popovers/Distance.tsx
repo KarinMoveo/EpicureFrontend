@@ -1,16 +1,15 @@
-import Modal from './Modal';
+import Popover from '../../../shared/components/Popover';
 
-import '../modals/Modal.scss';
-import '../modals/Distance.scss';
+import './Distance.scss';
 
-function Distance() {
+function Distance(props: any) {
 	return (
-		<Modal>
+		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
 			<div className='distance-content'>
 				<p className='distance-title'>My location</p>
 				<input className='distance-user-input-range' type='range' min='0' max='4' step='1' />
 			</div>
-		</Modal>
+		</Popover>
 	);
 }
 

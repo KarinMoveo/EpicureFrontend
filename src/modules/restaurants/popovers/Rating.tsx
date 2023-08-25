@@ -1,11 +1,10 @@
-import Modal from './Modal';
+import Popover from '../../../shared/components/Popover';
 
 import Stars from '../assets/images/rating/Stars';
 
-import './Modal.scss';
 import './Rating.scss';
 
-function Rating() {
+function Rating(props: any) {
 	const maxRating = 5;
 	const ratingElements = [];
 
@@ -19,9 +18,9 @@ function Rating() {
 	}
 
 	return (
-		<Modal>
+		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
 			<div className='rating-content'>{ratingElements}</div>
-		</Modal>
+		</Popover>
 	);
 }
 

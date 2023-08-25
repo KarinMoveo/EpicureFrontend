@@ -16,7 +16,7 @@ function SpecificDishModal(props: any) {
 	const { dish } = props;
 
 	return ReactDOM.createPortal(
-		<div className='modal-overlay'>
+		<div className='specific-dish-modal'>
 			<div className='modal-content'>
 				<DishContent dishName={dish.cardName} dishImage={dish.cardImage} dishIngredients={dish.ingredients} />
 				<img src={xIcon} className='close' alt='close' onClick={props.onClose} />
