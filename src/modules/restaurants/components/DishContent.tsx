@@ -42,7 +42,7 @@ function DishContent({ dishName, dishImage, dishIngredients }: DishContentProps)
 					</label>
 					<p className='title-with-underline'>Changes</p>
 					<label className='rounded-checkbox'>
-						<input type='checkbox' /> Whithout peanuts
+						<input type='checkbox' /> Without peanuts
 					</label>
 					<label className='rounded-checkbox'>
 						<input type='checkbox' /> Sticky Less spicy

@@ -1,9 +1,11 @@
 .row-filter{
+    
     display: flex;
     flex-direction: row;
     background-color: #FAFAFA;
     align-items: center;
     justify-content: center;
+    padding: 10px;
 
     .filter-item{
         padding-right: 30px;
@@ -18,10 +20,7 @@
 
  /* Media Query for mobile */
  @media (max-width: 767px) {
-
-
   .row-filter{
       display: none;
   }
-
 }
