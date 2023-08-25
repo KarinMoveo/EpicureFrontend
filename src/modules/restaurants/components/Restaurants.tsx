@@ -23,7 +23,7 @@ function Restaurants() {
 
 	return (
 		<div className='restaurants-page-container'>
-			<div className='restaurents-title-and-categories'>
+			<div className='restaurants-title-categories-filters-container'>
 				<h1 className='restaurant-page-title'>RESTAURANTS</h1>
 				<Categories selectedCategory={selectedCategory} onClick={handleCategorySelect} />
 				<Filters />

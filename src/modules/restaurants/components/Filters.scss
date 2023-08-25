@@ -1,9 +1,27 @@
-
-
-.filter-item{
+.row-filter{
     display: flex;
-    justify-content: center;
-    align-items: center;  
+    flex-direction: row;
     background-color: #FAFAFA;
-    border: none;
+    align-items: center;
+    justify-content: center;
+
+    .filter-item{
+        padding-right: 30px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;  
+        background-color: #FAFAFA;
+        border: none;
+    }
+}
+
+ /* Media Query for mobile */
+ @media (max-width: 767px) {
+
+
+  .row-filter{
+      display: none;
+  }
+
 }

@@ -6,34 +6,6 @@
         font-size: 20px;
     }
 
-    .restaurants-categories-container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-
-        .restaurant-category-item{
-            cursor: pointer;
-        }
-        .selected-map-view {
-            font-weight: bold;
-        }
-    }
-
-    .row-filter{
-        display: flex;
-        flex-direction: row;
-        background-color: #FAFAFA;
-        align-items: center;
-        justify-content: center;
-
-        .filter-item{
-            padding-right: 30px;
-            display: flex;
-            cursor: pointer;
-        }
-
-    }
-
     .restaurants-list{
         display: flex;
         flex-direction: row;
@@ -45,32 +17,13 @@
         text-decoration: none;
     }
 
-     /* Media Query for desktop */
+ /* Media Query for desktop */
   @media (min-width: 767px) {
 
 
     .restaurant-page-title {
       display: none;
     }
-
-    .restaurants-categories-container{
-        justify-content: center;
-    }
-
-    .restaurant-category-item{
-
-        padding-right: 80px;
-
-        &.category-item-selected {
-            font-weight: bold;
-        }
-
-    }
-
-    .filter-item-selected{
-        background-color: #D0CFCF;
-    }
-
 
     .restaurants-list{
         margin-left: 60px;
@@ -84,20 +37,9 @@
    /* Media Query for mobile */
    @media (max-width: 767px) {
 
-    .restaurents-title-and-categories{
+    .restaurants-title-categories-filters-container{
         padding-left: 10px;
         padding-right: 10px;
-    }
-
-    .restaurant-category-item{
-
-        padding-right: 20px;
-        &.category-item-selected {
-            text-decoration: underline;
-            text-decoration-color: #DE9200E5;
-            text-decoration-thickness: 2px; 
-            text-underline-offset: 5px; 
-        }
     }
     
     .restaurants-list{
@@ -109,9 +51,6 @@
         display: none;
     }
 
-    .row-filter{
-        display: none;
-    }
     .modals-container{
         display: none;
     }
