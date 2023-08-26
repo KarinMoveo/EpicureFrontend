@@ -6,14 +6,13 @@ import BurgerMenu from './BurgerMenu';
 import SearchModal from './SearchModal';
 import SignIn from '../modals/SignIn';
 
-import { accountIcon, burgerMenuIcon, logoIcon, shopingBagIcon } from '../assets/icons/index';
+import { accountIcon, burgerMenuIcon, logoIcon, shoppingBagIcon } from '../assets/icons/index';
 
 import searchIcon from '../../../shared/assets/icons/search.svg';
 
 import HeaderIcon from './HeaderIcon';
 
 import './Header.scss';
-import { Sign } from 'crypto';
 
 type openedModalType = 'search' | 'account' | 'shoppingBag' | 'burgerMenu' | '' | null;
 
@@ -62,7 +61,11 @@ function Header() {
 					<div className='right-icons-items-container'>
 						<HeaderIcon src={searchIcon} alt='search' onClick={() => toggleModal('search')} />
 						<HeaderIcon src={accountIcon} alt='account' onClick={() => toggleModal('account')} />
-						<HeaderIcon src={shopingBagIcon} alt='shoppingBag' onClick={() => toggleModal('shoppingBag')} />
+						<HeaderIcon
+							src={shoppingBagIcon}
+							alt='shoppingBag'
+							onClick={() => toggleModal('shoppingBag')}
+						/>
 					</div>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
 import SpecificDishModal from './SpecificDishModal';
 
@@ -13,29 +13,39 @@ import popularRestaurantsMockData from '../../../mockData/data/popularRestaurant
 
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
 
+type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
+const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
+
 function SpecificRestaurantPage() {
-	type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
-
-	const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
-
+	const navigate = useNavigate();
+	const { restaurantName } = useParams();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
-	const [selectedDishIndex, setSelectedDishIndex] = useState<number | null>(null); // For modal display
-
-	const openModal = (index: number) => {
-		setSelectedDishIndex(index);
-	};
+	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
 
 	const closeModal = () => {
-		setSelectedDishIndex(null);
+		setSelectedDishModal(null);
 	};
 
 	const handleMealCategoryClick = (mealCategory: MealType) => {
 		setSelectedMealCategory(mealCategory);
 	};
 
-	const isDesktop = window.innerWidth >= 1024; // Using a basic media query
+	const handleOnDishClick = (dish: any) => {
+		const isDesktop = window.innerWidth >= 1024;
 
-	const { restaurantName } = useParams();
+		if (isDesktop) {
+			setSelectedDishModal(dish);
+		} else {
+			navigate(`/restaurants/${restaurantName}/${dish.cardName}`, {
+				state: {
+					dishName: dish.cardName,
+					dishImage: dish.cardImage,
+					dishIngredients: dish.ingredients,
+				},
+			});
+		}
+	};
+
 	const restaurant = popularRestaurantsMockData.find((item) => item.cardName === restaurantName);
 
 	if (!restaurant) {
@@ -44,7 +54,7 @@ function SpecificRestaurantPage() {
 
 	return (
 		<div className='specific-restaurant-page-container'>
-			<img src={restaurant.cardImage} alt={`${restaurantName} Image`} className='restaurant-image' />
+			<img src={restaurant.cardImage} alt='Restaurant' className='restaurant-image' />
 			<div className='restaurant-details'>
 				<p className='restaurant-name'>{restaurantName}</p>
 				<p className='restaurant-chef-name'>{restaurant.chefName}</p>
@@ -67,41 +77,19 @@ function SpecificRestaurantPage() {
 				))}
 			</div>
 			<div className='dishes-container'>
-				{signatureDishesMockData.map((dish, index) => (
-					<div key={index} className='card-link'>
-						{isDesktop ? ( // Desktop: Show modal
-							<div onClick={() => openModal(index)}>
-								<Card cardImage={dish.cardImage} cardName={dish.cardName}>
-									<p>{dish.ingredients}</p>
-									<img src={dish.icon} alt='icon' />
-									<p>{dish.price}</p>
-								</Card>
-							</div>
-						) : (
-							// Mobile: Navigate to SpecificDishPage
-							<NavLink
-								to={`/restaurants/${restaurantName}/${dish.cardName}`}
-								state={{
-									dishName: dish.cardName,
-									dishImage: dish.cardImage,
-									dishIngredients: dish.ingredients,
-								}}
-								className='card-link'
-								key={index}
-							>
-								<Card cardImage={dish.cardImage} cardName={dish.cardName}>
-									<p>{dish.ingredients}</p>
-									<img src={dish.icon} alt='icon' />
-									<p>{dish.price}</p>
-								</Card>
-							</NavLink>
-						)}
+				{signatureDishesMockData.map((dish) => (
+					<div key={dish.cardName} className='card-link'>
+						<div onClick={() => handleOnDishClick(dish)}>
+							<Card cardImage={dish.cardImage} cardName={dish.cardName}>
+								<p>{dish.ingredients}</p>
+								<img src={dish.icon} alt='icon' />
+								<p>{dish.price}</p>
+							</Card>
+						</div>
 					</div>
 				))}
 			</div>
-			{isDesktop && selectedDishIndex !== null && (
-				<SpecificDishModal dish={signatureDishesMockData[selectedDishIndex]} onClose={closeModal} />
-			)}{' '}
+			{selectedDishModal && <SpecificDishModal dish={selectedDishModal} onClose={closeModal} />}
 		</div>
 	);
 }

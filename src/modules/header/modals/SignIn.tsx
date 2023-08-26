@@ -1,6 +1,4 @@
-import ReactDOM from 'react-dom';
-
-import xIcon from '../../../shared/assets/icons/x.svg';
+import Modal from '../../../shared/components/Modal';
 
 import './SignIn.scss';
 
@@ -8,16 +6,11 @@ interface SignInModalProps {
 	onClose: () => void;
 }
 
+// const isDesktop = window.innerWidth >= 1024;
+
 function SignIn({ onClose }: SignInModalProps) {
-	const portalElement = document.getElementById('portal');
-
-	if (!portalElement) {
-		return null;
-	}
-
-	const signInForm = (
-		<div className='sign-in-modal-overlay'>
-			<img className='x-icon' src={xIcon} alt='close' onClick={onClose} />
+	return (
+		<Modal onClose={onClose}>
 			<div className='sign-in-modal-content'>
 				<p className='sign-in-title'>SIGN IN</p>
 				<p className='sign-in-description'>To continue the order, please sign in</p>
@@ -27,7 +20,7 @@ function SignIn({ onClose }: SignInModalProps) {
 						type='email'
 						id='email'
 						name='email'
-						placeholder='Email adress'
+						placeholder='Email address'
 						required
 					/>
 					<br />
@@ -51,10 +44,8 @@ function SignIn({ onClose }: SignInModalProps) {
 					<button className='sign-up-button'>SIGN UP</button>
 				</form>
 			</div>
-		</div>
+		</Modal>
 	);
-
-	return ReactDOM.createPortal(signInForm, portalElement);
 }
 
 export default SignIn;

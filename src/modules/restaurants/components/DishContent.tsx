@@ -28,7 +28,7 @@ function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice
 
 	return (
 		<div className='dish-container'>
-			<img src={dishImage} alt={`${dishName} Image`} className='dish-image' />
+			<img src={dishImage} alt='Dish' className='dish-image' />
 			<div className='dish-content-container'>
 				<div className='dish-description'>
 					<p className='dish-name'>{dishName}</p>

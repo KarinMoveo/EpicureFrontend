@@ -1,6 +1,7 @@
 import {garbanzoFrito, padKiMao, smokedPizza} from "../assets/dishes/index";
 import {spicy, vegan, vegetarian} from '../assets/dishesIcons/index';
 
+
 const signatureDishesMockData = [
   {
     cardImage: padKiMao,
