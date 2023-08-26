@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import BagModal from './BagModal';
-import BurgerMenu from './BurgerMenu';
-import SearchModal from './SearchModal';
+import BagModal from '../modals/BagModal';
+import BurgerMenu from '../modals/BurgerMenuModal';
+import SearchModal from '../modals/SearchModal';
 import SignIn from '../modals/SignIn';
 
 import { accountIcon, burgerMenuIcon, logoIcon, shoppingBagIcon } from '../assets/icons/index';
@@ -71,7 +71,7 @@ function Header() {
 			</div>
 			{openedModal === 'burgerMenu' && <BurgerMenu onCloseMenu={() => setOpenedModal(null)} />}
 			{openedModal === 'search' && <SearchModal onClose={() => setOpenedModal(null)} onSearch={handleSearch} />}
-			{openedModal === 'shoppingBag' && <BagModal />}
+			{openedModal === 'shoppingBag' && <BagModal onClose={() => setOpenedModal(null)} />}
 			{openedModal === 'account' && <SignIn onClose={() => setOpenedModal(null)} />}
 		</nav>
 	);

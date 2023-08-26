@@ -2,7 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 import xIcon from '../assets/icons/x.svg';
 
-import './BurgerMenu.scss';
+import './BurgerMenuModal.scss';
+import Modal from '../../../shared/components/Modal';
 
 interface NavigationItem {
 	to: string;
@@ -31,14 +32,16 @@ function BurgerMenu({ onCloseMenu }: BurgerMenuProps) {
 	};
 
 	return (
-		<nav className='burger-menu-container'>
-			<img className='x-icon' src={xIcon} alt='x icon' onClick={handleXClick} />
-			{navigationItems.map((item, index) => (
-				<NavLink key={index} to={item.to} className={isActiveClass}>
-					{item.text}
-				</NavLink>
-			))}
-		</nav>
+		<Modal onClose={handleXClick}>
+			<nav className='burger-menu-container'>
+				<img className='x-icon' src={xIcon} alt='x icon' onClick={handleXClick} />
+				{navigationItems.map((item, index) => (
+					<NavLink key={index} to={item.to} className={isActiveClass}>
+						{item.text}
+					</NavLink>
+				))}
+			</nav>
+		</Modal>
 	);
 }
 

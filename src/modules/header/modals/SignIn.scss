@@ -3,6 +3,9 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	background-color: white;
+	position: fixed;
+
 }
 
 .sign-in-form {
@@ -33,10 +36,38 @@
 		padding: 10px;
 	}
 }
+
+/* Media Query for mobile */
+@media (max-width: 767px) {
+	.top-sign-in-modal-content {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 60vh;
+	}
+	.close-modal-button {
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+	}
+}
 /* Media Query for desktop */
 @media (min-width: 767px) {
-	.sign-in-modal-content {
-		height: 70vh;
-		width: 30vw;
+	.centered-sign-in-modal-content {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.close-modal-button {
+		position: absolute;
+		background-color: transparent;
+		filter: invert(1);
+		border: none;
+		cursor: pointer;
+		top: -25px;
+		left: 0;
 	}
 }

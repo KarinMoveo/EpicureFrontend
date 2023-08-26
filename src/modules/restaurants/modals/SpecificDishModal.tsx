@@ -1,5 +1,7 @@
-import DishContent from './DishContent';
+import DishContent from '../components/DishContent';
 import Modal from '../../../shared/components/Modal';
+
+import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SpecificDishModal.scss';
 
@@ -14,6 +16,9 @@ function SpecificDishModal(props: SpecificDishModalProps) {
 	return (
 		<Modal onClose={props.onClose}>
 			<div className='specific-dish-modal-container'>
+				<button className='close-modal-button' onClick={props.onClose}>
+					<img src={closeIcon} alt='close' />
+				</button>
 				<DishContent
 					dishName={dish.cardName}
 					dishImage={dish.cardImage}

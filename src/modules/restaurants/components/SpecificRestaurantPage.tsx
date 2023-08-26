@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, useNavigate, useParams } from 'react-router-dom';
 
-import SpecificDishModal from './SpecificDishModal';
+import SpecificDishModal from '../modals/SpecificDishModal';
 
 import '../components/SpecificRestaurantPage.scss';
 

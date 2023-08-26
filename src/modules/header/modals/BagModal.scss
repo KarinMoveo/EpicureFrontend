@@ -1,0 +1,45 @@
+.bag-modal-content {
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+  position: fixed;
+
+	.shopping-bag-image {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+
+/* Media Query for Desktop */
+@media (min-width: 768px) {
+
+  .top-right-bag-modal-content{
+    
+    top: 50px;
+    right: 0;
+    width: 400px;
+    height: 400px;
+
+    .order-history-desktop {
+      border: 1px solid black;
+      padding: 20px;
+  }
+
+	}
+}
+/* Media Query for Mobile */
+@media (max-width: 767px) {
+	.top-bag-modal-content {
+		width: 100%;
+		height: 35vh;
+		top: -20px;
+    .order-history-desktop {
+      display: none;
+    }
+	}
+
+}

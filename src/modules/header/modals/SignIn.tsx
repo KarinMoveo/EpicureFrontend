@@ -1,17 +1,26 @@
 import Modal from '../../../shared/components/Modal';
 
+import closeIcon from '../../../shared/assets/icons/x.svg';
+
 import './SignIn.scss';
 
 interface SignInModalProps {
 	onClose: () => void;
 }
 
-// const isDesktop = window.innerWidth >= 1024;
+const isDesktop = window.innerWidth >= 1024;
 
 function SignIn({ onClose }: SignInModalProps) {
 	return (
 		<Modal onClose={onClose}>
-			<div className='sign-in-modal-content'>
+			<div
+				className={`sign-in-modal-content ${
+					isDesktop ? 'centered-sign-in-modal-content' : 'top-sign-in-modal-content'
+				}`}
+			>
+				<button className='close-modal-button' onClick={onClose}>
+					<img src={closeIcon} alt='close' />
+				</button>
 				<p className='sign-in-title'>SIGN IN</p>
 				<p className='sign-in-description'>To continue the order, please sign in</p>
 				<form action='/login' method='post' className='sign-in-form'>
