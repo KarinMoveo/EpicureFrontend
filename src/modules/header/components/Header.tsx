@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import BagModal from '../modals/BagModal';
 import BurgerMenu from '../modals/BurgerMenuModal';
 import SearchModal from '../modals/SearchModal';
-import SignIn from '../modals/SignIn';
+import SignIn from '../modals/SignInModal';
 
 import { accountIcon, burgerMenuIcon, logoIcon, shoppingBagIcon } from '../assets/icons/index';
 

@@ -2,7 +2,7 @@ import Modal from '../../../shared/components/Modal';
 
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
-import './SignIn.scss';
+import './SignInModal.scss';
 
 interface SignInModalProps {
 	onClose: () => void;
