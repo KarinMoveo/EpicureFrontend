@@ -1,5 +1,6 @@
 .search-container {
-    background: url("../assets/images/others/mainPageImage.png") center;
+    background: url("../assets/images/others/mainPageImage.png") no-repeat;
+    background-size: cover;
     width: 100%;
     height: 40vh;
     object-fit: cover;

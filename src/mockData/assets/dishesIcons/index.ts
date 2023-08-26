@@ -1,5 +1,5 @@
 import spicy from "./spicy.svg";
 import vegan from "./vegan.svg";
-import vegitarian from "./vegitarian.svg";
+import vegetarian from "./vegetarian.svg";
 
-export {spicy, vegan, vegitarian};
+export {spicy, vegan, vegetarian};

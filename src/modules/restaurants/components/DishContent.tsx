@@ -8,9 +8,11 @@ interface DishContentProps {
 	dishName: string;
 	dishImage: string;
 	dishIngredients: string;
+	dishIcon?: string;
+	dishPrice?: string;
 }
 
-function DishContent({ dishName, dishImage, dishIngredients }: DishContentProps) {
+function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice }: DishContentProps) {
 	const [quantity, setQuantity] = useState(1);
 
 	function decrementQuantity() {
@@ -31,6 +33,8 @@ function DishContent({ dishName, dishImage, dishIngredients }: DishContentProps)
 				<div className='dish-description'>
 					<p className='dish-name'>{dishName}</p>
 					<p className='dish-ingredients'>{dishIngredients}</p>
+					<img className='dish-icon' src={dishIcon} alt='dish icon' />
+					<p className='dish-price'>{dishPrice}</p>
 				</div>
 				<div className='checkbox-content-container'>
 					<p className='title-with-underline'>Choose a side</p>
