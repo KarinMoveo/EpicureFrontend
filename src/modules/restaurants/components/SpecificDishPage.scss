@@ -3,7 +3,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-
+    
     .title-with-underline{
         text-decoration: underline;
         text-decoration-color: #DE9200E5;
@@ -15,6 +15,8 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        
     }
 
     .quantity-container{

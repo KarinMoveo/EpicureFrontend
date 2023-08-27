@@ -5,6 +5,7 @@ import OrderItem from '../../../shared/components/OrderItem';
 
 import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
 import checkoutButton from '../../../shared/assets/images/checkout.svg';
+import orderHistory from '../../../shared/assets/images/orderHistory.svg';
 
 import RootState from '../../../redux/types';
 
@@ -25,11 +26,10 @@ function BagModal({ onClose }: BagModalProps) {
 		<Modal onClose={onClose}>
 			<div className={`bag-modal-content ${isDesktop ? 'top-right-bag-modal-content' : 'top-bag-modal-content'}`}>
 				{cartItems.length === 0 ? (
-					<>
+					<div className='empty-bag-container'>
 						<img src={shoppingBagIcon} alt='Shopping Bag Icon' className='shopping-bag-image' />
 						<p className='bag-content-text'>YOUR BAG IS EMPTY</p>
-						<p className='order-history-desktop'>ORDER HISTORY</p>
-					</>
+					</div>
 				) : (
 					<>
 						<p>MY ORDER</p>
@@ -38,19 +38,24 @@ function BagModal({ onClose }: BagModalProps) {
 							<OrderItem
 								key={cartItem.orderItemName}
 								orderItemName={cartItem.orderItemName}
-								orderItemAmount='3'
-								orderItemChanges='without'
+								orderItemAmount={cartItem.orderItemAmount}
+								orderItemChanges={cartItem.orderItemChanges}
 								orderItemImage={cartItem.orderItemImage}
 								orderItemPrice={cartItem.orderItemPrice}
-								orderItemSide='none'
+								orderItemSide={cartItem.orderItemSide}
 							/>
 						))}
-						<p>TOTAL - {total}₪</p>
-						<button className='checkout-button'>
+						<p className='bag-modal-total-cash-p'>TOTAL - {total}₪</p>
+						<p>Add A Comment</p>
+						<textarea className='bag-modal-textarea' rows={8}></textarea>
+						<button className='bag-modal-button'>
 							<img className='checkout-image' src={checkoutButton} alt='checkout' />
 						</button>
 					</>
 				)}
+				<button className='bag-modal-button order-history-button'>
+					<img className='order-history-image' src={orderHistory} alt='order history' />
+				</button>
 			</div>
 		</Modal>
 	);

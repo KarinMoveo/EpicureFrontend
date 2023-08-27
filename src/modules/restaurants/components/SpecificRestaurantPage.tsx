@@ -46,6 +46,8 @@ function SpecificRestaurantPage() {
 					dishImage: dish.cardImage,
 					dishIngredients: dish.ingredients,
 					dishPrice: dish.price,
+					dishChanges: dish.dishChanges,
+					dishSide: dish.dishSide,
 				},
 			});
 		}

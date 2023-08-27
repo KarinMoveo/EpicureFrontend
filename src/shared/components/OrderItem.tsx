@@ -3,7 +3,7 @@ import './OrderItem.scss';
 interface OrderItemProps {
 	orderItemImage: string;
 	orderItemName: string;
-	orderItemAmount: string;
+	orderItemAmount: number;
 	orderItemPrice: number;
 	orderItemSide: string;
 	orderItemChanges: string;

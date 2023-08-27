@@ -30,16 +30,15 @@
 
     /* Media Query for Desktop */
     @media (min-width: 768px) {
-
+        width: 20vw;
+        height: fit-content;
         
     }
 
     /* Media Query for Mobile */
     @media (max-width: 767px) {
         width: 80vw;
-        height: 14vh;
-        
-    
+        height: fit-content;
     }
   
 }

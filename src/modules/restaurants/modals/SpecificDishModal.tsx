@@ -25,6 +25,8 @@ function SpecificDishModal(props: SpecificDishModalProps) {
 					dishIngredients={dish.ingredients}
 					dishIcon={dish.icon}
 					dishPrice={dish.price}
+					dishChanges={dish.dishChanges}
+					dishSide={dish.dishSide}
 				/>
 			</div>
 		</Modal>

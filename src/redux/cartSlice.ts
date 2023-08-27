@@ -4,7 +4,7 @@ interface CartItem {
     orderItemId: string;
     orderItemImage: string;
 	orderItemName: string;
-	orderItemAmount: string;
+	orderItemAmount: number;
 	orderItemPrice: number;
 	orderItemSide: string;
 	orderItemChanges: string;
@@ -26,11 +26,27 @@ export const cartSlice = createSlice({
             state.restaurantName = action.payload;
         },
         addItem: (state, action: PayloadAction<CartItem>) => {
-            state.cartItems.push(action.payload);
-          },
+            const newItem = action.payload;
+            state.cartItems.push({ ...newItem, orderItemAmount: 1});
+
+        },
+        decrementQuantity: (state, action: PayloadAction<string>) => {
+            const targetItemId = action.payload;
+            const targetItem = state.cartItems.find(item => item.orderItemId === targetItemId);
+            if (targetItem && targetItem.orderItemAmount > 1) {
+                targetItem.orderItemAmount -= 1;
+            }
+        },
+        incrementQuantity: (state, action: PayloadAction<string>) => {
+            const targetItemId = action.payload;
+            const targetItem = state.cartItems.find(item => item.orderItemId === targetItemId);
+            if (targetItem) {
+                targetItem.orderItemAmount += 1;
+            }
+        },
     },
 });
 
-export const {addItem, setRestaurantName} = cartSlice.actions;
+export const { addItem, setRestaurantName, decrementQuantity, incrementQuantity } = cartSlice.actions;
 
 export default cartSlice.reducer;

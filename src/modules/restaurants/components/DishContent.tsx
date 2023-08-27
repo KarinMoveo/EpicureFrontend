@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { addItem } from '../../../redux/cartSlice';
+import { addItem, incrementQuantity, decrementQuantity } from '../../../redux/cartSlice';
+
+import RootState from '../../../redux/types';
 
 import addToCart from '../assets/images/others/addToCart.svg';
 
@@ -13,43 +14,59 @@ interface DishContentProps {
 	dishIngredients: string;
 	dishIcon?: string;
 	dishPrice: number;
+	dishChanges: string;
+	dishSide: string;
 }
 
 interface CartItem {
 	orderItemId: string;
 	orderItemImage: string;
 	orderItemName: string;
-	orderItemAmount: string;
+	orderItemAmount: number;
 	orderItemPrice: number;
 	orderItemSide: string;
 	orderItemChanges: string;
 }
 
-function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice }: DishContentProps) {
-	const [quantity, setQuantity] = useState(1);
-
+function DishContent({
+	dishName,
+	dishImage,
+	dishIngredients,
+	dishIcon,
+	dishPrice,
+	dishChanges,
+	dishSide,
+}: DishContentProps) {
 	const dispatch = useDispatch();
 
-	function decrementQuantity() {
-		if (quantity === 1) {
-			return;
-		}
-		setQuantity((prevValue) => prevValue - 1);
+	const quantity = useSelector((state: RootState) => {
+		const targetItem = state.cart.cartItems.find((item) => item.orderItemId === dishName);
+		return targetItem ? targetItem.orderItemAmount : 0;
+	});
+
+	function decrementQuantityHandler() {
+		dispatch(decrementQuantity(dishName));
 	}
 
-	function incrementQuantity() {
-		setQuantity((prevValue) => prevValue + 1);
+	function incrementQuantityHandler() {
+		dispatch(incrementQuantity(dishName));
 	}
 
 	function addToCartHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		const selectedSideInput = document.querySelector('input[name="dishSide"]:checked') as HTMLInputElement;
+		const selectedSide = selectedSideInput ? selectedSideInput.value : '';
+
+		const selectedChangesInput = document.querySelectorAll<HTMLInputElement>('input[type="checkbox"]:checked');
+		const selectedChanges = Array.from(selectedChangesInput).map((selectedChange) => selectedChange.value);
+
 		const item: CartItem = {
 			orderItemId: dishName,
 			orderItemImage: dishImage,
 			orderItemName: dishName,
-			orderItemAmount: dishIngredients,
-			orderItemPrice: dishPrice || 0,
-			orderItemSide: '',
-			orderItemChanges: '',
+			orderItemAmount: 0,
+			orderItemPrice: dishPrice,
+			orderItemSide: selectedSide || '',
+			orderItemChanges: selectedChanges.join(', ') || '',
 		};
 		dispatch(addItem(item));
 	}
@@ -67,25 +84,26 @@ function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice
 				<div className='checkbox-content-container'>
 					<p className='title-with-underline'>Choose a side</p>
 					<label className='rounded-checkbox'>
-						<input type='checkbox' /> White bread
+						<input type='radio' name='dishSide' value={dishSide[0]} /> {dishSide[0]}
 					</label>
 					<label className='rounded-checkbox'>
-						<input type='checkbox' /> Sticky rice
+						<input type='radio' name='dishSide' value={dishSide[1]} /> {dishSide[1]}
 					</label>
 					<p className='title-with-underline'>Changes</p>
 					<label className='rounded-checkbox'>
-						<input type='checkbox' /> Without peanuts
+						<input type='checkbox' value={dishChanges[0]} /> {dishChanges[0]}
 					</label>
 					<label className='rounded-checkbox'>
-						<input type='checkbox' /> Sticky Less spicy
+						<input type='checkbox' value={dishChanges[1]} /> {dishChanges[1]}
 					</label>
 				</div>
+
 				<div className='quantity-container'>
 					<p className='title-with-underline'>Quantity</p>
 					<div className='quantity-container-buttons'>
-						<button onClick={decrementQuantity}>-</button>
+						<button onClick={decrementQuantityHandler}>-</button>
 						<span>{quantity}</span>
-						<button onClick={incrementQuantity}>+</button>
+						<button onClick={incrementQuantityHandler}>+</button>
 					</div>
 				</div>
 				<button className='add-to-cart-button' onClick={addToCartHandler}>
