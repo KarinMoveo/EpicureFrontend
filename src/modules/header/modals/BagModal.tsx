@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import Modal from '../../../shared/components/Modal';
 import OrderItem from '../../../shared/components/OrderItem';
+import OrderHistory from '../../orders/OrderHistory';
 
 import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
 import checkoutButton from '../../../shared/assets/images/checkout.svg';
@@ -10,6 +11,7 @@ import orderHistory from '../../../shared/assets/images/orderHistory.svg';
 import RootState from '../../../redux/types';
 
 import './BagModal.scss';
+import { NavLink } from 'react-router-dom';
 
 const isDesktop = window.innerWidth >= 1024;
 
@@ -21,6 +23,10 @@ function BagModal({ onClose }: BagModalProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const restaurantName = useSelector((state: RootState) => state.cart.restaurantName);
 	const total = cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+
+	const handleOrderHistoryClick = () => {
+		<OrderHistory />;
+	};
 
 	return (
 		<Modal onClose={onClose}>
@@ -47,15 +53,22 @@ function BagModal({ onClose }: BagModalProps) {
 						))}
 						<p className='bag-modal-total-cash-p'>TOTAL - {total}₪</p>
 						<p>Add A Comment</p>
-						<textarea className='bag-modal-textarea' rows={8}></textarea>
+						<textarea
+							className='bag-modal-textarea'
+							rows={8}
+							placeholder='Special requests, allergies, detary restrictions, etc.'
+						></textarea>
 						<button className='bag-modal-button'>
 							<img className='checkout-image' src={checkoutButton} alt='checkout' />
 						</button>
 					</>
 				)}
-				<button className='bag-modal-button order-history-button'>
-					<img className='order-history-image' src={orderHistory} alt='order history' />
-				</button>
+
+				<NavLink to='/order-history'>
+					<button className='bag-modal-button order-history-button' onClick={handleOrderHistoryClick}>
+						<img className='order-history-image' src={orderHistory} alt='order history' />
+					</button>
+				</NavLink>
 			</div>
 		</Modal>
 	);

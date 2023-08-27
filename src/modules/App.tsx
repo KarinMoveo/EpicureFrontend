@@ -7,6 +7,7 @@ import SpecificDishPage from './restaurants/components/SpecificDishPage';
 import Chefs from './chefs/components/Chefs';
 import Footer from '../modules/footer/components/Footer';
 import './App.scss';
+import OrderHistory from './orders/OrderHistory';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Route path='/restaurants' Component={Restaurants} />
 				<Route path='/restaurants/:restaurantName' element={<SpecificRestaurantPage />} />
 				<Route path='/restaurants/:restaurantName/:dishName' element={<SpecificDishPage />} />
+				<Route path='/order-history' element={<OrderHistory />} />
 				<Route path='/chefs' Component={Chefs} />
 			</Routes>
 			<Footer />
