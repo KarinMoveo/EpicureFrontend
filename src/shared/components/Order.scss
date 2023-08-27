@@ -1,0 +1,29 @@
+.order-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // overflow: auto;
+
+    
+    /* Media Query for Mobile */
+    @media (max-width: 767px) {
+        
+        .order-textarea-container{
+            display: none;
+        }
+    }
+
+     /* Media Query for desktop */
+     @media (min-width: 767px) {
+        
+        .order-textarea-container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+

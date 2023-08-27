@@ -10,7 +10,7 @@ function Card(props: CardProps) {
 	return (
 		<div className='card-container'>
 			<img src={props.cardImage} alt='Card' className='card-image' />
-			<div className='card-text-contant'>
+			<div className='card-text-content'>
 				<p className='card-name'>{props.cardName} </p>
 				{props.children}
 			</div>

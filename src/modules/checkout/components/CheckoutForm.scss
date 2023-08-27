@@ -1,0 +1,39 @@
+.form-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	padding: 20px;
+
+    .checkout-complete-payment-button{
+        border: 1px solid black;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        padding-top: 20px;
+    }
+
+	.checkout-form {
+		.checkout-form-delivery-details-container,
+		.checkout-form-payment-details-container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.checkout-form-input-field {
+			border: none;
+			border-bottom: 1px solid #000;
+			margin-bottom: 15px;
+			background-color: transparent;
+		}
+
+		/* Media Query for mobile */
+		@media (max-width: 768px) {
+			width: 80vw;
+		}
+
+		/* Media Query for desktop */
+		@media (min-width: 768px) {
+		}
+	}
+}
