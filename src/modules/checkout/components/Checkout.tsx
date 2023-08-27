@@ -5,10 +5,21 @@ import pay from '../assets/images/pay.svg';
 
 import './Checkout.scss';
 import CheckoutForm from './CheckoutForm';
+import { useState } from 'react';
+import AfterPayment from '../modals/AfterPayment';
 
 const isDesktop = window.innerWidth >= 1024;
 
 function Checkout() {
+	const [showModal, setShowModal] = useState(false);
+
+	const handlePayClick = () => {
+		setShowModal(true);
+	};
+
+	const handleCloseModal = () => {
+		setShowModal(false);
+	};
 	return (
 		<div className={`checkout-container ${isDesktop ? 'desktop-checkout-container' : 'mobile-checkout-container'}`}>
 			<div className='checkout-content-desktop-row'>
@@ -17,7 +28,7 @@ function Checkout() {
 				</div>
 				<div className='check-out-parent-container'>
 					<Order />
-					<button className='checkout-pay-button'>
+					<button className='checkout-pay-button' onClick={handlePayClick}>
 						<img className='checkout-pay-image' src={pay} alt='pay' />
 					</button>
 				</div>
@@ -27,6 +38,7 @@ function Checkout() {
 					<img className='checkout-complete-payment-image' src={completePayment} alt='complete payment' />
 				</button>
 			</NavLink>
+			{showModal && <AfterPayment onClose={handleCloseModal} />}
 		</div>
 	);
 }

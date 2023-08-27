@@ -1,0 +1,23 @@
+.after-payment-modal-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:white; 
+    width: 20vw; 
+    height: 30vh; 
+
+    .after-payment-modal-close {
+		position: absolute;
+		background-color: transparent;
+		filter: invert(1);
+		border: none;
+		cursor: pointer;
+		top: -25px;
+		left: 0;
+	}
+}
