@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addItem } from '../../../redux/cartSlice';
 
 import addToCart from '../assets/images/others/addToCart.svg';
 
@@ -9,11 +12,23 @@ interface DishContentProps {
 	dishImage: string;
 	dishIngredients: string;
 	dishIcon?: string;
-	dishPrice?: string;
+	dishPrice: number;
+}
+
+interface CartItem {
+	orderItemId: string;
+	orderItemImage: string;
+	orderItemName: string;
+	orderItemAmount: string;
+	orderItemPrice: number;
+	orderItemSide: string;
+	orderItemChanges: string;
 }
 
 function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice }: DishContentProps) {
 	const [quantity, setQuantity] = useState(1);
+
+	const dispatch = useDispatch();
 
 	function decrementQuantity() {
 		if (quantity === 1) {
@@ -24,6 +39,19 @@ function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice
 
 	function incrementQuantity() {
 		setQuantity((prevValue) => prevValue + 1);
+	}
+
+	function addToCartHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+		const item: CartItem = {
+			orderItemId: dishName,
+			orderItemImage: dishImage,
+			orderItemName: dishName,
+			orderItemAmount: dishIngredients,
+			orderItemPrice: dishPrice || 0,
+			orderItemSide: '',
+			orderItemChanges: '',
+		};
+		dispatch(addItem(item));
 	}
 
 	return (
@@ -60,7 +88,9 @@ function DishContent({ dishName, dishImage, dishIngredients, dishIcon, dishPrice
 						<button onClick={incrementQuantity}>+</button>
 					</div>
 				</div>
-				<img className='add-to-cart-image' src={addToCart} />
+				<button className='add-to-cart-button' onClick={addToCartHandler}>
+					<img className='add-to-cart-image' src={addToCart} alt='Add to cart' />
+				</button>
 			</div>
 		</div>
 	);

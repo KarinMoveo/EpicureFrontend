@@ -10,11 +10,16 @@ function SpecificDishPage() {
 		return <div>Error: Dish data not found</div>;
 	}
 
-	const { dishName, dishImage, dishIngredients } = state;
+	const { dishName, dishImage, dishIngredients, dishPrice } = state;
 
 	return (
 		<div className='specific-dish-page-container'>
-			<DishContent dishName={dishName} dishImage={dishImage} dishIngredients={dishIngredients} />
+			<DishContent
+				dishName={dishName}
+				dishImage={dishImage}
+				dishIngredients={dishIngredients}
+				dishPrice={dishPrice}
+			/>
 		</div>
 	);
 }

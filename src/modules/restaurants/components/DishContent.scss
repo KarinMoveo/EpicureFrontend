@@ -51,13 +51,18 @@
             }
         }
 
-        .add-to-cart-image{
-            width: fit-content;
-            height: fit-content;
-            align-self: center;
+        .add-to-cart-button{
+            border: none;
+            background-color: transparent;
+            .add-to-cart-image{
+                width: fit-content;
+                height: fit-content;
+                align-self: center;
+                cursor: pointer;
+            }
         }
-    
-     /* Media Query for mobile */
+        
+        /* Media Query for mobile */
      @media (max-width: 768px) {
         
         align-items: start;

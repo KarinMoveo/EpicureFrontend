@@ -5,11 +5,18 @@
 	justify-content: center;
 	align-items: center;
 	background-color: white;
-  position: fixed;
+ 	position: fixed;
+
 
 	.shopping-bag-image {
 		width: 50px;
 		height: 50px;
+	}
+
+	.checkout-button{
+		border: none;
+		background: transparent;
+		cursor: pointer;
 	}
 }
 
@@ -33,13 +40,19 @@
 }
 /* Media Query for Mobile */
 @media (max-width: 767px) {
+
 	.top-bag-modal-content {
+
 		width: 100%;
-		height: 35vh;
-		top: -20px;
-    .order-history-desktop {
-      display: none;
-    }
+		height: fit-content;
+		top: -2px;
+		
+
+		.order-history-desktop {
+		display: none;
+		}
+
+		
 	}
 
 }
