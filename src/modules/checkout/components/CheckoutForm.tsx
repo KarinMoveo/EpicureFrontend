@@ -2,12 +2,16 @@ import xIcon from '../../../shared/assets/icons/x.svg';
 
 import './CheckoutForm.scss';
 
-function CheckoutForm() {
+interface CheckoutFormProps {
+	onClose: () => void;
+}
+
+function CheckoutForm(props: CheckoutFormProps) {
 	return (
 		<div className='form-container'>
-			<div className='form-close'>
-				<img className='form-x-icon' src={xIcon} alt='x icon' onClick={() => console.log('fi')} />
-			</div>
+			<button className='form-close' onClick={props.onClose}>
+				<img className='form-x-icon' src={xIcon} alt='x icon' />
+			</button>
 			<form className='checkout-form'>
 				<div className='checkout-form-delivery-details-container'>
 					<h3>Delivery Details</h3>

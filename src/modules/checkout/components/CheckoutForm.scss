@@ -5,6 +5,14 @@
 	align-items: start;
 	padding: 20px;
 
+	.form-close{
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		top: 5;
+		left: 5;
+	}
     .checkout-complete-payment-button{
         border: 1px solid black;
         border: none;
@@ -27,13 +35,16 @@
 			background-color: transparent;
 		}
 
-		/* Media Query for mobile */
-		@media (max-width: 768px) {
-			width: 80vw;
-		}
+	}
+	/* Media Query for mobile */
+	@media (max-width: 768px) {
+		width: 80vw;
+	}
 
-		/* Media Query for desktop */
-		@media (min-width: 768px) {
+	/* Media Query for desktop */
+	@media (min-width: 768px) {
+		.form-close{
+			display: none;
 		}
 	}
 }

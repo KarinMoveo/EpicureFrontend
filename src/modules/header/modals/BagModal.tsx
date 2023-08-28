@@ -33,7 +33,7 @@ function BagModal({ onClose }: BagModalProps) {
 					<Order />
 				)}
 				<NavLink to='/checkout'>
-					<button className='bag-modal-button'>
+					<button className='bag-modal-button' onClick={onClose}>
 						<img className='checkout-image' src={checkoutButton} alt='checkout' />
 					</button>
 				</NavLink>
