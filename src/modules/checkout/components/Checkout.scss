@@ -1,21 +1,27 @@
 .checkout-container {
 
-    .checkout-complete-payment-button{
-        border: 1px solid black;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        padding-top: 20px;
-    }
-
 	/* Media Query for mobile */
 	@media (max-width: 768px) {
+
 		display: flex;
 		flex-direction: column;
-		justify-content: start;
-		align-items: start;
+		justify-content: center;
+		align-items: center;
 		padding: 20px;	
 
+		.checkout-complete-payment-button{
+
+			border: 1px solid black;
+			border: none;
+			background: transparent;
+			cursor: pointer;
+			padding-top: 20px;
+
+			.checkout-complete-payment-image{
+				width: 80vw;
+			}
+		}
+		
 		.checkout-pay-button{
 			display: none;
 		}
@@ -23,7 +29,9 @@
 
 	/* Media Query for desktop */
 	@media (min-width: 768px) {
+
 		.checkout-content-desktop-row{
+
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
@@ -33,6 +41,7 @@
 			
 
 			.check-out-parent-container{
+
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -54,6 +63,5 @@
 		.checkout-complete-payment-button{
 			display: none;
 		}
-			
 	}
 }

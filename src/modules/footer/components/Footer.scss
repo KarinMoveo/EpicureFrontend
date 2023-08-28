@@ -1,22 +1,23 @@
 .footer-container{
     
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-top: 1px #979797 solid;
 
-    .footer-item{
-        font-size: 18px;
-        letter-spacing: 1.92px;
-    }
-
-  /* Media Query for Desktop */
-  @media (min-width: 768px) {
-
-    flex-direction: row;
-    justify-content: center;
-
-    .footer-item{
-        padding-right: 40px;
-    }
+  .footer-item{
+      font-size: 18px;
+      letter-spacing: 1.92px;
   }
+
+/* Media Query for Desktop */
+@media (min-width: 768px) {
+
+  flex-direction: row;
+  justify-content: center;
+
+  .footer-item{
+      padding-right: 40px;
+  }
+}
 }
