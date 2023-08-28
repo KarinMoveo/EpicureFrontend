@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import RootState from '../../../redux/types';
 
 import Order from '../../../shared/components/Order';
 import CheckoutForm from './CheckoutForm';
+
+import AfterPayment from '../modals/AfterPayment';
 
 import lock from '../assets/icons/lock.svg';
 import completePaymentGray from '../assets/images/completePaymentGray.svg';
 import completePaymentBlack from '../assets/images/completePaymentBlack.svg';
 
 import './Checkout.scss';
-import { useSelector } from 'react-redux';
-import RootState from '../../../redux/types';
-import AfterPayment from '../modals/AfterPayment';
 
 const isDesktop = window.innerWidth >= 1024;
 
@@ -39,7 +41,7 @@ function Checkout() {
 	};
 
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const total = cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
 
 	return (
 		<div className={`checkout-container ${isDesktop ? 'desktop-checkout-container' : 'mobile-checkout-container'}`}>

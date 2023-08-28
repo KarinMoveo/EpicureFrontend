@@ -24,7 +24,7 @@ function BagModal({ onClose }: BagModalProps) {
 	return (
 		<Modal onClose={onClose}>
 			<div className={`bag-modal-content ${isDesktop ? 'top-right-bag-modal-content' : 'top-bag-modal-content'}`}>
-				{cartItems.length === 0 ? (
+				{Object.values(cartItems).length === 0 ? (
 					<div className='empty-bag-container'>
 						<img src={shoppingBagIcon} alt='Shopping Bag Icon' className='shopping-bag-image' />
 						<p className='bag-content-text'>YOUR BAG IS EMPTY</p>

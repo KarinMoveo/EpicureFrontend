@@ -47,7 +47,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='fullName'
 						name='fullName'
 						onChange={handleInputChange}
 						required
@@ -57,7 +56,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='address'
 						name='address'
 						onChange={handleInputChange}
 						required
@@ -67,7 +65,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='tel'
-						id='phone'
 						name='phone'
 						onChange={handleInputChange}
 						required
@@ -80,7 +77,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='cardNumber'
 						name='cardNumber'
 						onChange={handleInputChange}
 						required
@@ -89,7 +85,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='nameOnCard'
 						name='nameOnCard'
 						onChange={handleInputChange}
 						required
@@ -98,7 +93,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='cvv'
 						name='cvv'
 						onChange={handleInputChange}
 						required
@@ -108,7 +102,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 					<input
 						className='checkout-form-input-field'
 						type='text'
-						id='expiryDate'
 						name='expiryDate'
 						placeholder='MM/YY'
 						onChange={handleInputChange}

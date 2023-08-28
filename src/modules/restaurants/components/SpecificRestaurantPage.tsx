@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
-import { setRestaurantName } from '../../../redux/cartSlice';
 
 import SpecificDishModal from '../modals/SpecificDishModal';
 
@@ -14,14 +12,12 @@ import Card from '../../../shared/components/Card';
 import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
 
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
-import { useDispatch } from 'react-redux';
 
 type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
 function SpecificRestaurantPage() {
 	const navigate = useNavigate();
-	const dispatch = useDispatch();
 	const { restaurantName } = useParams();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
@@ -52,12 +48,6 @@ function SpecificRestaurantPage() {
 			});
 		}
 	};
-
-	useEffect(() => {
-		if (restaurantName) {
-			dispatch(setRestaurantName(restaurantName));
-		}
-	}, [dispatch, restaurantName]);
 
 	const restaurant = popularRestaurantsMockData.find((item) => item.cardName === restaurantName);
 

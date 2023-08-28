@@ -15,7 +15,7 @@ interface AfterPaymentProps {
 
 function AfterPayment(props: AfterPaymentProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const total = cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
 
 	return (
 		<Modal onClose={props.onClose}>
@@ -34,7 +34,7 @@ function AfterPayment(props: AfterPaymentProps) {
 					<p>
 						Arrive in <b>90:00 </b>min
 					</p>
-					{cartItems.map((cartItem) => (
+					{Object.values(cartItems).map((cartItem) => (
 						<div className='order-summary-container'>
 							<div className='order-summary-details'>
 								<p>

@@ -12,14 +12,15 @@ interface OrderProps {
 
 function Order({ formFieldsFilled }: OrderProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const restaurantName = useSelector((state: RootState) => state.cart.restaurantName);
-	const total = cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	// const restaurantName = useSelector((state: RootState) => state.cart.restaurantName);
+	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const cartItemsArray = Object.values(cartItems);
 
 	return (
 		<div className='order-container'>
 			<p>MY ORDER</p>
-			<p>{restaurantName}</p>
-			{cartItems.map((cartItem) => (
+			<p>{cartItemsArray[0]?.restaurantName}</p>
+			{cartItemsArray.map((cartItem) => (
 				<OrderItem
 					key={cartItem.orderItemName}
 					orderItemName={cartItem.orderItemName}

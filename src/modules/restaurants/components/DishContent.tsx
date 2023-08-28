@@ -1,12 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { addItem, incrementQuantity, decrementQuantity } from '../../../redux/cartSlice';
+import { updateItem } from '../../../redux/cartSlice';
 
 import RootState from '../../../redux/types';
 
 import addToCart from '../assets/images/others/addToCart.svg';
 
 import './DishContent.scss';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { CartItem } from '../types';
 
 interface DishContentProps {
 	dishName: string;
@@ -16,16 +19,6 @@ interface DishContentProps {
 	dishPrice: number;
 	dishChanges: string;
 	dishSide: string;
-}
-
-interface CartItem {
-	orderItemId: string;
-	orderItemImage: string;
-	orderItemName: string;
-	orderItemAmount: number;
-	orderItemPrice: number;
-	orderItemSide: string;
-	orderItemChanges: string;
 }
 
 function DishContent({
@@ -38,18 +31,18 @@ function DishContent({
 	dishSide,
 }: DishContentProps) {
 	const dispatch = useDispatch();
-
-	const quantity = useSelector((state: RootState) => {
-		const targetItem = state.cart.cartItems.find((item) => item.orderItemId === dishName);
-		return targetItem ? targetItem.orderItemAmount : 0;
-	});
+	const { restaurantName } = useParams();
+	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+	const dish = cartItems[dishName];
+	const [quantity, setQuantity] = useState(dish?.orderItemAmount || 0);
 
 	function decrementQuantityHandler() {
-		dispatch(decrementQuantity(dishName));
+		if (quantity === 0) return;
+		setQuantity((prev) => prev - 1);
 	}
 
 	function incrementQuantityHandler() {
-		dispatch(incrementQuantity(dishName));
+		setQuantity((prev) => prev + 1);
 	}
 
 	function addToCartHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
@@ -63,12 +56,18 @@ function DishContent({
 			orderItemId: dishName,
 			orderItemImage: dishImage,
 			orderItemName: dishName,
-			orderItemAmount: 0,
+			orderItemAmount: quantity,
 			orderItemPrice: dishPrice,
+			restaurantName: restaurantName as string,
 			orderItemSide: selectedSide || '',
 			orderItemChanges: selectedChanges.join(', ') || '',
 		};
-		dispatch(addItem(item));
+
+		if (cartItems.length && cartItems[0].restaurantName !== restaurantName) {
+			// DO SOMETHING
+		}
+
+		dispatch(updateItem(item));
 	}
 
 	return (
