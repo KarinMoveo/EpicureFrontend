@@ -30,7 +30,7 @@ function BagModal({ onClose }: BagModalProps) {
 						<p className='bag-content-text'>YOUR BAG IS EMPTY</p>
 					</div>
 				) : (
-					<Order />
+					<Order formFieldsFilled />
 				)}
 				<NavLink to='/checkout'>
 					<button className='bag-modal-button' onClick={onClose}>

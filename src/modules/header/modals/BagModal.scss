@@ -34,6 +34,10 @@
 /* Media Query for Desktop */
 @media (min-width: 768px) {
 
+	.desktop-button{
+		display: none;
+	}
+
   .top-right-bag-modal-content{
 		top: 50px;
 		right: 0;

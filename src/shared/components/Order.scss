@@ -4,15 +4,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px;
     // overflow: auto;
 
     
     /* Media Query for Mobile */
     @media (max-width: 767px) {
-        
+		
         .order-textarea-container{
             display: none;
         }
+
+	
     }
 
      /* Media Query for desktop */
@@ -23,7 +26,11 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding-bottom: 10px;
         }
+
+        
+
     }
 }
 

@@ -6,7 +6,11 @@ import OrderItem from './OrderItem';
 
 import './Order.scss';
 
-function Order() {
+interface OrderProps {
+	formFieldsFilled: boolean;
+}
+
+function Order({ formFieldsFilled }: OrderProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const restaurantName = useSelector((state: RootState) => state.cart.restaurantName);
 	const total = cartItems.reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
