@@ -3,6 +3,7 @@ import Modal from '../../../shared/components/Modal';
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SignInModal.scss';
+import { useState } from 'react';
 
 interface SignInModalProps {
 	onClose: () => void;
@@ -11,6 +12,15 @@ interface SignInModalProps {
 const isDesktop = window.innerWidth >= 1024;
 
 function SignIn({ onClose }: SignInModalProps) {
+	const [isFormValid, setIsFormValid] = useState(false);
+
+	const handleInputChange = () => {
+		const emailInput = document.getElementById('email') as HTMLInputElement;
+		const passwordInput = document.getElementById('password') as HTMLInputElement;
+
+		setIsFormValid(emailInput.value !== '' && passwordInput.value !== '');
+	};
+
 	return (
 		<Modal onClose={onClose}>
 			<div
@@ -30,6 +40,7 @@ function SignIn({ onClose }: SignInModalProps) {
 						id='email'
 						name='email'
 						placeholder='Email address'
+						onChange={handleInputChange}
 						required
 					/>
 					<br />
@@ -39,10 +50,11 @@ function SignIn({ onClose }: SignInModalProps) {
 						id='password'
 						name='password'
 						placeholder='Password'
+						onChange={handleInputChange}
 						required
 					/>
 					<br />
-					<button className='login-button' type='submit'>
+					<button className={`login-button ${isFormValid ? 'login-button-black' : ''}`} type='submit'>
 						LOGIN
 					</button>
 					<br />
