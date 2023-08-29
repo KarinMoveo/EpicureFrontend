@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CartItem } from '../modules/restaurants/types';
+import { act } from 'react-dom/test-utils';
 
 export interface CartState {
 	cartItems: {
@@ -23,9 +24,12 @@ export const cartSlice = createSlice({
 				delete state.cartItems[newItem.orderItemName];
 			}
 		},
+		deleteCart: (state) => {
+            state.cartItems = {}; 
+        },
 	},
 });
 
-export const { updateItem } = cartSlice.actions;
+export const { updateItem, deleteCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

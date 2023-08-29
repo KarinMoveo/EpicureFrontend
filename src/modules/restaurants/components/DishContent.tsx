@@ -6,10 +6,14 @@ import RootState from '../../../redux/types';
 
 import addToCart from '../assets/images/others/addToCart.svg';
 
-import './DishContent.scss';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { CartItem } from '../types';
+
+import DeleteOrder from '../modals/DeleteOrder';
+
+import './DishContent.scss';
 
 interface DishContentProps {
 	dishName: string;
@@ -35,6 +39,11 @@ function DishContent({
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const dish = cartItems[dishName];
 	const [quantity, setQuantity] = useState(dish?.orderItemAmount || 0);
+	const [deleteOrderModal, setDeleteOrderModal] = useState<any>(false);
+
+	const closeModal = () => {
+		setDeleteOrderModal(false);
+	};
 
 	function decrementQuantityHandler() {
 		if (quantity === 0) return;
@@ -63,12 +72,23 @@ function DishContent({
 			orderItemChanges: selectedChanges.join(', ') || '',
 		};
 
-		if (cartItems.length && cartItems[0].restaurantName !== restaurantName) {
-			// DO SOMETHING
+		if (cartItems.length && cartItems[0]?.restaurantName !== restaurantName) {
+			console.log(cartItems[0].restaurantName);
+			console.log(restaurantName);
+			return <DeleteOrder onClose={() => closeModal} />;
+		}
+
+		if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
+			setDeleteOrderModal(true);
 		}
 
 		dispatch(updateItem(item));
 	}
+	// useEffect(() => {
+	// 	if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
+	// 		setDeleteOrder(true);
+	// 	}
+	// }, [cartItems]);
 
 	return (
 		<div className='dish-container'>
@@ -109,6 +129,7 @@ function DishContent({
 					<img className='add-to-cart-image' src={addToCart} alt='Add to cart' />
 				</button>
 			</div>
+			{deleteOrderModal && <DeleteOrder onClose={closeModal} />}
 		</div>
 	);
 }
