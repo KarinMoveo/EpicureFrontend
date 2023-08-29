@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import RootState from '../../../redux/types';
+import { addToOrderHistory } from '../../../redux/cartSlice';
 
 import Order from '../../../shared/components/Order';
 import CheckoutForm from './CheckoutForm';
@@ -26,12 +27,6 @@ function Checkout() {
 		navigate(-1);
 	};
 
-	const handlePayClick = () => {
-		if (formFieldsFilled) {
-			setShowModal(true);
-		}
-	};
-
 	const handleCloseModal = () => {
 		setShowModal(false);
 	};
@@ -40,8 +35,23 @@ function Checkout() {
 		setFormFieldsFilled(isFormComplete);
 	};
 
+	const dispatch = useDispatch();
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const restaurantNames = Object.values(cartItems).map((cartItem) => cartItem.restaurantName);
+	const restaurantName = restaurantNames.length > 0 ? restaurantNames[0] : 'Unknown Restaurant';
+	const handlePayment = () => {
+		const order = {
+			restaurantName: restaurantName,
+			totalAmount: total,
+			orderDate: new Date().toISOString(),
+			items: Object.values(cartItems),
+		};
+		if (formFieldsFilled) {
+			setShowModal(true);
+			dispatch(addToOrderHistory(order));
+		}
+	};
 
 	return (
 		<div className={`checkout-container ${isDesktop ? 'desktop-checkout-container' : 'mobile-checkout-container'}`}>
@@ -57,7 +67,7 @@ function Checkout() {
 								? 'checkout-pay-button-black desktop-button'
 								: 'checkout-pay-button-gray desktop-button'
 						}`}
-						onClick={handlePayClick}
+						onClick={handlePayment}
 						disabled={!formFieldsFilled}
 					>
 						<div className='checkout-pay-button-desktop-left-content'>
@@ -69,7 +79,7 @@ function Checkout() {
 
 					<button
 						className='checkout-complete-payment-button-mobile'
-						onClick={handlePayClick}
+						onClick={handlePayment}
 						disabled={!formFieldsFilled}
 					>
 						<img

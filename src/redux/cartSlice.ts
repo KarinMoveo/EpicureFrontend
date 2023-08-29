@@ -1,15 +1,23 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CartItem } from '../modules/restaurants/types';
-import { act } from 'react-dom/test-utils';
 
 export interface CartState {
 	cartItems: {
 		[key: string]: CartItem;
 	};
+	orderHistory: Order[];
 }
+export interface Order {
+	restaurantName: string;
+	totalAmount: number;
+	orderDate: string;
+	items: CartItem[]; 
+  }
 
 const initialState: CartState = {
 	cartItems: {},
+	orderHistory: [],
+	
 };
 
 export const cartSlice = createSlice({
@@ -24,12 +32,15 @@ export const cartSlice = createSlice({
 				delete state.cartItems[newItem.orderItemName];
 			}
 		},
+		addToOrderHistory: (state, action: PayloadAction<Order>) => {
+			state.orderHistory.push(action.payload);
+		},
 		deleteCart: (state) => {
             state.cartItems = {}; 
         },
 	},
 });
 
-export const { updateItem, deleteCart } = cartSlice.actions;
+export const { updateItem, addToOrderHistory, deleteCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

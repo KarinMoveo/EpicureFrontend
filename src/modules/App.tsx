@@ -7,7 +7,7 @@ import SpecificDishPage from './restaurants/components/SpecificDishPage';
 import Chefs from './chefs/components/Chefs';
 import Footer from '../modules/footer/components/Footer';
 import './App.scss';
-import OrderHistory from './orders/OrderHistory';
+import OrderHistoryContainer from './orders/components/OrderHistoryContainer';
 import MobileCheckout from './checkout/components/Checkout';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
 				<Route path='/restaurants' Component={Restaurants} />
 				<Route path='/restaurants/:restaurantName' element={<SpecificRestaurantPage />} />
 				<Route path='/restaurants/:restaurantName/:dishName' element={<SpecificDishPage />} />
-				<Route path='/order-history' element={<OrderHistory />} />
+				<Route path='/order-history' element={<OrderHistoryContainer />} />
 				<Route path='/checkout' element={<MobileCheckout />} />
 				<Route path='/chefs' Component={Chefs} />
 			</Routes>

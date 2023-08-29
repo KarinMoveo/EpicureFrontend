@@ -1,0 +1,21 @@
+.order-history-item-container{
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: start;
+    gap: 100px;
+    // justify-content: space-between;
+    background-color: pink;
+    padding: 20px;
+
+    .order-history-button{
+
+        background-color: transparent;
+        border: none;
+        
+        .order-history-item-icon{
+            cursor: pointer;
+        }
+    }
+
+}

@@ -1,0 +1,25 @@
+.order-summary-modal-container{
+
+    height: 80vh;
+    width: 35vw;
+    overflow: auto;
+    position: fixed;
+  	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    .close-order-summary-modal-button {
+		position: absolute;
+		background-color: transparent;
+		// filter: invert(1);
+		border: none;
+		cursor: pointer;
+		top: 0;
+     	left: 0;
+	}
+}
