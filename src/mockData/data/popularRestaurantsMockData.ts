@@ -8,6 +8,7 @@ const popularRestaurantsMockData = [
       chefName: 'Yossi Shitrit',
       ratingImage: fourStars,
       isOpen: true,
+      
     },
     {
       cardImage: lumina,

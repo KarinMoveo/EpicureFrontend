@@ -13,6 +13,8 @@ import searchIcon from '../../../shared/assets/icons/search.svg';
 import HeaderIcon from './HeaderIcon';
 
 import './Header.scss';
+import { useSelector } from 'react-redux';
+import RootState from '../../../redux/types';
 
 type openedModalType = 'search' | 'account' | 'shoppingBag' | 'burgerMenu' | '' | null;
 
@@ -24,6 +26,12 @@ const routes = [
 
 function Header() {
 	const [openedModal, setOpenedModal] = useState<openedModalType>('');
+
+	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+	const totalItemAmount = Object.values(cartItems).reduce(
+		(accumulator, cartItem) => accumulator + cartItem.orderItemAmount,
+		0
+	);
 
 	const toggleModal = (modalName: openedModalType) => {
 		if (modalName === openedModal) {
@@ -61,6 +69,7 @@ function Header() {
 					<div className='right-icons-items-container'>
 						<HeaderIcon src={searchIcon} alt='search' onClick={() => toggleModal('search')} />
 						<HeaderIcon src={accountIcon} alt='account' onClick={() => toggleModal('account')} />
+						{totalItemAmount > 0 && <div className='total-item-amount'>{totalItemAmount}</div>}
 						<HeaderIcon
 							src={shoppingBagIcon}
 							alt='shoppingBag'

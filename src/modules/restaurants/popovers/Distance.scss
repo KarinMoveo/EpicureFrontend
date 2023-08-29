@@ -1,8 +1,21 @@
-// .distance-content {
-//       display: flex;
-//       flex-direction: column;
-//       justify-content: center;
-//       align-items: center;  
-// }
+.distance-popover-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;  
+      padding: 10px;
+      width: 30vw;
+
+      .distance-popover-content{
+        background-color: #F9F4EA;
+        align-self: start;
+        width: 28vw;
+        padding: 10px;
+
+        .distance-user-input-range{
+            width: 28vw;
+        }
+      }
+}
 
   

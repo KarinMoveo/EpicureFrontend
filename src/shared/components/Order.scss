@@ -4,9 +4,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    // padding: 10px;
     // overflow: auto;
+    .order-title{
+        font-size: 32px;
+        margin-bottom: 0;
+    }
 
+    .order-restaurant-name{
+        font-size: 18px;
+    }
     
     /* Media Query for Mobile */
     @media (max-width: 767px) {
@@ -14,19 +21,39 @@
         .order-textarea-container{
             display: none;
         }
-
-	
     }
 
      /* Media Query for desktop */
      @media (min-width: 767px) {
         
+
+	.order-line-with-text{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	
+		.line {
+			width: 50px; 
+			height: 1px; 
+			background-color: black; 
+			margin-right: 10px;
+			margin-left: 10px;
+		  }
+	}
+
         .order-textarea-container{
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding-bottom: 10px;
+
+            .order-textarea{
+                border-radius: 3.429px;
+                width: 15vw;
+                border: 0.6px solid #979797;
+            }
         }
 
         

@@ -28,6 +28,10 @@
 			background-color: transparent;
 		}
 
+		input{
+			outline: none;
+		}
+
 	}
 	/* Media Query for mobile */
 	@media (max-width: 768px) {

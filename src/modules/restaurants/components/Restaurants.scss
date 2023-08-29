@@ -2,6 +2,7 @@
 
     padding: 10px;
 
+
     .restaurant-page-title{
         font-size: 20px;
     }
@@ -20,6 +21,7 @@
  /* Media Query for desktop */
   @media (min-width: 767px) {
 
+    height: 100vh;
 
     .restaurant-page-title {
       display: none;

@@ -10,16 +10,17 @@ interface OrderProps {
 	formFieldsFilled: boolean;
 }
 
+const isDesktop = window.innerWidth >= 1024;
+
 function Order({ formFieldsFilled }: OrderProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	// const restaurantName = useSelector((state: RootState) => state.cart.restaurantName);
 	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
 	const cartItemsArray = Object.values(cartItems);
 
 	return (
 		<div className='order-container'>
-			<p>MY ORDER</p>
-			<p>{cartItemsArray[0]?.restaurantName}</p>
+			{isDesktop ? <p className='order-title'>YOUR ORDER</p> : <p className='order-title'>MY ORDER</p>}
+			<p className='order-restaurant-name'>{cartItemsArray[0]?.restaurantName}</p>
 			{cartItemsArray.map((cartItem) => (
 				<OrderItem
 					key={cartItem.orderItemName}
@@ -31,10 +32,23 @@ function Order({ formFieldsFilled }: OrderProps) {
 					orderItemSide={cartItem.orderItemSide}
 				/>
 			))}
-			<p className='order-total-cash-p'>TOTAL - {total}₪</p>
+			{isDesktop ? (
+				<div className='order-line-with-text'>
+					<p className='line'></p>
+					<p>₪{total}</p>
+					<p className='line'></p>
+				</div>
+			) : (
+				<p className='order-total-cash-p'>TOTAL - ₪{total}</p>
+			)}
+
 			<div className='order-textarea-container'>
 				<p>Add A Comment</p>
-				<textarea rows={8} placeholder='Special requests, allergies, dietary restrictions, etc.' />
+				<textarea
+					className='order-textarea'
+					rows={8}
+					placeholder='Special requests, allergies, dietary restrictions, etc.'
+				/>
 			</div>
 		</div>
 	);

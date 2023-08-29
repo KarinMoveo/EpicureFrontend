@@ -23,6 +23,12 @@
 
     .signature-dishes-cards-display{
       gap: 10px;
+      height: fit-content;
+
+      .signature-dish-icon{
+        width: 40px;
+        height: 40px;
+      }
 
  }
     /* Media Query for Desktop */

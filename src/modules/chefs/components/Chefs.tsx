@@ -7,8 +7,8 @@ import chefsMockData from '../../../mockData/data/chefsMockData';
 import '../components/Chefs.scss';
 
 function Chefs() {
-	type selectedCategoryType = 'All' | 'New' | 'Most Viewd' | null;
-	const categories: selectedCategoryType[] = ['All', 'New', 'Most Viewd'];
+	type selectedCategoryType = 'All' | 'New' | 'Most Viewed' | null;
+	const categories: selectedCategoryType[] = ['All', 'New', 'Most Viewed'];
 	const [selectedCategoryItem, setSelectedCategoryItem] = useState<selectedCategoryType>('All');
 
 	const handleCategoryClick = (category: selectedCategoryType) => {

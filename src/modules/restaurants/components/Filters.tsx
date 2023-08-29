@@ -36,7 +36,7 @@ function Filters() {
 				>
 					{filter.displayName}
 					<span className='downward-arrow-icon'>
-						<img src={downwardArrow} alt='downward arrow' />
+						<img src={downwardArrow} alt='downward arrow' className='restaurant-filter-downward-arrow'/>
 					</span>
 				</button>
 			))}

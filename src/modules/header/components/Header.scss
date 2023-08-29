@@ -32,6 +32,18 @@
     }
   }
 
+  .total-item-amount{
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    text-align: center;
+    position: absolute;
+    right: 2.15rem;
+  }
+
   /* Media Query for Desktop */
   @media (min-width: 768px) {
 

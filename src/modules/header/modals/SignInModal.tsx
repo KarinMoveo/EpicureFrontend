@@ -1,9 +1,10 @@
+import { useState } from 'react';
+
 import Modal from '../../../shared/components/Modal';
 
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SignInModal.scss';
-import { useState } from 'react';
 
 interface SignInModalProps {
 	onClose: () => void;
@@ -54,14 +55,22 @@ function SignIn({ onClose }: SignInModalProps) {
 						required
 					/>
 					<br />
-					<button className={`login-button ${isFormValid ? 'login-button-black' : ''}`} type='submit'>
+					<button
+						className={`login-button ${isFormValid ? 'login-button-black' : 'login-button-disable'}`}
+						type='submit'
+					>
 						LOGIN
 					</button>
 					<br />
 					<a href='/forgot-password' className='forgot-password'>
 						Forgot Password?
 					</a>
-					<p> ___________ or ___________ </p>
+					<div className='line-with-text'>
+						<p className='line'></p>
+						<p>or</p>
+						<p className='line'></p>
+					</div>
+
 					<button className='sign-up-button'>SIGN UP</button>
 				</form>
 			</div>

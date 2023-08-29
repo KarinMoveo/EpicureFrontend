@@ -29,7 +29,7 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 			</div>
 			<div className='restaurants-container'>
 				<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
-				<div className='chef-of-the-week-resturants-cards-display'>
+				<div className='chef-of-the-week-restaurants-cards-display'>
 					{chefOfTheWeekRestaurantsMockData.map((chefOfTheWeekRestaurant, index) => (
 						<Card
 							cardImage={chefOfTheWeekRestaurant.cardImage}

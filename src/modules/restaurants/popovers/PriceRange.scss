@@ -1,7 +1,18 @@
-// .price-range-content {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//   }
+.price-range-popover-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
   
+  .price-range-content{
+    background-color: #F9F4EA;
+    align-self: start;
+    width: 28vw;
+    padding: 10px;
+
+    .price-range-user-input{
+        width: 27vw;
+    }
+  }

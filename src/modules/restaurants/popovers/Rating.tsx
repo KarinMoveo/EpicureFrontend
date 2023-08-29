@@ -19,7 +19,10 @@ function Rating(props: any) {
 
 	return (
 		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
-			<div className='rating-content'>{ratingElements}</div>
+			<div className='rating-popover-container'>
+				<p className='rating-title'>Rating</p>
+				{ratingElements}
+			</div>
 		</Popover>
 	);
 }

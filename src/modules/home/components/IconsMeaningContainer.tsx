@@ -1,6 +1,6 @@
 import IconMeaningItem from './IconMeaningItem';
 
-import { spicy, vegan, vegitarian } from '../assets/icons/index';
+import { spicy, vegan, vegetarian } from '../assets/icons/index';
 
 import '../components/IconsMeaningContainer.scss';
 
@@ -9,9 +9,9 @@ function IconsMeaningContainer() {
 		<div className='icons-meaning-container'>
 			<p className='icons-meaning-title'>THE MEANING OF OUR ICONS: </p>
 			<div className='icons-meaning-row-desktop'>
-				<IconMeaningItem iconMeaningItemImgae={spicy} iconMeaningItemName='Spicy' />
-				<IconMeaningItem iconMeaningItemImgae={vegitarian} iconMeaningItemName='Vegitarian' />
-				<IconMeaningItem iconMeaningItemImgae={vegan} iconMeaningItemName='Vegan' />
+				<IconMeaningItem iconMeaningItemImage={spicy} iconMeaningItemName='Spicy' />
+				<IconMeaningItem iconMeaningItemImage={vegetarian} iconMeaningItemName='Vegetarian' />
+				<IconMeaningItem iconMeaningItemImage={vegan} iconMeaningItemName='Vegan' />
 			</div>
 		</div>
 	);

@@ -1,19 +1,27 @@
+.restaurant-not-found-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 50px;
+}
+
 .specific-restaurant-page-container{
 
     padding: 10px;
+
     .restaurant-image{
         width: 100%;
     }
 
     .restaurant-details{
+
         .is-open{
             display: flex;
-            font-size: 10px;
             gap: 5px;
         }
-        .restaurant-chef-name{
-            font-size: 10px;
-        }
+      
     }
 
     .meals-category-row{
@@ -21,7 +29,6 @@
 
         .restaurant-category-item{
             padding-right: 20px;
-            // padding-left: 10px;
             cursor: pointer;
         }
 
@@ -34,15 +41,22 @@
     }
 
     .dishes-container{
+
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        .specific-restaurant-page-dish-icon{
+            width: 40px;
+            height: 40px;
+        }
     }
 
     .card-link{
         text-decoration: none;
     }
-    /* Media Query for Desktop */
+
+/* Media Query for Desktop */
   @media (min-width: 768px) {
 
         display: flex;
@@ -57,10 +71,24 @@
         }
 
         .restaurant-details{
+            
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            .restaurant-name{
+                margin: 0;
+                font-size: 28px;
+            }
+
+            .restaurant-chef-name{
+                font-size: 20px;
+            }
 
             .is-open{
                 text-align: center;
+                font-size: 16px;
             }
         }
 
@@ -73,4 +101,20 @@
             flex-wrap: wrap;
         }
   }
+
+    /* Media Query for mobile */
+    @media (max-width: 768px) {
+        .restaurant-name{
+            font-size: 22px;
+        }
+
+        .restaurant-chef-name{
+            font-size: 18px;
+        }
+
+        .is-open{
+            text-align: center;
+            font-size: 16px;
+        }
+    }
 }

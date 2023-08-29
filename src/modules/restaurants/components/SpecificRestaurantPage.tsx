@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
+import Card from '../../../shared/components/Card';
 import SpecificDishModal from '../modals/SpecificDishModal';
 
-import '../components/SpecificRestaurantPage.scss';
+import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
+import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
 
 import clock from '../assets/icons/clock.svg';
 
-import Card from '../../../shared/components/Card';
-
-import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
-
-import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
+import '../components/SpecificRestaurantPage.scss';
 
 type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
@@ -52,7 +50,7 @@ function SpecificRestaurantPage() {
 	const restaurant = popularRestaurantsMockData.find((item) => item.cardName === restaurantName);
 
 	if (!restaurant) {
-		return <div>Restaurant not found</div>;
+		return <div className='restaurant-not-found-title'>Restaurant not found</div>;
 	}
 
 	return (
@@ -85,7 +83,7 @@ function SpecificRestaurantPage() {
 						<div onClick={() => handleOnDishClick(dish)}>
 							<Card cardImage={dish.cardImage} cardName={dish.cardName}>
 								<p>{dish.ingredients}</p>
-								<img src={dish.icon} alt='icon' />
+								<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
 								<p>{dish.price}</p>
 							</Card>
 						</div>

@@ -8,6 +8,16 @@
 
 }
 
+.sign-in-title{
+	font-size: 24px;
+	margin-bottom: 0;
+	margin-top:0;
+}
+
+.sign-in-description{
+	font-size: 18px;
+}
+
 .sign-in-form {
 	display: flex;
 	flex-direction: column;
@@ -16,6 +26,7 @@
 	.user-password-input {
 		border: none;
 		border-bottom: 1px solid #ccc;
+		outline: none;
 	}
 
 	.forgot-password {
@@ -24,8 +35,23 @@
 		text-align: center;
 	}
 
+	.line-with-text{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	
+		.line {
+			width: 50px; 
+			height: 1px; 
+			background-color: black; 
+			margin-right: 10px;
+			margin-left: 10px;
+		  }
+	}
+
+
 	.login-button {
-		background-color: gray;
 		border: none;
 		padding: 10px;
 		color: white;
@@ -33,12 +59,17 @@
 
 	.login-button-black{
 		background-color: black;
+		cursor: pointer;
 	}
+	.login-button-disable{
+		background-color: gray;
 
+	}
 	.sign-up-button {
 		background-color: white;
 		border: 2px black solid;
 		padding: 10px;
+		cursor: pointer;
 	}
 }
 
@@ -57,6 +88,9 @@
 		cursor: pointer;
 		top: 0;
 		left: 0;
+	}
+	.sign-in-form {
+		width: 70vw;
 	}
 }
 /* Media Query for desktop */
@@ -77,4 +111,8 @@
 		top: -25px;
 		left: 0;
 	}
+	.sign-in-form {
+		width: 15vw;
+	}
+	
 }

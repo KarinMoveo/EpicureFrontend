@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import RootState from '../../../redux/types';
-import { addToOrderHistory } from '../../../redux/cartSlice';
+import { addToOrderHistory, deleteCart } from '../../../redux/cartSlice';
 
 import Order from '../../../shared/components/Order';
 import CheckoutForm from './CheckoutForm';
@@ -47,9 +47,10 @@ function Checkout() {
 			orderDate: new Date().toISOString(),
 			items: Object.values(cartItems),
 		};
-		if (formFieldsFilled) {
+		if (formFieldsFilled && total !== 0) {
 			setShowModal(true);
 			dispatch(addToOrderHistory(order));
+			dispatch(deleteCart());
 		}
 	};
 
@@ -63,7 +64,7 @@ function Checkout() {
 					<Order formFieldsFilled={formFieldsFilled} />
 					<button
 						className={`${
-							formFieldsFilled
+							formFieldsFilled && total !== 0
 								? 'checkout-pay-button-black desktop-button'
 								: 'checkout-pay-button-gray desktop-button'
 						}`}
@@ -84,7 +85,7 @@ function Checkout() {
 					>
 						<img
 							className='checkout-complete-payment-image'
-							src={formFieldsFilled ? completePaymentBlack : completePaymentGray}
+							src={formFieldsFilled && total !== 0 ? completePaymentBlack : completePaymentGray}
 							alt='complete payment'
 						/>
 					</button>
