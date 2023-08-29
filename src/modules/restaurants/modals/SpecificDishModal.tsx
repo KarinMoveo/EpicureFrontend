@@ -24,7 +24,7 @@ function SpecificDishModal(props: SpecificDishModalProps) {
 					dishImage={dish.cardImage}
 					dishIngredients={dish.ingredients}
 					dishIcon={dish.icon}
-					dishPrice={dish.price}
+					dishPrice={dish.price} 
 					dishChanges={dish.dishChanges}
 					dishSide={dish.dishSide}
 				/>

@@ -3,6 +3,8 @@ import Modal from '../../../shared/components/Modal';
 import xIcon from '../../../shared/assets/icons/x.svg';
 
 import './OrderSummary.scss';
+import Order from '../../../shared/components/Order';
+import OrderItem from '../../../shared/components/OrderItem';
 
 interface OrderSummaryProps {
 	onClose: () => void;
@@ -16,6 +18,8 @@ function OrderSummary({ onClose }: OrderSummaryProps) {
 					<img src={xIcon} alt='close' />
 				</button>
 				<h1>ORDER SUMMARY</h1>
+				<Order formFieldsFilled />
+				{/* <OrderItem orderItemAmount={}/> */}
 			</div>
 		</Modal>
 	);

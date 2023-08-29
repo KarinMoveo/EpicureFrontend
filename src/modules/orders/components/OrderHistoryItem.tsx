@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import './OrderHistoryItem.scss';
+
 import OrderSummary from '../modals/OrderSummary';
+
+import './OrderHistoryItem.scss';
 
 interface OrderHistoryItemProps {
 	orderHistoryItemRestaurantName: string;
@@ -16,7 +18,7 @@ function OrderHistoryItem(props: OrderHistoryItemProps) {
 		<div className='order-history-item-container'>
 			<p>{props.orderHistoryItemRestaurantName}</p>
 			<p>{props.orderHistoryItemRestaurantDate}</p>
-			<p>{props.orderHistoryItemTotalOrderAmount}</p>
+			<p>₪{props.orderHistoryItemTotalOrderAmount}</p>
 			<button onClick={() => setOpenOrderHistoryModal(true)} className='order-history-button'>
 				<img src={props.seeMoreOneArrow} alt='see More One Arrow' className='order-history-item-icon' />
 			</button>

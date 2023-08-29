@@ -29,6 +29,7 @@ function Checkout() {
 
 	const handleCloseModal = () => {
 		setShowModal(false);
+		dispatch(deleteCart());
 	};
 
 	const checkFormCompletion = (isFormComplete: boolean) => {
@@ -40,6 +41,7 @@ function Checkout() {
 	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
 	const restaurantNames = Object.values(cartItems).map((cartItem) => cartItem.restaurantName);
 	const restaurantName = restaurantNames.length > 0 ? restaurantNames[0] : 'Unknown Restaurant';
+
 	const handlePayment = () => {
 		const order = {
 			restaurantName: restaurantName,
@@ -50,7 +52,6 @@ function Checkout() {
 		if (formFieldsFilled && total !== 0) {
 			setShowModal(true);
 			dispatch(addToOrderHistory(order));
-			dispatch(deleteCart());
 		}
 	};
 

@@ -1,8 +1,12 @@
 import { useSelector } from 'react-redux';
-import './OrderHistoryContainer.scss';
+
 import RootState from '../../../redux/types';
+
 import OrderHistoryItem from './OrderHistoryItem';
+
 import seeMoreOneArrow from '../assets/icons/seeMoreOneArrow.svg';
+
+import './OrderHistoryContainer.scss';
 
 function OrderHistory() {
 	const orders = useSelector((state: RootState) => state.cart.orderHistory);

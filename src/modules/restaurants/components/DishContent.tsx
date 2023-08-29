@@ -120,9 +120,13 @@ function DishContent({
 				<div className='quantity-container'>
 					<p className='title-with-underline'>Quantity</p>
 					<div className='quantity-container-buttons'>
-						<button onClick={decrementQuantityHandler}>-</button>
+						<button onClick={decrementQuantityHandler} className='quantity-button'>
+							-
+						</button>
 						<span>{quantity}</span>
-						<button onClick={incrementQuantityHandler}>+</button>
+						<button onClick={incrementQuantityHandler} className='quantity-button'>
+							+
+						</button>
 					</div>
 				</div>
 				<button className='add-to-cart-button' onClick={addToCartHandler}>
