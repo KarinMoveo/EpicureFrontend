@@ -14,12 +14,15 @@ function OrderHistory() {
 	return (
 		<div className='order-history-container'>
 			<h1 className='order-history-title'>YOUR ORDER HISTORY</h1>
-			{Object.values(orders).map((order) => (
+			{Object.keys(orders).map((orderIndex) => (
 				<OrderHistoryItem
-					orderHistoryItemRestaurantName={order.restaurantName}
-					orderHistoryItemRestaurantDate={order.orderDate}
-					orderHistoryItemTotalOrderAmount={order.totalAmount}
+					key={orderIndex}
+					orderHistoryItemRestaurantName={orders[parseInt(orderIndex)].restaurantName}
+					orderHistoryItemRestaurantDate={orders[parseInt(orderIndex)].orderDate}
+					orderHistoryItemTotalOrderAmount={orders[parseInt(orderIndex)].totalAmount}
 					seeMoreOneArrow={seeMoreOneArrow}
+					index={parseInt(orderIndex)}
+					items={orders[parseInt(orderIndex)].items}
 				/>
 			))}
 		</div>

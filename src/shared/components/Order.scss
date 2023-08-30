@@ -27,20 +27,20 @@
      @media (min-width: 767px) {
         
 
-	.order-line-with-text{
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	
-		.line {
-			width: 50px; 
-			height: 1px; 
-			background-color: black; 
-			margin-right: 10px;
-			margin-left: 10px;
-		  }
-	}
+        .order-line-with-text{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        
+            .line {
+                width: 50px; 
+                height: 1px; 
+                background-color: black; 
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+        }
 
         .order-textarea-container{
             display: flex;
@@ -55,9 +55,6 @@
                 border: 0.6px solid #979797;
             }
         }
-
-        
-
     }
 }
 

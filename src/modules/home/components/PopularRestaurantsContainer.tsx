@@ -11,7 +11,7 @@ import '../components/PopularRestaurantsContainer.scss';
 function PopularRestaurantsContainer() {
 	return (
 		<div className='popular-restaurants-container'>
-			<p className='popular-restaurants-title'>POPULAR RESTURANT IN EPICURE:</p>
+			<p className='popular-restaurants-title'>POPULAR RESTAURANT IN EPICURE:</p>
 			<div className='popular-restaurants-cards-display-and-all-restaurants'>
 				<div className='popular-restaurants-cards-display'>
 					{popularRestaurantsMockData.map((popularRestaurant, index) => (
@@ -19,7 +19,7 @@ function PopularRestaurantsContainer() {
 							<p>{popularRestaurant.chefName}</p>
 							<img
 								src={popularRestaurant.ratingImage}
-								className='popular-resturant-image'
+								className='popular-restaurant-image'
 								alt='restaurants rating'
 							/>
 						</Card>

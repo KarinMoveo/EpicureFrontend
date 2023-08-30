@@ -40,6 +40,8 @@
         }
     }
 
+ 
+
     .dishes-container{
 
         display: flex;
@@ -50,11 +52,13 @@
             width: 40px;
             height: 40px;
         }
+
+        .card-link{
+            text-decoration: none;  
+        }
     }
 
-    .card-link{
-        text-decoration: none;
-    }
+
 
 /* Media Query for Desktop */
   @media (min-width: 768px) {
@@ -99,7 +103,13 @@
         .dishes-container{
             flex-direction: row;
             flex-wrap: wrap;
+
+            .specific-restaurant-page-parent-card-container{
+                background-color: #F9F4EA;
+                height: 500px;
+            }
         }
+
   }
 
     /* Media Query for mobile */

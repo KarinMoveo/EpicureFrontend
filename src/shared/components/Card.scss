@@ -4,10 +4,10 @@
     flex-direction: column;
     background-color: #F9F4EA;
     width: 250px;
-    height: fit-content;
     color: black;
     text-decoration: none;
     cursor: pointer;
+    overflow-y: scroll;
 
     .card-image{
         width: 250px;

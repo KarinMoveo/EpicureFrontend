@@ -15,6 +15,7 @@
         display: flex;
         flex-direction: row;
         gap: 10px;
+       
     }
     
     .all-restaurants{
@@ -53,7 +54,7 @@
   /* Media Query for Mobile */
   @media (max-width: 767px) {
 
-    .popular-resturant-image{
+    .popular-restaurant-image{
         display: none;
     }
 
