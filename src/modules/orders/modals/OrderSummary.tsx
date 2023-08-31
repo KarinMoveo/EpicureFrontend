@@ -1,16 +1,17 @@
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
 import RootState from '../../../redux/types';
+import { updateItem } from '../../../redux/cartSlice';
 
 import Modal from '../../../shared/components/Modal';
 import OrderItem from '../../../shared/components/OrderItem';
 
+import DeleteOrder from '../../restaurants/modals/DeleteOrder';
+
 import xIcon from '../../../shared/assets/icons/x.svg';
 
-import { updateItem } from '../../../redux/cartSlice';
-
 import './OrderSummary.scss';
-import DeleteOrder from '../../restaurants/modals/DeleteOrder';
-import { useState } from 'react';
 
 interface OrderSummaryProps {
 	onClose: () => void;
@@ -18,10 +19,10 @@ interface OrderSummaryProps {
 }
 
 function OrderSummary({ onClose, selectedOrderIndex }: OrderSummaryProps) {
-	const orderHistory = useSelector((state: RootState) => state.cart.orderHistory);
 	const dispatch = useDispatch();
-	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const [deleteOrderModal, setDeleteOrderModal] = useState<any>(false);
+	const orderHistory = useSelector((state: RootState) => state.cart.orderHistory);
+	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
 	if (selectedOrderIndex === null || selectedOrderIndex >= orderHistory.length) {
 		return null;

@@ -3,14 +3,14 @@ import Modal from '../../../shared/components/Modal';
 
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
-import './SpecificDishModal.scss';
+import './SpecificDish.scss';
 
-interface SpecificDishModalProps {
+interface SpecificDishProps {
 	dish: any;
 	onClose: () => void;
 }
 
-function SpecificDishModal(props: SpecificDishModalProps) {
+function SpecificDish(props: SpecificDishProps) {
 	const { dish } = props;
 
 	return (
@@ -34,4 +34,4 @@ function SpecificDishModal(props: SpecificDishModalProps) {
 	);
 }
 
-export default SpecificDishModal;
+export default SpecificDish;

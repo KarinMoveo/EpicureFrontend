@@ -1,4 +1,5 @@
 import { appStore, epicureLogo, googlePlay } from '../assets/images/others/index';
+
 import '../components/About.scss';
 
 function About() {

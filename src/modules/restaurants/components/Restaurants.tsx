@@ -1,18 +1,17 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
+
+import { selectedCategoryType } from '../types';
+
 import Card from '../../../shared/components/Card';
+import Filters from './Filters';
+import Categories from './Categories';
 
 import mapView from '../assets/images/others/mapView.png';
 
 import '../components/Restaurants.scss';
-
-import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
-
-import Filters from './Filters';
-import Categories from './Categories';
-
-import { selectedCategoryType } from '../types';
 
 function Restaurants() {
 	const [selectedCategory, setSelectedCategory] = useState<selectedCategoryType>('All');

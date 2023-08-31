@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 
-import Card from '../../../shared/components/Card';
-import SpecificDishModal from '../modals/SpecificDishModal';
-
 import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
+
+import Card from '../../../shared/components/Card';
+import SpecificDish from '../modals/SpecificDish';
+
+import { MealType } from '../types';
 
 import clock from '../assets/icons/clock.svg';
 
 import '../components/SpecificRestaurantPage.scss';
 
-type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
 function SpecificRestaurantPage() {
@@ -93,7 +94,7 @@ function SpecificRestaurantPage() {
 					</div>
 				))}
 			</div>
-			{selectedDishModal && <SpecificDishModal dish={selectedDishModal} onClose={closeModal} />}
+			{selectedDishModal && <SpecificDish dish={selectedDishModal} onClose={closeModal} />}
 		</div>
 	);
 }

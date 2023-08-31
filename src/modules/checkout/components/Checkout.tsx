@@ -11,8 +11,6 @@ import CheckoutForm from './CheckoutForm';
 import AfterPayment from '../modals/AfterPayment';
 
 import lock from '../assets/icons/lock.svg';
-import completePaymentGray from '../assets/images/completePaymentGray.svg';
-import completePaymentBlack from '../assets/images/completePaymentBlack.svg';
 
 import './Checkout.scss';
 
@@ -20,6 +18,7 @@ const isDesktop = window.innerWidth >= 1024;
 
 function Checkout() {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const [formFieldsFilled, setFormFieldsFilled] = useState(false);
 	const [showModal, setShowModal] = useState(false);
 
@@ -36,7 +35,6 @@ function Checkout() {
 		setFormFieldsFilled(isFormComplete);
 	};
 
-	const dispatch = useDispatch();
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const total = Object.values(cartItems).reduce(
 		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
@@ -81,7 +79,6 @@ function Checkout() {
 							<div className='checkout-pay-button-desktop-right-content'>₪{total}</div>
 						</div>
 					</button>
-
 					<button
 						className={
 							formFieldsFilled && total !== 0

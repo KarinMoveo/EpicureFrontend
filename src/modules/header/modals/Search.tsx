@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import xIcon from '../assets/icons/x.svg';
-import './SearchModal.scss';
+
 import Modal from '../../../shared/components/Modal';
 
-interface SearchModalProps {
+import xIcon from '../assets/icons/x.svg';
+
+import './Search.scss';
+
+interface SearchProps {
 	onClose: () => void;
 	onSearch: (searchQuery: string) => void;
 }
 
-function SearchModal({ onClose, onSearch }: SearchModalProps) {
+function Search({ onClose, onSearch }: SearchProps) {
 	const [searchQuery, setSearchQuery] = useState('');
 
 	const handleSearch = () => {
@@ -44,4 +47,4 @@ function SearchModal({ onClose, onSearch }: SearchModalProps) {
 	);
 }
 
-export default SearchModal;
+export default Search;

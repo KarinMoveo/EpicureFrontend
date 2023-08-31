@@ -4,15 +4,15 @@ import Modal from '../../../shared/components/Modal';
 
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
-import './SignInModal.scss';
+import './SignIn.scss';
 
-interface SignInModalProps {
+interface SignInProps {
 	onClose: () => void;
 }
 
 const isDesktop = window.innerWidth >= 1024;
 
-function SignIn({ onClose }: SignInModalProps) {
+function SignIn({ onClose }: SignInProps) {
 	const [isFormValid, setIsFormValid] = useState(false);
 
 	const handleInputChange = () => {
@@ -55,10 +55,7 @@ function SignIn({ onClose }: SignInModalProps) {
 						required
 					/>
 					<br />
-					<button
-						className={`${isFormValid ? 'login-button-black' : 'login-button-disable'}`}
-						type='submit'
-					>
+					<button className={`${isFormValid ? 'login-button-black' : 'login-button-disable'}`} type='submit'>
 						LOGIN
 					</button>
 					<br />

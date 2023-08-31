@@ -6,17 +6,17 @@ import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
 
 import RootState from '../../../redux/types';
 
-import './BagModal.scss';
+import './ShoppingCart.scss';
 import { NavLink } from 'react-router-dom';
 import Order from '../../../shared/components/Order';
 
 const isDesktop = window.innerWidth >= 1024;
 
-interface BagModalProps {
+interface ShoppingCartProps {
 	onClose: () => void;
 }
 
-function BagModal({ onClose }: BagModalProps) {
+function ShoppingCart({ onClose }: ShoppingCartProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const total = Object.values(cartItems).reduce(
 		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
@@ -25,17 +25,21 @@ function BagModal({ onClose }: BagModalProps) {
 
 	return (
 		<Modal onClose={onClose}>
-			<div className={`bag-modal-content ${isDesktop ? 'top-right-bag-modal-content' : 'top-bag-modal-content'}`}>
+			<div
+				className={`shopping-cart-modal-content ${
+					isDesktop ? 'top-right-shopping-cart-modal-content' : 'top-shopping-cart-modal-content'
+				}`}
+			>
 				{Object.values(cartItems).length === 0 ? (
-					<div className='empty-bag-container'>
+					<div className='empty-shopping-cart-container'>
 						<img src={shoppingBagIcon} alt='Shopping Bag Icon' className='shopping-bag-image' />
-						<p className='bag-content-text'>YOUR BAG IS EMPTY</p>
+						<p className='shopping-cart-content-text'>YOUR BAG IS EMPTY</p>
 					</div>
 				) : (
 					<div className='order-and-checkout-container'>
 						<Order formFieldsFilled />
 						<NavLink to='/checkout'>
-							<button className='bag-modal-button checkout-button' onClick={onClose}>
+							<button className='shopping-cart-modal-button checkout-button' onClick={onClose}>
 								{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
 							</button>
 						</NavLink>
@@ -43,11 +47,11 @@ function BagModal({ onClose }: BagModalProps) {
 				)}
 
 				<NavLink to='/order-history'>
-					<button className='bag-modal-button order-history-button'>ORDER HISTORY</button>
+					<button className='shopping-cart-modal-button order-history-button'>ORDER HISTORY</button>
 				</NavLink>
 			</div>
 		</Modal>
 	);
 }
 
-export default BagModal;
+export default ShoppingCart;

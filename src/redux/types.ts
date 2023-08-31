@@ -1,6 +1,4 @@
-// types.ts
 import { CartState } from '../redux/cartSlice'; 
-
 interface RootState {
   cart: CartState;
 }

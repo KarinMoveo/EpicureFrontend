@@ -2,9 +2,9 @@ import { NavLink } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
-import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
-
 import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
+
+import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/PopularRestaurantsContainer.scss';
 
@@ -26,7 +26,6 @@ function PopularRestaurantsContainer() {
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>
-					{' '}
 					All Restaurants
 					<span className='see-more-icon'>
 						<img src={seeMoreIcon} alt='See More Icon' />

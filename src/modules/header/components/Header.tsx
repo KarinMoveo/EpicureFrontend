@@ -1,20 +1,20 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import BagModal from '../modals/BagModal';
-import BurgerMenu from '../modals/BurgerMenuModal';
-import SearchModal from '../modals/SearchModal';
-import SignIn from '../modals/SignInModal';
+import { useSelector } from 'react-redux';
+import RootState from '../../../redux/types';
+
+import ShoppingCart from '../modals/ShoppingCart';
+import BurgerMenu from '../modals/BurgerMenu';
+import Search from '../modals/Search';
+import SignIn from '../modals/SignIn';
 
 import { accountIcon, burgerMenuIcon, logoIcon, shoppingBagIcon } from '../assets/icons/index';
-
 import searchIcon from '../../../shared/assets/icons/search.svg';
 
 import HeaderIcon from './HeaderIcon';
 
 import './Header.scss';
-import { useSelector } from 'react-redux';
-import RootState from '../../../redux/types';
 
 type openedModalType = 'search' | 'account' | 'shoppingBag' | 'burgerMenu' | '' | null;
 
@@ -79,8 +79,8 @@ function Header() {
 				</div>
 			</div>
 			{openedModal === 'burgerMenu' && <BurgerMenu onCloseMenu={() => setOpenedModal(null)} />}
-			{openedModal === 'search' && <SearchModal onClose={() => setOpenedModal(null)} onSearch={handleSearch} />}
-			{openedModal === 'shoppingBag' && <BagModal onClose={() => setOpenedModal(null)} />}
+			{openedModal === 'search' && <Search onClose={() => setOpenedModal(null)} onSearch={handleSearch} />}
+			{openedModal === 'shoppingBag' && <ShoppingCart onClose={() => setOpenedModal(null)} />}
 			{openedModal === 'account' && <SignIn onClose={() => setOpenedModal(null)} />}
 		</nav>
 	);

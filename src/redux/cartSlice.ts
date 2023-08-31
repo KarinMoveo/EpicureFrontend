@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { CartItem } from '../modules/restaurants/types';
 
 export interface CartState {
@@ -12,12 +13,11 @@ export interface Order {
 	totalAmount: number;
 	orderDate: string;
 	items: CartItem[]; 
-  }
+}
 
 const initialState: CartState = {
 	cartItems: {},
 	orderHistory: [],
-	
 };
 
 export const cartSlice = createSlice({

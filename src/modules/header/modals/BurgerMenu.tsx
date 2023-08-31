@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 
 import xIcon from '../assets/icons/x.svg';
 
-import './BurgerMenuModal.scss';
+import './BurgerMenu.scss';
 import Modal from '../../../shared/components/Modal';
 
 interface NavigationItem {

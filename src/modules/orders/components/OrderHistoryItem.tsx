@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import OrderSummary from '../modals/OrderSummary';
-import './OrderHistoryItem.scss';
+
 import { CartItem } from '../../restaurants/types';
+
+import OrderSummary from '../modals/OrderSummary';
+
+import './OrderHistoryItem.scss';
 
 interface OrderHistoryItemProps {
 	orderHistoryItemRestaurantName: string;
@@ -32,7 +35,7 @@ function OrderHistoryItem(props: OrderHistoryItemProps) {
 			{openOrderHistoryModal && (
 				<OrderSummary
 					onClose={() => {
-						setSelectedOrderIndex(null); // Reset the selected index when modal is closed
+						setSelectedOrderIndex(null);
 						setOpenOrderHistoryModal(false);
 					}}
 					selectedOrderIndex={selectedOrderIndex}

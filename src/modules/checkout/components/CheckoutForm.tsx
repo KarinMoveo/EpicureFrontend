@@ -70,7 +70,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 						required
 					/>
 				</div>
-
 				<div className='checkout-form-payment-details-container'>
 					<h3>Payment Details</h3>
 					<label htmlFor='cardNumber'>Card Number</label>
@@ -97,7 +96,6 @@ function CheckoutForm(props: CheckoutFormProps) {
 						onChange={handleInputChange}
 						required
 					/>
-
 					<label>Expiry Date</label>
 					<input
 						className='checkout-form-input-field'

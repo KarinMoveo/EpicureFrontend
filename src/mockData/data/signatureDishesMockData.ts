@@ -33,8 +33,6 @@ const signatureDishesMockData = [
 
 
 ];
-
-console.log(signatureDishesMockData[0].dishSide);
   
  export default signatureDishesMockData;
   

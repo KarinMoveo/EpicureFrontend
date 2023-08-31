@@ -2,8 +2,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import DishContent from './DishContent';
 
-// import './SpecificDishPage.scss';
-
 function SpecificDishPage() {
 	const location = useLocation();
 	const navigate = useNavigate();

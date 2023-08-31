@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
-import downwardArrow from '../assets/icons/downwardArrow.svg';
-
 import PriceRange from '../popovers/PriceRange';
 import Distance from '../popovers/Distance';
 import Rating from '../popovers/Rating';
+
+import downwardArrow from '../assets/icons/downwardArrow.svg';
 
 import '../components/Filters.scss';
 
@@ -36,7 +36,7 @@ function Filters() {
 				>
 					{filter.displayName}
 					<span className='downward-arrow-icon'>
-						<img src={downwardArrow} alt='downward arrow' className='restaurant-filter-downward-arrow'/>
+						<img src={downwardArrow} alt='downward arrow' className='restaurant-filter-downward-arrow' />
 					</span>
 				</button>
 			))}
