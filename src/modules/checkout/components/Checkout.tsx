@@ -38,7 +38,10 @@ function Checkout() {
 
 	const dispatch = useDispatch();
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const total = Object.values(cartItems).reduce(
+		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
+		0
+	);
 	const restaurantNames = Object.values(cartItems).map((cartItem) => cartItem.restaurantName);
 	const restaurantName = restaurantNames.length > 0 ? restaurantNames[0] : 'Unknown Restaurant';
 
@@ -65,30 +68,31 @@ function Checkout() {
 					<Order formFieldsFilled={formFieldsFilled} />
 					<button
 						className={`${
-							formFieldsFilled && total !== 0
-								? 'checkout-pay-button-black desktop-button'
-								: 'checkout-pay-button-gray desktop-button'
+							formFieldsFilled && total !== 0 ? 'checkout-pay-button-black' : 'checkout-pay-button-gray'
 						}`}
 						onClick={handlePayment}
 						disabled={!formFieldsFilled}
 					>
-						<div className='checkout-pay-button-desktop-left-content'>
-							<img className='lock-icon' src={lock} alt='lock' />
-							PAY
+						<div className='checkout-pay-button-desktop-content-container'>
+							<div className='checkout-pay-button-desktop-left-content'>
+								<img className='lock-icon' src={lock} alt='lock' />
+								PAY
+							</div>
+							<div className='checkout-pay-button-desktop-right-content'>₪{total}</div>
 						</div>
-						<div className='checkout-pay-button-desktop-right-content'>₪{total}</div>
 					</button>
 
 					<button
-						className='checkout-complete-payment-button-mobile'
+						className={
+							formFieldsFilled && total !== 0
+								? 'complete-payment-black-button-mobile'
+								: 'complete-payment-gray-button-mobile'
+						}
 						onClick={handlePayment}
 						disabled={!formFieldsFilled}
 					>
-						<img
-							className='checkout-complete-payment-image'
-							src={formFieldsFilled && total !== 0 ? completePaymentBlack : completePaymentGray}
-							alt='complete payment'
-						/>
+						<img className='lock-icon' src={lock} alt='lock' />
+						COMPLETE PAYMENT
 					</button>
 				</div>
 			</div>

@@ -17,6 +17,10 @@
 
         display: flex;
         flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
 
         .order-item-name-amount-container{
             display: flex;
@@ -25,6 +29,7 @@
 
         .order-item-price{
             align-self:end;
+            justify-self: end;
         }
     }
 

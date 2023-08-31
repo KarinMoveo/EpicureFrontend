@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import Modal from '../../../shared/components/Modal';
 
 import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
-import orderHistory from '../../../shared/assets/images/orderHistory.svg';
-import checkoutButton from '../../../shared/assets/images/checkout.svg';
 
 import RootState from '../../../redux/types';
 
@@ -20,6 +18,10 @@ interface BagModalProps {
 
 function BagModal({ onClose }: BagModalProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
+	const total = Object.values(cartItems).reduce(
+		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
+		0
+	);
 
 	return (
 		<Modal onClose={onClose}>
@@ -33,17 +35,15 @@ function BagModal({ onClose }: BagModalProps) {
 					<div className='order-and-checkout-container'>
 						<Order formFieldsFilled />
 						<NavLink to='/checkout'>
-							<button className='bag-modal-button' onClick={onClose}>
-								<img className='checkout-image' src={checkoutButton} alt='checkout' />
+							<button className='bag-modal-button checkout-button' onClick={onClose}>
+								{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
 							</button>
 						</NavLink>
 					</div>
 				)}
 
 				<NavLink to='/order-history'>
-					<button className='bag-modal-button order-history-button'>
-						<img className='order-history-image' src={orderHistory} alt='order history' />
-					</button>
+					<button className='bag-modal-button order-history-button'>ORDER HISTORY</button>
 				</NavLink>
 			</div>
 		</Modal>

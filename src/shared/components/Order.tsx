@@ -14,7 +14,10 @@ const isDesktop = window.innerWidth >= 1024;
 
 function Order({ formFieldsFilled }: OrderProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
+	const total = Object.values(cartItems).reduce(
+		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
+		0
+	);
 	const cartItemsArray = Object.values(cartItems);
 
 	return (
@@ -28,7 +31,7 @@ function Order({ formFieldsFilled }: OrderProps) {
 					orderItemAmount={cartItem.orderItemAmount}
 					orderItemChanges={cartItem.orderItemChanges}
 					orderItemImage={cartItem.orderItemImage}
-					orderItemPrice={cartItem.orderItemPrice}
+					orderItemPrice={cartItem.orderItemPrice} 
 					orderItemSide={cartItem.orderItemSide}
 				/>
 			))}

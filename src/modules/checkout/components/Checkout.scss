@@ -1,3 +1,5 @@
+@import '../../../shared/styles/mixin.scss';
+
 .checkout-container {
 
 	/* Media Query for mobile */
@@ -9,19 +11,29 @@
 		align-items: center;
 		padding: 20px;	
 
-		.checkout-complete-payment-button-mobile{
-            
-            border: 1px solid black;
-			border: none;
-			background: transparent;
-			padding-top: 20px;
-            
-			.checkout-complete-payment-image{
-                width: 80vw;
+		.check-out-parent-container{
+
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			.complete-payment-black-button-mobile{
+				@include button;
+				@include black-button;
+			}
+	
+			.complete-payment-gray-button-mobile{
+				@include button;
+				@include gray-button;
+				display: flex;
+				align-items: center;
+				justify-content: space-evenly;
 			}
 		}
 
-		.desktop-button{
+
+		.checkout-pay-button-gray,
+		.checkout-pay-button-black{
 			display: none;
 		}
 	}
@@ -45,38 +57,35 @@
 				height: 80vh;
 				box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 				overflow: auto;
+
+				.checkout-pay-button-gray{
+					@include button;
+					@include gray-button;
+				}
+				
+				.checkout-pay-button-black{
+					@include button;
+					@include black-button;
+				}
 			}
 		}
 
-		.desktop-button{
+		.checkout-pay-button-desktop-content-container{
 
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-evenly;
-            border: 1px solid black;
-            width: 10vw;
-            height: 5vh;
-            color: white;
-            font-size: 20px;
-        }
-		.checkout-pay-button-gray{
-			background-color: #979797;
-		}
-		
-		.checkout-pay-button-black{
-			background-color: black;
-			cursor: pointer;
-		}
-
-		.checkout-pay-button-desktop-left-content{
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			gap: 5px;
+			justify-content: space-between;
+
+			.checkout-pay-button-desktop-left-content{
+				display: flex;
+				align-items: center;
+				gap: 10px;				
+			}
 		}
 
-        .checkout-complete-payment-button-mobile{
+		.complete-payment-black-button-mobile,
+		.complete-payment-gray-button-mobile{
 			display: none;
 		}
 

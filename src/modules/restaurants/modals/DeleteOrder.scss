@@ -1,4 +1,7 @@
+@import '../../../shared/styles/mixin.scss';
+
 .delete-order-modal-container{
+    
     height: 80vh;
     width: 35vw;
     overflow: auto;
@@ -22,27 +25,19 @@
 		left: 0;
 	}
 
-    .delete-order-modal-button{
-        width: 150px;
-        height: 50px;
-        margin: 10px;
-        cursor: pointer;
-    }
     
     .delete-order-button {
-        background-color: black;
-        color: white;
+        @include button;
+        @include black-button;
     }
 
     .back-to-order-button{
-        background-color: white;
-        color: black;
+        @include button;
+        @include white-button;
     }
 
     /* Media Query for mobile */
 	@media (max-width: 768px) {
-
 		width: 50vw;
-
     }
 }

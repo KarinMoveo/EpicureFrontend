@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import DishContent from './DishContent';
 
@@ -6,6 +6,7 @@ import DishContent from './DishContent';
 
 function SpecificDishPage() {
 	const location = useLocation();
+	const navigate = useNavigate();
 	const state = location.state;
 
 	if (!state) {
@@ -13,6 +14,10 @@ function SpecificDishPage() {
 	}
 
 	const { dishName, dishImage, dishIngredients, dishPrice, dishChanges, dishSide } = state;
+
+	const navigateBack = () => {
+		navigate(-1);
+	};
 
 	return (
 		<div className='specific-dish-page-container'>
@@ -23,6 +28,7 @@ function SpecificDishPage() {
 				dishPrice={dishPrice}
 				dishChanges={dishChanges}
 				dishSide={dishSide}
+				onClose={navigateBack}
 			/>
 		</div>
 	);

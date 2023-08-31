@@ -1,4 +1,7 @@
+@import '../../../shared/styles/mixin.scss';
+
 .bag-modal-content {
+
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -11,12 +14,10 @@
 		flex-direction: column;
 		align-items: center;
 	}
-	.bag-modal-button  {
-		border: 1px solid black;
-		border: none;
-		background: transparent;
-		cursor: pointer;
-		padding-top: 20px;
+
+	.checkout-button{
+		@include button;
+		@include black-button;
 	}
 
 }
@@ -50,8 +51,19 @@
 		height: 60vh;
 	}
 
-	.order-history-button{
-		margin-bottom: 20px;
+	.bag-modal-content {
+
+		.order-history-button{
+			@include button;
+			@include white-button;
+		}
+
+		.checkout-button{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+
+		}
 	}
 }
 

@@ -1,3 +1,5 @@
+@import '../../../shared/styles/mixin.scss';
+
 .dish-container{
 
     .dish-image{
@@ -64,14 +66,8 @@
         }
 
         .add-to-cart-button{
-            border: none;
-            background-color: transparent;
-            .add-to-cart-image{
-                width: fit-content;
-                height: fit-content;
-                align-self: center;
-                cursor: pointer;
-            }
+            @include button;
+            @include black-button;
         }
         
         /* Media Query for mobile */
@@ -89,7 +85,7 @@
               justify-content: start;
         }
 
-        .add-to-cart-image{
+        .add-to-cart-button{
             align-self: start;
         }
 
@@ -98,5 +94,17 @@
             display: none;
         }
     }
+
+    /* Media Query for desktop */
+    @media (min-width: 768px) {
+
+        .dish-ingredients{
+            text-align: center;
+         }
+
+        .add-to-cart-button{
+            align-self: center;
+        }
 }
+    }
 }

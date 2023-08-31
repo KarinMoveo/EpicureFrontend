@@ -15,8 +15,10 @@ interface AfterPaymentProps {
 
 function AfterPayment(props: AfterPaymentProps) {
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const total = Object.values(cartItems).reduce((accumulator, cartItem) => accumulator + cartItem.orderItemPrice, 0);
-
+	const total = Object.values(cartItems).reduce(
+		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
+		0
+	);
 	return (
 		<Modal onClose={props.onClose}>
 			<div className='after-payment-modal-container'>

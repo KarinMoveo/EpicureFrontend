@@ -56,7 +56,7 @@ function SignIn({ onClose }: SignInModalProps) {
 					/>
 					<br />
 					<button
-						className={`login-button ${isFormValid ? 'login-button-black' : 'login-button-disable'}`}
+						className={`${isFormValid ? 'login-button-black' : 'login-button-disable'}`}
 						type='submit'
 					>
 						LOGIN
@@ -70,7 +70,6 @@ function SignIn({ onClose }: SignInModalProps) {
 						<p>or</p>
 						<p className='line'></p>
 					</div>
-
 					<button className='sign-up-button'>SIGN UP</button>
 				</form>
 			</div>

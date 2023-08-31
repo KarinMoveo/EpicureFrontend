@@ -20,7 +20,7 @@ function OrderItem(props: OrderItemProps) {
 					<p className='order-item-name'>{props.orderItemName} </p>
 				</div>
 				<p className='order-item-side-and-changes'>
-					{props.orderItemSide} | {props.orderItemChanges}
+					{props.orderItemSide} {props.orderItemChanges}
 				</p>
 				<p className='order-item-price'>{props.orderItemPrice}</p>
 				{props.children}

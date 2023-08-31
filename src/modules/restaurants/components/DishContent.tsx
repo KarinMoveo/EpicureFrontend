@@ -1,13 +1,10 @@
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { updateItem } from '../../../redux/cartSlice';
 
 import RootState from '../../../redux/types';
 
-import addToCart from '../assets/images/others/addToCart.svg';
-
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { updateItem } from '../../../redux/cartSlice';
 
 import { CartItem } from '../types';
 
@@ -23,6 +20,7 @@ interface DishContentProps {
 	dishPrice: number;
 	dishChanges: string;
 	dishSide: string;
+	onClose?: () => void;
 }
 
 function DishContent({
@@ -33,6 +31,7 @@ function DishContent({
 	dishPrice,
 	dishChanges,
 	dishSide,
+	onClose,
 }: DishContentProps) {
 	const dispatch = useDispatch();
 	const { restaurantName } = useParams();
@@ -83,6 +82,10 @@ function DishContent({
 		}
 
 		dispatch(updateItem(item));
+
+		if (onClose) {
+			onClose();
+		}
 	}
 	// useEffect(() => {
 	// 	if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
@@ -129,8 +132,8 @@ function DishContent({
 						</button>
 					</div>
 				</div>
-				<button className='add-to-cart-button' onClick={addToCartHandler}>
-					<img className='add-to-cart-image' src={addToCart} alt='Add to cart' />
+				<button className='add-to-cart-button' onClick={addToCartHandler} disabled={quantity === 0}>
+					ADD TO CART
 				</button>
 			</div>
 			{deleteOrderModal && <DeleteOrder onClose={closeModal} />}
