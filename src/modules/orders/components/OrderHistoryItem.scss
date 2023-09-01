@@ -1,0 +1,20 @@
+.order-history-item-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 20px;
+
+    .order-history-button{
+
+        background-color: transparent;
+        border: none;
+        margin: 0;
+        
+        .order-history-item-icon{
+            cursor: pointer;
+        }
+    }
+
+}

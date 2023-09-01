@@ -1,0 +1,51 @@
+.order-item-container{
+    
+    height: 10vh;
+    background-color: #F9F4EA;
+    font-size: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 10px;
+
+
+    .order-item-image{
+        width: 100px;
+    }
+
+    .card-text-content{
+
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .order-item-name-amount-container{
+            display: flex;
+            flex-direction: row;
+        }
+
+        .order-item-price{
+            align-self:end;
+            justify-self: end;
+        }
+    }
+
+    /* Media Query for Desktop */
+    @media (min-width: 768px) {
+        width: 20vw;
+        height: fit-content;
+        
+    }
+
+    /* Media Query for Mobile */
+    @media (max-width: 767px) {
+        width: 80vw;
+        height: fit-content;
+    }
+  
+}
+
+

@@ -1,0 +1,43 @@
+@import '../../../shared/styles/mixin.scss';
+
+.delete-order-modal-container{
+    
+    height: 80vh;
+    width: 35vw;
+    overflow: auto;
+    position: fixed;
+  	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    .close-delete-order-modal-button {
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+	}
+
+    
+    .delete-order-button {
+        @include button;
+        @include black-button;
+    }
+
+    .back-to-order-button{
+        @include button;
+        @include white-button;
+    }
+
+    /* Media Query for mobile */
+	@media (max-width: 768px) {
+		width: 50vw;
+    }
+}

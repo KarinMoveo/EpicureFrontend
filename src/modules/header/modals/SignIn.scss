@@ -1,0 +1,115 @@
+@import '../../../shared/styles/mixin.scss';
+
+.sign-in-modal-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	position: fixed;
+
+}
+
+.sign-in-title{
+	font-size: 24px;
+	margin-bottom: 0;
+	margin-top:0;
+}
+
+.sign-in-description{
+	font-size: 18px;
+}
+
+.sign-in-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.user-email-input,
+	.user-password-input {
+		border: none;
+		border-bottom: 1px solid #ccc;
+		outline: none;
+	}
+
+	.forgot-password {
+		text-decoration: none;
+		color: black;
+		text-align: center;
+	}
+
+	.line-with-text{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	
+		.line {
+			width: 50px; 
+			height: 1px; 
+			background-color: black; 
+			margin-right: 10px;
+			margin-left: 10px;
+		  }
+	}
+
+	.login-button-black{
+		@include button;
+		@include black-button;
+	}
+
+	.login-button-disable{
+		@include button;
+		@include gray-button;
+	}
+
+	.sign-up-button {
+		@include button;
+		@include white-button;
+	}
+}
+
+/* Media Query for mobile */
+@media (max-width: 767px) {
+	.top-sign-in-modal-content {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 60vh;
+	}
+	.close-modal-button {
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		top: 0;
+		left: 0;
+	}
+	.sign-in-form {
+		width: 70vw;
+	}
+}
+/* Media Query for desktop */
+@media (min-width: 767px) {
+	.centered-sign-in-modal-content {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width:400px;
+		height: 400px;
+	}
+	.close-modal-button {
+		position: absolute;
+		background-color: transparent;
+		filter: invert(1);
+		border: none;
+		cursor: pointer;
+		top: -25px;
+		left: 0;
+	}
+	.sign-in-form {
+		width: 15vw;
+	}
+	
+}

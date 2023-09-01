@@ -1,0 +1,60 @@
+.restaurants-page-container{
+
+    padding: 10px;
+
+
+    .restaurant-page-title{
+        font-size: 20px;
+    }
+
+    .restaurants-list{
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .restaurant-link{
+        text-decoration: none;
+    }
+
+ /* Media Query for desktop */
+  @media (min-width: 767px) {
+
+    height: 100vh;
+
+    .restaurant-page-title {
+      display: none;
+    }
+
+    .restaurants-list{
+        margin-left: 60px;
+        margin-right: 60px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+  }
+
+   /* Media Query for mobile */
+   @media (max-width: 767px) {
+
+    .restaurants-title-categories-filters-container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    .restaurants-list{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .restaurant-rating{
+        display: none;
+    }
+
+    .modals-container{
+        display: none;
+    }
+  }
+}

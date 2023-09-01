@@ -1,0 +1,70 @@
+@import '../../../shared/styles/mixin.scss';
+
+.order-summary-modal-container{
+
+    height: 80vh;
+    width: 35vw;
+    overflow: auto;
+    position: fixed;
+  	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+
+    .close-order-summary-modal-button {
+		position: absolute;
+		background-color: transparent;
+		// filter: invert(1);
+		border: none;
+		cursor: pointer;
+		top: 0;
+     	left: 0;
+	}
+
+	.order-summary-items{
+		overflow-y: auto;
+	}
+
+	.order-line-with-text{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+	
+		.line {
+			width: 50px; 
+			height: 1px; 
+			background-color: black; 
+			margin-right: 10px;
+			margin-left: 10px;
+		  }
+	}
+
+	.order-textarea-container{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 10px;
+
+		.order-textarea{
+			border-radius: 3.429px;
+			width: 15vw;
+			border: 0.6px solid #979797;
+		}
+	}
+
+	.order-again-button{
+		@include button;
+		@include black-button;
+	}
+	
+	.order-history-button{
+		@include button;
+		@include white-button;
+	}
+}

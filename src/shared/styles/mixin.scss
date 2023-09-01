@@ -1,0 +1,24 @@
+@mixin button{
+    border: 2px black solid;
+    padding: 10px;
+    cursor: pointer;
+    width: 280px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+@mixin white-button {
+    color: black;
+    background-color: white;
+}
+
+@mixin black-button {
+    color: white;
+    background-color: black;
+}
+
+@mixin gray-button {
+    color: white;
+    background-color: gray;
+}
+

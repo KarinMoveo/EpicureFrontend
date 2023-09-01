@@ -1,25 +1,39 @@
-import PopularRestaurantItem from "./PopularRestaurantItem";
-import claroImage from "../assets/claroImage.png";
-import seeMoreIcon from "../shared/seeMoreIcon.svg";
-import "../components/PopularRestaurantsContainer.scss";
+import { NavLink } from 'react-router-dom';
 
-function PopularRestaurantsContainer(){
-    return(
-        <div className="popular-restaurants-container">
-            <p className="popular-restaurants-title">POPULAR RESTURANT IN EPICURE:</p>
-            <PopularRestaurantItem 
-                restaurantImage={claroImage}
-                restaurantName="Restaurent Name" 
-                restaurantChef="Restauran Chef"
-            />
-            <p className="all-restaurants">
-                All Restaurants 
-                <span className="see-more-icon">
-                    <img src={seeMoreIcon} alt="See More Icon" />
-                </span>
-            </p>
-        </div>
-    );
+import Card from '../../../shared/components/Card';
+
+import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
+
+import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
+
+import '../components/PopularRestaurantsContainer.scss';
+
+function PopularRestaurantsContainer() {
+	return (
+		<div className='popular-restaurants-container'>
+			<p className='popular-restaurants-title'>POPULAR RESTAURANT IN EPICURE:</p>
+			<div className='popular-restaurants-cards-display-and-all-restaurants'>
+				<div className='popular-restaurants-cards-display'>
+					{popularRestaurantsMockData.map((popularRestaurant, index) => (
+						<Card key={index} cardImage={popularRestaurant.cardImage} cardName={popularRestaurant.cardName}>
+							<p>{popularRestaurant.chefName}</p>
+							<img
+								src={popularRestaurant.ratingImage}
+								className='popular-restaurant-image'
+								alt='restaurants rating'
+							/>
+						</Card>
+					))}
+				</div>
+				<NavLink to='./restaurants' className='all-restaurants'>
+					All Restaurants
+					<span className='see-more-icon'>
+						<img src={seeMoreIcon} alt='See More Icon' />
+					</span>
+				</NavLink>
+			</div>
+		</div>
+	);
 }
 
 export default PopularRestaurantsContainer;

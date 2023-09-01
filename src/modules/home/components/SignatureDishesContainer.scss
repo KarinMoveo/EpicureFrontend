@@ -6,8 +6,6 @@
     
     .signature-dishes-title{
         font-size: 18px;
-        font-style: normal;
-        font-weight: 200;
         line-height: 35px; 
         letter-spacing: 1.25px;
         text-transform: uppercase;
@@ -15,10 +13,56 @@
     
     .all-restaurants{
         font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
         line-height: 35px; 
         letter-spacing: 2px;
         text-transform: capitalize;
+        cursor: pointer;
+        text-decoration: none;
+        color: black;
     }
+
+    .signature-dishes-cards-display{
+      gap: 10px;
+      height: fit-content;
+
+      .signature-dish-icon{
+        width: 40px;
+        height: 40px;
+      }
+
+ }
+    /* Media Query for Desktop */
+  @media (min-width: 768px) {
+
+    justify-content: center;
+    align-items: center;
+
+   .signature-dishes-cards-display{
+        display: flex;
+        flex-direction: row;
+   }
+
+   .all-restaurants{
+    display: none;
+   }
+  
+}
+
+  /* Media Query for mobile */
+  @media (max-width: 768px) {
+
+   .signature-dishes-cards-display{
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 10px; 
+   }
+
+   .signature-dishes-cards-display::-webkit-scrollbar {
+      display: none;
+  }
+}
 }
