@@ -101,7 +101,7 @@ function DishContent({
 					<p className='dish-name'>{dishName}</p>
 					<p className='dish-ingredients'>{dishIngredients}</p>
 					<img className='dish-icon' src={dishIcon} alt='dish icon' />
-					<p className='dish-price'>{dishPrice}</p>
+					<p className='dish-price'>₪{dishPrice}</p>
 				</div>
 				<div className='checkbox-content-container'>
 					<p className='title-with-underline'>Choose a side</p>
