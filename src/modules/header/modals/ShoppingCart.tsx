@@ -38,16 +38,18 @@ function ShoppingCart({ onClose }: ShoppingCartProps) {
 				) : (
 					<div className='order-and-checkout-container'>
 						<Order formFieldsFilled />
-						<NavLink to='/checkout'>
-							<button className='shopping-cart-modal-button checkout-button' onClick={onClose}>
-								{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
-							</button>
+						<NavLink
+							to='/checkout'
+							className='shopping-cart-modal-button checkout-button'
+							onClick={onClose}
+						>
+							{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
 						</NavLink>
 					</div>
 				)}
 
-				<NavLink to='/order-history'>
-					<button className='shopping-cart-modal-button order-history-button'>ORDER HISTORY</button>
+				<NavLink to='/order-history' className='shopping-cart-modal-button order-history-button'>
+					ORDER HISTORY
 				</NavLink>
 			</div>
 		</Modal>

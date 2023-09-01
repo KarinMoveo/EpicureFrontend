@@ -1,6 +1,4 @@
 .modal-portal-container {
-
-
 	.modal-overlay {
 		z-index: 2;
 		position: fixed;
@@ -15,5 +13,21 @@
 		z-index: 3;
 		background-color: white;
 		position: fixed;
+	}
+
+	.centered{
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.close-modal-button {
+		position: absolute;
+		background-color: transparent;
+		border: none;
+		cursor: pointer;
+		top: -25px;
+		left: 0;
+		filter: invert(1);
 	}
 }

@@ -25,6 +25,11 @@
       gap: 10px;
       height: fit-content;
 
+      .dish-ingredients{
+        height: 100px;
+        overflow: auto;
+      }
+
       .signature-dish-icon{
         width: 40px;
         height: 40px;

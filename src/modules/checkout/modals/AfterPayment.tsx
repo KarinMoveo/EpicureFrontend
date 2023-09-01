@@ -5,7 +5,6 @@ import RootState from '../../../redux/types';
 import Modal from '../../../shared/components/Modal';
 
 import successfullyAccepted from '../assets/images/successfullyAccepted.svg';
-import xIcon from '../../../shared/assets/icons/x.svg';
 
 import './AfterPayment.scss';
 
@@ -19,35 +18,34 @@ function AfterPayment(props: AfterPaymentProps) {
 		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
 		0
 	);
+
+	const isDesktop = window.innerWidth >= 1024;
+
 	return (
-		<Modal onClose={props.onClose}>
-			<div className='after-payment-modal-container'>
-				<button className='after-payment-modal-close-button' onClick={props.onClose}>
-					<img className='after-payment-modal-close-image' src={xIcon} alt='close' />
-				</button>
-				<div className='after-payment-modal-container-text'>
-					<img
-						className='successfully-accepted-image'
-						src={successfullyAccepted}
-						alt='successfully accepted'
-					/>
-					<p>ORDER RECEIVED</p>
-					<p>Your food is in progress</p>
-					<p>
-						Arrive in <b>90:00 </b>min
-					</p>
-					{Object.values(cartItems).map((cartItem) => (
-						<div className='order-summary-container'>
-							<div className='order-summary-details'>
-								<p>
-									{cartItem.orderItemAmount}x {cartItem.orderItemName}
-								</p>
-								<p> ₪{cartItem.orderItemPrice}</p>
-							</div>
+		<Modal
+			hasClose={isDesktop}
+			isCentered={isDesktop}
+			onClose={props.onClose}
+			className='after-payment-modal-container'
+		>
+			<div className='after-payment-modal-container-text'>
+				<img className='successfully-accepted-image' src={successfullyAccepted} alt='successfully accepted' />
+				<p>ORDER RECEIVED</p>
+				<p>Your food is in progress</p>
+				<p>
+					Arrive in <b>90:00 </b>min
+				</p>
+				{Object.values(cartItems).map((cartItem) => (
+					<div className='order-summary-container'>
+						<div className='order-summary-details'>
+							<p>
+								{cartItem.orderItemAmount}x {cartItem.orderItemName}
+							</p>
+							<p> ₪{cartItem.orderItemPrice}</p>
 						</div>
-					))}
-					<p>TOTAL - ₪{total}</p>
-				</div>
+					</div>
+				))}
+				<p>TOTAL - ₪{total}</p>
 			</div>
 		</Modal>
 	);
