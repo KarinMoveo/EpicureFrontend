@@ -12,8 +12,17 @@
         width: 28vw;
         padding: 10px;
 
+        .distance-popover-text-content{
+          display: flex;
+          justify-content: space-between;
+        }
+
         .distance-user-input-range{
-            width: 28vw;
+            width: 100%;
+            -webkit-appearance: none;
+            background: #ccc;
+            height: 5px;
+            border-radius: 5px;
         }
       }
 }

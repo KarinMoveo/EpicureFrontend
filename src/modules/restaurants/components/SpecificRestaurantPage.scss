@@ -40,8 +40,6 @@
         }
     }
 
- 
-
     .dishes-container{
 
         display: flex;
@@ -55,6 +53,7 @@
 
         .card-link{
             text-decoration: none;  
+            cursor: pointer;
         }
     }
 

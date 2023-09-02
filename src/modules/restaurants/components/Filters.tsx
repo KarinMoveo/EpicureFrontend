@@ -8,13 +8,18 @@ import downwardArrow from '../assets/icons/downwardArrow.svg';
 
 import '../components/Filters.scss';
 
-const filters = {
+interface FiltersProps {
+	filters: any;
+	setFilters: any;
+}
+
+const filtersInputs = {
 	priceRange: { name: 'priceRange', displayName: 'Price Range' },
 	distance: { name: 'distance', displayName: 'Distance' },
 	rating: { name: 'rating', displayName: 'Rating' },
 };
 
-function Filters() {
+function Filters({ filters, setFilters }: FiltersProps) {
 	const [currentPopover, setCurrentPopover] = useState<any>(null);
 
 	const openPopover = (event: any) => {
@@ -25,9 +30,33 @@ function Filters() {
 		setCurrentPopover(null);
 	};
 
+	const handleOnChange = (event: any) => {
+		const { value, name } = event.target;
+		setFilters((prev: any) => ({
+			...prev,
+			distance: { ...prev.distance, [name]: value },
+		}));
+	};
+
+	const handleOnPriceChange = (event: any) => {
+		const { value, name } = event.target;
+
+		if (
+			(name === 'min' && value >= filters.priceRange.max) ||
+			(name === 'max' && value <= filters.priceRange.min)
+		) {
+			return;
+		}
+
+		setFilters((prev: any) => ({
+			...prev,
+			priceRange: { ...prev.priceRange, [name]: value },
+		}));
+	};
+
 	return (
 		<div className='row-filter'>
-			{Object.values(filters).map((filter) => (
+			{Object.values(filtersInputs).map((filter) => (
 				<button
 					name={filter.name}
 					key={filter.name}
@@ -40,14 +69,29 @@ function Filters() {
 					</span>
 				</button>
 			))}
-			{currentPopover?.name === filters.priceRange.name && (
-				<PriceRange onClose={closePopover} anchorEl={currentPopover.anchorEl} />
+			{currentPopover?.name === filtersInputs.priceRange.name && (
+				<PriceRange
+					onChange={handleOnPriceChange}
+					value={filters.priceRange}
+					onClose={closePopover}
+					anchorEl={currentPopover.anchorEl}
+				/>
 			)}
-			{currentPopover?.name === filters.distance.name && (
-				<Distance onClose={closePopover} anchorEl={currentPopover.anchorEl} />
+			{currentPopover?.name === filtersInputs.distance.name && (
+				<Distance
+					onChange={handleOnChange}
+					value={filters.distance}
+					onClose={closePopover}
+					anchorEl={currentPopover.anchorEl}
+				/>
 			)}
-			{currentPopover?.name === filters.rating.name && (
-				<Rating onClose={closePopover} anchorEl={currentPopover.anchorEl} />
+			{currentPopover?.name === filtersInputs.rating.name && (
+				<Rating
+					onChange={handleOnChange}
+					value={filters.rating}
+					onClose={closePopover}
+					anchorEl={currentPopover.anchorEl}
+				/>
 			)}
 		</div>
 	);

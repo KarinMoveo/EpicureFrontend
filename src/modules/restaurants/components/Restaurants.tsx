@@ -15,6 +15,11 @@ import '../components/Restaurants.scss';
 
 function Restaurants() {
 	const [selectedCategory, setSelectedCategory] = useState<selectedCategoryType>('All');
+	const [filters, setFilters] = useState({
+		distance: 0,
+		rating: [],
+		priceRange: { min: 12, max: 357 },
+	});
 
 	const handleCategorySelect = (category: selectedCategoryType) => {
 		setSelectedCategory(category);
@@ -25,7 +30,7 @@ function Restaurants() {
 			<div className='restaurants-title-categories-filters-container'>
 				<h1 className='restaurant-page-title'>RESTAURANTS</h1>
 				<Categories selectedCategory={selectedCategory} onClick={handleCategorySelect} />
-				<Filters />
+				<Filters filters={filters} setFilters={setFilters} />
 			</div>
 
 			<div className='restaurants-list'>
