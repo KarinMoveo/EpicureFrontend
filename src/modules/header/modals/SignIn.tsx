@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Modal from '../../../shared/components/Modal';
+
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SignIn.scss';

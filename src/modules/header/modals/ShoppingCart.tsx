@@ -1,14 +1,14 @@
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-import Modal from '../../../shared/components/Modal';
-
-import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
 
 import RootState from '../../../redux/types';
 
-import './ShoppingCart.scss';
-import { NavLink } from 'react-router-dom';
+import Modal from '../../../shared/components/Modal';
 import Order from '../../../shared/components/Order';
+
+import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
+
+import './ShoppingCart.scss';
 
 const isDesktop = window.innerWidth >= 1024;
 
@@ -47,7 +47,6 @@ function ShoppingCart({ onClose }: ShoppingCartProps) {
 						</NavLink>
 					</div>
 				)}
-
 				<NavLink to='/order-history' className='shopping-cart-modal-button order-history-button'>
 					ORDER HISTORY
 				</NavLink>

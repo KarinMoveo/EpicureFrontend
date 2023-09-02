@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
-import Card from '../../../shared/components/Card';
-
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
+
+import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 

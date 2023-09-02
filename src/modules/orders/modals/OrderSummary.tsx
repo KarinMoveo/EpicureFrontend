@@ -6,7 +6,6 @@ import { updateItem } from '../../../redux/cartSlice';
 
 import Modal from '../../../shared/components/Modal';
 import OrderItem from '../../../shared/components/OrderItem';
-
 import DeleteOrder from '../../restaurants/modals/DeleteOrder';
 
 import './OrderSummary.scss';
@@ -34,7 +33,6 @@ function OrderSummary({ onClose, selectedOrderIndex }: OrderSummaryProps) {
 				dispatch(updateItem(item));
 			});
 		} else {
-			console.log('hi');
 			setDeleteOrderModal(true);
 		}
 	};
