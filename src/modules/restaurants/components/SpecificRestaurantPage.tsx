@@ -81,12 +81,9 @@ function SpecificRestaurantPage() {
 			<div className='dishes-container'>
 				{signatureDishesMockData.map((dish) => (
 					<div key={dish.cardName} className='card-link'>
-						<div
-							className='specific-restaurant-page-parent-card-container'
-							onClick={() => handleOnDishClick(dish)}
-						>
+						<div onClick={() => handleOnDishClick(dish)}>
 							<Card cardImage={dish.cardImage} cardName={dish.cardName}>
-								<p>{dish.ingredients}</p>
+								<p className='dish-ingredients'>{dish.ingredients}</p>
 								<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
 								<p>₪{dish.price}</p>
 							</Card>

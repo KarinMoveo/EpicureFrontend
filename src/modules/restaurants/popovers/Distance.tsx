@@ -8,8 +8,20 @@ function Distance(props: any) {
 			<div className='distance-popover-container'>
 				<p>Distance</p>
 				<div className='distance-popover-content'>
-					<p className='distance-title'>My location</p>
-					<input className='distance-user-input-range' type='range' min='0' max='4' step='1' />
+					<div className='distance-popover-text-content'>
+						<p className='distance-title'>My location</p>
+						<p>{props.value.distance}km</p>
+					</div>
+					<input
+						onChange={props.onChange}
+						className='distance-user-input-range'
+						type='range'
+						min='0'
+						max='4'
+						step='1'
+						name='distance'
+						value={props.value.distance}
+					/>
 				</div>
 			</div>
 		</Popover>

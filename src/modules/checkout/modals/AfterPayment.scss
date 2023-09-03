@@ -1,20 +1,11 @@
 
 
 .after-payment-modal-container{
-
-    position: fixed;
-    background-color:white; 
-    padding: 20px;
-    overflow: auto;
-
-    .after-payment-modal-close-button {
-      position: absolute;
-      background-color: transparent;
-      filter: invert(1);
-      border: none;
-      cursor: pointer;
-      top: -25px;
-      left: 0;
+  padding: 20px;
+    .after-payment-modal-container-text{
+      padding: 20px;
+      overflow: auto;
+      height: 100%;
     }
     
     .after-payment-modal-container-text,
@@ -33,7 +24,6 @@
   
   /* Media Query for mobile */
 	@media (max-width: 768px) {
-    
       top: 40%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -48,7 +38,7 @@
    /* Media Query for desktop */
   @media (min-width: 768px) {
       width: 20vw; 
-      height: 40vh;
+      height: 45vh;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);

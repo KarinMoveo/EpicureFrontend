@@ -5,6 +5,14 @@
     width: 280px;
     margin-bottom: 10px;
     font-size: 18px;
+    text-decoration: none;
+    text-align: center;
+
+    &:disabled{
+        cursor: auto;
+        color: white;
+        background-color: gray;
+    }
 }
 
 @mixin white-button {

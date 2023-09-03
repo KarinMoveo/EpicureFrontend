@@ -10,7 +10,6 @@ import './OrderHistoryContainer.scss';
 
 function OrderHistory() {
 	const orders = useSelector((state: RootState) => state.cart.orderHistory);
-	console.log(Object.values(orders));
 	return (
 		<div className='order-history-container'>
 			<h1 className='order-history-title'>YOUR ORDER HISTORY</h1>

@@ -1,14 +1,14 @@
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
-import Modal from '../../../shared/components/Modal';
-
-import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
 
 import RootState from '../../../redux/types';
 
-import './ShoppingCart.scss';
-import { NavLink } from 'react-router-dom';
+import Modal from '../../../shared/components/Modal';
 import Order from '../../../shared/components/Order';
+
+import shoppingBagIcon from '../assets/icons/shoppingBag.svg';
+
+import './ShoppingCart.scss';
 
 const isDesktop = window.innerWidth >= 1024;
 
@@ -38,16 +38,17 @@ function ShoppingCart({ onClose }: ShoppingCartProps) {
 				) : (
 					<div className='order-and-checkout-container'>
 						<Order formFieldsFilled />
-						<NavLink to='/checkout'>
-							<button className='shopping-cart-modal-button checkout-button' onClick={onClose}>
-								{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
-							</button>
+						<NavLink
+							to='/checkout'
+							className='shopping-cart-modal-button checkout-button'
+							onClick={onClose}
+						>
+							{isDesktop ? `CHECKOUT ₪${total}` : 'CHECKOUT'}
 						</NavLink>
 					</div>
 				)}
-
-				<NavLink to='/order-history'>
-					<button className='shopping-cart-modal-button order-history-button'>ORDER HISTORY</button>
+				<NavLink to='/order-history' className='shopping-cart-modal-button order-history-button'>
+					ORDER HISTORY
 				</NavLink>
 			</div>
 		</Modal>

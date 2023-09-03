@@ -13,9 +13,9 @@ interface NavigationItem {
 const navigationItems: NavigationItem[] = [
 	{ to: '/restaurants', text: 'Restaurants' },
 	{ to: '/chefs', text: 'Chefs' },
-	{ to: '/', text: 'Contact Us' },
-	{ to: '/', text: 'Term Of Use' },
-	{ to: '/', text: 'Privacy Policy' },
+	{ to: '/Contact Us', text: 'Contact Us' },
+	{ to: '/Term Of Use', text: 'Term Of Use' },
+	{ to: '/Privacy Policy', text: 'Privacy Policy' },
 ];
 
 interface BurgerMenuProps {

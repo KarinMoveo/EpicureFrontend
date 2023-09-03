@@ -6,10 +6,7 @@ import { updateItem } from '../../../redux/cartSlice';
 
 import Modal from '../../../shared/components/Modal';
 import OrderItem from '../../../shared/components/OrderItem';
-
 import DeleteOrder from '../../restaurants/modals/DeleteOrder';
-
-import xIcon from '../../../shared/assets/icons/x.svg';
 
 import './OrderSummary.scss';
 
@@ -36,17 +33,13 @@ function OrderSummary({ onClose, selectedOrderIndex }: OrderSummaryProps) {
 				dispatch(updateItem(item));
 			});
 		} else {
-			console.log('hi');
 			setDeleteOrderModal(true);
 		}
 	};
 
 	return (
-		<Modal onClose={onClose}>
+		<Modal isCentered hasClose onClose={onClose}>
 			<div className='order-summary-modal-container'>
-				<button className='close-order-summary-modal-button' onClick={onClose}>
-					<img src={xIcon} alt='close' />
-				</button>
 				<h1>ORDER SUMMARY</h1>
 				<p className='order-restaurant-name'>{selectedOrder.restaurantName}</p>
 				<div className='order-summary-items'>

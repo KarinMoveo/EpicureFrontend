@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import RootState from '../../../redux/types';
 
+import HeaderIcon from './HeaderIcon';
 import ShoppingCart from '../modals/ShoppingCart';
 import BurgerMenu from '../modals/BurgerMenu';
 import Search from '../modals/Search';
@@ -11,8 +12,6 @@ import SignIn from '../modals/SignIn';
 
 import { accountIcon, burgerMenuIcon, logoIcon, shoppingBagIcon } from '../assets/icons/index';
 import searchIcon from '../../../shared/assets/icons/search.svg';
-
-import HeaderIcon from './HeaderIcon';
 
 import './Header.scss';
 

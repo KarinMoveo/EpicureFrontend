@@ -53,7 +53,7 @@ function DishContent({
 		setQuantity((prev) => prev + 1);
 	}
 
-	function addToCartHandler(event: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+	function addToCartHandler() {
 		const selectedSideInput = document.querySelector('input[name="dishSide"]:checked') as HTMLInputElement;
 		const selectedSide = selectedSideInput ? selectedSideInput.value : '';
 
@@ -71,14 +71,9 @@ function DishContent({
 			orderItemChanges: selectedChanges.join(', ') || '',
 		};
 
-		if (cartItems.length && cartItems[0]?.restaurantName !== restaurantName) {
-			console.log(cartItems[0].restaurantName);
-			console.log(restaurantName);
-			return <DeleteOrder onClose={() => closeModal} />;
-		}
-
 		if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
 			setDeleteOrderModal(true);
+			return;
 		}
 
 		dispatch(updateItem(item));
@@ -87,11 +82,6 @@ function DishContent({
 			onClose();
 		}
 	}
-	// useEffect(() => {
-	// 	if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
-	// 		setDeleteOrder(true);
-	// 	}
-	// }, [cartItems]);
 
 	return (
 		<div className='dish-container'>
@@ -101,7 +91,7 @@ function DishContent({
 					<p className='dish-name'>{dishName}</p>
 					<p className='dish-ingredients'>{dishIngredients}</p>
 					<img className='dish-icon' src={dishIcon} alt='dish icon' />
-					<p className='dish-price'>{dishPrice}</p>
+					<p className='dish-price'>₪{dishPrice}</p>
 				</div>
 				<div className='checkbox-content-container'>
 					<p className='title-with-underline'>Choose a side</p>
@@ -132,8 +122,8 @@ function DishContent({
 						</button>
 					</div>
 				</div>
-				<button className='add-to-cart-button' onClick={addToCartHandler} disabled={quantity === 0}>
-					ADD TO CART
+				<button className='add-to-cart-button' onClick={addToCartHandler} disabled={!quantity && !dish}>
+					{dish ? 'UPDATE CART' : 'ADD TO CART'}
 				</button>
 			</div>
 			{deleteOrderModal && <DeleteOrder onClose={closeModal} />}

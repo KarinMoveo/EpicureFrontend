@@ -8,7 +8,6 @@ import chefOfTheWeekRestaurantsMockData from '../../../mockData/data/chefOfTheWe
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/ChefOfTheWeekContainer.scss';
-import '../../../shared/components/ChefImageAndName.scss';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;

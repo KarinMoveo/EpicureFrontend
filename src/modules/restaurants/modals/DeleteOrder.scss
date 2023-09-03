@@ -2,29 +2,13 @@
 
 .delete-order-modal-container{
     
-    height: 80vh;
+    height: 82vh;
     width: 35vw;
-    overflow: auto;
-    position: fixed;
-  	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-
-    .close-delete-order-modal-button {
-		position: absolute;
-		background-color: transparent;
-		border: none;
-		cursor: pointer;
-		top: 0;
-		left: 0;
-	}
-
     
     .delete-order-button {
         @include button;

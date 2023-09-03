@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 
-import Card from '../../../shared/components/Card';
-
 import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
+
+import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
@@ -15,7 +15,7 @@ function SignatureDishesContainer() {
 			<div className='signature-dishes-cards-display'>
 				{signatureDishesMockData.map((dish, index) => (
 					<Card key={index} cardImage={dish.cardImage} cardName={dish.cardName}>
-						<p>{dish.ingredients}</p>
+						<p className='dish-ingredients'>{dish.ingredients}</p>
 						<img src={dish.icon} alt='icon' className='signature-dish-icon' />
 						<p>₪{dish.price}</p>
 					</Card>

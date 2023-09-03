@@ -11,8 +11,30 @@
     align-self: start;
     width: 28vw;
     padding: 10px;
-
-    .price-range-user-input{
-        width: 27vw;
+    
+    .price-range-popover-text-content{
+      display: flex;
+      justify-content: space-between;
     }
+
+    .price-range-user-input-max,
+    .price-range-user-input-min
+    {
+        width: 100%;
+        -webkit-appearance: none;
+        background: #ccc;
+        height: 5px;
+        border-radius: 5px;
+      }
+
+      .price-range-user-input-min{
+        background: transparent;
+        
+        &::-webkit-slider-thumb{
+          transform: translateY(17px);
+        }
+      }
+
+
+
   }

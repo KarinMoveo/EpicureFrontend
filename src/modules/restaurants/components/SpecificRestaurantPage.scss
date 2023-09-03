@@ -40,8 +40,6 @@
         }
     }
 
- 
-
     .dishes-container{
 
         display: flex;
@@ -55,6 +53,7 @@
 
         .card-link{
             text-decoration: none;  
+            cursor: pointer;
         }
     }
 
@@ -104,10 +103,11 @@
             flex-direction: row;
             flex-wrap: wrap;
 
-            .specific-restaurant-page-parent-card-container{
-                background-color: #F9F4EA;
-                height: 500px;
+            .dish-ingredients{
+                height: 100px;
+                overflow: auto;
             }
+
         }
 
   }
