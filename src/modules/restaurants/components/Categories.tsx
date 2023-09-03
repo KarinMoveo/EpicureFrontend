@@ -14,7 +14,7 @@ function Categories(props: CategoriesProps) {
 		<div className='restaurants-categories-container'>
 			{categories.map(
 				(category) =>
-					!(category === 'Map View' && window.innerWidth < 768) && (
+					(category !== 'Map View' || window.innerWidth >= 768) && (
 						<p
 							key={category}
 							onClick={() => props.onClick(category)}

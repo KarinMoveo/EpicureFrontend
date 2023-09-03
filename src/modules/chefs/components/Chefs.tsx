@@ -1,20 +1,25 @@
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllChefs } from '../../../redux/chefSlice';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
-
-import chefsMockData from '../../../mockData/data/chefsMockData';
-
 import '../components/Chefs.scss';
 
 type selectedCategoryType = 'All' | 'New' | 'Most Viewed' | null;
 const categories: selectedCategoryType[] = ['All', 'New', 'Most Viewed'];
 
 function Chefs() {
+	const dispatch = useDispatch();
+	const chefs = useSelector((state: any) => state.chef.chefs);
+
 	const [selectedCategoryItem, setSelectedCategoryItem] = useState<selectedCategoryType>('All');
 
 	const handleCategoryClick = (category: selectedCategoryType) => {
 		setSelectedCategoryItem(category);
 	};
+
+	useEffect(() => {
+		dispatch(getAllChefs());
+	}, [dispatch]);
 
 	return (
 		<div className='chefs-page-container'>
@@ -33,8 +38,8 @@ function Chefs() {
 				))}
 			</div>
 			<div className='chefs-images-and-names-container'>
-				{chefsMockData.map((chef, index) => (
-					<ChefImageAndName chefName={chef.chefName} chefImage={chef.chefImage} key={index} />
+				{chefs.map((chef: any, index: number) => (
+					<ChefImageAndName chefName={chef.name} chefImage={chef.image} key={index} />
 				))}
 			</div>
 		</div>

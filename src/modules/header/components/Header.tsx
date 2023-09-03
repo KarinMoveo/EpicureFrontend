@@ -33,11 +33,7 @@ function Header() {
 	);
 
 	const toggleModal = (modalName: openedModalType) => {
-		if (modalName === openedModal) {
-			setOpenedModal(null);
-		} else {
-			setOpenedModal(modalName);
-		}
+		modalName === openedModal ? setOpenedModal(null) : setOpenedModal(modalName);
 	};
 
 	const isActiveClass = ({ isActive }: { isActive: boolean }) => {

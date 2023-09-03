@@ -3,11 +3,13 @@ import { NavLink } from 'react-router-dom';
 import Card from '../../../shared/components/Card';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 
-import chefOfTheWeekRestaurantsMockData from '../../../mockData/data/chefOfTheWeekRestaurantsMockData';
-
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
+import { useDispatch, useSelector } from 'react-redux';
+import { getChefOfTheWeekRestaurants } from '../../../redux/restaurantSlice';
+
 import '../components/ChefOfTheWeekContainer.scss';
+import { useEffect } from 'react';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
@@ -16,8 +18,15 @@ interface ChefOfTheWeekContainerProps {
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
+	const dispatch = useDispatch();
+	const restaurants = useSelector((state: any) => state.restaurant.chefOfTheWeekRestaurants);
+
 	const chefFirstName = props.chefOfTheWeekName.split(' ');
 	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
+
+	useEffect(() => {
+		dispatch(getChefOfTheWeekRestaurants());
+	}, [dispatch]);
 
 	return (
 		<div className='chef-of-the-week-container'>
@@ -29,11 +38,8 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 			<div className='restaurants-container'>
 				<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
 				<div className='chef-of-the-week-restaurants-cards-display'>
-					{chefOfTheWeekRestaurantsMockData.map((chefOfTheWeekRestaurant, index) => (
-						<Card
-							cardImage={chefOfTheWeekRestaurant.cardImage}
-							cardName={chefOfTheWeekRestaurant.cardName}
-						/>
+					{restaurants.map((chefOfTheWeekRestaurant: any, index: number) => (
+						<Card cardImage={chefOfTheWeekRestaurant.image} cardName={chefOfTheWeekRestaurant.name} />
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>

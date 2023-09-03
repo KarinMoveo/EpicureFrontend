@@ -1,24 +1,34 @@
 import { NavLink } from 'react-router-dom';
 
-import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
-
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/PopularRestaurantsContainer.scss';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getPopularRestaurants } from '../../../redux/restaurantSlice';
+import { useEffect } from 'react';
+
 function PopularRestaurantsContainer() {
+	const dispatch = useDispatch();
+	const popularRestaurants = useSelector((state: any) => state.restaurant.popularRestaurants);
+
+	useEffect(() => {
+		dispatch(getPopularRestaurants());
+	}, [dispatch]);
+
 	return (
 		<div className='popular-restaurants-container'>
 			<p className='popular-restaurants-title'>POPULAR RESTAURANT IN EPICURE:</p>
 			<div className='popular-restaurants-cards-display-and-all-restaurants'>
 				<div className='popular-restaurants-cards-display'>
-					{popularRestaurantsMockData.map((popularRestaurant, index) => (
-						<Card key={index} cardImage={popularRestaurant.cardImage} cardName={popularRestaurant.cardName}>
-							<p>{popularRestaurant.chefName}</p>
+					{popularRestaurants.map((popularRestaurant: any, index: number) => (
+						<Card key={index} cardImage={popularRestaurant.image} cardName={popularRestaurant.name}>
+							<p>{popularRestaurant.chef}</p>
 							<img
-								src={popularRestaurant.ratingImage}
+								src={popularRestaurant.rating}
 								className='popular-restaurant-image'
 								alt='restaurants rating'
 							/>
