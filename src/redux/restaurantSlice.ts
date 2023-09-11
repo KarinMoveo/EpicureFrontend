@@ -33,8 +33,8 @@ export const restaurantSlice = createSlice({
             const popularityThreshold = 4;
             state.popularRestaurants = restaurantsMockData.filter((restaurant)=> restaurant.popularity >=  popularityThreshold); 
         },
-        getChefOfTheWeekRestaurants: (state) =>{
-            const chefOfTheWeek = 'Yossi Shitrit';
+        getChefOfTheWeekRestaurants: (state, action: PayloadAction<string>) =>{
+            const chefOfTheWeek = action.payload;
             state.chefOfTheWeekRestaurants = restaurantsMockData.filter((restaurant)=> restaurant.chef ===  chefOfTheWeek); 
         },
         getNewRestaurants: (state) => {

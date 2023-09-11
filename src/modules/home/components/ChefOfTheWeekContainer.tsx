@@ -10,11 +10,13 @@ import { getChefOfTheWeekRestaurants } from '../../../redux/restaurantSlice';
 
 import '../components/ChefOfTheWeekContainer.scss';
 import { useEffect } from 'react';
+import { chef } from '../../../mockData/data/types';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
 	chefOfTheWeekName: string;
 	chefOfTheWeekSummary: string;
+	randomChef: chef | null; // Receive randomChef as a prop
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
@@ -25,9 +27,10 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
 
 	useEffect(() => {
-		dispatch(getChefOfTheWeekRestaurants());
-	}, [dispatch]);
-
+		if (props.randomChef) {
+			dispatch(getChefOfTheWeekRestaurants(props.randomChef.name)); // Dispatch action with chef's name
+		}
+	}, [dispatch, props.randomChef]);
 	return (
 		<div className='chef-of-the-week-container'>
 			<p className='chef-of-the-week-title'>CHEF OF THE WEEK:</p>
