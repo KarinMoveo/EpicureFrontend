@@ -7,7 +7,6 @@ import './Rating.scss';
 const ratingElements = Array(5).fill(true);
 
 function Rating(props: any) {
-	console.log(props);
 	return (
 		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
 			<div className='rating-popover-container'>

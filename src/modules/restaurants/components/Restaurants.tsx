@@ -22,12 +22,6 @@ function Restaurants() {
 		priceRange: { min: 12, max: 357 },
 	});
 
-	const handleCategorySelect = (category: any) => {
-		setFilters((prev) => ({ ...prev, category }));
-	};
-
-	const selectedCategoryArray = useSelector((state: any) => state.restaurant.filteredRestaurants);
-
 	useEffect(() => {
 		dispatch(getAllRestaurants());
 	}, [dispatch]);
@@ -35,6 +29,12 @@ function Restaurants() {
 	useEffect(() => {
 		dispatch(filterRestaurants(filters));
 	}, [dispatch, filters]);
+
+	const handleCategorySelect = (category: any) => {
+		setFilters((prev) => ({ ...prev, category }));
+	};
+
+	const selectedCategoryArray = useSelector((state: any) => state.restaurant.filteredRestaurants);
 
 	return (
 		<div className='restaurants-page-container'>

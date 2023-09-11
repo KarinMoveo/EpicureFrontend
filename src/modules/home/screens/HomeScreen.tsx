@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import SearchContainer from '../components/SearchContainer';
 import PopularRestaurantsContainer from '../components/PopularRestaurantsContainer';
 import SignatureDishesContainer from '../components/SignatureDishesContainer';
@@ -15,8 +15,8 @@ function HomeScreen() {
 	const chef = useSelector((state: any) => state.chef.allChefs[0]);
 
 	useEffect(() => {
-		dispatch(getAllChefs());
 		dispatch(getAllRestaurants());
+		dispatch(getAllChefs());
 	}, [dispatch]);
 
 	return (
