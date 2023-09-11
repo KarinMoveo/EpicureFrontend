@@ -5,32 +5,24 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { getChefOfTheWeekRestaurants } from '../../../redux/restaurantSlice';
+import { useSelector } from 'react-redux';
 
 import '../components/ChefOfTheWeekContainer.scss';
-import { useEffect } from 'react';
-import { chef } from '../../../mockData/data/types';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
 	chefOfTheWeekName: string;
 	chefOfTheWeekSummary: string;
-	randomChef: chef | null; // Receive randomChef as a prop
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
-	const dispatch = useDispatch();
-	const restaurants = useSelector((state: any) => state.restaurant.chefOfTheWeekRestaurants);
+	const restaurants = useSelector((state: any) =>
+		state.restaurant.allRestaurants.filter((restaurant: any) => restaurant.chef === 'Asaf Granit')
+	);
 
 	const chefFirstName = props.chefOfTheWeekName.split(' ');
 	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
 
-	useEffect(() => {
-		if (props.randomChef) {
-			dispatch(getChefOfTheWeekRestaurants(props.randomChef.name)); // Dispatch action with chef's name
-		}
-	}, [dispatch, props.randomChef]);
 	return (
 		<div className='chef-of-the-week-container'>
 			<p className='chef-of-the-week-title'>CHEF OF THE WEEK:</p>

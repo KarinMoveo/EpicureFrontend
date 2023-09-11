@@ -10,7 +10,7 @@ function Distance(props: any) {
 				<div className='distance-popover-content'>
 					<div className='distance-popover-text-content'>
 						<p className='distance-title'>My location</p>
-						<p>{props.value.distance}km</p>
+						<p>{props.value}km</p>
 					</div>
 					<input
 						onChange={props.onChange}
@@ -20,7 +20,7 @@ function Distance(props: any) {
 						max='4'
 						step='1'
 						name='distance'
-						value={props.value.distance}
+						value={props.value}
 					/>
 				</div>
 			</div>

@@ -8,21 +8,16 @@ import About from '../components/About';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllChefs } from '../../../redux/chefSlice';
-
-import { chef } from '../../../mockData/data/types';
+import { getAllRestaurants } from '../../../redux/restaurantSlice';
 
 function HomeScreen() {
 	const dispatch = useDispatch();
-	const chefs = useSelector((state: any) => state.chef.chefs);
-
-	const [randomChef, setRandomChef] = useState<chef | null>(null);
+	const chef = useSelector((state: any) => state.chef.allChefs[0]);
 
 	useEffect(() => {
 		dispatch(getAllChefs());
-		const randomIndex = Math.floor(Math.random() * chefs.length);
-		const selectedChef = chefs[randomIndex];
-		setRandomChef(selectedChef);
-	}, [dispatch, chefs]);
+		dispatch(getAllRestaurants());
+	}, [dispatch]);
 
 	return (
 		<div className='home-screen-container'>
@@ -30,12 +25,11 @@ function HomeScreen() {
 			<PopularRestaurantsContainer />
 			<SignatureDishesContainer />
 			<IconsMeaningContainer />
-			{randomChef && (
+			{chef && (
 				<ChefOfTheWeekContainer
-					chefOfTheWeekImage={randomChef.image}
-					chefOfTheWeekName={randomChef.name}
-					chefOfTheWeekSummary={randomChef.summary}
-					randomChef={randomChef}
+					chefOfTheWeekImage={chef.image}
+					chefOfTheWeekName={chef.name}
+					chefOfTheWeekSummary={chef.summary}
 				/>
 			)}
 			<About />

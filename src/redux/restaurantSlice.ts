@@ -5,21 +5,16 @@ import {restaurant} from '../../src/mockData/data/types';
 import { isRestaurantOpen } from '../shared/util';
 
 import restaurantsMockData from '../mockData/data/restaurants';
+import { WritableDraft } from 'immer/dist/internal';
 
 type InitialState = {
     allRestaurants: restaurant[];
-    popularRestaurants: restaurant[];
-    chefOfTheWeekRestaurants: restaurant[];
-    newRestaurants: restaurant[];
-    openNowRestaurants: restaurant[];
+    filteredRestaurants: restaurant[];
 };
   
 const initialState: InitialState = {
     allRestaurants: [],
-    popularRestaurants: [],
-    chefOfTheWeekRestaurants: [],
-    newRestaurants: [],
-    openNowRestaurants: [],
+    filteredRestaurants: [],
 };
 
 export const restaurantSlice = createSlice({
@@ -28,32 +23,47 @@ export const restaurantSlice = createSlice({
 	reducers: {
         getAllRestaurants: (state) => {
             state.allRestaurants = restaurantsMockData; 
+            state.filteredRestaurants = restaurantsMockData;
         },
-        getPopularRestaurants: (state) => {
-            const popularityThreshold = 4;
-            state.popularRestaurants = restaurantsMockData.filter((restaurant)=> restaurant.popularity >=  popularityThreshold); 
-        },
-        getChefOfTheWeekRestaurants: (state, action: PayloadAction<string>) =>{
-            const chefOfTheWeek = action.payload;
-            state.chefOfTheWeekRestaurants = restaurantsMockData.filter((restaurant)=> restaurant.chef ===  chefOfTheWeek); 
-        },
-        getNewRestaurants: (state) => {
-            const fromYear = '2020';
-            state.newRestaurants = restaurantsMockData.filter((restaurant) => {
+        filterRestaurants: (state, action: PayloadAction<any>)=>{
+            const tempRestaurants: WritableDraft<restaurant>[] = [];
+            const popularity = action.payload.category === 'Most Popular' ? 4 : 0;
+            const restaurantOpeningYear = action.payload.category === 'New' ? 2020 : 0;
+            const rating = action.payload.rating;
+            const distance = action.payload.distance;
+            console.log(distance);
+            const {min, max} = action.payload.priceRange || {}; 
+            
+            state.allRestaurants.forEach((restaurant)=>{
                 const [day, month, year] = restaurant.openingDate.split('.'); 
-                return year >= fromYear;
-            });
-        },
-        getOpenNowRestaurants: (state) => {
-            state.openNowRestaurants = restaurantsMockData.filter((restaurant) => {
                 const isRestaurantCurrentlyOpen = isRestaurantOpen(restaurant.from, restaurant.to);
-                return isRestaurantCurrentlyOpen;
-              
-            });
+                if ((restaurant.popularity >= popularity) &&
+                    (Number(year) >= restaurantOpeningYear) &&
+                    (isRestaurantCurrentlyOpen) && 
+                    (restaurant.averagePrice >= min && restaurant.averagePrice <= max)&&
+                    (restaurant.distance <= distance)){
+                        console.log("restaurant distance" + restaurant.distance);
+                        tempRestaurants.push(restaurant);
+                }
+                state.filteredRestaurants = tempRestaurants;       
+            });            
         },
+     
+        // getChefOfTheWeekRestaurants: (state, action: PayloadAction<string>) =>{
+        //     const chefOfTheWeek = action.payload;
+        //     state.chefOfTheWeekRestaurants = restaurantsMockData.filter((restaurant)=> restaurant.chef ===  chefOfTheWeek); 
+        // },
+      
+        // getRestaurantsByRating: (state, action: PayloadAction<number[]>) => {
+        //     const ratings = action.payload;
+        //     state.restaurantsByRating = restaurantsMockData.filter((restaurant) =>
+        //       ratings.includes(restaurant.popularity)
+        //     );
+        // },          
 	},
 });
 
-export const { getAllRestaurants, getPopularRestaurants, getChefOfTheWeekRestaurants, getNewRestaurants, getOpenNowRestaurants } = restaurantSlice.actions;
+export const { getAllRestaurants, filterRestaurants } = restaurantSlice.actions;
+
 
 export default restaurantSlice.reducer;

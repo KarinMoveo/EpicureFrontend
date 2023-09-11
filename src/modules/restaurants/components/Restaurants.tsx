@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { selectedCategoryType } from '../types';
-
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-	getAllRestaurants,
-	getNewRestaurants,
-	getOpenNowRestaurants,
-	getPopularRestaurants,
-} from '../../../redux/restaurantSlice';
+import { getAllRestaurants, filterRestaurants } from '../../../redux/restaurantSlice';
 
 import Card from '../../../shared/components/Card';
 import Filters from './Filters';
@@ -21,62 +14,38 @@ import mapView from '../assets/images/others/mapView.png';
 import '../components/Restaurants.scss';
 
 function Restaurants() {
-	const [selectedCategory, setSelectedCategory] = useState<selectedCategoryType>('All');
+	const dispatch = useDispatch();
 	const [filters, setFilters] = useState({
-		distance: 0,
-		rating: [],
+		category: 'All',
+		distance: 5,
+		rating: [true, true, true, true, true],
 		priceRange: { min: 12, max: 357 },
 	});
-	const dispatch = useDispatch();
 
-	const handleCategorySelect = (category: selectedCategoryType) => {
-		setSelectedCategory(category);
+	const handleCategorySelect = (category: any) => {
+		setFilters((prev) => ({ ...prev, category }));
 	};
 
-	const selectedCategoryArray = useSelector((state: any) => {
-		switch (selectedCategory) {
-			case 'All':
-				return state.restaurant.allRestaurants;
-			case 'New':
-				return state.restaurant.newRestaurants;
-			case 'Most Popular':
-				return state.restaurant.popularRestaurants;
-			case 'Open Now':
-				return state.restaurant.openNowRestaurants;
-			default:
-				return [];
-		}
-	});
+	const selectedCategoryArray = useSelector((state: any) => state.restaurant.filteredRestaurants);
 
 	useEffect(() => {
-		switch (selectedCategory) {
-			case 'All':
-				dispatch(getAllRestaurants());
-				break;
-			case 'New':
-				dispatch(getNewRestaurants());
-				break;
-			case 'Most Popular':
-				dispatch(getPopularRestaurants());
-				break;
-			case 'Open Now':
-				dispatch(getOpenNowRestaurants());
-				break;
-			default:
-				break;
-		}
-	}, [dispatch, selectedCategory]);
+		dispatch(getAllRestaurants());
+	}, [dispatch]);
+
+	useEffect(() => {
+		dispatch(filterRestaurants(filters));
+	}, [dispatch, filters]);
 
 	return (
 		<div className='restaurants-page-container'>
 			<div className='restaurants-title-categories-filters-container'>
 				<h1 className='restaurant-page-title'>RESTAURANTS</h1>
-				<Categories selectedCategory={selectedCategory} onClick={handleCategorySelect} />
+				<Categories selectedCategory={filters.category} onClick={handleCategorySelect} />
 				<Filters filters={filters} setFilters={setFilters} />
 			</div>
 
 			<div className='restaurants-list'>
-				{selectedCategory === 'Map View' ? (
+				{filters.category === 'Map View' ? (
 					<img src={mapView} alt='Map View' className='map-view-image' />
 				) : (
 					selectedCategoryArray.map((restaurant: any, index: number) => (

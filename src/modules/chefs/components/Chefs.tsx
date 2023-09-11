@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllChefs } from '../../../redux/chefSlice';
+import { getAllChefs, getMostViewedChefs, getNewChefs } from '../../../redux/chefSlice';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import '../components/Chefs.scss';
 
@@ -17,9 +17,34 @@ function Chefs() {
 		setSelectedCategoryItem(category);
 	};
 
+	const selectedChefsArray = useSelector((state: any) => {
+		switch (selectedCategoryItem) {
+			case 'All':
+				return state.chef.allChefs;
+			case 'New':
+				return state.chef.newChefs;
+			case 'Most Viewed':
+				return state.chef.mostViewedChefs;
+			default:
+				return [];
+		}
+	});
+
 	useEffect(() => {
-		dispatch(getAllChefs());
-	}, [dispatch]);
+		switch (selectedCategoryItem) {
+			case 'All':
+				dispatch(getAllChefs());
+				break;
+			case 'New':
+				dispatch(getNewChefs());
+				break;
+			case 'Most Viewed':
+				dispatch(getMostViewedChefs());
+				break;
+			default:
+				break;
+		}
+	}, [dispatch, selectedCategoryItem]);
 
 	return (
 		<div className='chefs-page-container'>
@@ -38,7 +63,7 @@ function Chefs() {
 				))}
 			</div>
 			<div className='chefs-images-and-names-container'>
-				{chefs.map((chef: any, index: number) => (
+				{selectedChefsArray.map((chef: any, index: number) => (
 					<ChefImageAndName chefName={chef.name} chefImage={chef.image} key={index} />
 				))}
 			</div>

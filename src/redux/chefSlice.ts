@@ -5,11 +5,15 @@ import {chef} from '../../src/mockData/data/types';
 import chefsMockData from '../mockData/data/chefs';
 
 type InitialState = {
-    chefs: chef[];
+    allChefs: chef[];
+    newChefs: chef[];
+    mostViewedChefs: chef[];
 };
   
 const initialState: InitialState = {
-    chefs: [],
+    allChefs: [],
+    newChefs: [],
+    mostViewedChefs: [],
 };
 
 export const chefSlice = createSlice({
@@ -17,11 +21,17 @@ export const chefSlice = createSlice({
 	initialState,
 	reducers: {
         getAllChefs: (state) => {
-            state.chefs = chefsMockData; 
-          },
+            state.allChefs = chefsMockData; 
+        },
+        getNewChefs: (state)=>{
+            state.newChefs = chefsMockData.slice(0,5);
+        },
+        getMostViewedChefs: (state)=>{
+          state.mostViewedChefs = chefsMockData.slice(0,3);  
+        },
 	},
 });
 
-export const { getAllChefs } = chefSlice.actions;
+export const { getAllChefs, getNewChefs, getMostViewedChefs } = chefSlice.actions;
 
 export default chefSlice.reducer;

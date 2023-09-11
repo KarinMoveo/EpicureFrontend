@@ -59,6 +59,7 @@ const chefsMockData: chef[] = [
     summary: "Chef Yuval Ben Neriah has been living and breathing his culinary dreams for more than two decades, including running the kitchen in his first restaurant, the fondly-remembered Violet, located in Moshav Udim. Ben Neriah's creativity and culinary acumen born of long experience are expressed in every detail of each and every dish.",
     restaurants: restaurantsMockData,
   },
+  
 ];
  export default chefsMockData;
   

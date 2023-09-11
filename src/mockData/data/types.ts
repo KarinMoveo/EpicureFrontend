@@ -16,6 +16,10 @@ export interface restaurant{
     to: string;
     openingDate: string;
     dishes: dish[];
+    averagePrice: number;
+    lat: number;
+    long: number;
+    distance: number;
 }
 
 export interface dish{

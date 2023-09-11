@@ -8,15 +8,15 @@ import '../components/PopularRestaurantsContainer.scss';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getPopularRestaurants } from '../../../redux/restaurantSlice';
+import { filterRestaurants } from '../../../redux/restaurantSlice';
 import { useEffect } from 'react';
 
 function PopularRestaurantsContainer() {
 	const dispatch = useDispatch();
-	const popularRestaurants = useSelector((state: any) => state.restaurant.popularRestaurants);
+	const popularRestaurants = useSelector((state: any) => state.restaurant.filteredRestaurants);
 
 	useEffect(() => {
-		dispatch(getPopularRestaurants());
+		dispatch(filterRestaurants('Most Popular'));
 	}, [dispatch]);
 
 	return (
