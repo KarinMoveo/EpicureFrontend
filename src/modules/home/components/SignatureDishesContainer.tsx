@@ -1,20 +1,30 @@
 import { NavLink } from 'react-router-dom';
 
-import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
-
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getSignatureDishes } from '../../../redux/dishSlice';
+
 import '../components/SignatureDishesContainer.scss';
+import { useEffect } from 'react';
 
 function SignatureDishesContainer() {
+	const dispatch = useDispatch();
+	const signatureDishes = useSelector((state: any) => state.dish.signatureDishes);
+
+	useEffect(() => {
+		dispatch(getSignatureDishes());
+	}, [dispatch]);
+
 	return (
 		<div className='signature-dishes-container'>
 			<p className='signature-dishes-title'>SIGNATURE DISH OF:</p>
 			<div className='signature-dishes-cards-display'>
-				{signatureDishesMockData.map((dish, index) => (
-					<Card key={index} cardImage={dish.cardImage} cardName={dish.cardName}>
+				{signatureDishes.map((dish: any, index: number) => (
+					<Card key={index} cardImage={dish.image} cardName={dish.name}>
 						<p className='dish-ingredients'>{dish.ingredients}</p>
 						<img src={dish.icon} alt='icon' className='signature-dish-icon' />
 						<p>₪{dish.price}</p>

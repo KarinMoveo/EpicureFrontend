@@ -11,7 +11,10 @@ function SpecificDishPage() {
 		return <div>Error: Dish data not found</div>;
 	}
 
-	const { dishName, dishImage, dishIngredients, dishPrice, dishChanges, dishSide } = state;
+	const dish = state;
+	console.log(dish);
+
+	console.log('this is the state ----------' + state);
 
 	const navigateBack = () => {
 		navigate(-1);
@@ -19,15 +22,7 @@ function SpecificDishPage() {
 
 	return (
 		<div className='specific-dish-page-container'>
-			<DishContent
-				dishName={dishName}
-				dishImage={dishImage}
-				dishIngredients={dishIngredients}
-				dishPrice={dishPrice}
-				dishChanges={dishChanges}
-				dishSide={dishSide}
-				onClose={navigateBack}
-			/>
+			<DishContent dish={dish} onClose={navigateBack} />
 		</div>
 	);
 }

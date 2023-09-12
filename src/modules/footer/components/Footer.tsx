@@ -1,11 +1,21 @@
+import { Link } from 'react-router-dom';
+
 import '../components/Footer.scss';
 
 function Footer() {
 	return (
 		<footer className='footer-container'>
-			<p className='footer-item'>Contact Us</p>
-			<p className='footer-item'>Term Of Use</p>
-			<p className='footer-item'>Privacy Policy</p>
+			<ul className='ul-footer-container'>
+				<li className='footer-item'>
+					<Link to='/contact'>Contact Us</Link>
+				</li>
+				<li className='footer-item'>
+					<Link to='/terms'>Term Of Use</Link>
+				</li>
+				<li className='footer-item'>
+					<Link to='/privacy'>Privacy Policy</Link>
+				</li>
+			</ul>
 		</footer>
 	);
 }

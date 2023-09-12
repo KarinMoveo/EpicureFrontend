@@ -13,30 +13,23 @@ import DeleteOrder from '../modals/DeleteOrder';
 import './DishContent.scss';
 
 interface DishContentProps {
-	dishName: string;
-	dishImage: string;
-	dishIngredients: string;
-	dishIcon?: string;
-	dishPrice: number;
-	dishChanges: string;
-	dishSide: string;
+	dish: {
+		name: string;
+		image: string;
+		ingredients: string;
+		icon?: string;
+		price: number;
+		changes: string[];
+		side: string[];
+	};
 	onClose?: () => void;
 }
 
-function DishContent({
-	dishName,
-	dishImage,
-	dishIngredients,
-	dishIcon,
-	dishPrice,
-	dishChanges,
-	dishSide,
-	onClose,
-}: DishContentProps) {
+function DishContent({ dish: { name, image, ingredients, icon, price, changes, side }, onClose }: DishContentProps) {
 	const dispatch = useDispatch();
 	const { restaurantName } = useParams();
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
-	const dish = cartItems[dishName];
+	const dish = cartItems[name];
 	const [quantity, setQuantity] = useState(dish?.orderItemAmount || 0);
 	const [deleteOrderModal, setDeleteOrderModal] = useState<any>(false);
 
@@ -61,11 +54,11 @@ function DishContent({
 		const selectedChanges = Array.from(selectedChangesInput).map((selectedChange) => selectedChange.value);
 
 		const item: CartItem = {
-			orderItemId: dishName,
-			orderItemImage: dishImage,
-			orderItemName: dishName,
+			orderItemId: name,
+			orderItemImage: image,
+			orderItemName: name,
 			orderItemAmount: quantity,
-			orderItemPrice: dishPrice,
+			orderItemPrice: price,
 			restaurantName: restaurantName as string,
 			orderItemSide: selectedSide || '',
 			orderItemChanges: selectedChanges.join(', ') || '',
@@ -85,29 +78,35 @@ function DishContent({
 
 	return (
 		<div className='dish-container'>
-			<img src={dishImage} alt='Dish' className='dish-image' />
+			<img src={image} alt='Dish' className='dish-image' />
 			<div className='dish-content-container'>
 				<div className='dish-description'>
-					<p className='dish-name'>{dishName}</p>
-					<p className='dish-ingredients'>{dishIngredients}</p>
-					<img className='dish-icon' src={dishIcon} alt='dish icon' />
-					<p className='dish-price'>₪{dishPrice}</p>
+					<p className='dish-name'>{name}</p>
+					<p className='dish-ingredients'>{ingredients}</p>
+					<img className='dish-icon' src={icon} alt='dish icon' />
+					<p className='dish-price'>₪{price}</p>
 				</div>
 				<div className='checkbox-content-container'>
-					<p className='title-with-underline'>Choose a side</p>
-					<label className='rounded-checkbox'>
-						<input type='radio' name='dishSide' value={dishSide[0]} /> {dishSide[0]}
-					</label>
-					<label className='rounded-checkbox'>
-						<input type='radio' name='dishSide' value={dishSide[1]} /> {dishSide[1]}
-					</label>
-					<p className='title-with-underline'>Changes</p>
-					<label className='rounded-checkbox'>
-						<input type='checkbox' value={dishChanges[0]} /> {dishChanges[0]}
-					</label>
-					<label className='rounded-checkbox'>
-						<input type='checkbox' value={dishChanges[1]} /> {dishChanges[1]}
-					</label>
+					{side && (
+						<>
+							<p className='title-with-underline'>Choose a side</p>
+							{side.map((item: any) => (
+								<label className='rounded-checkbox'>
+									<input type='radio' name='dishSide' value={item} /> {item}
+								</label>
+							))}
+						</>
+					)}
+					{changes && changes[0] && changes[1] && (
+						<>
+							<p className='title-with-underline'>Changes</p>
+							{changes.map((item: any) => (
+								<label className='rounded-checkbox'>
+									<input type='checkbox' value={item} /> {item}
+								</label>
+							))}
+						</>
+					)}
 				</div>
 
 				<div className='quantity-container'>

@@ -30,11 +30,11 @@ function Filters({ filters, setFilters }: FiltersProps) {
 		setCurrentPopover(null);
 	};
 
-	const handleOnChange = (event: any) => {
-		const { value, name } = event.target;
+	const handleOnDistanceChange = (event: any) => {
+		const { value } = event.target;
 		setFilters((prev: any) => ({
 			...prev,
-			distance: { ...prev.distance, [name]: value },
+			distance: value,
 		}));
 	};
 
@@ -52,6 +52,18 @@ function Filters({ filters, setFilters }: FiltersProps) {
 			...prev,
 			priceRange: { ...prev.priceRange, [name]: value },
 		}));
+	};
+
+	const handleOnRatingChange = (ratingIndex: number) => {
+		setFilters((prev: any) => {
+			const newRating = [...prev.rating];
+			newRating[ratingIndex] = !newRating[ratingIndex];
+
+			return {
+				...prev,
+				rating: newRating,
+			};
+		});
 	};
 
 	return (
@@ -79,7 +91,7 @@ function Filters({ filters, setFilters }: FiltersProps) {
 			)}
 			{currentPopover?.name === filtersInputs.distance.name && (
 				<Distance
-					onChange={handleOnChange}
+					onChange={handleOnDistanceChange}
 					value={filters.distance}
 					onClose={closePopover}
 					anchorEl={currentPopover.anchorEl}
@@ -87,7 +99,7 @@ function Filters({ filters, setFilters }: FiltersProps) {
 			)}
 			{currentPopover?.name === filtersInputs.rating.name && (
 				<Rating
-					onChange={handleOnChange}
+					onChange={handleOnRatingChange}
 					value={filters.rating}
 					onClose={closePopover}
 					anchorEl={currentPopover.anchorEl}

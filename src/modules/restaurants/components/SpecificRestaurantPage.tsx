@@ -1,8 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
-import popularRestaurantsMockData from '../../../mockData/data/popularRestaurantsMockData';
-import signatureDishesMockData from '../../../mockData/data/signatureDishesMockData';
 
 import Card from '../../../shared/components/Card';
 import SpecificDish from '../modals/SpecificDish';
@@ -11,6 +8,12 @@ import { MealType } from '../types';
 
 import clock from '../assets/icons/clock.svg';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getBreakfastDishes, getDinnerDishes, getLunchDishes } from '../../../redux/dishSlice';
+
+import { isRestaurantOpen } from '../../../shared/util';
+
 import '../components/SpecificRestaurantPage.scss';
 
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
@@ -18,6 +21,7 @@ const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 function SpecificRestaurantPage() {
 	const navigate = useNavigate();
 	const { restaurantName } = useParams();
+	const dispatch = useDispatch();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
 
@@ -35,34 +39,73 @@ function SpecificRestaurantPage() {
 		if (isDesktop) {
 			setSelectedDishModal(dish);
 		} else {
-			navigate(`/restaurants/${restaurantName}/${dish.cardName}`, {
+			navigate(`/restaurants/${restaurantName}/${dish.name}`, {
 				state: {
-					dishName: dish.cardName,
-					dishImage: dish.cardImage,
-					dishIngredients: dish.ingredients,
-					dishPrice: dish.price,
-					dishChanges: dish.dishChanges,
-					dishSide: dish.dishSide,
+					name: dish.name,
+					image: dish.image,
+					ingredients: dish.ingredients,
+					price: dish.price,
+					changes: dish.changes,
+					side: dish.side,
 				},
 			});
 		}
 	};
 
-	const restaurant = popularRestaurantsMockData.find((item) => item.cardName === restaurantName);
+	const restaurant = useSelector((state: any) => {
+		return state.restaurant.allRestaurants.find((item: any) => item.name === restaurantName);
+	});
+
+	const selectedMealTypeArray = useSelector((state: any) => {
+		switch (selectedMealCategory) {
+			case 'Breakfast':
+				return state.dish.breakfastDishes;
+			case 'Lunch':
+				return state.dish.lunchDishes;
+			case 'Dinner':
+				return state.dish.dinnerDishes;
+			default:
+				return [];
+		}
+	});
+
+	useEffect(() => {
+		switch (selectedMealCategory) {
+			case 'Breakfast':
+				if (restaurantName) {
+					dispatch(getBreakfastDishes(restaurantName));
+				}
+				break;
+			case 'Lunch':
+				if (restaurantName) {
+					dispatch(getLunchDishes(restaurantName));
+				}
+				break;
+			case 'Dinner':
+				if (restaurantName) {
+					dispatch(getDinnerDishes(restaurantName));
+				}
+				break;
+			default:
+				break;
+		}
+	}, [dispatch, selectedMealCategory]);
 
 	if (!restaurant) {
 		return <div className='restaurant-not-found-title'>Restaurant not found</div>;
 	}
 
+	const isRestaurantCurrentlyOpen = isRestaurantOpen(restaurant.from, restaurant.to);
+
 	return (
 		<div className='specific-restaurant-page-container'>
-			<img src={restaurant.cardImage} alt='Restaurant' className='restaurant-image' />
+			<img src={restaurant.image} alt='Restaurant' className='restaurant-image' />
 			<div className='restaurant-details'>
 				<p className='restaurant-name'>{restaurantName}</p>
-				<p className='restaurant-chef-name'>{restaurant.chefName}</p>
+				<p className='restaurant-chef-name'>{restaurant.chef}</p>
 				<div className='is-open'>
 					<img src={clock} className='clock-image' alt='clock' />
-					{restaurant.isOpen ? <p>Open now</p> : <p>Close now</p>}
+					{isRestaurantCurrentlyOpen ? <p>Open now</p> : <p>Close now</p>}
 				</div>
 			</div>
 			<div className='meals-category-row'>
@@ -79,10 +122,10 @@ function SpecificRestaurantPage() {
 				))}
 			</div>
 			<div className='dishes-container'>
-				{signatureDishesMockData.map((dish) => (
-					<div key={dish.cardName} className='card-link'>
+				{selectedMealTypeArray.map((dish: any) => (
+					<div key={dish.name} className='card-link'>
 						<div onClick={() => handleOnDishClick(dish)}>
-							<Card cardImage={dish.cardImage} cardName={dish.cardName}>
+							<Card cardImage={dish.image} cardName={dish.name}>
 								<p className='dish-ingredients'>{dish.ingredients}</p>
 								<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
 								<p>₪{dish.price}</p>
