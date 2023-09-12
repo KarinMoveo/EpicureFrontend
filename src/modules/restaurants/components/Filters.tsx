@@ -56,13 +56,10 @@ function Filters({ filters, setFilters }: FiltersProps) {
 
 	const handleOnRatingChange = (ratingIndex: number) => {
 		setFilters((prev: any) => {
-			const newRating = [...prev.rating];
-			newRating[ratingIndex] = !newRating[ratingIndex];
+			const ratingBitWise = 1 << ratingIndex;
 
-			return {
-				...prev,
-				rating: newRating,
-			};
+			const newRating = prev.rating ^ ratingBitWise;
+			return { ...prev, rating: newRating };
 		});
 	};
 

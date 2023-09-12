@@ -5,8 +5,6 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import { useSelector } from 'react-redux';
-
 import '../components/ChefOfTheWeekContainer.scss';
 
 interface ChefOfTheWeekContainerProps {
@@ -16,9 +14,7 @@ interface ChefOfTheWeekContainerProps {
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
-	const restaurants = useSelector((state: any) =>
-		state.restaurant.allRestaurants.filter((restaurant: any) => restaurant.chef === 'Asaf Granit')
-	);
+	const restaurants: any = [];
 
 	const chefFirstName = props.chefOfTheWeekName.split(' ');
 	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();

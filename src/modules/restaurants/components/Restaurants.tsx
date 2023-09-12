@@ -1,10 +1,6 @@
 import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getAllRestaurants, filterRestaurants } from '../../../redux/restaurantSlice';
-
 import Card from '../../../shared/components/Card';
 import Filters from './Filters';
 import Categories from './Categories';
@@ -12,29 +8,35 @@ import Categories from './Categories';
 import mapView from '../assets/images/others/mapView.png';
 
 import '../components/Restaurants.scss';
+import { restaurant } from '../../../mockData/data/types';
+import { getRestaurantsFromAPI } from '../api';
+import Stars from '../assets/images/rating/Stars';
 
 function Restaurants() {
-	const dispatch = useDispatch();
+	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [filters, setFilters] = useState({
 		category: 'All',
 		distance: 5,
-		rating: [true, true, true, true, true],
+		rating: 31,
 		priceRange: { min: 12, max: 357 },
 	});
 
 	useEffect(() => {
-		dispatch(getAllRestaurants());
-	}, [dispatch]);
+		async function getRestaurants() {
+			try {
+				const result = await getRestaurantsFromAPI(filters);
+				setRestaurantsList(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
+		}
 
-	useEffect(() => {
-		dispatch(filterRestaurants(filters));
-	}, [dispatch, filters]);
+		getRestaurants();
+	}, [filters]);
 
 	const handleCategorySelect = (category: any) => {
 		setFilters((prev) => ({ ...prev, category }));
 	};
-
-	const selectedCategoryArray = useSelector((state: any) => state.restaurant.filteredRestaurants);
 
 	return (
 		<div className='restaurants-page-container'>
@@ -48,15 +50,11 @@ function Restaurants() {
 				{filters.category === 'Map View' ? (
 					<img src={mapView} alt='Map View' className='map-view-image' />
 				) : (
-					selectedCategoryArray.map((restaurant: any, index: number) => (
+					restaurantsList.map((restaurant: any, index: number) => (
 						<NavLink key={index} to={`/restaurants/${restaurant.name}`} className='restaurant-link'>
 							<Card cardImage={restaurant.image} cardName={restaurant.name}>
 								<p>{restaurant.chef}</p>
-								<img
-									src={restaurant.rating}
-									alt={`${restaurant.name} Rating`}
-									className='restaurant-rating'
-								/>
+								<Stars rating={restaurant.popularity} />
 							</Card>
 						</NavLink>
 					))
