@@ -8,25 +8,22 @@ import { MealType } from '../types';
 
 import clock from '../assets/icons/clock.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getBreakfastDishes, getDinnerDishes, getLunchDishes } from '../../../redux/dishSlice';
-
 import { isRestaurantOpen } from '../../../shared/util';
 
 import '../components/SpecificRestaurantPage.scss';
-import { getRestaurantByIDFromAPI } from '../api';
-import { restaurant } from '../../../mockData/data/types';
+import { getAllDishesFromCategoryFromAPI, getRestaurantByIDFromAPI } from '../api';
+import { dish, restaurant } from '../../../mockData/data/types';
 
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
 function SpecificRestaurantPage() {
 	const navigate = useNavigate();
 	const { restaurantName } = useParams();
-	const dispatch = useDispatch();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
 	const [restaurant, setRestaurant] = useState<restaurant | null>(null);
+
+	const [allDishesFromCategory, setAllDishesFromCategory] = useState<dish[] | null>([]);
 
 	const closeModal = () => {
 		setSelectedDishModal(null);
@@ -67,40 +64,17 @@ function SpecificRestaurantPage() {
 		getRestaurantByID();
 	}, []);
 
-	const selectedMealTypeArray = useSelector((state: any) => {
-		switch (selectedMealCategory) {
-			case 'Breakfast':
-				return state.dish.breakfastDishes;
-			case 'Lunch':
-				return state.dish.lunchDishes;
-			case 'Dinner':
-				return state.dish.dinnerDishes;
-			default:
-				return [];
-		}
-	});
-
 	useEffect(() => {
-		switch (selectedMealCategory) {
-			case 'Breakfast':
-				if (restaurantName) {
-					dispatch(getBreakfastDishes(restaurantName));
-				}
-				break;
-			case 'Lunch':
-				if (restaurantName) {
-					dispatch(getLunchDishes(restaurantName));
-				}
-				break;
-			case 'Dinner':
-				if (restaurantName) {
-					dispatch(getDinnerDishes(restaurantName));
-				}
-				break;
-			default:
-				break;
+		async function getAllDishesFromCategory() {
+			try {
+				const result = await getAllDishesFromCategoryFromAPI(selectedMealCategory);
+				setAllDishesFromCategory(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
 		}
-	}, [dispatch, selectedMealCategory]);
+		getAllDishesFromCategory();
+	}, [selectedMealCategory]);
 
 	if (!restaurant) {
 		return <div className='restaurant-not-found-title'>Restaurant not found</div>;
@@ -133,17 +107,18 @@ function SpecificRestaurantPage() {
 				))}
 			</div>
 			<div className='dishes-container'>
-				{selectedMealTypeArray.map((dish: any) => (
-					<div key={dish.name} className='card-link'>
-						<div onClick={() => handleOnDishClick(dish)}>
-							<Card cardImage={dish.image} cardName={dish.name}>
-								<p className='dish-ingredients'>{dish.ingredients}</p>
-								<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
-								<p>₪{dish.price}</p>
-							</Card>
+				{allDishesFromCategory !== null &&
+					allDishesFromCategory.map((dish: any) => (
+						<div key={dish.name} className='card-link'>
+							<div onClick={() => handleOnDishClick(dish)}>
+								<Card cardImage={dish.image} cardName={dish.name}>
+									<p className='dish-ingredients'>{dish.ingredients}</p>
+									<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
+									<p>₪{dish.price}</p>
+								</Card>
+							</div>
 						</div>
-					</div>
-				))}
+					))}
 			</div>
 			{selectedDishModal && <SpecificDish dish={selectedDishModal} onClose={closeModal} />}
 		</div>

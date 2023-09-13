@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchContainer from '../components/SearchContainer';
 import PopularRestaurantsContainer from '../components/PopularRestaurantsContainer';
 import SignatureDishesContainer from '../components/SignatureDishesContainer';
@@ -6,16 +6,23 @@ import IconsMeaningContainer from '../components/IconsMeaningContainer';
 import ChefOfTheWeekContainer from '../components/ChefOfTheWeekContainer';
 import About from '../components/About';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllChefs } from '../../../redux/chefSlice';
+import { getChefOfTheWeekFromAPI } from '../api';
+import { chef } from '../../../mockData/data/types';
 
 function HomeScreen() {
-	const dispatch = useDispatch();
-	const chef = useSelector((state: any) => state.chef.allChefs[0]);
+	const [chefOfTheWeek, setChefOfTheWeek] = useState<chef | null>(null);
 
 	useEffect(() => {
-		dispatch(getAllChefs());
-	}, [dispatch]);
+		async function getChefOfTheWeek() {
+			try {
+				const result = await getChefOfTheWeekFromAPI();
+				setChefOfTheWeek(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
+		}
+		getChefOfTheWeek();
+	}, []);
 
 	return (
 		<div className='home-screen-container'>
@@ -23,11 +30,12 @@ function HomeScreen() {
 			<PopularRestaurantsContainer />
 			<SignatureDishesContainer />
 			<IconsMeaningContainer />
-			{chef && (
+			{chefOfTheWeek && (
 				<ChefOfTheWeekContainer
-					chefOfTheWeekImage={chef.image}
-					chefOfTheWeekName={chef.name}
-					chefOfTheWeekSummary={chef.summary}
+					chefOfTheWeekImage={chefOfTheWeek.image}
+					chefOfTheWeekName={chefOfTheWeek.name}
+					chefOfTheWeekSummary={chefOfTheWeek.summary}
+					chefOfTheWeekRestaurants={chefOfTheWeek.restaurants}
 				/>
 			)}
 			<About />

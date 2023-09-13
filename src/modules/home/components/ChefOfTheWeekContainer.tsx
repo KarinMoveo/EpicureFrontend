@@ -6,15 +6,17 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/ChefOfTheWeekContainer.scss';
+import { restaurant } from '../../../mockData/data/types';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
 	chefOfTheWeekName: string;
 	chefOfTheWeekSummary: string;
+	chefOfTheWeekRestaurants: restaurant[];
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
-	const restaurants: any = [];
+	const restaurants: restaurant[] = props.chefOfTheWeekRestaurants;
 
 	const chefFirstName = props.chefOfTheWeekName.split(' ');
 	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
