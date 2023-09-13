@@ -8,3 +8,11 @@ export async function getAllChefsFromAPI(selectedCategoryItem : any){
     return result;
 }
 
+export async function deleteChefFromAPI(id: any){
+    const result = await axios.get(
+        `http://localhost:5000/chefs/deleteChef/${id}`
+    );
+    
+    return result;
+}
+

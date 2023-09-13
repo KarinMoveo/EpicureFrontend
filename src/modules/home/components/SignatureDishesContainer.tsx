@@ -7,7 +7,7 @@ import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 import '../components/SignatureDishesContainer.scss';
 import { useEffect, useState } from 'react';
 import { dish } from '../../../mockData/data/types';
-import { getPopularDishesFromAPI } from '../api';
+import { getSignatureDishesFromAPI } from '../api';
 
 function SignatureDishesContainer() {
 	const [signatureDishes, setSignatureDishes] = useState<dish[]>([]);
@@ -15,7 +15,7 @@ function SignatureDishesContainer() {
 	useEffect(() => {
 		async function getSignatureDishes() {
 			try {
-				const result = await getPopularDishesFromAPI('Lunch');
+				const result = await getSignatureDishesFromAPI();
 				setSignatureDishes(result.data);
 			} catch (error: unknown) {
 				console.log(error);
