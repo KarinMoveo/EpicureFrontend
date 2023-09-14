@@ -1,15 +1,15 @@
+import { useEffect, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import '../components/PopularRestaurantsContainer.scss';
-
-import { useEffect, useState } from 'react';
 import { getPopularRestaurantsFromAPI } from '../api';
 import { restaurant } from '../../../mockData/data/types';
 import Stars from '../../restaurants/assets/images/rating/Stars';
+
+import '../components/PopularRestaurantsContainer.scss';
 
 function PopularRestaurantsContainer() {
 	const navigate = useNavigate();

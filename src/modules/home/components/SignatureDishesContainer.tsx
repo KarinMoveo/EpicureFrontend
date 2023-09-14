@@ -1,13 +1,14 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import '../components/SignatureDishesContainer.scss';
-import { useEffect, useState } from 'react';
 import { dish } from '../../../mockData/data/types';
 import { getSignatureDishesFromAPI } from '../api';
+
+import '../components/SignatureDishesContainer.scss';
 
 function SignatureDishesContainer() {
 	const [signatureDishes, setSignatureDishes] = useState<dish[]>([]);

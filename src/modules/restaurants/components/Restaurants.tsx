@@ -15,28 +15,31 @@ import Stars from '../assets/images/rating/Stars';
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [filters, setFilters] = useState({
-		category: 'All',
+		category: 'Show All',
 		distance: 5,
 		rating: 31,
 		priceRange: { min: 12, max: 357 },
 	});
+
+	const handleCategorySelect = (category: any) => {
+		setFilters((prev) => ({
+			...prev,
+			category: category,
+		}));
+	};
 
 	useEffect(() => {
 		async function getRestaurants() {
 			try {
 				const result = await getRestaurantsFromAPI(filters);
 				setRestaurantsList(result.data);
+				console.log(filters);
 			} catch (error: unknown) {
 				console.log(error);
 			}
 		}
-
 		getRestaurants();
 	}, [filters]);
-
-	const handleCategorySelect = (category: any) => {
-		setFilters((prev) => ({ ...prev, category }));
-	};
 
 	return (
 		<div className='restaurants-page-container'>

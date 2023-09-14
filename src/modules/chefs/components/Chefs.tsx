@@ -45,12 +45,7 @@ function Chefs() {
 			</div>
 			<div className='chefs-images-and-names-container'>
 				{allChefs.map((chef: any, index: number) => (
-					<ChefImageAndName
-						chefName={chef.name}
-						chefImage={chef.image}
-						key={chef.id}
-						onClick={() => console.log(chef.id)}
-					/>
+					<ChefImageAndName chefName={chef.name} chefImage={chef.image} key={chef.id} />
 				))}
 			</div>
 		</div>

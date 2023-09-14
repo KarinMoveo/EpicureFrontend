@@ -18,7 +18,7 @@ export async function deleteChefFromAPI(id: any){
 
 export async function updateChefFromAPI(id: any, name: string, image: string){
     const result = await axios.put(
-        `http://localhost:5000/chefs/updateChef?id=${id}&name=${name}&image=${image}`
+        `http://localhost:5000/chefs/updateChef/${id}?name=${name}&image=${image}`
     );
     
     return result;
