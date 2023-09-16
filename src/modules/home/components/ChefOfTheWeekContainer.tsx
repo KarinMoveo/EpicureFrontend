@@ -43,8 +43,8 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>
 					All Restaurants
-					<span className='see-more-icon'>
-						<img src={seeMoreIcon} alt='See More Icon' />
+					<span>
+						<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
 					</span>
 				</NavLink>
 			</div>

@@ -35,7 +35,7 @@ function Chefs() {
 
 	return (
 		<div className='chefs-page-container'>
-			<h1 className='chefs-page-title'>Chefs</h1>
+			<p className='chefs-page-title'>CHEFS</p>
 			<div className='chefs-categories-container'>
 				{categories.map((category) => (
 					<p

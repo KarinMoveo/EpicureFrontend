@@ -21,6 +21,8 @@ function Restaurants() {
 		priceRange: { min: 12, max: 357 },
 	});
 
+	const isDesktop = window.innerWidth >= 1024;
+
 	useEffect(() => {
 		async function getRestaurants() {
 			try {
@@ -41,7 +43,7 @@ function Restaurants() {
 	return (
 		<div className='restaurants-page-container'>
 			<div className='restaurants-title-categories-filters-container'>
-				<h1 className='restaurant-page-title'>RESTAURANTS</h1>
+				<p className='restaurant-page-title'>RESTAURANTS</p>
 				<Categories selectedCategory={filters.category} onClick={handleCategorySelect} />
 				<Filters filters={filters} setFilters={setFilters} />
 			</div>
@@ -54,7 +56,7 @@ function Restaurants() {
 						<NavLink key={index} to={`/restaurants/${restaurant.name}`} className='restaurant-link'>
 							<Card cardImage={restaurant.image} cardName={restaurant.name}>
 								<p>{restaurant.chef}</p>
-								<Stars rating={restaurant.popularity} />
+								{isDesktop && <Stars rating={restaurant.popularity} />}
 							</Card>
 						</NavLink>
 					))

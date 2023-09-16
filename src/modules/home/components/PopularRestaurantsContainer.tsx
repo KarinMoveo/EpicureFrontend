@@ -14,6 +14,7 @@ import Stars from '../../restaurants/assets/images/rating/Stars';
 function PopularRestaurantsContainer() {
 	const navigate = useNavigate();
 	const [popularRestaurants, setPopularRestaurants] = useState<restaurant[]>([]);
+	const isDesktop = window.innerWidth >= 1024;
 
 	useEffect(() => {
 		async function getPopularRestaurants() {
@@ -40,7 +41,7 @@ function PopularRestaurantsContainer() {
 							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
 						>
 							<p>{popularRestaurant.chef}</p>
-							<Stars rating={popularRestaurant.popularity} />
+							{isDesktop && <Stars rating={popularRestaurant.popularity} />}
 						</Card>
 					))}
 				</div>
