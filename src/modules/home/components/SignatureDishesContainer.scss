@@ -1,3 +1,5 @@
+@import '../../../shared/styles/mixin.scss';
+
 .signature-dishes-container{
 
     display: flex;
@@ -12,13 +14,7 @@
     }
     
     .all-restaurants{
-        font-size: 16px;
-        line-height: 35px; 
-        letter-spacing: 2px;
-        text-transform: capitalize;
-        cursor: pointer;
-        text-decoration: none;
-        color: black;
+      @include all-restaurants;
     }
 
     .signature-dishes-cards-display{

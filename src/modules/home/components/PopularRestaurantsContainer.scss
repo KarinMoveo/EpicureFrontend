@@ -1,3 +1,5 @@
+@import '../../../shared/styles/mixin.scss';
+
 .popular-restaurants-container {
 	display: flex;
 	flex-direction: column;
@@ -17,20 +19,7 @@
 	}
 
 	.all-restaurants {
-		display: flex;
-		gap: 2px;
-		font-size: 16px;
-		line-height: 35px;
-		letter-spacing: 2px;
-		text-transform: capitalize;
-		margin: 10px;
-		cursor: pointer;
-		text-decoration: none;
-		color: black;
-		.see-more-icon {
-			width: 20px;
-			height: 15px;
-		}
+		@include all-restaurants;
 	}
 
 	/* Media Query for Desktop */

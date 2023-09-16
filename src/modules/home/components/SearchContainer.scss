@@ -55,7 +55,8 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            width: fit-content;
+            width: 500px;
+            padding: 30px;
         }
 
         .search-title {
@@ -64,7 +65,7 @@
       
         .search-input-container {
             text-align: center;
-            width: 40%;
+            width: 60%;
         }
 
         .search-icon {
