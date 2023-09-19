@@ -1,8 +1,11 @@
 import axios from "axios";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const chefsBaseUrl = `${BASE_URL}/chefs`;
+
 export async function getAllChefsFromAPI(selectedCategoryItem : any){
     const result = await axios.get(
-        `http://localhost:5000/chefs?category=${selectedCategoryItem}`
+        `${chefsBaseUrl}?category=${selectedCategoryItem}`
     );
     
     return result;
@@ -10,7 +13,7 @@ export async function getAllChefsFromAPI(selectedCategoryItem : any){
 
 export async function deleteChefFromAPI(id: any){
     const result = await axios.delete(
-        `http://localhost:5000/chefs/deleteChef/${id}`
+        `${chefsBaseUrl}/deleteChef/${id}`
     );
     
     return result;
@@ -18,7 +21,7 @@ export async function deleteChefFromAPI(id: any){
 
 export async function updateChefFromAPI(id: any, name: string, image: string){
     const result = await axios.put(
-        `http://localhost:5000/chefs/updateChef/${id}?name=${name}&image=${image}`
+        `${chefsBaseUrl}/updateChef/${id}?name=${name}&image=${image}`
     );
     
     return result;
@@ -27,7 +30,7 @@ export async function updateChefFromAPI(id: any, name: string, image: string){
 
 export async function addChefFromAPI(name: string, image: string){
     const result = await axios.post(
-        `http://localhost:5000/chefs/addChef?name=${name}&image=${image}`
+        `${chefsBaseUrl}/addChef?name=${name}&image=${image}`
     );
     
     return result;
