@@ -8,7 +8,7 @@
 }
 
 .specific-restaurant-page-container{
-
+    
     padding: 10px;
 
     .restaurant-image{
@@ -61,31 +61,34 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0;
+        padding: 0;
 
 
         .restaurant-image{
             width: 100vh;
             height: 40vh;
+            padding: 0;
         }
 
         .restaurant-details{
             
-            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            text-align: center;
             
             .restaurant-name{
-                margin: 0;
+                margin: 5px;
                 font-size: 28px;
             }
 
             .restaurant-chef-name{
+                margin: 5px;
                 font-size: 20px;
             }
 
             .is-open{
-                text-align: center;
+                margin: 5px;
                 font-size: 16px;
             }
         }
@@ -97,6 +100,7 @@
         .dishes-container{
             flex-direction: row;
             flex-wrap: wrap;
+            padding: 10px;
 
             .dish-ingredients{
                 height: 100px;
@@ -111,7 +115,7 @@
             align-items: center;
         
             .line-right, .line-left {
-                width: 50px; 
+                width: 50%; 
                 height: 1px; 
                 background-color: black; 
                 margin-right: 10px;
@@ -123,19 +127,33 @@
 
     /* Media Query for mobile */
     @media (max-width: 768px) {
-        .restaurant-name{
-            font-size: 22px;
+
+        padding:0;
+       
+        .restaurant-details{
+            padding-left: 10px;
+
+            .restaurant-name{
+                font-size: 22px;
+            }
+    
+            .restaurant-chef-name{
+                font-size: 18px;
+            }
+    
+            .is-open{
+                text-align: center;
+                font-size: 16px;
+            }
         }
 
-        .restaurant-chef-name{
-            font-size: 18px;
+        .meals-category-row{
+            padding-left: 10px;
         }
 
-        .is-open{
-            text-align: center;
-            font-size: 16px;
+        .dishes-container{
+            padding: 10px;
         }
-
         .dish-line-with-text{
             display: flex;
             flex-direction: row;
