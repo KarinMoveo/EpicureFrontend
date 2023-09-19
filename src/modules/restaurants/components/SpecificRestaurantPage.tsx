@@ -10,7 +10,7 @@ import clock from '../assets/icons/clock.svg';
 
 import { isRestaurantOpen } from '../../../shared/util';
 
-import { getAllDishesFromCategoryFromAPI, getRestaurantByIDFromAPI } from '../api';
+import { getAllDishesFromCategoryFromAPI, getRestaurantByNameFromAPI } from '../api';
 import { dish, restaurant } from '../../../shared/types';
 
 import '../components/SpecificRestaurantPage.scss';
@@ -54,15 +54,15 @@ function SpecificRestaurantPage() {
 	};
 
 	useEffect(() => {
-		async function getRestaurantByID() {
+		async function getRestaurantByName() {
 			try {
-				const result = await getRestaurantByIDFromAPI(restaurantName);
+				const result = await getRestaurantByNameFromAPI(restaurantName);
 				setRestaurant(result.data);
 			} catch (error: unknown) {
 				console.log(error);
 			}
 		}
-		getRestaurantByID();
+		getRestaurantByName();
 	}, []);
 
 	useEffect(() => {
@@ -88,7 +88,7 @@ function SpecificRestaurantPage() {
 			<img src={restaurant.image} alt='Restaurant' className='restaurant-image' />
 			<div className='restaurant-details'>
 				<p className='restaurant-name'>{restaurantName}</p>
-				<p className='restaurant-chef-name'>{restaurant.chef}</p>
+				<p className='restaurant-chef-name'>{restaurant.chef.name}</p>
 				<div className='is-open'>
 					<img src={clock} className='clock-image' alt='clock' />
 					{isRestaurantCurrentlyOpen ? <p>Open now</p> : <p>Close now</p>}

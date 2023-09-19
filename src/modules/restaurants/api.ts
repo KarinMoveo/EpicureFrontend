@@ -11,8 +11,8 @@ export async function getRestaurantsFromAPI(filters: any) {
 	return result;
 }
 
-export async function getRestaurantByIDFromAPI(id: any) {
-	const result = await axios.get(`${BASE_URL}/restaurants/${id}`);
+export async function getRestaurantByNameFromAPI(name: any) {
+	const result = await axios.get(`${BASE_URL}/restaurants/${name}`);
 
 	return result;
 }

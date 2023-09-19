@@ -58,7 +58,7 @@ function Restaurants() {
 					restaurantsList.map((restaurant: any, index: number) => (
 						<NavLink key={index} to={`/restaurants/${restaurant.name}`} className='restaurant-link'>
 							<Card cardImage={restaurant.image} cardName={restaurant.name}>
-								<p>{restaurant.chef}</p>
+								<p>{restaurant.chef.name}</p>
 								{isDesktop && <Stars rating={restaurant.popularity} />}
 							</Card>
 						</NavLink>

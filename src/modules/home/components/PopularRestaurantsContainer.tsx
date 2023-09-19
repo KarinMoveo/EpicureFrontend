@@ -40,7 +40,7 @@ function PopularRestaurantsContainer() {
 							cardName={popularRestaurant.name}
 							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
 						>
-							<p>{popularRestaurant.chef}</p>
+							<p>{popularRestaurant.chef.name}</p>
 							{isDesktop && <Stars rating={popularRestaurant.popularity} />}
 						</Card>
 					))}
