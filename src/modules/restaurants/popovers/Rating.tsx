@@ -18,7 +18,7 @@ function Rating(props: any) {
 							type='checkbox'
 							id={`checkbox${index + 1}`}
 							onChange={() => props.onChange(index)}
-							checked={props.value[index]}
+							checked={(props.value | (1 << index)) === props.value}
 						/>
 						<Stars rating={index + 1} />
 					</div>

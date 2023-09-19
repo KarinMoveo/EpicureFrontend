@@ -15,6 +15,8 @@ import { getBreakfastDishes, getDinnerDishes, getLunchDishes } from '../../../re
 import { isRestaurantOpen } from '../../../shared/util';
 
 import '../components/SpecificRestaurantPage.scss';
+import { getRestaurantByIDFromAPI } from '../api';
+import { restaurant } from '../../../mockData/data/types';
 
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
@@ -24,6 +26,7 @@ function SpecificRestaurantPage() {
 	const dispatch = useDispatch();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
+	const [restaurant, setRestaurant] = useState<restaurant | null>(null);
 
 	const closeModal = () => {
 		setSelectedDishModal(null);
@@ -52,9 +55,17 @@ function SpecificRestaurantPage() {
 		}
 	};
 
-	const restaurant = useSelector((state: any) => {
-		return state.restaurant.allRestaurants.find((item: any) => item.name === restaurantName);
-	});
+	useEffect(() => {
+		async function getRestaurantByID() {
+			try {
+				const result = await getRestaurantByIDFromAPI(restaurantName);
+				setRestaurant(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
+		}
+		getRestaurantByID();
+	}, []);
 
 	const selectedMealTypeArray = useSelector((state: any) => {
 		switch (selectedMealCategory) {

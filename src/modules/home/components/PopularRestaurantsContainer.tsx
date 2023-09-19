@@ -6,18 +6,25 @@ import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/PopularRestaurantsContainer.scss';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { filterRestaurants } from '../../../redux/restaurantSlice';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { getPopularRestaurantsFromAPI } from '../api';
+import { restaurant } from '../../../mockData/data/types';
+import Stars from '../../restaurants/assets/images/rating/Stars';
 
 function PopularRestaurantsContainer() {
-	const dispatch = useDispatch();
-	const popularRestaurants = useSelector((state: any) => state.restaurant.filteredRestaurants);
+	const [popularRestaurants, setPopularRestaurants] = useState<restaurant[]>([]);
 
 	useEffect(() => {
-		dispatch(filterRestaurants('Most Popular'));
-	}, [dispatch]);
+		async function getPopularRestaurants() {
+			try {
+				const result = await getPopularRestaurantsFromAPI();
+				setPopularRestaurants(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
+		}
+		getPopularRestaurants();
+	}, []);
 
 	return (
 		<div className='popular-restaurants-container'>
@@ -27,11 +34,7 @@ function PopularRestaurantsContainer() {
 					{popularRestaurants.map((popularRestaurant: any, index: number) => (
 						<Card key={index} cardImage={popularRestaurant.image} cardName={popularRestaurant.name}>
 							<p>{popularRestaurant.chef}</p>
-							<img
-								src={popularRestaurant.rating}
-								className='popular-restaurant-image'
-								alt='restaurants rating'
-							/>
+							<Stars rating={popularRestaurant.popularity} />
 						</Card>
 					))}
 				</div>
