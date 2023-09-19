@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
+import { getAllChefsFromAPI } from '../api';
 import '../components/Chefs.scss';
-import { deleteChefFromAPI, getAllChefsFromAPI } from '../api';
 
 type selectedCategoryType = 'All' | 'New' | 'Most Viewed' | null;
 const categories: selectedCategoryType[] = ['All', 'New', 'Most Viewed'];
 
 function Chefs() {
 	const [allChefs, setAllChefs] = useState([]);
-
 	const [selectedCategoryItem, setSelectedCategoryItem] = useState<selectedCategoryType>('All');
 
 	const handleCategoryClick = (category: selectedCategoryType) => {
@@ -28,11 +27,6 @@ function Chefs() {
 		getAllChefs();
 	}, [selectedCategoryItem]);
 
-	const handleOnDeleteChef = async (id: number) => {
-		await deleteChefFromAPI(id);
-		await getAllChefs();
-	};
-
 	return (
 		<div className='chefs-page-container'>
 			<p className='chefs-page-title'>CHEFS</p>
@@ -51,12 +45,7 @@ function Chefs() {
 			</div>
 			<div className='chefs-images-and-names-container'>
 				{allChefs.map((chef: any, index: number) => (
-					<ChefImageAndName
-						chefName={chef.name}
-						chefImage={chef.image}
-						key={chef.id}
-						onDelete={() => handleOnDeleteChef(chef.id)}
-					/>
+					<ChefImageAndName chefName={chef.name} chefImage={chef.image} key={chef.id} />
 				))}
 			</div>
 		</div>

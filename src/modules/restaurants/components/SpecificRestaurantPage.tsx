@@ -10,9 +10,10 @@ import clock from '../assets/icons/clock.svg';
 
 import { isRestaurantOpen } from '../../../shared/util';
 
-import '../components/SpecificRestaurantPage.scss';
 import { getAllDishesFromCategoryFromAPI, getRestaurantByIDFromAPI } from '../api';
 import { dish, restaurant } from '../../../mockData/data/types';
+
+import '../components/SpecificRestaurantPage.scss';
 
 const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
