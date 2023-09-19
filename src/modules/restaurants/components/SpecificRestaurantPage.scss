@@ -17,6 +17,7 @@
 
     .restaurant-details{
 
+        // padding-top: 20px;
         .is-open{
             display: flex;
             gap: 5px;
@@ -67,7 +68,6 @@
         justify-content: center;
         align-items: center;
 
-
         .restaurant-image{
             width: 100vh;
             height: 40vh;
@@ -78,7 +78,8 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
             
             .restaurant-name{
                 margin: 0;
@@ -90,7 +91,6 @@
             }
 
             .is-open{
-                text-align: center;
                 font-size: 16px;
             }
         }

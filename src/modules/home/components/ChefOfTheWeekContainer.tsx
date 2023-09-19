@@ -6,18 +6,20 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/ChefOfTheWeekContainer.scss';
+import { restaurant } from '../../../mockData/data/types';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
 	chefOfTheWeekName: string;
 	chefOfTheWeekSummary: string;
+	chefOfTheWeekRestaurants: restaurant[];
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
-	const restaurants: any = [];
+	const restaurants: restaurant[] = props.chefOfTheWeekRestaurants;
 
-	const chefFirstName = props.chefOfTheWeekName.split(' ');
-	const chefFirstNameUpperCase = chefFirstName[0].toUpperCase();
+	const chefFirstName = props.chefOfTheWeekName?.split(' ');
+	const chefFirstNameUpperCase = chefFirstName[0]?.toUpperCase();
 
 	return (
 		<div className='chef-of-the-week-container'>
@@ -29,7 +31,7 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 			<div className='restaurants-container'>
 				<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
 				<div className='chef-of-the-week-restaurants-cards-display'>
-					{restaurants.map((chefOfTheWeekRestaurant: any, index: number) => (
+					{restaurants?.map((chefOfTheWeekRestaurant: any, index: number) => (
 						<Card cardImage={chefOfTheWeekRestaurant.image} cardName={chefOfTheWeekRestaurant.name} />
 					))}
 				</div>

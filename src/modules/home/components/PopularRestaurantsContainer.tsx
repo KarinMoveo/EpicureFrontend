@@ -1,17 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import '../components/PopularRestaurantsContainer.scss';
-
-import { useEffect, useState } from 'react';
 import { getPopularRestaurantsFromAPI } from '../api';
 import { restaurant } from '../../../mockData/data/types';
 import Stars from '../../restaurants/assets/images/rating/Stars';
 
+import '../components/PopularRestaurantsContainer.scss';
+
 function PopularRestaurantsContainer() {
+	const navigate = useNavigate();
 	const [popularRestaurants, setPopularRestaurants] = useState<restaurant[]>([]);
 
 	useEffect(() => {
@@ -32,7 +33,12 @@ function PopularRestaurantsContainer() {
 			<div className='popular-restaurants-cards-display-and-all-restaurants'>
 				<div className='popular-restaurants-cards-display'>
 					{popularRestaurants.map((popularRestaurant: any, index: number) => (
-						<Card key={index} cardImage={popularRestaurant.image} cardName={popularRestaurant.name}>
+						<Card
+							key={index}
+							cardImage={popularRestaurant.image}
+							cardName={popularRestaurant.name}
+							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
+						>
 							<p>{popularRestaurant.chef}</p>
 							<Stars rating={popularRestaurant.popularity} />
 						</Card>

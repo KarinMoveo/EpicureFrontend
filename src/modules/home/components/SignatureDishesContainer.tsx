@@ -1,23 +1,29 @@
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
-
-import { getSignatureDishes } from '../../../redux/dishSlice';
+import { dish } from '../../../mockData/data/types';
+import { getSignatureDishesFromAPI } from '../api';
 
 import '../components/SignatureDishesContainer.scss';
-import { useEffect } from 'react';
 
 function SignatureDishesContainer() {
-	const dispatch = useDispatch();
-	const signatureDishes = useSelector((state: any) => state.dish.signatureDishes);
+	const [signatureDishes, setSignatureDishes] = useState<dish[]>([]);
 
 	useEffect(() => {
-		dispatch(getSignatureDishes());
-	}, [dispatch]);
+		async function getSignatureDishes() {
+			try {
+				const result = await getSignatureDishesFromAPI();
+				setSignatureDishes(result.data);
+			} catch (error: unknown) {
+				console.log(error);
+			}
+		}
+		getSignatureDishes();
+	}, []);
 
 	return (
 		<div className='signature-dishes-container'>
