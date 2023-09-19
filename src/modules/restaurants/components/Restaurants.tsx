@@ -8,7 +8,7 @@ import Categories from './Categories';
 import mapView from '../assets/images/others/mapView.png';
 
 import '../components/Restaurants.scss';
-import { restaurant } from '../../../mockData/data/types';
+import { restaurant } from '../../../shared/types';
 import { getRestaurantsFromAPI } from '../api';
 import Stars from '../assets/images/rating/Stars';
 
@@ -23,7 +23,7 @@ function Restaurants() {
 
 	const isDesktop = window.innerWidth >= 1024;
 
-  const handleCategorySelect = (category: any) => {
+	const handleCategorySelect = (category: any) => {
 		setFilters((prev) => ({
 			...prev,
 			category: category,

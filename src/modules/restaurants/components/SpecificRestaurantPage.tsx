@@ -11,7 +11,7 @@ import clock from '../assets/icons/clock.svg';
 import { isRestaurantOpen } from '../../../shared/util';
 
 import { getAllDishesFromCategoryFromAPI, getRestaurantByIDFromAPI } from '../api';
-import { dish, restaurant } from '../../../mockData/data/types';
+import { dish, restaurant } from '../../../shared/types';
 
 import '../components/SpecificRestaurantPage.scss';
 
