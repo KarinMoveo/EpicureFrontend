@@ -31,16 +31,20 @@ function SignatureDishesContainer() {
 			<div className='signature-dishes-cards-display'>
 				{signatureDishes.map((dish: any, index: number) => (
 					<Card key={index} cardImage={dish.image} cardName={dish.name}>
-						<p className='dish-ingredients'>{dish.ingredients}</p>
 						<img src={dish.icon} alt='icon' className='signature-dish-icon' />
-						<p>₪{dish.price}</p>
+						<p className='dish-ingredients'>{dish.ingredients}</p>
+						<div className='price-line-with-text'>
+							<p className='line'></p>
+							<p>₪{dish.price}</p>
+							<p className='line'></p>
+						</div>
 					</Card>
 				))}
 			</div>
 			<NavLink to='./restaurants' className='all-restaurants'>
 				All Restaurants
-				<span className='see-more-icon'>
-					<img src={seeMoreIcon} alt='See More Icon' />
+				<span>
+					<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
 				</span>
 			</NavLink>
 		</div>

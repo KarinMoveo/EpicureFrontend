@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 import Card from '../../../shared/components/Card';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
@@ -16,6 +16,8 @@ interface ChefOfTheWeekContainerProps {
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
+	const navigate = useNavigate();
+
 	const restaurants: restaurant[] = props.chefOfTheWeekRestaurants;
 
 	const chefFirstName = props.chefOfTheWeekName?.split(' ');
@@ -32,13 +34,18 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 				<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
 				<div className='chef-of-the-week-restaurants-cards-display'>
 					{restaurants?.map((chefOfTheWeekRestaurant: any, index: number) => (
-						<Card cardImage={chefOfTheWeekRestaurant.image} cardName={chefOfTheWeekRestaurant.name} />
+						<Card
+							cardImage={chefOfTheWeekRestaurant.image}
+							cardName={chefOfTheWeekRestaurant.name}
+							onClick={() => navigate(`/restaurants/${chefOfTheWeekRestaurant.name}`)}
+						/>
+
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>
 					All Restaurants
-					<span className='see-more-icon'>
-						<img src={seeMoreIcon} alt='See More Icon' />
+					<span>
+						<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
 					</span>
 				</NavLink>
 			</div>

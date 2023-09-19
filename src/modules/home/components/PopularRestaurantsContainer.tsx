@@ -14,6 +14,7 @@ import '../components/PopularRestaurantsContainer.scss';
 function PopularRestaurantsContainer() {
 	const navigate = useNavigate();
 	const [popularRestaurants, setPopularRestaurants] = useState<restaurant[]>([]);
+	const isDesktop = window.innerWidth >= 1024;
 
 	useEffect(() => {
 		async function getPopularRestaurants() {
@@ -40,14 +41,14 @@ function PopularRestaurantsContainer() {
 							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
 						>
 							<p>{popularRestaurant.chef}</p>
-							<Stars rating={popularRestaurant.popularity} />
+							{isDesktop && <Stars rating={popularRestaurant.popularity} />}
 						</Card>
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>
 					All Restaurants
-					<span className='see-more-icon'>
-						<img src={seeMoreIcon} alt='See More Icon' />
+					<span>
+						<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
 					</span>
 				</NavLink>
 			</div>

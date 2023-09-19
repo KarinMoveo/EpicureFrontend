@@ -1,74 +1,63 @@
-.popular-restaurants-container{
+@import '../../../shared/styles/mixin.scss';
 
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    
-    .popular-restaurants-title{
-        font-size: 16px;
-        line-height: 24px; 
-        letter-spacing: 1.25px;
-        text-transform: uppercase;
-    }
+.popular-restaurants-container {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
 
-    .popular-restaurants-cards-display{
-        display: flex;
-        flex-direction: row;
-        gap: 10px;
-       
-    }
-    
-    .all-restaurants{
-        font-size: 16px;
-        line-height: 35px; 
-        letter-spacing: 2px;
-        text-transform: capitalize;
-        margin: 10px;
-        cursor: pointer;
-        text-decoration: none;
-        color: black;
-    }
+	.popular-restaurants-title {
+		font-size: 16px;
+		line-height: 24px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+	}
 
-/* Media Query for Desktop */
-  @media (min-width: 768px) {
+	.popular-restaurants-cards-display {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+	}
 
-    justify-content: center;
-    align-items: center;
+	.all-restaurants {
+		@include all-restaurants;
+	}
 
-   .popular-restaurants-cards-display{
+	/* Media Query for Desktop */
+	@media (min-width: 768px) {
+		justify-content: center;
+		align-items: center;
 
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        cursor: pointer;
-    }
+		.popular-restaurants-cards-display {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			cursor: pointer;
+		}
 
-    .all-restaurants{
-        display: flex;
-        flex-direction: row;
-        justify-content: end;
-        align-items: end;
-   }
-   
-  }
+		.all-restaurants {
+			display: flex;
+			flex-direction: row;
+			justify-content: end;
+			align-items: end;
+		}
+	}
 
-  /* Media Query for Mobile */
-  @media (max-width: 767px) {
+	/* Media Query for Mobile */
+	@media (max-width: 767px) {
+		.popular-restaurant-image {
+			display: none;
+		}
 
-    .popular-restaurant-image{
-        display: none;
-    }
+		.popular-restaurants-cards-display {
+			overflow-x: auto;
+			flex-wrap: nowrap;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+			padding-bottom: 10px;
+		}
 
-    .popular-restaurants-cards-display {
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 10px; 
-    }
-    
-    .popular-restaurants-cards-display::-webkit-scrollbar {
-        display: none;
-    }
-  }
+		.popular-restaurants-cards-display::-webkit-scrollbar {
+			display: none;
+		}
+	}
 }

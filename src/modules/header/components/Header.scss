@@ -47,6 +47,9 @@
   /* Media Query for Desktop */
   @media (min-width: 768px) {
 
+    padding-right: 40px;
+    padding-left: 40px;
+    
     .mobile-menu-icon-item{
       display: none;
     }

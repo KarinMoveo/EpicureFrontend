@@ -15,13 +15,15 @@ import Stars from '../assets/images/rating/Stars';
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [filters, setFilters] = useState({
-		category: 'All',
+		category: 'Show All',
 		distance: 5,
 		rating: 31,
 		priceRange: { min: 12, max: 357 },
 	});
 
-	const handleCategorySelect = (category: any) => {
+	const isDesktop = window.innerWidth >= 1024;
+
+  const handleCategorySelect = (category: any) => {
 		setFilters((prev) => ({
 			...prev,
 			category: category,
@@ -44,7 +46,7 @@ function Restaurants() {
 	return (
 		<div className='restaurants-page-container'>
 			<div className='restaurants-title-categories-filters-container'>
-				<h1 className='restaurant-page-title'>RESTAURANTS</h1>
+				<p className='restaurant-page-title'>RESTAURANTS</p>
 				<Categories selectedCategory={filters.category} onClick={handleCategorySelect} />
 				<Filters filters={filters} setFilters={setFilters} />
 			</div>
@@ -57,7 +59,7 @@ function Restaurants() {
 						<NavLink key={index} to={`/restaurants/${restaurant.name}`} className='restaurant-link'>
 							<Card cardImage={restaurant.image} cardName={restaurant.name}>
 								<p>{restaurant.chef}</p>
-								<Stars rating={restaurant.popularity} />
+								{isDesktop && <Stars rating={restaurant.popularity} />}
 							</Card>
 						</NavLink>
 					))

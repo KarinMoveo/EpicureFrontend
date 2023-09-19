@@ -114,8 +114,11 @@ function SpecificRestaurantPage() {
 							<div onClick={() => handleOnDishClick(dish)}>
 								<Card cardImage={dish.image} cardName={dish.name}>
 									<p className='dish-ingredients'>{dish.ingredients}</p>
-									<img src={dish.icon} alt='icon' className='specific-restaurant-page-dish-icon' />
-									<p>₪{dish.price}</p>
+									<div className='dish-line-with-text'>
+										<p className='line-left'></p>
+										<p>₪{dish.price}</p>
+										<p className='line-right'></p>
+									</div>
 								</Card>
 							</div>
 						</div>

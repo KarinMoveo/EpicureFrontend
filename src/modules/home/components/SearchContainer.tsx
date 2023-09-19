@@ -6,7 +6,9 @@ function SearchContainer() {
 	return (
 		<div className='search-container'>
 			<div className='overlay'>
-				<p className='search-title'>Epicure works with the top chef restaurants in Tel Aviv</p>
+				<p className='search-title'>
+					Epicure works with the top <br /> chef restaurants in Tel Aviv
+				</p>
 				<div className='search-input-container'>
 					<img className='search-icon' src={searchIcon} alt='Search Icon' />
 					<input
