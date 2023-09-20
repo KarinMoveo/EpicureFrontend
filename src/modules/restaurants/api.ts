@@ -17,8 +17,3 @@ export async function getRestaurantByNameFromAPI(name: any) {
 	return result;
 }
 
-export async function getAllDishesFromCategoryFromAPI(mealType : any) {
-	const result = await axios.get(`${BASE_URL}/dishes?category=${mealType}`);
-
-	return result;
-}

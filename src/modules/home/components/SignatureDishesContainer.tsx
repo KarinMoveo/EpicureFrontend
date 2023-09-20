@@ -17,6 +17,7 @@ function SignatureDishesContainer() {
 		async function getSignatureDishes() {
 			try {
 				const result = await getSignatureDishesFromAPI();
+				console.log(result.data);
 				setSignatureDishes(result.data);
 			} catch (error: unknown) {
 				console.log(error);

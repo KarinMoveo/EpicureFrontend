@@ -10,7 +10,7 @@ import clock from '../assets/icons/clock.svg';
 
 import { isRestaurantOpen } from '../../../shared/util';
 
-import { getAllDishesFromCategoryFromAPI, getRestaurantByNameFromAPI } from '../api';
+import { getRestaurantByNameFromAPI } from '../api';
 import { dish, restaurant } from '../../../shared/types';
 
 import '../components/SpecificRestaurantPage.scss';
@@ -66,16 +66,9 @@ function SpecificRestaurantPage() {
 	}, []);
 
 	useEffect(() => {
-		async function getAllDishesFromCategory() {
-			try {
-				const result = await getAllDishesFromCategoryFromAPI(selectedMealCategory);
-				setAllDishesFromCategory(result.data);
-			} catch (error: unknown) {
-				console.log(error);
-			}
-		}
-		getAllDishesFromCategory();
-	}, [selectedMealCategory]);
+		const filteredDishes = restaurant?.dishes.filter((dish) => dish.mealType.includes(selectedMealCategory));
+		setAllDishesFromCategory(filteredDishes || []);
+	}, [selectedMealCategory, restaurant]);
 
 	if (!restaurant) {
 		return <div className='restaurant-not-found-title'>Restaurant not found</div>;
