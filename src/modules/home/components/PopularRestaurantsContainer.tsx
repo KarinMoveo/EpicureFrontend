@@ -38,7 +38,7 @@ function PopularRestaurantsContainer() {
 							key={index}
 							cardImage={popularRestaurant.image}
 							cardName={popularRestaurant.name}
-							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
+							onClick={() => navigate(`/restaurants/${popularRestaurant._id}`)}
 						>
 							<p>{popularRestaurant.chef.name}</p>
 							{isDesktop && <Stars rating={popularRestaurant.popularity} />}

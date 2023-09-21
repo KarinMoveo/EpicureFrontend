@@ -10,7 +10,7 @@ import clock from '../assets/icons/clock.svg';
 
 import { isRestaurantOpen } from '../../../shared/util';
 
-import { getRestaurantByNameFromAPI } from '../api';
+import { getRestaurantByIdFromAPI } from '../api';
 import { dish, restaurant } from '../../../shared/types';
 
 import '../components/SpecificRestaurantPage.scss';
@@ -19,7 +19,7 @@ const mealsCategories: MealType[] = ['Breakfast', 'Lunch', 'Dinner'];
 
 function SpecificRestaurantPage() {
 	const navigate = useNavigate();
-	const { restaurantName } = useParams();
+	const { id } = useParams();
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
 	const [restaurant, setRestaurant] = useState<restaurant | null>(null);
@@ -40,7 +40,7 @@ function SpecificRestaurantPage() {
 		if (isDesktop) {
 			setSelectedDishModal(dish);
 		} else {
-			navigate(`/restaurants/${restaurantName}/${dish.name}`, {
+			navigate(`/restaurants/${id}/${dish.name}`, {
 				state: {
 					name: dish.name,
 					image: dish.image,
@@ -54,15 +54,15 @@ function SpecificRestaurantPage() {
 	};
 
 	useEffect(() => {
-		async function getRestaurantByName() {
+		async function getRestaurantById() {
 			try {
-				const result = await getRestaurantByNameFromAPI(restaurantName);
+				const result = await getRestaurantByIdFromAPI(id);
 				setRestaurant(result.data);
 			} catch (error: unknown) {
 				console.log(error);
 			}
 		}
-		getRestaurantByName();
+		getRestaurantById();
 	}, []);
 
 	useEffect(() => {
@@ -80,7 +80,7 @@ function SpecificRestaurantPage() {
 		<div className='specific-restaurant-page-container'>
 			<img src={restaurant.image} alt='Restaurant' className='restaurant-image' />
 			<div className='restaurant-details'>
-				<p className='restaurant-name'>{restaurantName}</p>
+				<p className='restaurant-name'>{restaurant.name}</p>
 				<p className='restaurant-chef-name'>{restaurant.chef.name}</p>
 				<div className='is-open'>
 					<img src={clock} className='clock-image' alt='clock' />

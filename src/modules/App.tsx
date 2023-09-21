@@ -17,8 +17,8 @@ function App() {
 			<Routes>
 				<Route path='/' Component={Home} />
 				<Route path='/restaurants' Component={Restaurants} />
-				<Route path='/restaurants/:restaurantName' element={<SpecificRestaurantPage />} />
-				<Route path='/restaurants/:restaurantName/:dishName' element={<SpecificDishPage />} />
+				<Route path='/restaurants/:id' element={<SpecificRestaurantPage />} />
+				<Route path='/restaurants/:id/:dishName' element={<SpecificDishPage />} />
 				<Route path='/order-history' element={<OrderHistoryContainer />} />
 				<Route path='/checkout' element={<MobileCheckout />} />
 				<Route path='/chefs' Component={Chefs} />

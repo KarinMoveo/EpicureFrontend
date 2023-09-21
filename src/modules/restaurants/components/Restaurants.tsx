@@ -56,7 +56,7 @@ function Restaurants() {
 					<img src={mapView} alt='Map View' className='map-view-image' />
 				) : (
 					restaurantsList.map((restaurant: any, index: number) => (
-						<NavLink key={index} to={`/restaurants/${restaurant.name}`} className='restaurant-link'>
+						<NavLink key={index} to={`/restaurants/${restaurant._id}`} className='restaurant-link'>
 							<Card cardImage={restaurant.image} cardName={restaurant.name}>
 								<p>{restaurant.chef.name}</p>
 								{isDesktop && <Stars rating={restaurant.popularity} />}

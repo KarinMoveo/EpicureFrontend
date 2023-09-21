@@ -13,7 +13,7 @@ export async function getAllChefsFromAPI(selectedCategoryItem : any){
 
 export async function deleteChefFromAPI(id: any){
     const result = await axios.delete(
-        `${chefsBaseUrl}/deleteChef/${id}`
+        `${chefsBaseUrl}/chef/${id}`
     );
     
     return result;
@@ -21,7 +21,7 @@ export async function deleteChefFromAPI(id: any){
 
 export async function updateChefFromAPI(id: any, name: string, image: string){
     const result = await axios.put(
-        `${chefsBaseUrl}/updateChef/${id}?name=${name}&image=${image}`
+        `${chefsBaseUrl}/chef/${id}?name=${name}&image=${image}`
     );
     
     return result;
@@ -30,7 +30,7 @@ export async function updateChefFromAPI(id: any, name: string, image: string){
 
 export async function addChefFromAPI(name: string, image: string){
     const result = await axios.post(
-        `${chefsBaseUrl}/addChef?name=${name}&image=${image}`
+        `${chefsBaseUrl}/chef?name=${name}&image=${image}`
     );
     
     return result;
