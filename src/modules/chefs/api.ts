@@ -11,28 +11,4 @@ export async function getAllChefsFromAPI(selectedCategoryItem : any){
     return result;
 }
 
-export async function deleteChefFromAPI(id: any){
-    const result = await axios.delete(
-        `${chefsBaseUrl}/chef/${id}`
-    );
-    
-    return result;
-}
-
-export async function updateChefFromAPI(id: any, name: string, image: string){
-    const result = await axios.put(
-        `${chefsBaseUrl}/chef/${id}?name=${name}&image=${image}`
-    );
-    
-    return result;
-}
-
-
-export async function addChefFromAPI(name: string, image: string){
-    const result = await axios.post(
-        `${chefsBaseUrl}/chef?name=${name}&image=${image}`
-    );
-    
-    return result;
-}
 
