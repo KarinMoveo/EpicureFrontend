@@ -3,12 +3,12 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import { getAllChefsFromAPI } from '../api';
 import '../components/Chefs.scss';
 
-type selectedCategoryType = 'All' | 'New' | 'Most Viewed' | null;
-const categories: selectedCategoryType[] = ['All', 'New', 'Most Viewed'];
+type selectedCategoryType = 'Show All' | 'New' | 'Most Viewed' | null;
+const categories: selectedCategoryType[] = ['Show All', 'New', 'Most Viewed'];
 
 function Chefs() {
 	const [allChefs, setAllChefs] = useState([]);
-	const [selectedCategoryItem, setSelectedCategoryItem] = useState<selectedCategoryType>('All');
+	const [selectedCategoryItem, setSelectedCategoryItem] = useState<selectedCategoryType>('Show All');
 
 	const handleCategoryClick = (category: selectedCategoryType) => {
 		setSelectedCategoryItem(category);

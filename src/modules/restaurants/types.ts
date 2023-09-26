@@ -1,4 +1,4 @@
-export type selectedCategoryType = 'Show All' | 'New' | 'Most Popular' | 'Open Now' | 'Map View' | null;
+export type selectedCategoryType = 'All' | 'New' | 'Most Popular' | 'Open Now' | 'Map View' | null;
 
 export type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 
