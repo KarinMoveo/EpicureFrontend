@@ -9,6 +9,9 @@ import Footer from '../modules/footer/components/Footer';
 import './App.scss';
 import OrderHistoryContainer from './orders/components/OrderHistoryContainer';
 import MobileCheckout from './checkout/components/Checkout';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true;
 
 function App() {
 	return (
