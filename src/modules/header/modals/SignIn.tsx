@@ -5,7 +5,7 @@ import Modal from '../../../shared/components/Modal';
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SignIn.scss';
-import { addUserFromAPI } from '../api';
+import { authenticateUserFromAPI } from '../api';
 
 interface SignInProps {
 	onClose: () => void;
@@ -25,10 +25,10 @@ function SignIn({ onClose }: SignInProps) {
 		setCredentials((prev) => ({ ...prev, [name]: value }));
 	};
 
-	const handleSignUp = async (event: MouseEvent<HTMLButtonElement>) => {
+	const handleAction = async (event: MouseEvent<HTMLButtonElement>, action: 'signup' | 'login') => {
 		event.preventDefault();
 		try {
-			const response = await addUserFromAPI(credentials);
+			const response = await authenticateUserFromAPI(credentials, action);
 			onClose();
 		} catch (error: any) {
 			setError(error.response.data.message);
@@ -74,7 +74,12 @@ function SignIn({ onClose }: SignInProps) {
 					required
 				/>
 				<br />
-				<button disabled={!isFormValid} className='login-button' type='submit'>
+				<button
+					disabled={!isFormValid}
+					className='login-button'
+					type='submit'
+					onClick={(e) => handleAction(e, 'login')}
+				>
 					LOGIN
 				</button>
 				<br />
@@ -86,10 +91,10 @@ function SignIn({ onClose }: SignInProps) {
 					<p>or</p>
 					<p className='line'></p>
 				</div>
-				<button className='sign-up-button' onClick={handleSignUp}>
+				<button className='sign-up-button' onClick={(e) => handleAction(e, 'signup')}>
 					SIGN UP
 				</button>
-				{error && <p>{error}</p>}
+				{error && <p className='error-message'>{error}</p>}
 			</form>
 		</Modal>
 	);
