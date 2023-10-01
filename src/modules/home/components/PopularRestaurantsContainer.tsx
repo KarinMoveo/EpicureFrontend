@@ -6,7 +6,7 @@ import Card from '../../../shared/components/Card';
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import { getPopularRestaurantsFromAPI } from '../api';
-import { restaurant } from '../../../mockData/data/types';
+import { restaurant } from '../../../shared/types';
 import Stars from '../../restaurants/assets/images/rating/Stars';
 
 import '../components/PopularRestaurantsContainer.scss';
@@ -38,9 +38,9 @@ function PopularRestaurantsContainer() {
 							key={index}
 							cardImage={popularRestaurant.image}
 							cardName={popularRestaurant.name}
-							onClick={() => navigate(`/restaurants/${popularRestaurant.name}`)}
+							onClick={() => navigate(`/restaurants/${popularRestaurant._id}`)}
 						>
-							<p>{popularRestaurant.chef}</p>
+							<p>{popularRestaurant.chef.name}</p>
 							{isDesktop && <Stars rating={popularRestaurant.popularity} />}
 						</Card>
 					))}

@@ -5,7 +5,7 @@ import Card from '../../../shared/components/Card';
 
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
-import { dish } from '../../../mockData/data/types';
+import { dish } from '../../../shared/types';
 import { getSignatureDishesFromAPI } from '../api';
 
 import '../components/SignatureDishesContainer.scss';
