@@ -6,7 +6,7 @@ import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
 
 import '../components/ChefOfTheWeekContainer.scss';
-import { restaurant } from '../../../mockData/data/types';
+import { restaurant } from '../../../shared/types';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;
@@ -39,7 +39,6 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 							cardName={chefOfTheWeekRestaurant.name}
 							onClick={() => navigate(`/restaurants/${chefOfTheWeekRestaurant.name}`)}
 						/>
-
 					))}
 				</div>
 				<NavLink to='./restaurants' className='all-restaurants'>

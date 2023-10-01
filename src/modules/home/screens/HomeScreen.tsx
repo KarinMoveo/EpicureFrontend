@@ -7,7 +7,7 @@ import ChefOfTheWeekContainer from '../components/ChefOfTheWeekContainer';
 import About from '../components/About';
 
 import { getChefOfTheWeekFromAPI } from '../api';
-import { chef } from '../../../mockData/data/types';
+import { chef } from '../../../shared/types';
 
 function HomeScreen() {
 	const [chefOfTheWeek, setChefOfTheWeek] = useState<chef | null>(null);
