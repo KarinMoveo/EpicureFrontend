@@ -1,24 +1,38 @@
-import { useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
 
 import Modal from '../../../shared/components/Modal';
 
 import closeIcon from '../../../shared/assets/icons/x.svg';
 
 import './SignIn.scss';
+import { authenticateUserFromAPI } from '../api';
 
 interface SignInProps {
 	onClose: () => void;
 }
 
 function SignIn({ onClose }: SignInProps) {
-	const [isFormValid, setIsFormValid] = useState(false);
 	const isDesktop = window.innerWidth >= 1024;
+	const [credentials, setCredentials] = useState({
+		email: '',
+		password: '',
+	});
+	const [error, setError] = useState('');
+	const isFormValid = credentials.email && credentials.password;
 
-	const handleInputChange = () => {
-		const emailInput = document.getElementById('email') as HTMLInputElement;
-		const passwordInput = document.getElementById('password') as HTMLInputElement;
+	const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+		const { value, name } = event.target;
+		setCredentials((prev) => ({ ...prev, [name]: value }));
+	};
 
-		setIsFormValid(emailInput.value !== '' && passwordInput.value !== '');
+	const handleAction = async (event: MouseEvent<HTMLButtonElement>, action: 'signup' | 'login') => {
+		event.preventDefault();
+		try {
+			const response = await authenticateUserFromAPI(credentials, action);
+			onClose();
+		} catch (error: any) {
+			setError(error.response.data.message);
+		}
 	};
 
 	return (
@@ -39,7 +53,7 @@ function SignIn({ onClose }: SignInProps) {
 			)}
 			<p className='sign-in-title'>SIGN IN</p>
 			<p className='sign-in-description'>To continue the order, please sign in</p>
-			<form action='/login' method='post' className='sign-in-form'>
+			<form className='sign-in-form'>
 				<input
 					className='user-email-input'
 					type='email'
@@ -60,7 +74,12 @@ function SignIn({ onClose }: SignInProps) {
 					required
 				/>
 				<br />
-				<button disabled={!isFormValid} className='login-button' type='submit'>
+				<button
+					disabled={!isFormValid}
+					className='login-button'
+					type='submit'
+					onClick={(e) => handleAction(e, 'login')}
+				>
 					LOGIN
 				</button>
 				<br />
@@ -72,7 +91,10 @@ function SignIn({ onClose }: SignInProps) {
 					<p>or</p>
 					<p className='line'></p>
 				</div>
-				<button className='sign-up-button'>SIGN UP</button>
+				<button className='sign-up-button' onClick={(e) => handleAction(e, 'signup')}>
+					SIGN UP
+				</button>
+				{error && <p className='error-message'>{error}</p>}
 			</form>
 		</Modal>
 	);

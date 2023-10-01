@@ -15,7 +15,7 @@ import Stars from '../assets/images/rating/Stars';
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [filters, setFilters] = useState({
-		category: 'Show All',
+		category: 'All',
 		distance: 5,
 		rating: 31,
 		priceRange: { min: 12, max: 357 },
@@ -35,7 +35,6 @@ function Restaurants() {
 			try {
 				const result = await getRestaurantsFromAPI(filters);
 				setRestaurantsList(result.data);
-				console.log(filters);
 			} catch (error: unknown) {
 				console.log(error);
 			}

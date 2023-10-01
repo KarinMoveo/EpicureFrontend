@@ -2,7 +2,7 @@ import { selectedCategoryType } from '../types';
 
 import './Categories.scss';
 
-const categories: selectedCategoryType[] = ['Show All', 'New', 'Most Popular', 'Open Now', 'Map View'];
+const categories: selectedCategoryType[] = ['All', 'New', 'Most Popular', 'Open Now', 'Map View'];
 
 interface CategoriesProps {
 	selectedCategory: any;

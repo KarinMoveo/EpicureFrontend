@@ -1,18 +1,17 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export async function getPopularRestaurantsFromAPI(){
-    const result = await axios.get(`${BASE_URL}/restaurants/popular`);
+    const result = await axios.get('/restaurants/popular');
     return result;
 }
 
 export async function getChefOfTheWeekFromAPI(){
-    const result = await axios.get(`${BASE_URL}/chefs/chefOfTheWeek`);
+    const result = await axios.get('/chefs/chefOfTheWeek');
     return result;
 }
 
 export async function getSignatureDishesFromAPI(){
-    const result = await axios.get(`${BASE_URL}/dishes/signatureDishes`);
+    const result = await axios.get('/dishes/signatureDishes');
     return result;
 }
