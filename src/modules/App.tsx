@@ -12,7 +12,7 @@ import MobileCheckout from './checkout/components/Checkout';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = process.env.REACT_APP_BASE_URL;
+axios.defaults.baseURL = 'http://localhost:5000/';
 
 function App() {
 	return (

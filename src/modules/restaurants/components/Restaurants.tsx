@@ -15,7 +15,7 @@ import Stars from '../assets/images/rating/Stars';
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [filters, setFilters] = useState({
-		category: 'All',
+		category: 'Everything',
 		distance: 5,
 		rating: 31,
 		priceRange: { min: 12, max: 357 },
