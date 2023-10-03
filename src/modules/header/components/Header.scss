@@ -25,7 +25,6 @@
   .header-icon-item{
     display: flex;
     flex:1;
-    padding: 10px;
 
     .right-icons-items-container{
       display: flex;
@@ -47,16 +46,13 @@
   /* Media Query for Desktop */
   @media (min-width: 768px) {
 
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 0 80px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.213);     
     .mobile-menu-icon-item{
       display: none;
     }
 
-    .right-icons-items{
-      padding: 20px;
-    }
+
 
     .header-icon-item{
       flex: 0;
@@ -65,8 +61,6 @@
     .logo-icon-item{
       display: flex;
       align-items: center;
-      padding-left: 40px;
-      padding-right: 0;
     }
 
     .right-icons-items{

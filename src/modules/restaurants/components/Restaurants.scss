@@ -21,15 +21,15 @@
  /* Media Query for desktop */
   @media (min-width: 767px) {
 
-    height: 100vh;
+    min-height: 85vh;
 
     .restaurant-page-title {
       display: none;
     }
 
     .restaurants-list{
-        margin-left: 60px;
-        margin-right: 60px;
+        // margin-left: 60px;
+        // margin-right: 60px;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
@@ -57,4 +57,12 @@
         display: none;
     }
   }
+
+   /* Media Query for desktop */
+   @media (min-width: 767px) {
+
+        .restaurants-list{
+            padding: 0 80px 10px 80px;
+        }
+    }
 }

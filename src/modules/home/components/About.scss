@@ -15,6 +15,7 @@
 
     .about-text-content {
         padding: 20px;
+        // padding: 0 80px;
 
         .about-us-title,
         .about-us-content {
@@ -36,6 +37,7 @@
      flex-direction: row;
      align-items: center;
      justify-content: start;
+     padding: 0 80px;
 
      .logo-image{
         align-self: center;
