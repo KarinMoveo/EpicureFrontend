@@ -15,11 +15,13 @@
 
     .about-text-content {
         padding: 20px;
-        // padding: 0 80px;
+
+        .about-us-title{
+            font-size: 20px;
+        }
 
         .about-us-title,
         .about-us-content {
-            font-size: 16px;
             line-height: 35px;
             letter-spacing: 2px;
             text-transform: capitalize;
@@ -33,21 +35,16 @@
 
         /* Media Query for Desktop */
   @media (min-width: 768px) {
-  
+     margin-top: 50px;
      flex-direction: row;
      align-items: center;
      justify-content: start;
      padding: 0 80px;
 
-     .logo-image{
-        align-self: center;
-        justify-self: end;
-        flex: 1;
-    }
     
     .about-container-title-content-images{
         display: flex;
-        flex-direction: column;
+        flex-direction: column-reverse;
         flex: 1;
 
         .about-us-content{

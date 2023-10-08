@@ -5,9 +5,10 @@
 	flex-direction: column;
 	padding: 20px;
 
+
 	.popular-restaurants-title {
-		font-size: 16px;
-		line-height: 24px;
+		font-size: 18px;
+		line-height: 35px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
 	}
@@ -15,19 +16,24 @@
 	.popular-restaurants-cards-display {
 		display: flex;
 		flex-direction: row;
-		// justify-content: space-around;
 		gap: 20px;
 	}
 
 	.all-restaurants {
 		@include all-restaurants;
+		font-weight: 400;
 	}
 
 	/* Media Query for Desktop */
 	@media (min-width: 768px) {
+		margin: 20px 0;
 		justify-content: center;
 		align-items: center;
 		padding: 0 80px 10px 80px;
+
+		.popular-restaurants-title {
+			font-size: 22px;
+		}
 		
 		.popular-restaurants-cards-display {
 			display: flex;

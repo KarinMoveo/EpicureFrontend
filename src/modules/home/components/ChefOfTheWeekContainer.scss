@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
-    // padding: 0 80px;
     
     .chef-of-the-week-summary{
         font-size: 18px;
@@ -17,6 +16,7 @@
         font-size: 16px;
         line-height: 25px; 
         letter-spacing: 1.25px;
+        margin: 30px 0;
         text-transform: uppercase;
     }
     
@@ -28,6 +28,18 @@
        gap: 10px;
        cursor: pointer;
 
+       & img, .card-container{
+        width: 200px;
+        object-fit: cover;
+        
+        .card-text-content{
+            height: 40%;
+        }
+
+        & .card-text-content > .card-name{
+            font-size: 20px;
+        }
+    }
     }
 
     /* Media Query for Desktop */
@@ -36,13 +48,14 @@
     padding: 0 80px 10px 80px;
 
         .chef-of-the-week-title{
+            font-size: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .chef-of-the-week-summary{
-            padding-left: 20px;
+            padding-left: 40px;
             line-height: 35px; 
         }
 

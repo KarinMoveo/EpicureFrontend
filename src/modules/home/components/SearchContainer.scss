@@ -15,8 +15,8 @@
 	}
 
 	.search-title {
-		font-size: 30px;
-		line-height: 32px;
+		font-size: 32px;
+		line-height: 40px;
 		letter-spacing: 1.97px;
 	}
 
@@ -33,18 +33,20 @@
 		top: 50%;
 		left: 10px;
 		transform: translateY(-50%);
-		width: 20px;
-		height: 20px;
+		width: 32px;
+		height: 32px;
 	}
 
 	.user-search-start-page {
 		padding-left: 35px;
 		width: 90%;
 		padding: 10px;
-		border: 1px solid black;
-		border-radius: 5px;
-		background-color: rgba(255, 255, 255, 0.7);
+		text-align: center;
+		border: 0.5px solid black;
+		border-radius: 4px;
+		background-color: transparent;
 		text-indent: 25px;
+		letter-spacing: 1.29px;
 	}
 
 	/* Media Query for Desktop */
@@ -62,9 +64,13 @@
 			text-align: center;
 		}
 
+		.user-search-start-page {
+		font-size: 18px;
+		}
+		
+
 		.search-input-container {
-			text-align: center;
-			width: 60%;
+			width: 80%;
 		}
 
 		.search-icon {
@@ -76,6 +82,11 @@
 	@media (max-width: 768px) {
 		.search-title {
 			font-size: 20px;
+		}
+
+		.search-icon {
+		width: 24px;
+		height: 24px;
 		}
 	}
 }

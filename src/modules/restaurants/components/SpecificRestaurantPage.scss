@@ -35,6 +35,7 @@
         }
 
         .category-item-selected{
+            font-weight: 500;
             text-decoration: underline;
             text-decoration-color: #DE9200E5;
             text-decoration-thickness: 2px; 
@@ -117,8 +118,8 @@
         
             .line-right, .line-left {
                 width: 50%; 
-                height: 1px; 
-                background-color: black; 
+                height: 0.5px; 
+                background-color: #979797; 
                 margin-right: 10px;
                 margin-left: 10px;
             }
@@ -152,6 +153,14 @@
             padding-left: 10px;
         }
 
+        .card-container{
+            width: 100%;
+            & > img{
+                width: 100%;
+                height: 220px;
+            }
+        }
+
         .dishes-container{
             padding: 10px;
         }
@@ -163,7 +172,7 @@
             .line-right{
                 width: 80%; 
                 height: 1px; 
-                background-color: black; 
+                background-color: #979797; 
                 margin-right: 10px;
                 margin-left: 10px;
             }

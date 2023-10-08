@@ -64,8 +64,8 @@ function Header() {
 					<div className='right-icons-items-container'>
 						<HeaderIcon src={searchIcon} alt='search' onClick={() => toggleModal('search')} />
 						<HeaderIcon src={accountIcon} alt='account' onClick={() => toggleModal('account')} />
-						{totalItemAmount > 0 && <div className='total-item-amount'>{totalItemAmount}</div>}
 						<HeaderIcon
+							itemAmount={totalItemAmount}
 							src={shoppingBagIcon}
 							alt='shoppingBag'
 							onClick={() => toggleModal('shoppingBag')}

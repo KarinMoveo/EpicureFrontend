@@ -17,13 +17,13 @@ function About() {
 						and more recently with desktop publishing software like Aldus PageMaker including versions of
 						Lorem Ipsum.
 					</p>
-				</div>
-				<div className='app-downloads-images'>
-					<img src={googlePlay} alt='Get It On Google Play' className='about-image' />
-					<img src={appStore} alt='Download On The App Store' className='about-image' />
+					<div className='app-downloads-images'>
+						<img src={googlePlay} alt='Get It On Google Play' className='about-image' />
+						<img src={appStore} alt='Download On The App Store' className='about-image' />
+					</div>
 				</div>
 			</div>
-			<img src={epicureLogo} alt='Epicure logo' className='about-image logo-image' />
+			<img src={epicureLogo} alt='Epicure logo' className='about-image' />
 		</div>
 	);
 }

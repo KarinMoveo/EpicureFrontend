@@ -6,19 +6,19 @@
 	text-decoration: none;
 	width: 310px;
 
-
 	.card-image {
+		object-fit: cover;
 		width: 310px;
 		height: 200px;
 	}
 
 	.card-text-content {
 		text-align: left;
-		// padding: 10px;
+		padding: 0 30px;
 	}
 
 	.card-name {
-		font-size: 18px;
+		font-size: 28px;
 		font-style: normal;
 		font-weight: 400;
 		line-height: normal;
@@ -34,8 +34,25 @@
 
 	/* Media Query for mobile */
 	@media (max-width: 768px) {
-        .card-text-content{
-            padding: 10px;
-        }
+		.card-image {
+			width: 250px;
+			height: 160px;
+		}
+
+		.card-name {
+			font-size: 20px;
+		}
+
+		.card-text-content {
+			padding: 0 15px;
+
+			& > p {
+				margin: 10px;
+			}
+
+			& > svg {
+				display: none;
+			}
+		}
 	}
 }
