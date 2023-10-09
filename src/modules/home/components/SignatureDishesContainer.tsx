@@ -31,8 +31,10 @@ function SignatureDishesContainer() {
 			<div className='signature-dishes-cards-display'>
 				{signatureDishes.map((dish: any, index: number) => (
 					<Card key={index} cardImage={dish.image} cardName={dish.name}>
-						<img src={dish.icon} alt='icon' className='signature-dish-icon' />
-						<p className='dish-ingredients'>{dish.ingredients}</p>
+						<div className='ingredients-and-icon-container'>
+							<img src={dish.icon} alt='icon' className='signature-dish-icon' />
+							<p className='dish-ingredients'>{dish.ingredients}</p>
+						</div>
 						<div className='price-line-with-text'>
 							<p className='line'></p>
 							<p>₪{dish.price}</p>
