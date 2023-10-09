@@ -15,6 +15,14 @@
 
 	.checkout-form {
 
+		.delivery-details-title{
+			align-self: center;
+		}
+
+		.checkout-form-input{
+			color: #979797;
+		}
+
 		.checkout-form-delivery-details-container,
 		.checkout-form-payment-details-container {
 			display: flex;
@@ -44,5 +52,11 @@
 		.form-close{
 			display: none;
 		}
+		.delivery-details-title,
+		.payment-details-title{
+			align-self: center;
+		}
+
+
 	}
 }

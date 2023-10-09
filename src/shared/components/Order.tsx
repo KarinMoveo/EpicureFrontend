@@ -23,27 +23,22 @@ function Order({ formFieldsFilled }: OrderProps) {
 	return (
 		<div className='order-container'>
 			{isDesktop ? <p className='order-title'>YOUR ORDER</p> : <p className='order-title'>MY ORDER</p>}
-			<p className='order-restaurant-name'>{cartItemsArray[0]?.restaurantName}</p>
-			{cartItemsArray.map((cartItem) => (
-				<OrderItem
-					key={cartItem.orderItemName}
-					orderItemName={cartItem.orderItemName}
-					orderItemAmount={cartItem.orderItemAmount}
-					orderItemChanges={cartItem.orderItemChanges}
-					orderItemImage={cartItem.orderItemImage}
-					orderItemPrice={cartItem.orderItemPrice} 
-					orderItemSide={cartItem.orderItemSide}
-				/>
-			))}
-			{isDesktop ? (
-				<div className='order-line-with-text'>
-					<p className='line'></p>
-					<p>₪{total}</p>
-					<p className='line'></p>
-				</div>
-			) : (
-				<p className='order-total-cash-p'>TOTAL - ₪{total}</p>
-			)}
+			<p className='order-restaurant-name'>{cartItemsArray[0]?.orderItemRestaurantName}</p>
+			<div className='items-container'>
+				{cartItemsArray.map((cartItem) => (
+					<OrderItem
+						key={cartItem.orderItemName}
+						orderItemName={cartItem.orderItemName}
+						orderItemAmount={cartItem.orderItemAmount}
+						orderItemChanges={cartItem.orderItemChanges}
+						orderItemImage={cartItem.orderItemImage}
+						orderItemPrice={cartItem.orderItemPrice}
+						orderItemSide={cartItem.orderItemSide}
+						orderItemRestaurantName={cartItem.orderItemRestaurantName}
+					/>
+				))}
+			</div>
+			{isDesktop ? <p className='line'></p> : <p className='order-total-cash-p'>TOTAL - ₪{total}</p>}
 
 			<div className='order-textarea-container'>
 				<p>Add A Comment</p>

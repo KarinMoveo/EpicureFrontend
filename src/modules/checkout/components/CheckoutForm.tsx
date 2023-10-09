@@ -42,8 +42,8 @@ function CheckoutForm(props: CheckoutFormProps) {
 			</button>
 			<form className='checkout-form'>
 				<div className='checkout-form-delivery-details-container'>
-					<h3>Delivery Details</h3>
-					<label htmlFor='fullName'>Full Name</label>
+					<p className='delivery-details-title'>Delivery Details</p>
+					<label className='checkout-form-input'>Full Name</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'
@@ -52,7 +52,7 @@ function CheckoutForm(props: CheckoutFormProps) {
 						required
 					/>
 
-					<label htmlFor='address'>Address</label>
+					<label className='checkout-form-input'>Address</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'
@@ -61,7 +61,7 @@ function CheckoutForm(props: CheckoutFormProps) {
 						required
 					/>
 
-					<label htmlFor='phone'>Phone</label>
+					<label className='checkout-form-input'>Phone</label>
 					<input
 						className='checkout-form-input-field'
 						type='tel'
@@ -71,8 +71,8 @@ function CheckoutForm(props: CheckoutFormProps) {
 					/>
 				</div>
 				<div className='checkout-form-payment-details-container'>
-					<h3>Payment Details</h3>
-					<label htmlFor='cardNumber'>Card Number</label>
+					<p className='payment-details-title'>Payment Details</p>
+					<label className='checkout-form-input'>Card Number</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'
@@ -80,7 +80,7 @@ function CheckoutForm(props: CheckoutFormProps) {
 						onChange={handleInputChange}
 						required
 					/>
-					<label htmlFor='nameOnCard'>Name on Card</label>
+					<label className='checkout-form-input'>Name on Card</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'
@@ -88,7 +88,7 @@ function CheckoutForm(props: CheckoutFormProps) {
 						onChange={handleInputChange}
 						required
 					/>
-					<label>CVV</label>
+					<label className='checkout-form-input'>CVV</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'
@@ -96,7 +96,7 @@ function CheckoutForm(props: CheckoutFormProps) {
 						onChange={handleInputChange}
 						required
 					/>
-					<label>Expiry Date</label>
+					<label className='checkout-form-input'>Expiry Date</label>
 					<input
 						className='checkout-form-input-field'
 						type='text'

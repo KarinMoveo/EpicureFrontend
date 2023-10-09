@@ -5,7 +5,6 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding: 10px;
 }
 
 .sign-in-title{
@@ -24,12 +23,19 @@
 	justify-content: center;
 	align-items: center;
 	overflow-y: auto;
+	width: 90%;
 
-	.user-email-input,
-	.user-password-input {
+	.inputs-container{
+		width: 90%;
+	}
+
+	.sign-in-input{
 		border: none;
 		border-bottom: 1px solid #ccc;
 		outline: none;
+		width: 90%;
+		margin-top: 6px;
+		margin-bottom: 25px;
 	}
 
 	.forgot-password {
@@ -45,9 +51,9 @@
 		align-items: center;
 	
 		.line {
-			width: 50px; 
+			width: 100px; 
 			height: 1px; 
-			background-color: black; 
+			background-color: #979797; 
 			margin-right: 10px;
 			margin-left: 10px;
 		  }
@@ -56,11 +62,13 @@
 	.login-button{
 		@include button;
 		@include black-button;
+		width: 60%
 	}
 
 	.sign-up-button {
 		@include button;
 		@include white-button;
+		width: 60%
 	}
 
 	.error-message{
@@ -89,19 +97,32 @@
 			margin-left: 10px;
 		}
 	}
-	
-		.sign-in-form {
-		width: 70vw;
+
+
+	.inputs-container{
+		width: 90%;
+	}
+	.sign-in-label{
+		opacity: 0.4;
+		align-self: start;
 	}
 }
 /* Media Query for desktop */
 @media (min-width: 767px) {
+	.sign-in-modal-content{
+
+		padding: 20px;
+	}
+
 	.centered-sign-in-modal-content {
 		width:400px;
 		height: 400px;
 	}
 	.sign-in-form {
 		// width: 15vw;
+	}
+	.sign-in-label{
+		display: none;
 	}
 	
 }

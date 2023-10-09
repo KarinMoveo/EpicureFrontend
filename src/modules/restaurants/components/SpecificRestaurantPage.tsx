@@ -38,7 +38,7 @@ function SpecificRestaurantPage() {
 		const isDesktop = window.innerWidth >= 1024;
 
 		if (isDesktop) {
-			setSelectedDishModal(dish);
+			setSelectedDishModal({ ...dish, restaurantName: restaurant?.name });
 		} else {
 			navigate(`/restaurants/${id}/${dish.name}`, {
 				state: {
@@ -47,6 +47,7 @@ function SpecificRestaurantPage() {
 					ingredients: dish.ingredients,
 					price: dish.price,
 					changes: dish.changes,
+					restaurantName: restaurant?.name,
 					side: dish.side,
 				},
 			});

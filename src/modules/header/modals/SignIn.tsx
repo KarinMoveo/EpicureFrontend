@@ -54,25 +54,29 @@ function SignIn({ onClose }: SignInProps) {
 			<p className='sign-in-title'>SIGN IN</p>
 			<p className='sign-in-description'>To continue the order, please sign in</p>
 			<form className='sign-in-form'>
-				<input
-					className='user-email-input'
-					type='email'
-					id='email'
-					name='email'
-					placeholder='Email address'
-					onChange={handleInputChange}
-					required
-				/>
-				<br />
-				<input
-					className='user-password-input'
-					type='password'
-					id='password'
-					name='password'
-					placeholder='Password'
-					onChange={handleInputChange}
-					required
-				/>
+				<div className='inputs-container'>
+					<label className='sign-in-label'>Email address</label>
+					<input
+						className='sign-in-input'
+						type='email'
+						id='email'
+						name='email'
+						placeholder='Email address'
+						onChange={handleInputChange}
+						required
+					/>
+					<br />
+					<label className='sign-in-label'>Password</label>
+					<input
+						className='sign-in-input'
+						type='password'
+						id='password'
+						name='password'
+						placeholder='Password'
+						onChange={handleInputChange}
+						required
+					/>
+				</div>
 				<br />
 				<button
 					disabled={!isFormValid}

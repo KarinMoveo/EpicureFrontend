@@ -52,6 +52,7 @@ function OrderSummary({ onClose, selectedOrderIndex }: OrderSummaryProps) {
 							orderItemPrice={orderItem.orderItemPrice}
 							orderItemSide={orderItem.orderItemSide}
 							orderItemChanges={orderItem.orderItemChanges}
+							orderItemRestaurantName={orderItem.orderItemRestaurantName}
 						/>
 					))}
 				</div>

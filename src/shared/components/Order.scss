@@ -1,60 +1,53 @@
-.order-container{
+.order-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	.order-title {
+		font-size: 32px;
+		margin-bottom: 0;
+	}
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // padding: 10px;
-    // overflow: auto;
-    .order-title{
-        font-size: 32px;
-        margin-bottom: 0;
-    }
+	.items-container {
+		overflow: auto;
+		height: 100px;
+	}
 
-    .order-restaurant-name{
-        font-size: 18px;
-    }
-    
-    /* Media Query for Mobile */
-    @media (max-width: 767px) {
-		
-        .order-textarea-container{
-            display: none;
-        }
-    }
+	.order-restaurant-name {
+		font-size: 18px;
+	}
 
-     /* Media Query for desktop */
-     @media (min-width: 767px) {
-        
+	/* Media Query for Mobile */
+	@media (max-width: 767px) {
+		.order-textarea-container {
+			display: none;
+		}
+	}
 
-        .order-line-with-text{
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        
-            .line {
-                width: 50px; 
-                height: 1px; 
-                background-color: black; 
-                margin-right: 10px;
-                margin-left: 10px;
-            }
-        }
+	/* Media Query for desktop */
+	@media (min-width: 767px) {
+		.line {
+			width: 100px;
+			height: 1px;
+			background-color: #979797;
+			margin-right: 10px;
+			margin-left: 10px;
+		}
 
-        .order-textarea-container{
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding-bottom: 10px;
+		.order-textarea-container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			padding-bottom: 10px;
 
-            .order-textarea{
-                border-radius: 3.429px;
-                width: 15vw;
-                border: 0.6px solid #979797;
-            }
-        }
-    }
+			.order-textarea {
+				border-radius: 3.429px;
+				width: 20vw;
+				border: 0.6px solid #979797;
+                font-family: Helvetica;
+                font-weight: 200;
+			}
+		}
+	}
 }
-

@@ -61,11 +61,13 @@
 				.checkout-pay-button-gray{
 					@include button;
 					@include gray-button;
+					width: 40%
 				}
 				
 				.checkout-pay-button-black{
 					@include button;
 					@include black-button;
+					width: 40%
 				}
 			}
 		}

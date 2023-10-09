@@ -7,6 +7,7 @@ interface OrderItemProps {
 	orderItemPrice: number;
 	orderItemSide: string;
 	orderItemChanges: string;
+	orderItemRestaurantName: string;
 	children?: React.ReactNode;
 }
 
@@ -16,13 +17,15 @@ function OrderItem(props: OrderItemProps) {
 			<img className='order-item-image' src={props.orderItemImage} alt='order item' />
 			<div className='card-text-content'>
 				<div className='order-item-name-amount-container'>
-					<p className='order-item-amount'>{props.orderItemAmount}x</p>
-					<p className='order-item-name'>{props.orderItemName} </p>
+					<p className='order-item-amount'>
+						{props.orderItemAmount}x {props.orderItemName}
+					</p>
+					{/* <p className='order-item-name'>{props.orderItemName} </p> */}
 				</div>
 				<p className='order-item-side-and-changes'>
-					{props.orderItemSide} {props.orderItemChanges}
+					{props.orderItemSide} {props.orderItemChanges ? '|' : ''} {props.orderItemChanges}
 				</p>
-				<p className='order-item-price'>{props.orderItemPrice}</p>
+				<p className='order-item-price'>₪{props.orderItemPrice}</p>
 				{props.children}
 			</div>
 		</div>

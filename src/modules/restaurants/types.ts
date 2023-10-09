@@ -3,6 +3,7 @@ export type selectedCategoryType = 'Everything' | 'New' | 'Most Popular' | 'Open
 export type MealType = 'Breakfast' | 'Lunch' | 'Dinner';
 
 export interface CartItem {
+	orderItemRestaurantName: string;
 	orderItemId: string;
 	orderItemImage: string;
 	orderItemName: string;
@@ -10,5 +11,4 @@ export interface CartItem {
 	orderItemPrice: number;
 	orderItemSide: string;
 	orderItemChanges: string;
-	restaurantName: string;
 }

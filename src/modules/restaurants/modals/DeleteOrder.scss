@@ -1,27 +1,37 @@
 @import '../../../shared/styles/mixin.scss';
 
-.delete-order-modal-container{
-    
-    height: 82vh;
-    width: 35vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    
-    .delete-order-button {
-        @include button;
-        @include black-button;
-    }
+.delete-order-modal-container {
+	height: 82vh;
+	width: 35vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 40px;
 
-    .back-to-order-button{
-        @include button;
-        @include white-button;
-    }
+	.delete-order-button {
+		@include button;
+		@include black-button;
+		width: 40%;
+	}
 
-    /* Media Query for mobile */
+	.back-to-order-button {
+		@include button;
+		@include white-button;
+		width: 40%;
+	}
+
+	/* Media Query for mobile */
 	@media (max-width: 768px) {
 		width: 50vw;
-    }
+        padding: 20px 40px;
+
+		.delete-order-button {
+			width: 100%;
+		}
+
+		.back-to-order-button {
+			width: 100%;
+		}
+	}
 }

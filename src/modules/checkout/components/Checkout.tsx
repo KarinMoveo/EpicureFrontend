@@ -40,7 +40,7 @@ function Checkout() {
 		(accumulator, cartItem) => accumulator + cartItem.orderItemPrice * cartItem.orderItemAmount,
 		0
 	);
-	const restaurantNames = Object.values(cartItems).map((cartItem) => cartItem.restaurantName);
+	const restaurantNames = Object.values(cartItems).map((cartItem) => cartItem.orderItemRestaurantName);
 	const restaurantName = restaurantNames.length > 0 ? restaurantNames[0] : 'Unknown Restaurant';
 
 	const handlePayment = () => {

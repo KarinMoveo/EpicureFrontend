@@ -12,9 +12,6 @@ function SpecificDishPage() {
 	}
 
 	const dish = state;
-	console.log(dish);
-
-	console.log('this is the state ----------' + state);
 
 	const navigateBack = () => {
 		navigate(-1);

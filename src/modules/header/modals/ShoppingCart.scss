@@ -18,6 +18,7 @@
 	.checkout-button{
 		@include button;
 		@include black-button;
+		// width: 60%;
 	}
 
 }
@@ -57,12 +58,15 @@
 		.order-history-button{
 			@include button;
 			@include white-button;
+			border: solid 1px black;
+			width: 40%;
 		}
 
 		.checkout-button{
 			display: flex;
 			flex-direction: row;
 			justify-content: center;
+			width: 40%;
 
 		}
 	}
@@ -77,6 +81,10 @@
 		height: 70vh;
 		top: 50px;
 		box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.649);
+
+		.checkout-button{		
+			width: 60%;
+		}
 	
 		.order-history-button{
 			display: none;

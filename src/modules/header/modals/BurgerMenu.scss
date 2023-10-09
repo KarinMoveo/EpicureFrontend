@@ -23,10 +23,11 @@
         cursor: pointer;
     }
     
-    .dividing-line{
-        border-color: black;
-        width: 100%;
-        padding: 0;
+    .divider{
+        height: 1px;
+        background-color:#F2F2F2 ;
+        width: 150%;
+        transform: translateX(-30%);
     }
 
     .burger-menu-item-name{

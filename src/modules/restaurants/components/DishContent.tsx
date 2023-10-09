@@ -21,13 +21,17 @@ interface DishContentProps {
 		price: number;
 		changes: string[];
 		side: string[];
+		restaurantName: string;
 	};
 	onClose?: () => void;
 }
 
-function DishContent({ dish: { name, image, ingredients, icon, price, changes, side }, onClose }: DishContentProps) {
+function DishContent({
+	dish: { name, image, ingredients, icon, price, changes, side, restaurantName },
+	onClose,
+}: DishContentProps) {
 	const dispatch = useDispatch();
-	const { restaurantName } = useParams();
+	// const { restaurantName } = useParams();
 	const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 	const dish = cartItems[name];
 	const [quantity, setQuantity] = useState(dish?.orderItemAmount || 0);
@@ -59,12 +63,12 @@ function DishContent({ dish: { name, image, ingredients, icon, price, changes, s
 			orderItemName: name,
 			orderItemAmount: quantity,
 			orderItemPrice: price,
-			restaurantName: restaurantName as string,
+			orderItemRestaurantName: restaurantName,
 			orderItemSide: selectedSide || '',
 			orderItemChanges: selectedChanges.join(', ') || '',
 		};
 
-		if (Object.keys(cartItems).length && Object.values(cartItems)[0].restaurantName !== restaurantName) {
+		if (Object.keys(cartItems).length && Object.values(cartItems)[0].orderItemRestaurantName !== restaurantName) {
 			setDeleteOrderModal(true);
 			return;
 		}
@@ -84,7 +88,11 @@ function DishContent({ dish: { name, image, ingredients, icon, price, changes, s
 					<p className='dish-name'>{name}</p>
 					<p className='dish-ingredients'>{ingredients}</p>
 					<img className='dish-icon' src={icon} alt='dish icon' />
-					<p className='dish-price'>₪{price}</p>
+					<div className='price-div'>
+						<div className='line-left'></div>
+						<p className='dish-price'>₪{price}</p>
+						<div className='line-right'></div>
+					</div>
 				</div>
 				<div className='checkbox-content-container'>
 					{side && (

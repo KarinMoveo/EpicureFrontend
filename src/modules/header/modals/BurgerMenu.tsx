@@ -8,11 +8,12 @@ import Modal from '../../../shared/components/Modal';
 interface NavigationItem {
 	to: string;
 	text: string;
+	hasDivider?: boolean;
 }
 
 const navigationItems: NavigationItem[] = [
 	{ to: '/restaurants', text: 'Restaurants' },
-	{ to: '/chefs', text: 'Chefs' },
+	{ to: '/chefs', text: 'Chefs', hasDivider: true },
 	{ to: '/Contact Us', text: 'Contact Us' },
 	{ to: '/Term Of Use', text: 'Term Of Use' },
 	{ to: '/Privacy Policy', text: 'Privacy Policy' },
@@ -36,9 +37,12 @@ function BurgerMenu({ onCloseMenu }: BurgerMenuProps) {
 			<nav className='burger-menu-container'>
 				<img className='x-icon' src={xIcon} alt='x icon' onClick={handleXClick} />
 				{navigationItems.map((item, index) => (
-					<NavLink key={index} to={item.to} className={isActiveClass}>
-						{item.text}
-					</NavLink>
+					<>
+						<NavLink key={index} to={item.to} className={isActiveClass}>
+							{item.text}
+						</NavLink>
+						{item.hasDivider && <div className='divider' />}
+					</>
 				))}
 			</nav>
 		</Modal>
