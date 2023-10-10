@@ -49,9 +49,18 @@
     /* Media Query for Desktop */
   @media (min-width: 768px) {
 
-    padding: 0 80px 10px 80px;
-    // max-width: ;
+    // padding: 0 80px 10px 80px;
 
+    // padding: 0 500px 10px 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .chef-of-the-week-content{
+        max-width: 970px;
+    }
         .chef-of-the-week-title{
             font-size: 22px;
             display: flex;

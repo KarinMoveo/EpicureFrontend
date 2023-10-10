@@ -10,16 +10,12 @@
 		width: 220px;
 	}
 
-    .epicure-logo{
-        width: 150px;
-        margin-bottom: 20px;
-    }
+	.epicure-logo {
+		width: 150px;
+		margin-bottom: 20px;
+	}
 
 	.about-text-content {
-		.about-us-title {
-			font-size: 16px;
-		}
-
 		.about-us-title,
 		.about-us-content {
 			line-height: 35px;
@@ -31,18 +27,23 @@
 	.app-downloads-images {
 		display: flex;
 		flex-direction: column;
-        gap: 10px;
+		gap: 20px;
 	}
 
 	/* Media Query for Desktop */
 	@media (min-width: 768px) {
-		margin-top: 50px;
-		// padding: 0 500px 10px 500px;
-		flex-direction: row;
+		// margin-top: 50px;
+		display: flex;
+		flex-direction: column;
 		align-items: center;
-		justify-content: start;
+		justify-content: center;
 
-		.about-text-content > .about-us-title {
+		.about-container-content {
+			display: flex;
+			width: 970px;
+		}
+
+		.about-us-title {
 			font-size: 22px;
 		}
 
@@ -64,10 +65,20 @@
 
 	@media (max-width: 768px) {
 		// flex-direction: column-reverse;
-        padding: 10px 20px;
+		padding: 10px 20px;
 
+		.about-text-content {
+			.about-us-title {
+				font-size: 16px;
+			}
+		}
+
+		.about-container-content {
+			display: flex;
+			flex-direction: column;
+		}
 		.store-images,
-		.epicure-logo{
+		.epicure-logo {
 			padding-bottom: 25px;
 			align-self: center;
 		}

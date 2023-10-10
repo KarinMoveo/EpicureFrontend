@@ -20,32 +20,34 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 
 	return (
 		<div className='chef-of-the-week-container'>
-			<p className='chef-of-the-week-title'>CHEF OF THE WEEK:</p>
-			<div className='chef-of-the-week-name-image-summary-container'>
-				<ChefImageAndName chefImage={props.chefOfTheWeekImage} chefName={props.chefOfTheWeekName} />
-				<p className='chef-of-the-week-summary'>{props.chefOfTheWeekSummary}</p>
-			</div>
-
-			{restaurants.length > 0 && (
-				<div className='restaurants-container'>
-					<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
-					<div className='chef-of-the-week-restaurants-cards-display'>
-						{restaurants.map((chefOfTheWeekRestaurant: any, index: number) => (
-							<Card
-								cardImage={chefOfTheWeekRestaurant.image}
-								cardName={chefOfTheWeekRestaurant.name}
-								onClick={() => navigate(`/restaurants/${chefOfTheWeekRestaurant._id}`)}
-							/>
-						))}
-					</div>
-					<NavLink to='./restaurants' className='all-restaurants'>
-						All Restaurants
-						<span>
-							<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
-						</span>
-					</NavLink>
+			<div className='chef-of-the-week-content'>
+				<p className='chef-of-the-week-title'>CHEF OF THE WEEK:</p>
+				<div className='chef-of-the-week-name-image-summary-container'>
+					<ChefImageAndName chefImage={props.chefOfTheWeekImage} chefName={props.chefOfTheWeekName} />
+					<p className='chef-of-the-week-summary'>{props.chefOfTheWeekSummary}</p>
 				</div>
-			)}
+
+				{restaurants.length > 0 && (
+					<div className='restaurants-container'>
+						<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
+						<div className='chef-of-the-week-restaurants-cards-display'>
+							{restaurants.map((chefOfTheWeekRestaurant: any, index: number) => (
+								<Card
+									cardImage={chefOfTheWeekRestaurant.image}
+									cardName={chefOfTheWeekRestaurant.name}
+									onClick={() => navigate(`/restaurants/${chefOfTheWeekRestaurant._id}`)}
+								/>
+							))}
+						</div>
+						<NavLink to='./restaurants' className='all-restaurants'>
+							All Restaurants
+							<span>
+								<img src={seeMoreIcon} alt='See More Icon' className='see-more-icon' />
+							</span>
+						</NavLink>
+					</div>
+				)}
+			</div>
 		</div>
 	);
 }
