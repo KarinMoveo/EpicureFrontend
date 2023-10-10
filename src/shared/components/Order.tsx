@@ -38,8 +38,15 @@ function Order({ formFieldsFilled }: OrderProps) {
 					/>
 				))}
 			</div>
-			{isDesktop ? <p className='line'></p> : <p className='order-total-cash-p'>TOTAL - ₪{total}</p>}
-
+			{isDesktop ? (
+				<div className='order-line-with-text'>
+					<p className='line'></p>
+					<p>₪{total}</p>
+					<p className='line'></p>
+				</div>
+			) : (
+				<p className='order-total-cash-p'>TOTAL - ₪{total}</p>
+			)}
 			<div className='order-textarea-container'>
 				<p>Add A Comment</p>
 				<textarea

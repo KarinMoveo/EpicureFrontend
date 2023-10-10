@@ -23,8 +23,8 @@ function SpecificRestaurantPage() {
 	const [selectedMealCategory, setSelectedMealCategory] = useState<MealType>('Breakfast');
 	const [selectedDishModal, setSelectedDishModal] = useState<any>(null);
 	const [restaurant, setRestaurant] = useState<restaurant | null>(null);
-
 	const [allDishesFromCategory, setAllDishesFromCategory] = useState<dish[] | null>([]);
+	const [isLoading, setIsLoading] = useState(true);
 
 	const closeModal = () => {
 		setSelectedDishModal(null);
@@ -61,15 +61,21 @@ function SpecificRestaurantPage() {
 				setRestaurant(result.data);
 			} catch (error: unknown) {
 				console.log(error);
+			} finally {
+				setIsLoading(false);
 			}
 		}
 		getRestaurantById();
-	}, []);
+	}, [id]);
 
 	useEffect(() => {
 		const filteredDishes = restaurant?.dishes.filter((dish) => dish.mealType.includes(selectedMealCategory));
 		setAllDishesFromCategory(filteredDishes || []);
 	}, [selectedMealCategory, restaurant]);
+
+	if (isLoading) {
+		return <div className='loading-title'>Loading...</div>;
+	}
 
 	if (!restaurant) {
 		return <div className='restaurant-not-found-title'>Restaurant not found</div>;

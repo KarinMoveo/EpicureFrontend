@@ -37,6 +37,7 @@
 	/* Media Query for Desktop */
 	@media (min-width: 768px) {
 		margin-top: 50px;
+		// padding: 0 500px 10px 500px;
 		flex-direction: row;
 		align-items: center;
 		justify-content: start;
@@ -62,12 +63,17 @@
 	}
 
 	@media (max-width: 768px) {
-		flex-direction: column-reverse;
+		// flex-direction: column-reverse;
         padding: 10px 20px;
 
-		.about-text-content {
-			display: flex;
-			flex-direction: column-reverse;
+		.store-images,
+		.epicure-logo{
+			padding-bottom: 25px;
+			align-self: center;
 		}
+		// .about-text-content {
+		// 	display: flex;
+		// 	flex-direction: column-reverse;
+		// }
 	}
 }

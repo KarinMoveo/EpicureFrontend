@@ -1,73 +1,65 @@
-.restaurants-page-container{
+.restaurants-page-container {
+	padding: 10px;
 
-    padding: 10px;
+	.restaurant-page-title {
+		font-size: 20px;
+	}
 
+	.restaurants-list {
+		display: flex;
+		flex-direction: row;
+		gap: 20px;
+		padding: 10px;
+		margin-top: 30px;
+	}
 
-    .restaurant-page-title{
-        font-size: 20px;
-    }
+	.restaurant-link {
+		text-decoration: none;
+	}
 
-    .restaurants-list{
-        display: flex;
-        flex-direction: row;
-        gap: 20px;
-        padding: 10px;
-        margin-top: 30px;
-    }
+	/* Media Query for desktop */
+	@media (min-width: 767px) {
+		min-height: 85vh;
 
-    .restaurant-link{
-        text-decoration: none;
-    }
+		.restaurant-page-title {
+			display: none;
+		}
 
- /* Media Query for desktop */
-  @media (min-width: 767px) {
+		.restaurants-list {
+			justify-content: flex-start;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+	}
 
-    min-height: 85vh;
+	/* Media Query for mobile */
+	@media (max-width: 767px) {
+		.restaurants-title-categories-filters-container {
+			padding-left: 10px;
+			padding-right: 10px;
+		}
 
-    .restaurant-page-title {
-      display: none;
-    }
+		.restaurants-list {
+			display: flex;
+			flex-direction: column;
+		}
+		.restaurant-rating {
+			display: none;
+		}
 
-    .restaurants-list{
-        // margin-left: 60px;
-        // margin-right: 60px;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-    }
-  }
+		.modals-container {
+			display: none;
+		}
 
-   /* Media Query for mobile */
-   @media (max-width: 767px) {
+		.card-image {
+			width: 100%;
+		}
+	}
 
-    .restaurants-title-categories-filters-container{
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .restaurants-list{
-        display: flex;
-        flex-direction: column;
-
-    }
-    .restaurant-rating{
-        display: none;
-    }
-
-    .modals-container{
-        display: none;
-    }
-
-    .card-image{
-        width: 100%;
-    }
-  }
-
-   /* Media Query for desktop */
-   @media (min-width: 767px) {
-
-        .restaurants-list{
-            padding: 0 80px 10px 80px;
-        }
-    }
+	/* Media Query for desktop */
+	@media (min-width: 767px) {
+		.restaurants-list {
+			padding: 0 80px 10px 80px;
+		}
+	}
 }
