@@ -21,14 +21,20 @@
 	@media (min-width: 767px) {
 		min-height: 85vh;
 
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
 		.restaurant-page-title {
 			display: none;
 		}
 
 		.restaurants-list {
-			justify-content: flex-start;
-			align-items: center;
-			flex-wrap: wrap;
+			padding: 0 80px 10px 80px;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
 		}
 	}
 
@@ -56,10 +62,5 @@
 		}
 	}
 
-	/* Media Query for desktop */
-	@media (min-width: 767px) {
-		.restaurants-list {
-			padding: 0 80px 10px 80px;
-		}
-	}
+
 }
