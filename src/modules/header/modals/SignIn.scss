@@ -5,6 +5,10 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: 200;
+	letter-spacing:1.2px;
 }
 
 .sign-in-title{
@@ -36,12 +40,18 @@
 		width: 90%;
 		margin-top: 6px;
 		margin-bottom: 25px;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 200;
+		letter-spacing:1.2px;
 	}
 
-	.forgot-password {
+	.forget-password {
 		text-decoration: none;
 		color: black;
 		text-align: center;
+		font-weight: 400;
+
 	}
 
 	.line-with-text{

@@ -6,12 +6,16 @@
     align-items: center;
     height: 100vh;
     font-size: 50px;
+    
 }
 
 .specific-restaurant-page-container{
     
     padding: 0 80px;
     min-height: 85vh;
+    font-family: Helvetica Neue;
+	font-style: normal;
+	
 
     .restaurant-image{
         width: 100%;
@@ -20,9 +24,14 @@
     }
 
     .restaurant-details{
+
+        .restaurant-name{
+            font-weight: 400;
+        }
         .is-open{
             display: flex;
             gap: 5px;
+            font-weight: 200;
         }
       
     }
@@ -36,7 +45,7 @@
         }
 
         .category-item-selected{
-            font-weight: 500;
+            // font-weight: 400;
             text-decoration: underline;
             text-decoration-color: #DE9200E5;
             text-decoration-thickness: 2px; 
@@ -148,6 +157,10 @@
                 text-align: center;
                 font-size: 16px;
             }
+        }
+
+        .category-item-selected{
+            font-weight: 400;
         }
 
         .meals-category-row{

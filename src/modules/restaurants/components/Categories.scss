@@ -15,7 +15,7 @@
 		letter-spacing: 1.92px;
 
 		&.category-item-selected {
-			font-weight: bold;
+			font-weight: 400;
 		}
 	}
 	/* Media Query for desktop */
@@ -30,7 +30,7 @@
 			padding-right: 80px;
 
 			&.category-item-selected {
-				font-weight: bold;
+				font-weight: 400;
 			}
 		}
 
@@ -44,7 +44,9 @@
 		justify-content: space-between;
 		font-size: 14px;
 		.restaurant-category-item {
+			font-size: 12px;
 			padding-right: 20px;
+			letter-spacing: 1.4px;
 			&.category-item-selected {
 				text-decoration: underline;
 				text-decoration-color: #de9200e5;

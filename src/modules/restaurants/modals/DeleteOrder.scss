@@ -9,6 +9,11 @@
 	align-items: center;
 	padding: 20px 40px;
 
+font-family: Helvetica Neue;
+font-style: normal;
+font-weight: 400;
+letter-spacing: 1.97px;
+
 	.delete-order-button {
 		@include button;
 		@include black-button;

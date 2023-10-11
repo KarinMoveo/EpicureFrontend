@@ -1,8 +1,10 @@
 .restaurants-page-container {
 	padding: 10px;
 
+
 	.restaurant-page-title {
 		font-size: 20px;
+		
 	}
 
 	.restaurants-list {
@@ -55,6 +57,7 @@
 		.restaurants-list {
 			display: flex;
 			flex-direction: column;
+			padding-top: 0;
 		}
 		.restaurant-rating {
 			display: none;

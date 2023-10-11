@@ -87,8 +87,8 @@ function SignIn({ onClose }: SignInProps) {
 					LOGIN
 				</button>
 				<br />
-				<a href='/forgot-password' className='forgot-password'>
-					Forgot Password?
+				<a href='/forgot-password' className='forget-password'>
+					Forget Password?
 				</a>
 				<div className='line-with-text'>
 					<p className='line'></p>
