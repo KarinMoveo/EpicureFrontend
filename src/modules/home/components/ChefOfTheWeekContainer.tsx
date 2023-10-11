@@ -2,8 +2,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Card from '../../../shared/components/Card';
 import ChefImageAndName from '../../../shared/components/ChefImageAndName';
 import seeMoreIcon from '../../../shared/assets/icons/seeMore.svg';
-import '../components/ChefOfTheWeekContainer.scss';
 import { restaurant } from '../../../shared/types';
+import '../components/ChefOfTheWeekContainer.scss';
 
 interface ChefOfTheWeekContainerProps {
 	chefOfTheWeekImage: string;

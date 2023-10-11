@@ -11,7 +11,7 @@
 	.overlay {
 		background: rgba(255, 255, 255, 0.88);
 		padding: 20px 10px;
-		width: 80%
+		width: 80%;
 	}
 
 	.search-title {
@@ -71,14 +71,16 @@
 			text-align: center;
 			padding-bottom: 20px;
 			margin: 0;
-			line-height: 40px; 
+			line-height: 40px;
 			letter-spacing: 1.97px;
+			font-family: Helvetica Neue;
+			font-style: normal;
+			font-weight: 200;
 		}
 
 		.user-search-start-page {
-		font-size: 18px;
+			font-size: 18px;
 		}
-		
 
 		.search-input-container {
 			width: 90%;
@@ -96,8 +98,8 @@
 		}
 
 		.search-icon {
-		width: 24px;
-		height: 24px;
+			width: 24px;
+			height: 24px;
 		}
 	}
 }

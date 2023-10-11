@@ -6,15 +6,16 @@ function Distance(props: any) {
 	return (
 		<Popover onClose={props.onClose} anchorEl={props.anchorEl}>
 			<div className='distance-popover-container'>
-				<p>Distance</p>
+				<p className='distance-top-title'>Distance</p>
 				<div className='distance-popover-content'>
 					<div className='distance-popover-text-content'>
-						<p className='distance-title'>My location</p>
-						<p>{props.value}km</p>
+						<p className='my-location-title'>My location</p>
+						<p className='km-title'>{props.value}km</p>
 					</div>
+					<input className='custom-range-thumb-distance-gray' type='range' value='0' disabled />
 					<input
 						onChange={props.onChange}
-						className='distance-user-input-range'
+						className='distance-user-input-range custom-range-thumb-distance'
 						type='range'
 						min='0'
 						max='4'

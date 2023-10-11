@@ -1,49 +1,52 @@
-@mixin button{
-    padding: 10px;
-    cursor: pointer;
-    width: 100%;
-    margin-bottom: 10px;
-    font-size: 18px;
-    text-decoration: none;
-    text-align: center;
+@mixin button {
+	padding: 10px;
+	cursor: pointer;
+	width: 100%;
+	margin-bottom: 10px;
+	font-size: 18px;
+	text-decoration: none;
+	text-align: center;
 
-    &:disabled{
-        cursor: auto;
-        color: white;
-        background-color: gray;
-    }
+	&:disabled {
+		cursor: auto;
+		color: white;
+		background-color: gray;
+	}
 }
 
 @mixin white-button {
-    color: black;
-    background-color: white;
+	color: black;
+	background-color: white;
 }
 
 @mixin black-button {
-    color: white;
-    background-color: black;
+	color: white;
+	background-color: black;
 }
 
 @mixin gray-button {
-    color: white;
-    background-color: gray;
+	color: white;
+	background-color: gray;
 }
 
- @mixin all-restaurants {
-    display: flex;
-    gap: 2px;
-    font-size: 16px;
-    line-height: 35px;
-    letter-spacing: 2px;
-    text-transform: capitalize;
-    margin: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    .see-more-icon {
-        width: 15px;
-        height: 10px;
-    }
-}
+@mixin all-restaurants {
+	display: flex;
+	gap: 2px;
+	font-size: 16px;
+	line-height: 35px;
+	margin: 10px;
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	font-weight: 500;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: capitalize;
 
+	.see-more-icon {
+		width: 15px;
+		height: 10px;
+	}
+}

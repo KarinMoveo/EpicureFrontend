@@ -27,7 +27,7 @@ function SignatureDishesContainer() {
 
 	return (
 		<div className='signature-dishes-container'>
-			<p className='signature-dishes-title'>SIGNATURE DISH OF:</p>
+			<p className='signature-dishes-title'>SIGNATURE DISHES OF:</p>
 			<div className='signature-dishes-cards-display'>
 				{signatureDishes.map((dish: any, index: number) => (
 					<Card key={index} cardImage={dish.image} cardName={dish.name}>

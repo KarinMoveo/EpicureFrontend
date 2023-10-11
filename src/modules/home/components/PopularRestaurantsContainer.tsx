@@ -30,7 +30,7 @@ function PopularRestaurantsContainer() {
 
 	return (
 		<div className='popular-restaurants-container'>
-			<p className='popular-restaurants-title'>POPULAR RESTAURANT IN EPICURE:</p>
+			<p className='popular-restaurants-title'>POPULAR RESTAURANTS IN EPICURE:</p>
 			<div className='popular-restaurants-cards-display-and-all-restaurants'>
 				<div className='popular-restaurants-cards-display'>
 					{popularRestaurants.map((popularRestaurant: any, index: number) => (
@@ -40,7 +40,7 @@ function PopularRestaurantsContainer() {
 							cardName={popularRestaurant.name}
 							onClick={() => navigate(`/restaurants/${popularRestaurant._id}`)}
 						>
-							<p>{popularRestaurant.chef.name}</p>
+							<p className='chef-name'>{popularRestaurant.chef.name}</p>
 							{isDesktop && <Stars rating={popularRestaurant.popularity} />}
 						</Card>
 					))}

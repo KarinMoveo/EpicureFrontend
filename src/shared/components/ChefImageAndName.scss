@@ -1,33 +1,41 @@
 .image-overlay-container {
-    display: flex;
-    flex-direction: column;
-    position: relative;
+	display: flex;
+	flex-direction: column;
+	position: relative;
 }
 
 .chef-of-the-week-image {
-    width: 100%;
+	width: 100%;
 }
 
 .chef-of-the-week-title {
-    font-size: 16px;
-    line-height: 35px;
-    letter-spacing: 1.25px;
-    text-transform: uppercase;
+	font-size: 16px;
+	line-height: 35px;
+	letter-spacing: 1.25px;
+	text-transform: uppercase;
 }
 
 .overlay-name {
-    position: absolute;
-    bottom: 0;
-    left: 0; 
-    background-color: rgba(216, 210, 210, 0.8);
-    padding: 15px; 
-    box-sizing: border-box;
-    text-align: center;
-    width: 100%;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: 2.67px;
-    margin: 0;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(216, 210, 210, 0.8);
+	padding: 15px;
+	box-sizing: border-box;
+	text-align: center;
+	width: 100%;
+	font-size: 18px;
+	line-height: 1;
+	margin: 0;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: 400;
+	letter-spacing: 2.67px;
+}
+
+/* Media Query for desktop */
+@media (min-width: 768px) {
+	.overlay-name {
+		font-size: 30px;
+	}
 }

@@ -5,9 +5,11 @@
 	flex-direction: column;
 	padding: 20px;
 
-
 	.popular-restaurants-title {
 		font-size: 16px;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 200;
 		line-height: 35px;
 		letter-spacing: 1.25px;
 		text-transform: uppercase;
@@ -17,6 +19,15 @@
 		display: flex;
 		flex-direction: row;
 		gap: 20px;
+
+		.chef-name {
+			color: #000;
+			font-family: Helvetica Neue;
+			font-style: normal;
+			font-weight: 200;
+			// line-height: 30px; /* 125% */
+			letter-spacing: 1.97px;
+		}
 	}
 
 	.all-restaurants {
@@ -34,7 +45,7 @@
 		.popular-restaurants-title {
 			font-size: 22px;
 		}
-		
+
 		.popular-restaurants-cards-display {
 			display: flex;
 			flex-direction: row;
@@ -48,8 +59,6 @@
 			justify-content: end;
 			align-items: end;
 		}
-
-
 	}
 
 	/* Media Query for Mobile */

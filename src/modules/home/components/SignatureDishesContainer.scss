@@ -1,97 +1,101 @@
 @import '../../../shared/styles/mixin.scss';
 
-.signature-dishes-container{
+.signature-dishes-container {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
 
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-   
-    
-    .signature-dishes-title{
-        font-size: 22px;
-        line-height: 35px; 
-        letter-spacing: 1.25px;
-        text-transform: uppercase;
-    }
-    
+	.signature-dishes-title {
+		font-size: 22px;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 200;
+		line-height: 35px;
+		letter-spacing: 1.25px;
+		text-transform: uppercase;
+	}
 
-    .signature-dishes-cards-display{
-      gap: 20px;
-      height: fit-content;
+	.signature-dishes-cards-display {
+		gap: 20px;
+		height: fit-content;
 
-      .dish-ingredients{
-        height: 70px;
-        overflow: auto;
-      }
+		.dish-ingredients {
+			height: 70px;
+			overflow: auto;
+			color: #000;
+			font-family: Helvetica Neue;
+			font-style: normal;
+			font-weight: 200;
+			letter-spacing: 1.97px;
+		}
 
-      .signature-dish-icon{
-        width: 40px;
-        height: 40px;
-      }
+		.signature-dish-icon {
+			width: 40px;
+			height: 40px;
+		}
+	}
+	/* Media Query for Desktop */
+	@media (min-width: 768px) {
+		justify-content: center;
+		align-items: center;
+		padding: 0 80px 10px 80px;
+		// padding: 0 500px 10px 500px;
 
- }
-    /* Media Query for Desktop */
-  @media (min-width: 768px) {
+		.signature-dishes-cards-display {
+			display: flex;
+			flex-direction: row;
+		}
 
-    justify-content: center;
-    align-items: center;
-    padding: 0 80px 10px 80px;
-    // padding: 0 500px 10px 500px;
+		.all-restaurants {
+			display: none;
+		}
 
+		.price-line-with-text {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			font-family: Helvetica Neue;
+			font-style: normal;
+			font-weight: 200;
+			letter-spacing: 1.97px;
 
-   .signature-dishes-cards-display{
-        display: flex;
-        flex-direction: row;
-   }
+			.line {
+				width: 50%;
+				height: 0.5px;
+				background-color: #979797;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+		}
+	}
 
-   .all-restaurants{
-    display: none;
-   }
+	/* Media Query for mobile */
+	@media (max-width: 768px) {
+		.signature-dishes-title {
+			font-size: 16px;
+		}
 
-   .price-line-with-text{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+		.ingredients-and-icon-container {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+		.signature-dishes-cards-display {
+			display: flex;
+			flex-direction: row;
+			overflow-x: auto;
+			flex-wrap: nowrap;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: none;
+			padding-bottom: 10px;
+		}
 
-    .line {
-        width: 50%; 
-        height: 0.5px; 
-        background-color: #979797;; 
-        margin-right: 10px;
-        margin-left: 10px;
-    }
-}
-  
-}
+		.signature-dishes-cards-display::-webkit-scrollbar {
+			display: none;
+		}
 
-  /* Media Query for mobile */
-  @media (max-width: 768px) {
-
-    .signature-dishes-title{
-      font-size: 16px;
-    }
-
-    .ingredients-and-icon-container{
-      display: flex;
-      flex-direction: column-reverse;
-    }
-   .signature-dishes-cards-display{
-        display: flex;
-        flex-direction: row;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 10px; 
-   }
-
-   .signature-dishes-cards-display::-webkit-scrollbar {
-      display: none;
-  }
-
-  .all-restaurants{
-    @include all-restaurants;
-  }
-}
+		.all-restaurants {
+			@include all-restaurants;
+		}
+	}
 }
