@@ -13,6 +13,7 @@ interface ChefOfTheWeekContainerProps {
 }
 
 function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
+	const isDesktop = window.innerWidth >= 1024;
 	const navigate = useNavigate();
 	const restaurants: restaurant[] = props.chefOfTheWeekRestaurants;
 	const chefFirstName = props.chefOfTheWeekName?.split(' ');
@@ -29,7 +30,11 @@ function ChefOfTheWeekContainer(props: ChefOfTheWeekContainerProps) {
 
 				{restaurants.length > 0 && (
 					<div className='restaurants-container'>
-						<p className='chef-of-the-week-restaurants-title'>{chefFirstNameUpperCase}'S RESTAURANTS</p>
+						<p className='chef-of-the-week-restaurants-title'>
+							{isDesktop
+								? `${chefFirstName[0]}'s Restaurants `
+								: `${chefFirstNameUpperCase}'S RESTAURANTS`}
+						</p>
 						<div className='chef-of-the-week-restaurants-cards-display'>
 							{restaurants.map((chefOfTheWeekRestaurant: any, index: number) => (
 								<Card

@@ -19,6 +19,9 @@
 		font-size: 18px;
 		line-height: 28px;
 		letter-spacing: 1.25px;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 200;
 	}
 
 	.chef-of-the-week-restaurants-title {
@@ -26,7 +29,9 @@
 		line-height: 25px;
 		letter-spacing: 1.25px;
 		margin: 30px 0;
-		text-transform: uppercase;
+		font-family: Helvetica Neue;
+		font-style: normal;
+		font-weight: 200;
 	}
 
 	.all-restaurants {
@@ -86,6 +91,10 @@
 				width: fit-content;
 				margin: 0;
 			}
+		}
+
+		.chef-of-the-week-restaurants-title{
+			font-size: 20px;
 		}
 
 		.all-restaurants {
