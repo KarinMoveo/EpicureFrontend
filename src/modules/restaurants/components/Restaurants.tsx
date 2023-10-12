@@ -11,15 +11,21 @@ import '../components/Restaurants.scss';
 import { restaurant } from '../../../shared/types';
 import { getRestaurantsFromAPI } from '../api';
 import Stars from '../assets/images/rating/Stars';
+import Loader from '../../../shared/components/Loader';
 
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
+	const [isLoading, setIsLoading] = useState(false);
+	const [hasLoadedAll, setHasLoadedAll] = useState(false);
 	const [filters, setFilters] = useState({
 		category: 'Everything',
 		distance: 5,
 		rating: 31,
 		priceRange: { min: 12, max: 357 },
 	});
+
+	const itemsPerPage = 10;
+	const currentPage = Math.ceil(restaurantsList.length / itemsPerPage) + 1;
 
 	const isDesktop = window.innerWidth >= 1024;
 
@@ -31,15 +37,48 @@ function Restaurants() {
 	};
 
 	useEffect(() => {
-		async function getRestaurants() {
+		const loadMoreRestaurants = async () => {
 			try {
-				const result = await getRestaurantsFromAPI(filters);
-				setRestaurantsList(result.data);
+				setIsLoading(true);
+				const result = await getRestaurantsFromAPI(filters, currentPage, itemsPerPage);
+
+				if (result.data.length > 0) {
+					setRestaurantsList((prev) => [...prev, ...result.data]);
+				} else setHasLoadedAll(true);
 			} catch (error: unknown) {
 				console.log(error);
 			}
+
+			setIsLoading(false);
+		};
+
+		function handleScroll() {
+			if (
+				window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
+				restaurantsList.length &&
+				!hasLoadedAll &&
+				!isLoading
+			) {
+				loadMoreRestaurants();
+			}
 		}
-		getRestaurants();
+
+		window.addEventListener('scroll', handleScroll);
+
+		return () => {
+			window.removeEventListener('scroll', handleScroll);
+		};
+	}, [currentPage, filters, hasLoadedAll, isLoading, restaurantsList.length]);
+
+	useEffect(() => {
+		const getDataBasedOnFilters = async () => {
+			setIsLoading(true);
+			const result = await getRestaurantsFromAPI(filters, 1, itemsPerPage);
+			setRestaurantsList(result.data);
+			setIsLoading(false);
+		};
+
+		getDataBasedOnFilters();
 	}, [filters]);
 
 	return (
@@ -64,6 +103,7 @@ function Restaurants() {
 					))
 				)}
 			</div>
+			<Loader isLoading={isLoading} />
 		</div>
 	);
 }
