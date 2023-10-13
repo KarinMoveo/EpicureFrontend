@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f9e832c8.css",
+    "main.js": "/static/js/main.7a09ed4d.js",
+    "static/media/mainPageImage.png": "/static/media/mainPageImage.2baad19a860ff5a07774.png",
+    "static/media/mapView.png": "/static/media/mapView.8cd4bc669da80ce1ace1.png",
+    "static/media/epicureLogo.svg": "/static/media/epicureLogo.0d7645a376ff9add1abedb297296f2fa.svg",
+    "static/media/appStore.svg": "/static/media/appStore.e3e9050f1f706de191238ddab5c74079.svg",
+    "static/media/googlePlay.svg": "/static/media/googlePlay.bc0addafb62081ad52f3d3d56dd5a763.svg",
+    "static/media/spicy.svg": "/static/media/spicy.7fc47ed49c8e85b0ee0116c6651a183e.svg",
+    "static/media/vegetarian.svg": "/static/media/vegetarian.528d6ffe35d474a7bba2b4ceca24c4a5.svg",
+    "static/media/account.svg": "/static/media/account.1d3dca1af975b18b6a2974200ab86226.svg",
+    "static/media/questionMark.svg": "/static/media/questionMark.8669b5c5d167440263304a2e3c0da278.svg",
+    "static/media/vegan.svg": "/static/media/vegan.89f695707f2d40005edbfb18a2d1d274.svg",
+    "static/media/clock.svg": "/static/media/clock.389b03f41ca9097045d8f943f8d2231e.svg",
+    "static/media/seeMore.svg": "/static/media/seeMore.854f9f42a6699336d1a704988cb5d368.svg",
+    "static/media/search.svg": "/static/media/search.8b623d4fcca377c462afe6a765d01338.svg",
+    "static/media/lock.svg": "/static/media/lock.8dcf44536a6b3168ae74aebff2a6cd14.svg",
+    "static/media/downwardArrow.svg": "/static/media/downwardArrow.8e38741f66c93e7e73f2d3722d42687c.svg",
+    "static/media/seeMoreOneArrow.svg": "/static/media/seeMoreOneArrow.deeb25c953213913f76e7de26efcff6b.svg",
+    "index.html": "/index.html",
+    "static/media/successfullyAccepted.svg": "/static/media/successfullyAccepted.04c378e38739ac2d302b88b29fa4bdb0.svg",
+    "static/media/shoppingBag.svg": "/static/media/shoppingBag.0c861ffc90d7f2b7d5ec57f604641bc3.svg",
+    "static/media/burgerMenu.svg": "/static/media/burgerMenu.16580b2e435860a8cf524ee5203f9295.svg",
+    "static/media/x.svg": "/static/media/x.01ba2c0873101a469cc6fea763321797.svg",
+    "main.f9e832c8.css.map": "/static/css/main.f9e832c8.css.map",
+    "main.7a09ed4d.js.map": "/static/js/main.7a09ed4d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9e832c8.css",
+    "static/js/main.7a09ed4d.js"
+  ]
+}
