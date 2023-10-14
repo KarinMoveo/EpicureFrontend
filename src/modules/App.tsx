@@ -12,7 +12,7 @@ import MobileCheckout from './checkout/components/Checkout';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = '16.171.10.151';
+axios.defaults.baseURL = 'http://16.171.10.151';
 
 function App() {
 	return (
