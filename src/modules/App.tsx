@@ -12,8 +12,7 @@ import MobileCheckout from './checkout/components/Checkout';
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = 'http://16.171.10.151';
-
+axios.defaults.baseURL = 'http://13.53.197.19';
 function App() {
 	return (
 		<Router>
