@@ -13,16 +13,20 @@ import { getRestaurantsFromAPI } from '../api';
 import Stars from '../assets/images/rating/Stars';
 import Loader from '../../../shared/components/Loader';
 
+const initialFilters = {
+	openingYear: 0,
+	isOpenNow: 0,
+	mapView: false,
+	distance: 5,
+	rating: 31,
+	priceRange: { min: 12, max: 357 },
+};
+
 function Restaurants() {
 	const [restaurantsList, setRestaurantsList] = useState<restaurant[]>([]);
 	const [isLoading, setIsLoading] = useState(false);
 	const [hasLoadedAll, setHasLoadedAll] = useState(false);
-	const [filters, setFilters] = useState({
-		category: 'Everything',
-		distance: 5,
-		rating: 31,
-		priceRange: { min: 12, max: 357 },
-	});
+	const [filters, setFilters] = useState(initialFilters);
 
 	const itemsPerPage = 10;
 	const currentPage = Math.ceil(restaurantsList.length / itemsPerPage) + 1;
@@ -30,10 +34,24 @@ function Restaurants() {
 	const isDesktop = window.innerWidth >= 1024;
 
 	const handleCategorySelect = (category: any) => {
-		setFilters((prev) => ({
-			...prev,
-			category: category,
-		}));
+		if (category === 'New') {
+			setFilters({
+				...initialFilters,
+				openingYear: 2020,
+			});
+		} else if (category === 'Most Popular') {
+			setFilters({
+				...initialFilters,
+				rating: 24,
+			});
+		} else if (category === 'Open Now') {
+			setFilters({
+				...initialFilters,
+				isOpenNow: 1,
+			});
+		} else {
+			setFilters(initialFilters);
+		}
 	};
 
 	useEffect(() => {
@@ -76,6 +94,7 @@ function Restaurants() {
 			const result = await getRestaurantsFromAPI(filters, 1, itemsPerPage);
 			setRestaurantsList(result.data);
 			setIsLoading(false);
+			setHasLoadedAll(false);
 		};
 
 		getDataBasedOnFilters();
@@ -85,12 +104,12 @@ function Restaurants() {
 		<div className='restaurants-page-container'>
 			<div className='restaurants-title-categories-filters-container'>
 				<p className='restaurant-page-title'>RESTAURANTS</p>
-				<Categories selectedCategory={filters.category} onClick={handleCategorySelect} />
+				<Categories onClick={handleCategorySelect} />
 				<Filters filters={filters} setFilters={setFilters} />
 			</div>
 
 			<div className='restaurants-list'>
-				{filters.category === 'Map View' ? (
+				{filters.mapView ? (
 					<img src={mapView} alt='Map View' className='map-view-image' />
 				) : (
 					restaurantsList.map((restaurant: any, index: number) => (

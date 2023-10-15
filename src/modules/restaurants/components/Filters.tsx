@@ -38,20 +38,8 @@ function Filters({ filters, setFilters }: FiltersProps) {
 		}));
 	};
 
-	const handleOnPriceChange = (event: any) => {
-		const { value, name } = event.target;
-
-		if (
-			(name === 'min' && value >= filters.priceRange.max) ||
-			(name === 'max' && value <= filters.priceRange.min)
-		) {
-			return;
-		}
-
-		setFilters((prev: any) => ({
-			...prev,
-			priceRange: { ...prev.priceRange, [name]: value },
-		}));
+	const handleOnPriceChange = (priceRange: any) => {
+		setFilters((prev: any) => ({ ...prev, priceRange }));
 	};
 
 	const handleOnRatingChange = (ratingIndex: number) => {

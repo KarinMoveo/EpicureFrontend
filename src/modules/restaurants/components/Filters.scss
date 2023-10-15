@@ -4,7 +4,8 @@
 	background-color: #fafafa;
 	align-items: center;
 	justify-content: center;
-	padding: 20px;
+	// padding: 20px;
+	height: 60px;
 	margin-bottom: 10px;
 	width: 100vw;
 
@@ -23,10 +24,12 @@
 		font-weight: 200;
 		line-height: normal;
 		letter-spacing: 1.92px;
+		height: 100%;
 	}
 
 	.filter-item-selected {
 		background-color: #d0cfcf;
+	
 	}
 
 	.downward-arrow-icon {

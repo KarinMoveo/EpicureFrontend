@@ -54,6 +54,10 @@
 		height: 20px;
 	}
 
+	input{
+		font-family: Helvetica Neue;
+		font-weight: 200;
+	}
 	/* Media Query for Desktop */
 	@media (min-width: 768px) {
 		height: 40vh;

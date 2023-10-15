@@ -12,6 +12,11 @@
 		background: rgba(255, 255, 255, 0.88);
 		padding: 20px 10px;
 		width: 80%;
+
+		p{
+			font-family: Helvetica Neue;
+			font-weight: 200;
+		}
 	}
 
 	.search-title {
@@ -29,6 +34,8 @@
 
 		input {
 			outline: none;
+			font-family: Helvetica Neue;
+			font-weight: 200;
 		}
 	}
 
@@ -85,7 +92,6 @@
 		.search-input-container {
 			width: 90%;
 			font-family: Helvetica Neue;
-			
 		}
 
 		.search-icon {
