@@ -18,7 +18,7 @@ function Distance(props: any) {
 						className='distance-user-input-range custom-range-thumb-distance'
 						type='range'
 						min='0'
-						max='4'
+						max='5'
 						step='1'
 						name='distance'
 						value={props.value}

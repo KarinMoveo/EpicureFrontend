@@ -17,10 +17,14 @@ function PriceRange(props: any) {
 
 	const handleValueChange = (event: any) => {
 		const { value, name } = event.target;
-		if ((name === 'min' && value >= priceRange.max) || (name === 'max' && value <= priceRange.min)) {
-			return;
+
+		if (name === 'max' && value <= priceRange.min) {
+			return setPriceRange((prev: any) => ({ ...prev, [name]: priceRange.min + 1 }));
 		}
-		setPriceRange((prev: any) => ({ ...prev, [name]: value }));
+		if (name === 'min' && value >= priceRange.max) {
+			return setPriceRange((prev: any) => ({ ...prev, [name]: priceRange.max - 1 }));
+		}
+		setPriceRange((prev: any) => ({ ...prev, [name]: +value }));
 	};
 
 	return (

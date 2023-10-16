@@ -49,6 +49,11 @@ function Restaurants() {
 				...initialFilters,
 				isOpenNow: 1,
 			});
+		} else if (category === 'Map View') {
+			setFilters({
+				...initialFilters,
+				mapView: true,
+			});
 		} else {
 			setFilters(initialFilters);
 		}
@@ -75,7 +80,8 @@ function Restaurants() {
 				window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight &&
 				restaurantsList.length &&
 				!hasLoadedAll &&
-				!isLoading
+				!isLoading &&
+				!filters.mapView
 			) {
 				loadMoreRestaurants();
 			}
@@ -109,7 +115,7 @@ function Restaurants() {
 			</div>
 
 			<div className='restaurants-list'>
-				{filters.mapView ? (
+				{filters.mapView === true ? (
 					<img src={mapView} alt='Map View' className='map-view-image' />
 				) : (
 					restaurantsList.map((restaurant: any, index: number) => (
